@@ -64,9 +64,13 @@ def get_index(symbol):
             if row.get("Close") not in (None, "", "N/D")
         ]
 
-        if len(rows) < 2:
-            return {"status": "unavailable"}
-
+                if len(rows) < 2:
+            return {
+                "status": "unavailable",
+                "reason": "Not enough price data",
+                "rows_received": len(rows),
+                "response_preview": text[:150]
+            }
         previous = float(rows[-2]["Close"])
         latest = float(rows[-1]["Close"])
 
