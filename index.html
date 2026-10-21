@@ -16,4 +16,28 @@
 <section><div class="section-title"><h2>מה על הפרק היום?</h2><span></span></div><div class="card"><p class="empty">לוח האירועים יתמלא לאחר חיבור ללוח מאקרו ודוחות מעודכן.</p><ul class="todo"><li>נתוני אינפלציה ותעסוקה</li><li>החלטות ריבית ונאומי בנקאים מרכזיים</li><li>דוחות חברות מרכזיות</li><li>אירועים מקומיים וגאופוליטיים מהותיים</li></ul></div><div class="section-title"><h2>3 נקודות לשיחה עם לקוחות</h2><span></span></div><div class="card"><ol class="todo"><li>מה השתנה מאז הסקירה הקודמת — ומהו רעש קצר־טווח?</li><li>האם שינוי בתשואות או בשער החליפין משנה את הסיכון בתיק?</li><li>איזה אירוע קרוב עשוי להגדיל תנודתיות, והאם הלקוח ערוך לכך?</li></ol></div></section></div>
 <div class="section-title"><h2>מקורות וחותמת עדכון</h2><span></span></div><div class="card"><p class="empty">בגרסה המחוברת יוצגו לצד כל נתון המקור, זמן הציטוט, והאם מדובר בנתון בזמן אמת או בסגירה קודמת.</p><p><a class="source" href="https://www.boi.org.il/" target="_blank" rel="noopener">בנק ישראל</a>　·　<a class="source" href="https://www.cbs.gov.il/" target="_blank" rel="noopener">הלמ״ס</a>　·　<a class="source" href="https://www.federalreserve.gov/" target="_blank" rel="noopener">Federal Reserve</a>　·　<a class="source" href="https://www.bls.gov/" target="_blank" rel="noopener">U.S. Bureau of Labor Statistics</a></p></div>
 <footer class="footer">כלי מידע מקצועי לצורכי סקירה בלבד; אינו תחליף לבדיקת נתונים במערכות הבנק או לייעוץ השקעות מותאם. אבטיפוס עיצובי — נדרש חיבור נתונים ואירוח לפני שימוש שוטף.</footer>
-</main></body></html>
+<section style="margin:24px 0;padding:22px;border:1px solid #d7e1e5;border-radius:18px;background:white;text-align:right">
+  <h2>שער דולר / שקל — USD/ILS</h2>
+  <div id="usd-rate" style="font-size:30px;font-weight:bold">טוען נתונים...</div>
+  <p id="usd-info" style="color:#667785">מקור: בנק ישראל</p>
+</section>
+</main>
+<script>
+fetch('./market_data.json?v=' + Date.now())
+  .then(response => {
+    if (!response.ok) throw new Error('Data unavailable');
+    return response.json();
+  })
+  .then(data => {
+    if (data.status === 'ok' && typeof data.usd_ils === 'number') {
+      document.getElementById('usd-rate').textContent = data.usd_ils.toFixed(3) + ' ₪';
+      document.getElementById('usd-info').textContent = 'מקור: בנק ישראל | שער יציג אחרון זמין';
+    } else {
+      document.getElementById('usd-rate').textContent = 'נתון לא זמין';
+    }
+  })
+  .catch(() => {
+    document.getElementById('usd-rate').textContent = 'לא ניתן לטעון נתונים';
+  });
+</script>
+</body></html>
