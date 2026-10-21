@@ -47,48 +47,44 @@ except Exception as error:
 
 
 
-# Daily closing prices - Yahoo Finance
+# Daily closing prices - Yahoo Finance (try both public chart hosts)
 def get_index(symbol):
-    url = (
-        "https://query1.finance.yahoo.com/v8/finance/chart/"
-        + symbol + "?range=10d&interval=1d"
-    )
+    from urllib.parse import quote
+    encoded = quote(symbol, safe="")
+    failures = []
+    for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
+        url = f"https://{host}/v8/finance/chart/{encoded}?range=1mo&interval=1d"
+        try:
+            data = json.loads(download(url))
+            charts = data.get("chart", {}).get("result") or []
+            if not charts:
+                raise ValueError("No chart result")
+            chart = charts[0]
+            quote_data = chart.get("indicators", {}).get("quote", [{}])[0]
+            closes = [float(v) for v in (quote_data.get("close") or []) if v is not None]
+            if len(closes) >= 2 and closes[-2] != 0:
+                previous, latest = closes[-2:]
+            else:
+                meta = chart.get("meta", {})
+                latest = meta.get("regularMarketPrice")
+                previous = meta.get("chartPreviousClose") or meta.get("previousClose")
+                if not isinstance(latest, (int, float)) or not isinstance(previous, (int, float)) or previous == 0:
+                    raise ValueError("Not enough closing price data")
+            return {
+                "status": "ok",
+                "value": round(latest, 2),
+                "change_percent": round((latest / previous - 1) * 100, 2),
+                "source": "Yahoo Finance",
+                "type": "daily_close",
+                "market_time": chart.get("meta", {}).get("regularMarketTime"),
+            }
+        except Exception as error:
+            failures.append(f"{host}: {type(error).__name__}: {str(error)[:120]}")
+    return {"status": "unavailable", "reason": "; ".join(failures)}
 
-    try:
-        data = json.loads(download(url))
-        chart = data["chart"]["result"][0]
-        quote = chart["indicators"]["quote"][0]
-
-        closes = [
-            value for value in quote["close"]
-            if value is not None
-        ]
-
-        if len(closes) < 2:
-            return {"status": "unavailable"}
-
-        previous = closes[-2]
-        latest = closes[-1]
-
-        return {
-            "status": "ok",
-            "value": round(latest, 2),
-            "change_percent": round(
-                (latest / previous - 1) * 100, 2
-            ),
-            "source": "Yahoo Finance",
-            "type": "daily_close"
-        }
-
-    except Exception as error:
-        return {
-            "status": "unavailable",
-            "error": str(error)
-        }
-
-result["indices"]["S&P 500"] = get_index("%5EGSPC")
-result["indices"]["Nasdaq Composite"] = get_index("%5EIXIC")
-result["indices"]["Dow Jones"] = get_index("%5EDJI")
+result["indices"]["S&P 500"] = get_index("^GSPC")
+result["indices"]["Nasdaq Composite"] = get_index("^IXIC")
+result["indices"]["Dow Jones"] = get_index("^DJI")
 
 # Israeli indices require a separately verified data source.
 result["indices"]["TA-35"] = {"status": "unavailable"}
