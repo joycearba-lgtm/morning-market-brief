@@ -39,7 +39,8 @@ jobs:
       - name: Generate market data
         if: steps.israel_time.outputs.run == 'true'
         run: python market_data.py
-
+      - name: Test Yahoo Finance indices
+        run: python test_indices.py
       - name: Save updated data
         if: steps.israel_time.outputs.run == 'true'
         run: |
