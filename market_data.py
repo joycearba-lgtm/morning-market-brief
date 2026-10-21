@@ -46,54 +46,49 @@ except Exception as error:
     result["usd_error"] = str(error)
 
 
-# Daily closing prices - Stooq
-def get_index(symbol):
-    end = TODAY.strftime("%Y%m%d")
-    start = (TODAY - timedelta(days=20)).strftime("%Y%m%d")
 
+# Daily closing prices - Yahoo Finance
+def get_index(symbol):
     url = (
-        "https://stooq.com/q/d/l/"
-        f"?s={symbol}&i=d&d1={start}&d2={end}"
+        "https://query1.finance.yahoo.com/v8/finance/chart/"
+        + symbol + "?range=10d&interval=1d"
     )
 
     try:
-        text = download(url)
-        rows = list(csv.DictReader(io.StringIO(text)))
-        rows = [
-            row for row in rows
-            if row.get("Close") not in (None, "", "N/D")
+        data = json.loads(download(url))
+        chart = data["chart"]["result"][0]
+        quote = chart["indicators"]["quote"][0]
+
+        closes = [
+            value for value in quote["close"]
+            if value is not None
         ]
 
-        if len(rows) < 2:
-            return {
-                "status": "unavailable",
-                "reason": "Not enough price data",
-                "rows_received": len(rows),
-                "response_preview": text[:150]
-            }
-        previous = float(rows[-2]["Close"])
-        latest = float(rows[-1]["Close"])
+        if len(closes) < 2:
+            return {"status": "unavailable"}
+
+        previous = closes[-2]
+        latest = closes[-1]
 
         return {
             "status": "ok",
-            "value": latest,
+            "value": round(latest, 2),
             "change_percent": round(
                 (latest / previous - 1) * 100, 2
             ),
-            "date": rows[-1]["Date"],
-            "source": "Stooq",
+            "source": "Yahoo Finance",
             "type": "daily_close"
         }
+
     except Exception as error:
         return {
             "status": "unavailable",
             "error": str(error)
         }
 
-
-result["indices"]["S&P 500"] = get_index("^spx")
-result["indices"]["Nasdaq Composite"] = get_index("^ndq")
-result["indices"]["Dow Jones"] = get_index("^dji")
+result["indices"]["S&P 500"] = get_index("%5EGSPC")
+result["indices"]["Nasdaq Composite"] = get_index("%5EIXIC")
+result["indices"]["Dow Jones"] = get_index("%5EDJI")
 
 # Israeli indices require a separately verified data source.
 result["indices"]["TA-35"] = {"status": "unavailable"}
