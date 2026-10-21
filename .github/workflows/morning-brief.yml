@@ -1,1 +1,24 @@
 
+
+name: Morning Market Brief
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
+      timezone: 'Asia/Jerusalem'
+
+permissions:
+  contents: write
+
+jobs:
+  morning-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download website files
+        uses: actions/checkout@v4
+
+      - name: Confirm scheduled run
+        run: |
+          echo "Morning market workflow started"
+          date -u
