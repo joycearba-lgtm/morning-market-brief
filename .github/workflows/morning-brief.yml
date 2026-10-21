@@ -26,8 +26,18 @@ jobs:
         run: |
           echo "Morning market workflow started"
           date -u
-        
+      - name: Check Israel time
+        id: israel_time
+        run: |
+          HOUR=$(TZ=Asia/Jerusalem date +%H)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$HOUR" = "08" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generate market data
+        if: steps.israel_time.outputs.run == 'true'
         run: python market_data.py
 
       - name: Save updated data
