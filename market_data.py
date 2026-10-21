@@ -64,7 +64,7 @@ def get_index(symbol):
             if row.get("Close") not in (None, "", "N/D")
         ]
 
-                        if len(rows) < 2:
+        if len(rows) < 2:
             return {
                 "status": "unavailable",
                 "reason": "Not enough price data",
