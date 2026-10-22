@@ -220,74 +220,90 @@ if fresh:
         if len(advisor)>=3:break
         advisor.append(point)
     advisor=advisor[:3]
-    # Trading-desk format: succinct, event/data-led bullets, then a forward view.
-    # No unsourced claim that news caused an index move.
-    def movement(code, hebrew):
-        item=market.get("indices",{}).get(code,{})
-        change=pct(item)
-        return f'{hebrew} {change:+.2f}%' if change is not None else None
-
-    america=[movement("S&P 500","S&P 500"),
-             movement("Nasdaq Composite","Nasdaq"),
-             movement("Dow Jones","Dow Jones")]
-    america=[v for v in america if v]
-    israel_market=[movement("TA-35","ת״א־35"),movement("TA-125","ת״א־125")]
-    israel_market=[v for v in israel_market if v]
+    # Insight-only trading-desk note. Market quotations and macro levels are already
+    # displayed elsewhere on the page. No duplicate numbers or invented events.
     global_bullets=[]
-    if america:
-        global_bullets.append("מסחר בארה״ב: בסגירה האחרונה "+", ".join(america)+
-          ". מדובר בביצועי שוק, ללא קביעה מה גרם לתנועה.")
+    nas=pct(market.get("indices",{}).get("Nasdaq Composite"))
+    sp=pct(market.get("indices",{}).get("S&P 500"))
+    if nas is not None and sp is not None:
+        if nas-sp>0.35:
+            global_bullets.append(
+                "מניות ארה״ב: סקטור הטכנולוגיה הוביל את המדד הרחב במסחר האחרון. "
+                "השאלה קדימה היא האם ההובלה תתרחב גם לסקטורים מחזוריים, "
+                "או תישאר מרוכזת בחברות צמיחה גדולות.")
+        elif sp-nas>0.35:
+            global_bullets.append(
+                "מניות ארה״ב: המדד הרחב הפגין עוצמה יחסית לטכנולוגיה. "
+                "כדאי לעקוב האם מתפתחת רוטציה לסקטורים מסורתיים, "
+                "בלי לקבוע שהתרחשה רוטציה על סמך יום אחד.")
+        else:
+            global_bullets.append(
+                "מניות ארה״ב: התנועה במדדים הרחבים ובטכנולוגיה הייתה דומה. "
+                "מוקד הבדיקה הוא רוחב ההשתתפות בעליות או בירידות, "
+                "ולא רק ביצועי המדדים המשוקללים.")
+    oil=market.get("commodities",{}).get("WTI futures",{})
+    oil_change=pct(oil)
+    if oil_change is not None and oil_change>1:
+        global_bullets.append(
+            "אנרגיה ואינפלציה: עלייה חדה יחסית בחוזי הנפט עלולה להקשות "
+            "על ההתכנסות ליעדי האינפלציה אם תתמשך. "
+            "השלכה אפשרית: תשואות אג״ח רגישות יותר לתמחור ריבית לאורך זמן.")
+    elif oil_change is not None and oil_change< -1:
+        global_bullets.append(
+            "אנרגיה: ירידה חדה יחסית בנפט עשויה למתן לחצי מחירים, "
+            "אך חשוב להבחין בין ירידת מחירים בגלל שיפור בהיצע "
+            "לבין ירידה שמקורה בחולשה בביקוש העולמי.")
     if cpi and unemployment:
         global_bullets.append(
-           f'מאקרו אמריקאי: CPI שנתי {val(cpi)} ואבטלה {val(unemployment)} '
-           f'(נתוני תקופת {cpi["observation_date"][:7]}). '
-           'אינפלציה עיקשת והאטה בתעסוקה יוצרים משיכה בכיוונים שונים לציפיות הריבית.')
-    elif lower and upper:
-        global_bullets.append(
-           f'מדיניות מוניטרית: טווח הריבית {val(lower,2)}–{val(upper,2)}. '
-           'המסלול קדימה תלוי בעיקר באינפלציית ליבה, שכר ותעסוקה.')
-    oil=market.get("commodities",{}).get("WTI futures",{})
-    if quote_valid(oil) and isinstance(oil.get("change_percent"),(int,float)):
-        global_bullets.append(
-           f'אנרגיה: WTI {oil["change_percent"]:+.2f}% בציטוט האחרון. '
-           'המשך התייקרות האנרגיה עלול לעכב ירידת אינפלציה ולחזק אי־ודאות בריבית.')
+            "לקראת החלטת הפד: המתח המרכזי הוא בין אינפלציה שמגבילה "
+            "מרחב להפחתות לבין סימני התרופפות בתעסוקה. "
+            "דגש מיוחד לפרסומי ליבה, שכר ורכיבי התעסוקה, "
+            "ולשאלה מה כבר מגולם בחוזים.")
     if not global_bullets:
-        global_bullets=["לא התקבלו הבוקר נתונים מאומתים המספיקים לסקירת מסחר גלובלית."]
+        global_bullets=["לא זוהתה התפתחות חדשה ומאומתת שניתן לנתח ללא חזרה על טבלת הנתונים."]
 
     israel_bullets=[]
-    if israel_market:
-        israel_bullets.append("מניות בישראל: "+", ".join(israel_market)+
-          " במסחר האחרון; אין להסיק מתנועת המדדים לבדה על סיבת השינוי.")
-    if il_cpi:
-        israel_bullets.append(
-           f'אינפלציה בישראל: {val(il_cpi)} בשנה (תקופת {il_cpi["observation_period"]}). '
-           'הנתון חשוב לציפיות הריבית ולפער בין אג״ח שקליות לצמודות.')
+    il35=pct(market.get("indices",{}).get("TA-35"))
+    il125=pct(market.get("indices",{}).get("TA-125"))
+    if il35 is not None and il125 is not None:
+        if il35<0 and il125<0:
+            israel_bullets.append(
+                "מניות ישראל: החולשה במסחר האחרון הייתה משותפת לשני המדדים המובילים. "
+                "כדי לבחון אם מדובר במגמה יש לבדוק רוחב ירידות, מחזורי מסחר "
+                "והשפעת הבנקים והנדל״ן, ולא רק את מדדי הכותרת.")
+        elif il35>0 and il125>0:
+            israel_bullets.append(
+                "מניות ישראל: העליות הופיעו בשני המדדים המובילים. "
+                "המבחן להמשכיות הוא השתתפות ענפית רחבה "
+                "והאם פרמיית הסיכון והציפיות לריבית תומכות בתמחור.")
+        else:
+            israel_bullets.append(
+                "מניות ישראל: התמונה במדדים מעורבת. "
+                "נדרשת בדיקת תרומת הסקטורים והחברות הכבדות לפני הסקת מסקנה על כיוון השוק.")
     if 0<=decision_age<=14:
         israel_bullets.append(
-           'בנק ישראל: בהחלטת 21.10.2026 נשמרה ריבית 3.25%. '
-           'המשך המדיניות תלוי גם בפרמיית הסיכון, בשקל ובמחירי האנרגיה.')
+            "מדיניות בנק ישראל: על אף התמתנות האינפלציה, "
+            "ההחלטה האחרונה מדגישה שאין קשר אוטומטי בין מדד נמוך להפחתה מיידית. "
+            "מוקדי המעקב הם השקל, סיכוני ההיצע ופרמיית הסיכון.")
     if not israel_bullets:
-        israel_bullets=["נתוני ישראל העדכניים אינם זמינים לאימות היום."]
+        israel_bullets=["אין כרגע אירוע ישראלי חדש ומאומת שמוסיף מידע מעבר למדדים המוצגים באתר."]
 
     forward_bullets=[
-        "גלובלי: אם לחצי האנרגיה והאינפלציה יימשכו, תשואות אג״ח עלולות להישאר גבוהות "
-        "גם אם הצמיחה תתמתן. המבחן הבא יהיה פרסומי המחירים והתעסוקה.",
-        "ישראל: ירידה עקבית באינפלציה עשויה לתמוך בהפחתת ריבית, "
-        "אך התפתחויות ביטחוניות, שער החליפין ועלויות מימון ממשלתיות עשויים לשנות את התמונה.",
-        "בתיקים: לבחון רגישות מח״מ, חשיפה מטבעית ואיכות האשראי. "
-        "זו הערכת סיכונים מותנית, לא תחזית ודאית או המלצת השקעה."
+        "גלובלי: התמדה במחירי האנרגיה לצד חולשה בתעסוקה תיצור דילמה לפד. "
+        "מומלץ לעקוב אחר שינוי בציפיות לריבית ובתשואות הארוכות ולא להסיק מנתון בודד.",
+        "ישראל: כיוון האג״ח המקומיות יושפע משילוב של תוואי הריבית, "
+        "האינפלציה הגלומה, מצב התקציב והשקל. יש להבחין בין תרחיש בסיס לסיכוני קיצון."
     ]
     sections=[
-        {"heading":"גלובלי", "bullets":global_bullets[:3],
-         "sources":[{"label":"נתוני שוק ומאקרו","url":"https://fred.stlouisfed.org/"}]},
-        {"heading":"ישראל", "bullets":israel_bullets[:3],
-         "sources":[{"label":"בנק ישראל","url":"https://www.boi.org.il/"},
-                    {"label":"הלמ״ס","url":"https://www.cbs.gov.il/"}]},
-        {"heading":"כיוון להמשך", "bullets":forward_bullets,
+        {"heading":"גלובלי","bullets":global_bullets[:3],
+         "sources":[{"label":"FRED","url":"https://fred.stlouisfed.org/"}]},
+        {"heading":"ישראל","bullets":israel_bullets[:2],
+         "sources":[{"label":"בנק ישראל","url":"https://www.boi.org.il/"}]},
+        {"heading":"כיוון להמשך","bullets":forward_bullets,
          "sources":[]}
     ]
-    title = "סקירת בוקר | אירועים, שווקים וכיוון להמשך"
-    takeaway = "עיקר המעקב: אנרגיה, אינפלציה, תעסוקה וציפיות הריבית. הערכות קדימה הן תרחישים ולא עובדות."
+    title = "מה חשוב בשווקים · מעבר למספרים"
+    takeaway = "למעקב: רוחב השוק, מחירי האנרגיה וציפיות הריבית. פרשנות מותנית, לא תיאור של גורם שוק שלא אומת."
     status = "automatic_conditional"
 else:
     title = "סקירת המאקרו טרם עודכנה"
