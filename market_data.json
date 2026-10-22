@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T11:29:57.559528+03:00",
+  "updated_at": "2026-10-22T12:08:35.838541+03:00",
   "source": "Bank of Israel",
   "usd_ils": 3.091,
   "rate_date": "2026-10-21T12:21:09.9484221Z",
@@ -31,37 +31,37 @@
     },
     "TA-35": {
       "status": "ok",
-      "value": 4181.8,
-      "change_percent": -0.72,
+      "value": 4187.63,
+      "change_percent": -0.58,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792656891
+      "market_time": 1792659201
     },
     "TA-125": {
       "status": "ok",
-      "value": 4080.03,
-      "change_percent": -0.64,
+      "value": 4083.85,
+      "change_percent": -0.55,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792656891
+      "market_time": 1792659201
     }
   },
   "commodities": {
     "WTI futures": {
       "status": "ok",
-      "value": 99.83,
-      "change_percent": 2.76,
+      "value": 99.96,
+      "change_percent": 2.89,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792657194
+      "market_time": 1792659514
     },
     "Gold futures": {
       "status": "ok",
-      "value": 4104.4,
-      "change_percent": -1.1,
+      "value": 4099.0,
+      "change_percent": -1.23,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792657199
+      "market_time": 1792659514
     }
   },
   "treasury_10y": {
