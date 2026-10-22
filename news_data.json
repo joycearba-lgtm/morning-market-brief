@@ -1,7 +1,14 @@
 {
-  "updated_at": "2026-10-22T09:30:49.930542+00:00",
+  "updated_at": "2026-10-22T09:54:53.393758+00:00",
   "status": "ok",
   "items": [
+    {
+      "title": "מכרזי מטרו ב-100 מיליארד שקל והנפקות בדרך: ענף התשתיות בבורסה מזנק - ביזפורטל",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAwZWthbGZ1d1JXckZHRzJuQXdReGVVZ1JPZnVtd1l5TXYwaEZKU0piaElNSkozQ0Y0eFFIS3BaMkpZSzRqT21tN01RTnVlZGRuS2F5ZjhteGpXT1RZM0JTQnlIcjZBTFV1SkNPem5sWEI?oc=5",
+      "source": "ביזפורטל",
+      "published_at": "2026-10-21T21:27:00+00:00",
+      "region": "ישראל"
+    },
     {
       "title": "הבורסה ננעלה במגמה מעורבת: עליות בתשתיות ובאנרגיה המתחדשת, ירידות בבנקים ובנפט והגז - PassportNews",
       "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9LNHdLMF9SUWVoOW1FWWN5X1JTNk05ZWVJd1NFQ0JhSC14aEVzMG14LU52TC05RjhLczhHYVRFWmJyR20zR3ZfUXJsOVd2akFpVWRv?oc=5",
@@ -17,20 +24,6 @@
       "region": "ישראל"
     },
     {
-      "title": "האינפלציה מתונה, אבל הריבית לא יורדת: מה עומד מאחורי החלטת בנק ישראל? - PassportNews",
-      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XdDEzbG1XS1U1cXJEc25EUEExb2FlWkdkTkpkYVZ4SHUzeDgxYUJuUjBMSlEzUWZzZkx2MmJROWtBN28xOVJuNG5TUFctQ3F6blI0?oc=5",
-      "source": "PassportNews",
-      "published_at": "2026-10-21T14:02:00+00:00",
-      "region": "ישראל"
-    },
-    {
-      "title": "Stock index futures fall as Iran tensions weigh on sentiment (SPX:) - Seeking Alpha",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbWpqQ3ZuN1M1YmxkN1J2SVVzcF9GTmxBV3hPbjNmaWhEZDJzeldJQnpKQm1IWi1IV3R6UG5TWlhtV0N6dVZvWHhjM1pTUHJoTHQ4c0FqNVdqM194V0ZhMk81Y2s5U0p4bXZBTXBnSERwd1F0N2paMHA4Y2dWX1BkZHlSanhDU1V2UUk0OFJuRUxIVDRiVTgzdUJaVUN6RmM?oc=5",
-      "source": "Seeking Alpha",
-      "published_at": "2026-10-22T08:11:17+00:00",
-      "region": "חו״ל"
-    },
-    {
       "title": "FTSE 100 set to fall as Asian technology stocks plunge - Share Talk",
       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPeVlsYzh1VHNrcW5xbDh0eUd5OWUzTXR4MWNTWUp3OG9Td1JsVFVydEtVTjNudUh3MDZmVXpvVjVqZWo3UUV1dHdFdk1BNEpOaWhUaU5GUk1PcWMzbEpiT0R2WDlqaWczOHd5cWZJWVJxS0hXTnN2d2ZYb01hVXp5dEhIbGxSdWQ2blE?oc=5",
       "source": "Share Talk",
@@ -43,9 +36,23 @@
       "source": "StoneX",
       "published_at": "2026-10-22T04:19:56+00:00",
       "region": "חו״ל"
+    },
+    {
+      "title": "Asian Stocks Rally 1.1% as Earnings Lift Sentiment, NextDC Collapse Revives AI Investment Fears - Tekedia",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPRTY0M2FDb2xLVWlOV2h6Z19TV0pJdURZTG5rMmNBN1pna1J3LXpDaWJlX0NseW4xa0xsYjJ6andEeVFSWlZEYW9SYjhSNGp6N193VnR3LWliVzVweVlwQzlINnRiMU02RDdGQ1Q3OFB4ODdVcS14aEYyZXdDM1VKU2hXbkEzOVdrM09rTVlIUUZ1elctVG8xVHVnUENvWjZoNFE2SlFxR0QyTFNiRERGZlJwcHZBb1JpYmc?oc=5",
+      "source": "Tekedia",
+      "published_at": "2026-10-22T04:09:05+00:00",
+      "region": "חו״ל"
     }
   ],
   "macro_items": [
+    {
+      "title": "Nexo: Federal Reserve Decisions Put Crypto Market Recovery to the Test - Bitcoin News",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNOEhHTWpSZ0M2TTdaMl8tMVg1aEhqcE1EZ3FZdkNMUGo0SlYyWHNCcGlFbW1FMXljN1RVN3hHQzBZTExqaHRhaVp4YVFxRGZMRFVtYTQ2MWoyV1p1eFg3VW54RXFwMGRFUl80Ulp5SWNvZG51YTRhMjFybzlDelVXU1FGbkZkMXZnU1ZEZWgzX3hGaG1GTFNKT3FtQllzSDgyUTB0MWZZZw?oc=5",
+      "source": "Bitcoin News",
+      "published_at": "2026-10-22T09:41:15+00:00",
+      "region": "מאקרו ארה״ב"
+    },
     {
       "title": "India's interest rate gap with G7 in focus as RBI weighs inflation risks: Report - The Economic Times",
       "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxObThZSWZpdEcySlhDYVdkeEVzOElQYkItb1Y0R3loZmxQRlpTTUFGWUVJa1B3bW1pNFhzaWdYS2dwSW5YdVpRRGxRTENXNGpJcGRIYndzUjVVNTdqV1pkaGFpWWswY1dNV1FQUzdYWW9uMURvay0xTW83QkVwTFlqaTE5UWhtLXdSMjNweWNhWjRvdkFlczBTSmcwQ25HR0N4TUpnQ0tyb0ZpWXd2T3ZjYzBPZGpoMFNhMTFIT015Unk4TmVjVHZyaGcwTDVBXzRMV3RuTXdod01CS0JxZkVsVnlKYzlDMHFzNnpwOdIB8gFBVV95cUxQYl9RaVAzTW54Wlo5a0RlT2VqQTBJSlBId2dtZEZmd3dEUUFZUUtVbG5RUHFIQjRuMlF6WS1sNmR0M05ad1c2Z3VBVHhiS190MXF2Zm5sQm0wa1dpcjdoUXJOTlowaDBuU2pUaTVTQmZsSFdsOVVwSHNZUW1vaXo4b2ZzVGhZX0FvMVlmQW01MG1fcEtLc0Q5Yk9ObEhWYTIycUluWGt2MjB4QXhhWFgwTHFKMEtjZmd1UTg3UE1HSVpoMVF4bW5adDg2T1lJaVVSaFZTVGxpSThCV1ZpdVNNNlZIaldwOXdwbzlFUU9NaURtUQ?oc=5",
@@ -58,13 +65,6 @@
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZkdNWlNnTHI1dUJKWTBnaG9PbVl0dXpkVW8tcjJsS3Y5S1hGVlR5Ukh1d3JBVEQ4ajE5aVEybDhyMkVYbVhUT3NJSTQwUVRwUkI3WVZkMHRJSGtCYWpsR2RaaEJZZlQ4VnVZY2NfaG9XR3FqQTJOWVpDZlBab19UeE1n?oc=5",
       "source": "Cabot Wealth Network",
       "published_at": "2026-10-22T06:00:00+00:00",
-      "region": "מאקרו ארה״ב"
-    },
-    {
-      "title": "Gold slides toward $4,090 as Middle East tensions fuel inflation fears - Investing.com",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQdmlhb3pLU0NQQTViS2RnajU0NGlTWENPYlpOWUtZS3JYUkI0TGNVTHlXckJhMDZZUHBRakRLVVlfWDZTSkxSVzNZaFB3Umw0Uk9oT29DZ1pBdTFjTHhOZGMtU2FUS0U5cVVTOEZGTWhsSkN1YkhpTk9JTExha214NHZ6LWdla3BYanhtUEc2TDhLbXlNb3gwU3VvekdMWnNmRnBjR2FIOXBPZVQzUjd3ZEV3NXVLakxxam9OYUR4N2laWFNuV2ozVQ?oc=5",
-      "source": "Investing.com",
-      "published_at": "2026-10-22T05:20:43+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
