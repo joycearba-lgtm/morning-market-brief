@@ -95,6 +95,37 @@ result["indices"]["TA-125"] = get_index("^TA125.TA")
 result["commodities"]["WTI futures"] = get_index("CL=F")
 result["commodities"]["Gold futures"] = get_index("GC=F")
 
+# 10-year US Treasury constant maturity yield (annual percent), FRED DGS10.
+def get_treasury_10y():
+    try:
+        url = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+        rows = csv.DictReader(io.StringIO(download(url)))
+        points = []
+        for row in rows:
+            raw = row.get("DGS10", "").strip()
+            date = (row.get("DATE") or row.get("observation_date") or "").strip()
+            if raw and raw != "." and date:
+                points.append((date, float(raw)))
+        if len(points) < 2:
+            raise ValueError("Not enough FRED observations")
+        (previous_date, previous), (date, latest) = points[-2:]
+        age = (TODAY.date() - datetime.strptime(date, "%Y-%m-%d").date()).days
+        if age < 0 or age > 14:
+            raise ValueError("Treasury yield data is stale")
+        return {
+            "status": "ok",
+            "value": round(latest, 3),
+            "change_bps": round((latest - previous) * 100, 1),
+            "source": "FRED / Federal Reserve H.15",
+            "as_of": date,
+            "type": "annual_yield_percent"
+        }
+    except Exception as error:
+        # No made-up or stale values: explicitly flag a source failure.
+        return {"status": "unavailable", "reason": str(error)}
+
+result["treasury_10y"] = get_treasury_10y()
+
 with open("market_data.json", "w", encoding="utf-8") as file:
     json.dump(result, file, ensure_ascii=False, indent=2)
 
