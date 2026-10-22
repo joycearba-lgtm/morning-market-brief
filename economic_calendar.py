@@ -66,6 +66,29 @@ try:
 except Exception as e:
     ERRORS.append("BLS: "+type(e).__name__)
 
+# Fallback dates transcribed from BLS official 2026 schedules, checked 2026-10-22.
+# This is a bounded snapshot, not an independently live calendar. Never extend it by guessing.
+if any(error.startswith("BLS:") for error in ERRORS):
+    bls_schedule=[
+      ("2026-10-30 08:30","מדד עלות ההעסקה (ECI)",2,
+       "https://www.bls.gov/schedule/2026/10_sched_list.htm"),
+      ("2026-11-03 10:00","משרות פתוחות (JOLTS)",2,
+       "https://www.bls.gov/schedule/2026/11_sched_list.htm"),
+      ("2026-11-06 08:30","דוח התעסוקה (NFP)",1,
+       "https://www.bls.gov/schedule/news_release/empsit.htm"),
+      ("2026-11-10 08:30","מדד המחירים לצרכן (CPI)",1,
+       "https://www.bls.gov/schedule/news_release/cpi.htm"),
+      ("2026-11-13 08:30","מדד המחירים ליצרן (PPI)",2,
+       "https://www.bls.gov/schedule/2026/11_sched_list.htm"),
+      ("2026-12-04 08:30","דוח התעסוקה (NFP)",1,
+       "https://www.bls.gov/schedule/news_release/empsit.htm"),
+      ("2026-12-10 08:30","מדד המחירים לצרכן (CPI)",1,
+       "https://www.bls.gov/schedule/news_release/cpi.htm")
+    ]
+    for when,title,priority,url in bls_schedule:
+        dt=datetime.strptime(when,"%Y-%m-%d %H:%M").replace(tzinfo=NY)
+        add(dt,title,"BLS – official dated schedule (fallback)",url,priority)
+
 # Official BOI announcement schedule 2026 – 16:00 Israel, verified from BOI.
 boi_dates=["2026-01-05","2026-02-23","2026-03-30","2026-05-25",
            "2026-07-06","2026-09-01","2026-10-21","2026-11-23"]
@@ -102,7 +125,7 @@ result={
     "date":now.date().isoformat(),
     "mode":"today" if today else "upcoming",
     "events":chosen,
-    "source_note":"BLS scheduled calendar and Bank of Israel published decision schedule; confirm schedule with linked agency",
+    "source_note":"Includes dated BLS official schedule fallback when feed blocked; confirm any changes at the linked agency.",
     "errors":ERRORS,
 }
 Path("economic_calendar.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
