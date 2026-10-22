@@ -75,10 +75,10 @@ body{font-size:16px;line-height:1.65}
 <div class="section-title"><h2>תמונת מצב מהירה</h2><span></span></div>
 <section class="grid"><article class="card"><div class="label">ת״א-35</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">ת״א-125</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">S&amp;P 500</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Nasdaq</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Dow Jones</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">דולר / שקל</div><div class="value">ממתין לחיבור</div><div class="sub">שער וזמן ציטוט</div></article><article class="card"><div class="label">אג״ח ארה״ב ל־10 שנים</div><div class="value">ממתין לחיבור</div><div class="sub">תשואה אחרונה</div></article><article class="card"><div class="label">נפט WTI</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לחבית</div></article><article class="card"><div class="label">זהב</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לאונקיה</div></article></section>
 <section id="economic-calendar" style="margin:14px 0">
-<div class="section-title"><h2>יומן מאקרו · מבט מהיר</h2><span></span></div>
-<div class="card" style="padding:12px 14px">
-<p class="sub" id="calendar-status" style="margin:0 0 8px">בודק פרסומים מאומתים…</p>
-<div id="calendar-events" style="display:grid;gap:8px"></div>
+<div class="section-title"><h2>יומן מאקרו · בקרוב</h2><span></span></div>
+<div class="card" style="padding:8px 12px">
+<p class="sub" id="calendar-status" style="margin:0 0 4px">בודק פרסומים מאומתים…</p>
+<div id="calendar-events" style="display:grid;gap:3px"></div>
 </div>
 </section>
 <section id="macro-brief" style="margin:22px 0">
@@ -374,7 +374,14 @@ body{font-size:16px;line-height:1.65}
     }
     status.textContent=data.mode==='today'?'פרסומים צפויים היום · שעון ישראל':'הפרסומים הקרובים · שעון ישראל';
     if(!data.events.length){status.textContent='לא זוהו פרסומים מאומתים ב־45 הימים הקרובים';return;}
-    for(const ev of data.events.slice(0,3)){
+    const list=data.events.slice(0,3);
+    const more=document.createElement('details');more.className='calendar-more';
+    more.style.cssText='margin-top:3px';
+    const moreLabel=document.createElement('summary');moreLabel.textContent='עוד מועדים ('+Math.max(0,list.length-1)+')';
+    moreLabel.style.cssText='font-size:12px;color:#197a70;cursor:pointer';
+    more.append(moreLabel);
+    let idx=0;
+    for(const ev of list){
       const dt=new Date(ev.at);
       if(!Number.isFinite(dt.getTime()))continue;
       let url;
@@ -384,8 +391,14 @@ body{font-size:16px;line-height:1.65}
       const a=document.createElement('a');a.className='source';a.style.cssText='font-size:14px;font-weight:700';a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';a.textContent=ev.title;
       const time=document.createElement('strong');time.dir='ltr';time.style.cssText='white-space:nowrap;font-size:13px';
       time.textContent=dt.toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit',timeZone:'Asia/Jerusalem'})+' · '+dt.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Jerusalem'});
-      div.append(a,time);holder.append(div);
+      div.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:9px;padding:3px 0';
+      a.style.cssText='font-size:12px;font-weight:650';
+      time.style.cssText='font-size:12px;white-space:nowrap';
+      div.append(a,time);
+      if(idx++===0)holder.append(div);
+      else more.append(div);
     }
+    if(idx>1)holder.append(more);
   }
   try{render(JSON.parse(document.getElementById('calendar-snapshot').textContent));}catch{}
   fetch('./economic_calendar.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(render).catch(()=>{if(!holder.children.length)status.textContent='יומן המאקרו עדיין אינו זמין';});
