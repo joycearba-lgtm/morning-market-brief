@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-10-22T10:36:17.882370+03:00",
+  "indicators": {
+    "israel_cpi_yoy": {
+      "status": "unavailable",
+      "reason": "ValueError: CBS JSON structure unknown or insufficient comparable observations"
+    },
+    "israel_unemployment": {
+      "status": "unavailable",
+      "reason": "ValueError: No unemployment observations"
+    }
+  },
+  "status": "unavailable"
+}
