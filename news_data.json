@@ -1,14 +1,7 @@
 {
-  "updated_at": "2026-10-22T09:10:23.178431+00:00",
+  "updated_at": "2026-10-22T09:30:49.930542+00:00",
   "status": "ok",
   "items": [
-    {
-      "title": "מכרזי מטרו ב-100 מיליארד שקל והנפקות בדרך: ענף התשתיות בבורסה מזנק - ביזפורטל",
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAwZWthbGZ1d1JXckZHRzJuQXdReGVVZ1JPZnVtd1l5TXYwaEZKU0piaElNSkozQ0Y0eFFIS3BaMkpZSzRqT21tN01RTnVlZGRuS2F5ZjhteGpXT1RZM0JTQnlIcjZBTFV1SkNPem5sWEI?oc=5",
-      "source": "ביזפורטל",
-      "published_at": "2026-10-21T21:27:00+00:00",
-      "region": "ישראל"
-    },
     {
       "title": "הבורסה ננעלה במגמה מעורבת: עליות בתשתיות ובאנרגיה המתחדשת, ירידות בבנקים ובנפט והגז - PassportNews",
       "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9LNHdLMF9SUWVoOW1FWWN5X1JTNk05ZWVJd1NFQ0JhSC14aEVzMG14LU52TC05RjhLczhHYVRFWmJyR20zR3ZfUXJsOVd2akFpVWRv?oc=5",
@@ -21,6 +14,13 @@
       "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5QQjVYOUFHXzNubUcwYl9xR19oRmZfU2JPZXNwWFFsOE1LREJld0FPc1hyTGpZSm9GcTJzSUZxTjRMX0xXbFJkanZHcW9pMVlicGNuVUYzcFl3MmRvWlJ5UjI4VQ?oc=5",
       "source": "calcalist",
       "published_at": "2026-10-21T14:42:56+00:00",
+      "region": "ישראל"
+    },
+    {
+      "title": "האינפלציה מתונה, אבל הריבית לא יורדת: מה עומד מאחורי החלטת בנק ישראל? - PassportNews",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XdDEzbG1XS1U1cXJEc25EUEExb2FlWkdkTkpkYVZ4SHUzeDgxYUJuUjBMSlEzUWZzZkx2MmJROWtBN28xOVJuNG5TUFctQ3F6blI0?oc=5",
+      "source": "PassportNews",
+      "published_at": "2026-10-21T14:02:00+00:00",
       "region": "ישראל"
     },
     {
@@ -48,7 +48,7 @@
   "macro_items": [
     {
       "title": "India's interest rate gap with G7 in focus as RBI weighs inflation risks: Report - The Economic Times",
-      "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxObThZSWZpdEcySlhDYVdkeEVzOElQYkItb1Y0R3loZmxQRlpTTUFGWUVJa1B3bW1pNFhzaWdYS2dwSW5YdVpRRGxRTENXNGpJcGRIYndzUjVVNTdqV1pkaGFpWWswY1dNV1FQUzdYWW9uMURvay0xTW83QkVwTFlqaTE5UWhtLXdSMjNweWNhWjRvdkFlczBTSmcwQ25HR0N4TUpnQ0tyb0ZpWXd2T3ZjYzBPZGpoMFNhMTFIT015Unk4TmVjVHZyaGcwTDVBXzRMV3RuTXdod01CS0JxZkVsVnlKYzlDMHFzNnpwOQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxObThZSWZpdEcySlhDYVdkeEVzOElQYkItb1Y0R3loZmxQRlpTTUFGWUVJa1B3bW1pNFhzaWdYS2dwSW5YdVpRRGxRTENXNGpJcGRIYndzUjVVNTdqV1pkaGFpWWswY1dNV1FQUzdYWW9uMURvay0xTW83QkVwTFlqaTE5UWhtLXdSMjNweWNhWjRvdkFlczBTSmcwQ25HR0N4TUpnQ0tyb0ZpWXd2T3ZjYzBPZGpoMFNhMTFIT015Unk4TmVjVHZyaGcwTDVBXzRMV3RuTXdod01CS0JxZkVsVnlKYzlDMHFzNnpwOdIB8gFBVV95cUxQYl9RaVAzTW54Wlo5a0RlT2VqQTBJSlBId2dtZEZmd3dEUUFZUUtVbG5RUHFIQjRuMlF6WS1sNmR0M05ad1c2Z3VBVHhiS190MXF2Zm5sQm0wa1dpcjdoUXJOTlowaDBuU2pUaTVTQmZsSFdsOVVwSHNZUW1vaXo4b2ZzVGhZX0FvMVlmQW01MG1fcEtLc0Q5Yk9ObEhWYTIycUluWGt2MjB4QXhhWFgwTHFKMEtjZmd1UTg3UE1HSVpoMVF4bW5adDg2T1lJaVVSaFZTVGxpSThCV1ZpdVNNNlZIaldwOXdwbzlFUU9NaURtUQ?oc=5",
       "source": "The Economic Times",
       "published_at": "2026-10-22T08:49:00+00:00",
       "region": "מאקרו ארה״ב"
