@@ -14,13 +14,13 @@ MAX_AGE = timedelta(hours=52)
 FEEDS = [
     ("ישראל", "בורסה תל אביב ריבית בנק ישראל מניות שוק ההון when:2d", "he", "IL", "IL:he"),
     ("חו״ל", "stocks Wall Street Federal Reserve Treasury inflation earnings when:2d", "en-US", "US", "US:en"),
-    ("מאקרו ארה״ב", "Federal Reserve inflation CPI PCE employment GDP treasury yields macroeconomy when:2d", "en-US", "US", "US:en"),
-    ("מאקרו ישראל", "בנק ישראל אינפלציה מדד המחירים לצרכן ריבית צמיחה אבטלה גירעון when:2d", "he", "IL", "IL:he"),
+    ("מאקרו ארה״ב", ""Federal Reserve" OR inflation OR payrolls OR "US GDP" when:2d", "en-US", "US", "US:en"),
+    ("מאקרו ישראל", ""בנק ישראל" OR אינפלציה OR אבטלה OR "נתוני צמיחה" when:2d", "he", "IL", "IL:he"),
 ]
 MARKET_TERMS = re.compile(
     r"בורסה|מניות|שוק ההון|ריבית|אינפלצי|אג״ח|שקל|דולר|בנק ישראל|מדד|"
     r"stocks?|shares?|market|wall street|federal reserve|fed |treasury|bond|"
-    r"inflation|interest rate|nasdaq|s&p|earnings|oil price|gold price|economy",
+    r"inflation|interest rate|nasdaq|s&p|earnings|oil price|gold price|economy|gdp|payroll|unemployment|צמיחה|תוצר|גירעון|אבטלה",
     re.IGNORECASE
 )
 
