@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'market_data.py'
+      - 'news_data.py'
       - '.github/workflows/morning-brief.yml'
   schedule:
     # Israel 08:12: use 05:12 UTC (summer) / 06:12 UTC (winter)
@@ -41,12 +42,15 @@ jobs:
         if: steps.israel_time.outputs.run == 'true'
         run: python market_data.py
 
+      - name: Update sourced news headlines
+        run: python news_data.py
+
       - name: Save updated data
         if: steps.israel_time.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add market_data.json index.html
+          git add market_data.json news_data.json index.html
           if ! git diff --cached --quiet; then
             git commit -m "Update morning market data"
             git pull --rebase
