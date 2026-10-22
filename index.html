@@ -40,6 +40,12 @@
 הסקירה מבוססת על פרסומים מזוהים וכוללת ניתוח כלכלי. אם לא הוכנה סקירה חדשה, לא יוצג תוכן ישן בתור עדכון יומי.
 </p>
 </div></section>
+<section id="macro-surprises" style="margin:14px 0">
+<div class="section-title"><h2>בפועל מול התחזית · פרסומי מאקרו</h2><span></span></div>
+<div class="card" style="padding:12px 14px">
+<p id="surprise-status" class="sub" style="margin:0 0 7px">בודק פרסומים ותחזיות מאומתים…</p>
+<div id="surprise-items" style="display:grid;gap:8px"></div>
+</div></section>
 <section id="rate-inflation-forecast" style="margin:14px 0">
 <div class="section-title"><h2>ריבית ואינפלציה · שנה קדימה</h2><span></span></div>
 <div class="card" style="padding:12px 14px">
@@ -298,6 +304,52 @@
   }
   try{render(JSON.parse(document.getElementById('calendar-snapshot').textContent));}catch{}
   fetch('./economic_calendar.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(render).catch(()=>{if(!holder.children.length)status.textContent='יומן המאקרו עדיין אינו זמין';});
+})();
+</script>
+<!-- SURPRISE_SNAPSHOT_START -->
+<script type="application/json" id="surprise-snapshot">{}</script>
+<!-- SURPRISE_SNAPSHOT_END -->
+<script>
+(function(){
+  const status=document.getElementById('surprise-status'),box=document.getElementById('surprise-items');
+  function draw(data){
+    box.replaceChildren();
+    if(!data || !Array.isArray(data.items) || !data.items.length){
+      status.textContent='אין כעת השוואת בפועל מול צפי מאומתת לאותה תקופה';return;
+    }
+    const t=Date.parse(data.checked_at||'');
+    if(!Number.isFinite(t) || Date.now()-t>36*3600000 || Date.now()<t-3600000){
+      status.textContent='נתוני ההשוואה אינם מעודכנים';return;
+    }
+    status.textContent='הפרסומים האחרונים · פער בנקודות אחוז לעומת קונצנזוס לפני הפרסום';
+    for(const x of data.items.slice(0,3)){
+      if(!Number.isFinite(x.actual)||!Number.isFinite(x.expected)||!Number.isFinite(x.surprise_pp))continue;
+      const card=document.createElement('div');card.style.cssText='border-bottom:1px solid #dce5e8;padding:7px 0';
+      const heading=document.createElement('div');heading.style.cssText='display:flex;justify-content:space-between;gap:8px;align-items:baseline';
+      const name=document.createElement('strong');name.textContent=x.region+' · '+x.title;
+      const stamp=document.createElement('span');stamp.className='sub';stamp.textContent=x.released.split('-').reverse().join('.');
+      heading.append(name,stamp);
+      const values=document.createElement('div');values.style.cssText='display:flex;flex-wrap:wrap;gap:9px 16px;align-items:baseline;font-size:13px;margin-top:4px';
+      for(const [label,n] of [['בפועל',x.actual],['צפי',x.expected]]){
+        const part=document.createElement('span');part.textContent=label+': ';
+        const number=document.createElement('strong');number.dir='ltr';number.textContent=n.toFixed(1)+'%';part.append(number);values.append(part);
+      }
+      const diff=document.createElement('span');
+      const v=x.surprise_pp;
+      diff.textContent='פער: '+(v>0?'+':'')+v.toFixed(1)+' נק׳ אחוז';
+      diff.style.cssText='font-weight:700;color:'+ (v>0?'#9a3d25':v<0?'#176750':'#52616a');
+      values.append(diff);
+      const note=document.createElement('p');note.style.cssText='margin:5px 0 0;font-size:12px;color:#647783';note.textContent=x.interpretation||'';
+      const src=document.createElement('div');src.style.cssText='display:flex;gap:12px;flex-wrap:wrap';
+      for(const [label,raw] of [['נתון בפועל',x.actual_url],['תחזית לפני הפרסום',x.forecast_url]]){
+        try{const url=new URL(raw);if(url.protocol!=='https:')continue;const a=document.createElement('a');a.className='source';a.textContent=label;a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';src.append(a)}catch{}
+      }
+      card.append(heading,values,note,src);box.append(card);
+    }
+    if(!box.children.length)status.textContent='לא נמצאו נתונים מתאימים להשוואה';
+  }
+  try{draw(JSON.parse(document.getElementById('surprise-snapshot').textContent));}catch{}
+  fetch('./macro_surprises.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(draw).catch(()=>{if(!box.children.length)status.textContent='ההשוואות עדיין אינן זמינות';});
 })();
 </script>
 </body></html>
