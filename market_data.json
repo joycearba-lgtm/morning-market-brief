@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T21:00:24.090169+03:00",
+  "updated_at": "2026-10-22T21:01:31.836231+03:00",
   "source": "Bank of Israel",
   "usd_ils": 3.107,
   "rate_date": "2026-10-22T12:22:03.8897022Z",
@@ -7,27 +7,27 @@
   "indices": {
     "S&P 500": {
       "status": "ok",
-      "value": 7650.91,
-      "change_percent": -1.37,
+      "value": 7646.73,
+      "change_percent": -1.42,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792692023
+      "market_time": 1792692092
     },
     "Nasdaq Composite": {
       "status": "ok",
-      "value": 26002.2,
-      "change_percent": -2.62,
+      "value": 25987.93,
+      "change_percent": -2.68,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792692021
+      "market_time": 1792692091
     },
     "Dow Jones": {
       "status": "ok",
-      "value": 52758.79,
-      "change_percent": -0.18,
+      "value": 52734.68,
+      "change_percent": -0.23,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792692024
+      "market_time": 1792692091
     },
     "TA-35": {
       "status": "ok",
@@ -49,27 +49,27 @@
   "commodities": {
     "WTI futures": {
       "status": "ok",
-      "value": 99.99,
-      "change_percent": 2.92,
+      "value": 100.05,
+      "change_percent": 2.99,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691422
+      "market_time": 1792691491
     },
     "Gold futures": {
       "status": "ok",
-      "value": 4060.2,
-      "change_percent": -2.16,
+      "value": 4060.7,
+      "change_percent": -2.15,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691421
+      "market_time": 1792691485
     }
   },
   "treasury_10y": {
     "status": "ok",
-    "value": 4.97,
-    "change_bps": -18.1,
+    "value": 4.96,
+    "change_bps": -18.5,
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
-    "market_time": 1792691123
+    "market_time": 1792691183
   }
 }
