@@ -213,7 +213,7 @@
      return;
    }
    const h2=document.createElement('strong');h2.textContent=brief.title;pane.append(h2);
-   for(const section of brief.sections.slice(0,4)){
+   for(const section of brief.sections.slice(0,5)){
      const el=addText(pane,section.heading,section.text);
      for(const source of (section.sources||[]).slice(0,2)){
        try{
