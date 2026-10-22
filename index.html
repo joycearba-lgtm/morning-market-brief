@@ -51,7 +51,7 @@
 <span>אינפלציה כרגע (CPI)</span><strong data-forecast="us.inflation_now" dir="ltr">3.74%</strong>
 <span>צפי אינפלציה שנה קדימה (CPI)</span><strong data-forecast="us.inflation_1y" dir="ltr">2.98%</strong>
 </div>
-<p class="sub" id="forecast-asof" style="margin:9px 0 0">גרסת תחזיות 22.10-B · ארה״ב: צפי הריבית לפי חוזים עתידיים מ־20.10.2026 (בתוקף עד 27.10); צפי האינפלציה ממודל קליבלנד. הנתונים אינם תחזית רשמית של הפד.</p>
+<p class="sub" id="forecast-asof" style="margin:9px 0 0">ציפיות שוק ותחזיות · עודכן 22.10.2026 · <a class="source" href="https://www.boi.org.il/" target="_blank" rel="noopener noreferrer">בנק ישראל</a> · <a class="source" href="https://fred.stlouisfed.org/series/EXPINF1YR" target="_blank" rel="noopener noreferrer">FRED</a> · <a class="source" href="https://streetstats.finance/rates/fedfunds" target="_blank" rel="noopener noreferrer">צפי ריבית ארה״ב</a></p>
 </div>
 </section>
 <section id="advisor-talking-points" style="margin:20px 0">
@@ -244,7 +244,7 @@
     const when = data?.checked_at ? new Date(data.checked_at) : null;
     const date = when && Number.isFinite(when.getTime()) ? when.toLocaleDateString('he-IL',{timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
     asof.replaceChildren();
-    const caption=document.createTextNode('נבדק: '+date+' · ישראל: ציפיות שוק מ־19.10.2026. ארה״ב: צפי ריבית בקירוב מחוזים עתידיים מ־20.10.2026 (מוסתר אחרי שבוע); אינפלציה לפי מודל קליבלנד. ');
+    const caption=document.createTextNode('ציפיות שוק ותחזיות · עודכן '+date+' · ');
     asof.append(caption);
     const sources=[['בנק ישראל','https://www.boi.org.il/'],['FRED','https://fred.stlouisfed.org/series/EXPINF1YR'],['צפי ריבית ארה״ב','https://streetstats.finance/rates/fedfunds']];
     sources.forEach(([name,url],i)=>{if(i)asof.append(' · ');const a=document.createElement('a');a.href=url;a.textContent=name;a.className='source';a.target='_blank';a.rel='noopener noreferrer';asof.append(a);});
