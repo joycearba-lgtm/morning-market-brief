@@ -16,7 +16,7 @@ FEEDS = [
     ("חו״ל", "stocks Wall Street Federal Reserve Treasury inflation earnings when:2d", "en-US", "US", "US:en"),
 ]
 MARKET_TERMS = re.compile(
-    r"בורסה|מניות|שוק ההון|ריבית|אינפלצי|אג״ח|אג\\\"ח|שקל|דולר|בנק ישראל|מדד|"
+    r"בורסה|מניות|שוק ההון|ריבית|אינפלצי|אג״ח|שקל|דולר|בנק ישראל|מדד|"
     r"stocks?|shares?|market|wall street|federal reserve|fed |treasury|bond|"
     r"inflation|interest rate|nasdaq|s&p|earnings|oil price|gold price|economy",
     re.IGNORECASE
