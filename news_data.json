@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T17:55:58.288239+00:00",
+  "updated_at": "2026-10-22T17:59:54.389713+00:00",
   "status": "ok",
   "items": [
     {
@@ -24,6 +24,13 @@
       "region": "ישראל"
     },
     {
+      "title": "Meta Platforms (NASDAQ: META) Stock Slide Drags Nasdaq Lower As AI Spending Fears Spark Broad Selloff - www.foreignpolicyjournal.com",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdlRKX2tsdE8wZkpNdUVRenl6NHI3NmliM2Z3OHNWQm9nNGtDeEJtckQ4Y0NYbzZTTk5Genc1S2lqaEoybWdWUHBqdS1jUlVXNURvemlRMEVVaVJ6eENrR1QtQ0RrSFdzQ0psN2tnM0czSWF0TkxDT3lUc0ZITTZIRGNJYzhocUZaWFpYYmx0X0s3QUlRVWdlMEJFY29LbFgyNjBvQUcxMDNWdlh6Zjg1UWV3YnUwNzRaODBjdnp2OGgyWHpsblg5S2xSZ19mZi1mNVBzWjhKUFNEYlFwU0J4Mw?oc=5",
+      "source": "www.foreignpolicyjournal.com",
+      "published_at": "2026-10-22T17:52:03+00:00",
+      "region": "חו״ל"
+    },
+    {
       "title": "S&P 500 Forecast: SPX falls, led by tech after Meta, Tesla earnings - StoneX",
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPakxVVDI1b0tDV1ozbWZXd29kTFR0VU5QOU9USWFDeWtoWXVfY2dDS3NoWGFmWTNyTkxUQVNCaDVXTjJNSk85SmE5eVVSNlQxbmhVUkZLSTB6R2xiWDJYeE1GM1BHVDhQRGtwN3BlMC1taWlrX0JUYmZockc1c0hKVnV4VWRqLWlZWkZGRDExQjZVQ28tdFJIN2REQVFQSXVhQmMySnptRURVUTU0endoUFNMOGo?oc=5",
       "source": "StoneX",
@@ -35,13 +42,6 @@
       "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUm1EMWRqOGE0enRXVGJWdWNERndqRGhadzNMZzBhNHE1NWdCRFRRdG1IREFBMFZjM0dBWXlVQUhERTVSZGJCaWRzTXJDdmxHeVRkRWxvQmswckVxemxab1VNcHZVZ1JTZU13YkdiYWEycHNzOVpzWF9MX25vSkcxQnp1UW5scUdZZGNUQ1psc2lXQ1dzb2c?oc=5",
       "source": "Yahoo Finance",
       "published_at": "2026-10-22T16:15:05+00:00",
-      "region": "חו״ל"
-    },
-    {
-      "title": "US Treasury flags possible 5-year note reopening after October 26 auction - Business Upturn",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPWGQ2aUVoMEd4MlBxUUd6RlBzckxnLTRJNU03SklmcG5UbEh5ajU2Tm8zWUVacWdaVEp5WVI2OXI1ZGlLTW9kZUJXT0pBM19iNzZCTVhjN2ZSN0V1U0Zrd3NUS0s2Vm44V3BGUjVNZlVISC02c1NiYXFkUzFDMkxaaTlOZU1RV05qS3lza2JjQUNMRHNFNzRBREsxZVAySGo2c05RQWFyWlNkR0FHcDFRdkd0QTRfS0JndVVmOTZKdw?oc=5",
-      "source": "Business Upturn",
-      "published_at": "2026-10-22T15:50:00+00:00",
       "region": "חו״ל"
     }
   ],
@@ -89,5 +89,6 @@
       "region": "מאקרו ישראל"
     }
   ],
+  "israel_focus": [],
   "errors": []
 }
