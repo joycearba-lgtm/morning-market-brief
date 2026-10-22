@@ -18,7 +18,7 @@
 <p id="macro-date" class="sub">בודק עדכוני מאקרו…</p>
 <div id="macro-content" style="display:grid;gap:14px"><p class="empty">טוען התפתחויות מאקרו מאומתות.</p></div>
 <p class="sub" style="margin-top:16px;border-top:1px solid #dce5e8;padding-top:12px">
-דיווחי מאקרו ממקורות חדשות מזוהים והשלכות כלכליות אפשריות; לא אימות של גוף הכתבה או המלצת השקעה. בהיעדר מידע עדכני לא יוצג ניתוח מומצא.
+הסקירה מבוססת על פרסומים מזוהים וכוללת ניתוח כלכלי. אם לא הוכנה סקירה חדשה, לא יוצג תוכן ישן בתור עדכון יומי.
 </p>
 </div></section>
 <section id="advisor-talking-points" style="margin:20px 0">
@@ -184,136 +184,51 @@
 })();
 </script>
 
+<!-- EDITORIAL_MACRO_START -->
+<script id="editorial-macro" type="application/json">{"date":"2026-10-22","valid_until":"2026-10-23T09:00:00+03:00","title":"ישראל: עצירה בהפחתות הריבית; ארה״ב: עוקבים אחר האינפלציה לפני החלטת הפד","sections":[{"heading":"ישראל — בנק ישראל עוצר, אך לא משנה את כיוון המדיניות באופן חד","text":"בהחלטה מ־21 באוקטובר הותיר בנק ישראל את הריבית על 3.25%. האינפלציה השנתית בספטמבר עמדה על 1.6%, אך הבנק הדגיש את סיכוני הפיחות בשקל, מחירי האנרגיה ואי־הוודאות הביטחונית. משמעות הדבר היא שמרחב ההקלה המוניטרית קיים, אך המשך הפחתות הריבית אינו אוטומטי: הוא תלוי בנתוני המחירים, בשער החליפין ובפרמיית הסיכון.","sources":[{"label":"בנק ישראל — החלטת הריבית, 21.10","url":"https://www.boi.org.il/publications/pressreleases/21-10-26b/"}]},{"heading":"תחזית ישראל — התאוששות בצמיחה לצד סיכון אינפלציוני","text":"תחזית חטיבת המחקר מגלמת צמיחה של 3.4% ב־2026 ושל 5.1% ב־2027 בתוצר בניכוי ייצור בחו״ל. האינפלציה צפויה לעמוד על 1.5% בסוף 2026 ועל 2.1% בסוף 2027, והריבית הממוצעת ברבעון השלישי של 2027 על 3.0%. זו תחזית מותנית, לא הבטחה: התייקרות אנרגיה, פיחות או החרפה ביטחונית עלולים לשנות את התוואי.","sources":[{"label":"בנק ישראל — התחזית, אוקטובר 2026","url":"https://boi.org.il/publications/pressreleases/21-10-26a/"}]},{"heading":"ארה״ב — המבחן הקרוב הוא נתוני הפעילות והמחירים","text":"לקראת ישיבת הפד בסוף אוקטובר תשומת הלב עוברת לנתוני תביעות האבטלה ולמדדי הפעילות המתפרסמים היום, ולנתוני ה־PMI וסנטימנט הצרכנים הצפויים מחר. המשמעות למשקיעים היא רגישות של תשואות האג״ח וציפיות הריבית להפתעות ביחס לתחזיות — יותר מאשר לעצם פרסום הנתון. אין בשלב זה בסיס לייחס את תנועת מדדי המניות לגורם מאקרו יחיד.","sources":[{"label":"יומן פרסומים כלכליים לשבוע 19–23 באוקטובר","url":"https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar"}]}],"takeaway":"השורה התחתונה: בישראל קיימת אפשרות להפחתות ריבית נוספות, אך הפיחות והאנרגיה מגבילים את מרחב התמרון. בארה״ב, נתוני האינפלציה והפעילות הקרובים עשויים להשפיע על ציפיות הריבית ועל מח״מ האג״ח.","advisor":["בשיחה עם לקוח: החלטת בנק ישראל אינה הבטחה להפחתות נוספות. כדאי להתאים את מח״מ התיק לתרחישים שונים של ריבית.","בהשקעות חו״ל: לבחון האם החשיפה לדולר ולתשואות אג״ח ארוכות מתאימה לצורכי הלקוח.","להבחין בין נתון כלכלי שפורסם, תחזית של בנק מרכזי והערכת שוק — אלו אינם אותו הדבר."]}</script>
+<!-- EDITORIAL_MACRO_END -->
 <script>
-(function () {
- const pane = document.getElementById('macro-content');
- const stamp = document.getElementById('macro-date');
- let currentNews = null;
- let marketData = null;
- const impacts = [
-   {re:/אינפלצ|מדד המחירים|מחירים לצרכן|inflation|cpi|pce/i,topic:'אינפלציה וציפיות ריבית',impact:'נתוני אינפלציה משפיעים על הציפיות לתוואי הריבית. הפתעה כלפי מעלה עשויה לדחות ציפיות להורדה וללחוץ על אג״ח ארוכות; הפתעה כלפי מטה עשויה לפעול בכיוון ההפוך.'},
-   {re:/ריבית|בנק ישראל|פד|fed\b|federal reserve|interest rate|central bank/i,topic:'בנקים מרכזיים וריבית',impact:'יש לבחון אם הדיווח מרמז על שינוי צפוי בריבית או רק על מסר תקשורתי. התמחור באג״ח ובשקל עשוי להגיב לפער שבין המסר לבין הציפיות שהיו קודם.'},
-   {re:/תעסוק|אבטל|משרות|employment|jobs|payroll|unemployment|wage/i,topic:'תעסוקה ופעילות כלכלית',impact:'שוק עבודה חזק עשוי לתמוך בצמיחה, אך גם להקשות על ירידת אינפלציית השירותים. חולשה בתעסוקה עשויה להגביר ציפיות להקלה מוניטרית ולחששות מפגיעה ברווחים.'},
-   {re:/צמיח|תוצר|מיתון|צריכ|gdp|growth|recession|consumer|retail/i,topic:'צמיחה והביקוש',impact:'כדאי לבחון אם הנתון משנה את תחזית הצמיחה או את רווחיות החברות, ואם ההשפעה נובעת מביקוש, היצע או מדיניות. אין להסיק מהכותרת לבדה על שינוי מגמה.'},
-   {re:/גירעון|תקציב|חוב ממשלת|מכסים|tariff|deficit|fiscal|budget/i,topic:'מדיניות פיסקלית וסיכון',impact:'שינויים בגירעון, במיסוי או בהוצאות הממשלה עשויים להשפיע על היצע האג״ח, פרמיית הסיכון וציפיות האינפלציה. יש לבדוק את הפרטים ואת היקף השינוי.'},
-   {re:/אג״ח|תשוא|אוצר|treasury|bond yields/i,topic:'תשואות אג״ח ותמחור',impact:'שינוי בתשואות יכול לנבוע מציפיות ריבית, אינפלציה או פרמיית טווח. רצוי לזהות את הרכיב לפני ייחוס השפעה למניות ולמח״מ.'}
- ];
- function addSection(title,content,story){
-   const sec=document.createElement('section');
-   const h=document.createElement('strong');h.textContent=title;
-   const p=document.createElement('p');p.style.cssText='font-size:14px;margin:5px 0';p.textContent=content;
-   sec.append(h,p);
-   if(story){
-     const note=document.createElement('p');note.className='sub';note.style.margin='4px 0';
-     note.textContent='משמעות כלכלית אפשרית (לא תיאור של אירוע מאומת): '+story.impact;
-     sec.append(note);
-   }
-   pane.append(sec);
+(function(){
+ const pane=document.getElementById('macro-content');
+ const stamp=document.getElementById('macro-date');
+ const advisor=document.getElementById('advisor-points');
+ const advisorStatus=document.getElementById('advisor-status');
+ function addText(parent,title,body){
+   const section=document.createElement('section');
+   const strong=document.createElement('strong');strong.textContent=title;
+   const p=document.createElement('p');p.style.cssText='margin:6px 0;font-size:14px;line-height:1.7';p.textContent=body;
+   section.append(strong,p);parent.append(section);
+   return section;
  }
- function renderAdvisor(){
-   const dest=document.getElementById('advisor-points');
-   const note=document.getElementById('advisor-status');
-   if(!dest||!note)return;
-   dest.replaceChildren();
-   const updated=Date.parse(marketData?.updated_at);
-   const age=Date.now()-updated;
-   const fresh=Number.isFinite(updated)&&age>=0&&age<72*3600*1000;
-   note.textContent='נוסחי שיחה מקצועיים · '+(fresh?'לפי נתונים אחרונים זמינים':'נתוני שוק אינם מעודכנים – דגשים כלליים בלבד');
-   function point(title,say,check){
-     const block=document.createElement('div');
-     const h=document.createElement('strong');h.textContent=title;
-     const p=document.createElement('p');p.style.cssText='margin:5px 0;font-size:14px';p.textContent='אפשר לומר ללקוח: ״'+say+'״';
-     const q=document.createElement('p');q.className='sub';q.style.margin='4px 0';q.textContent='שאלת המשך: '+check;
-     block.append(h,p,q);dest.append(block);
+ function show(brief){
+   if(!brief || !Array.isArray(brief.sections)) return;
+   pane.replaceChildren();advisor.replaceChildren();
+   const until=Date.parse(brief.valid_until);
+   const valid=Number.isFinite(until) && Date.now() < until && Date.now() >= Date.parse(brief.date+'T00:00:00+03:00');
+   stamp.textContent=valid?'סקירה מבוססת פרסומים רשמיים · '+brief.date:'הסקירה האחרונה התיישנה · '+brief.date;
+   if(!valid){
+     addText(pane,'לא פורסמה עדיין סקירת מאקרו מאומתת ליום זה','הסקירה הקודמת הוסתרה כדי שלא תוצג בטעות כסקירה מעודכנת. נתוני המדדים מוצגים בנפרד למעלה.');
+     advisorStatus.textContent='ניסוחי שיחה יומיים יופיעו עם סקירת מאקרו מאומתת';
+     return;
    }
-   point('תנודתיות והקצאת נכסים',
-     'התנודות בטווח הקצר אינן בהכרח שינוי בתוכנית ההשקעה. נבדוק אם הרכב התיק עדיין תואם את מטרותיך ואת רמת הסיכון המתאימה לך.',
-     'האם צפויה משיכה מהתיק בשנה־שנתיים הקרובות?');
-   const treasury=marketData?.treasury_10y;
-   if(fresh&&treasury?.status==='ok'&&typeof treasury.change_bps==='number'&&treasury.change_bps!==0){
-     point('אג״ח, ריבית ומח״מ',
-       treasury.change_bps>0
-       ? 'נרשמה עלייה בתשואת אג״ח ממשלת ארה״ב ל־10 שנים. כאשר תשואות עולות, אג״ח קיימות עלולות לרדת במחיר, בעיקר במח״מ ארוך. נבחן את רגישות התיק לריבית.'
-       : 'נרשמה ירידה בתשואת אג״ח ממשלת ארה״ב ל־10 שנים. ירידת תשואות עשויה לתמוך במחירי אג״ח קיימות, במיוחד במח״מ ארוך, אבל כדאי לבחון את הסיכון הכולל.',
-       'מהו אופק ההשקעה בחלק האג״חי והאם רמת רגישות התיק לריבית מתאימה לך?');
-   }else{
-     point('אג״ח ומח״מ',
-       'השינוי בציפיות הריבית עשוי להשפיע על מחירי האג״ח. נבחן את משך החיים הממוצע של האג״ח בתיק ואת ההתאמה לאופק ההשקעה שלך.',
-       'האם חשובה לך יציבות בטווח הקרוב או שאפשר לספוג תנודתיות?');
-   }
-   const oil=marketData?.commodities?.['WTI futures'];
-   if(fresh&&oil?.status==='ok'&&typeof oil.change_percent==='number'&&Math.abs(oil.change_percent)>=1){
-     point('אנרגיה והשפעתה על אינפלציה',
-       oil.change_percent>0
-       ? 'מחירי חוזי הנפט התחזקו. אם העלייה תימשך, היא עשויה להשפיע על מחירי האנרגיה ועל ציפיות האינפלציה, אך לא בהכרח על אינפלציית הליבה.'
-       : 'מחירי חוזי הנפט נחלשו. אם הירידה תימשך, ייתכן לחץ נמוך יותר מצד האנרגיה, אך חשוב לבחון גם את יתר רכיבי האינפלציה.',
-       'האם לתיק יש חשיפה משמעותית לענפי אנרגיה או לניירות רגישים לאינפלציה?');
-   }else{
-     point('פיזור ומטבע',
-       'תיק שמושקע גם בחו״ל חשוף לא רק למניות ולאג״ח אלא לעיתים גם לשינויי שערי חליפין. נבחן את החשיפה למטבע ואת הצורך בגידור בהתאם למטרות.',
-       'באיזה מטבע צפויות ההוצאות שלך והאם יש צורך בהגנה מפני תנודות בשער החליפין?');
-   }
- }
- function render(){
-   pane.replaceChildren();
-   const now=Date.now();
-   stamp.textContent='מקורות שפורסמו ב־52 השעות האחרונות · עדכון חדשות אחרון: '+(currentNews?.updated_at?new Date(currentNews.updated_at).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'}):'לא זמין');
-   const recent=(currentNews?.macro_items||[]).filter(x=>{
-     const date=Date.parse(x.published_at);return Number.isFinite(date)&&date<=now&&now-date<=52*3600*1000;
-   });
-   const shownTopics=new Set();
-   const selected=[];
-   for(const item of recent){
-     const match=impacts.find(i=>i.re.test(item.title||''));
-     if(!match||shownTopics.has(match.topic))continue;
-     shownTopics.add(match.topic);selected.push({item,match});
-     if(selected.length===3)break;
-   }
-   if(!selected.length){
-     addSection('לא התקבלו פרסומי מאקרו מהיממה האחרונה','אין כרגע דיווח מאקרו מזוהה שמאפשר לסכם שינוי בנתוני האינפלציה, התעסוקה או הריבית. להלן פרשנות מותנית לנתוני השוק, ולא תיאור של אירוע מאקרו חדש.');
-   }
-   for(const {item,match} of selected){
-     const when=new Date(item.published_at).toLocaleDateString('he-IL',{timeZone:'Asia/Jerusalem'});
-     const title=(item.region==='מאקרו ישראל'?'ישראל':'ארה״ב')+' · '+match.topic;
-     addSection(title,'לפי דיווח '+(item.source||'המקור')+' ('+when+'): '+item.title,match);
-     const sec=pane.lastElementChild;
-     try{
-       const url=new URL(item.link);
-       if(url.protocol==='https:'){
-         const a=document.createElement('a');a.className='source';a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';a.textContent='לקריאת הדיווח המקורי';
-         sec.append(a);
-       }
-     }catch{}
-   }
-   if (marketData) {
-     const ten=marketData.treasury_10y;
-     if(ten?.status==='ok' && typeof ten.change_bps==='number'){
-       const direction=ten.change_bps>0?'עליית תשואות באג״ח ארוכות עשויה להכביד על תמחור נכסים רגישים לריבית':'ירידת תשואות באג״ח ארוכות עשויה להקל על תמחור נכסים רגישים לריבית';
-       if(ten.change_bps!==0) addSection('קריאת מאקרו משוק האג״ח',direction+'. יש לבדוק אם השינוי משקף ציפיות לריבית, אינפלציה או פרמיית סיכון; התנועה לבדה אינה מוכיחה מה הסיבה.');
-     }
-     const oil=marketData.commodities?.['WTI futures'];
-     if(oil?.status==='ok' && typeof oil.change_percent==='number' && Math.abs(oil.change_percent)>=1){
-       addSection('אנרגיה ואינפלציה', oil.change_percent>0
-        ? 'התחזקות חוזי הנפט מעלה את החשיבות של מעקב אחר רכיב האנרגיה במדדי המחירים, אך אינה מספיקה כדי לקבוע שהאינפלציה תעלה.'
-        : 'היחלשות חוזי הנפט עשויה להפחית לחצי מחירים באנרגיה אם תימשך; השפעתה על אינפלציית הליבה מוגבלת ועקיפה.');
+   const h2=document.createElement('strong');h2.textContent=brief.title;pane.append(h2);
+   for(const section of brief.sections.slice(0,3)){
+     const el=addText(pane,section.heading,section.text);
+     for(const source of (section.sources||[]).slice(0,2)){
+       try{
+         const url=new URL(source.url);if(url.protocol!=='https:')continue;
+         const a=document.createElement('a');a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';a.className='source';a.textContent=source.label||'מקור';el.append(a);
+       }catch{}
      }
    }
-   addSection('מה לבדוק היום','לוח הפרסומים הרשמי: נתוני אינפלציה ותעסוקה, הודעות הפד ובנק ישראל, ותשואות האג״ח. בכל נתון חשוב להשוות לתחזיות ולא רק לפרסום הקודם.');
-   renderAdvisor();
+   addText(pane,'השורה התחתונה',brief.takeaway||'');
+   advisorStatus.textContent='שלוש נקודות לשיחה על בסיס סקירת המאקרו מ־'+brief.date;
+   (brief.advisor||[]).slice(0,3).forEach((item,i)=>addText(advisor,'נקודה '+(i+1),item));
  }
- try{currentNews=JSON.parse(document.getElementById('news-snapshot').textContent);}catch{}
- try{marketData=JSON.parse(document.getElementById('market-snapshot').textContent);}catch{}
- render();
- Promise.allSettled([
-   fetch('./news_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('news');return r.json();}),
-   fetch('./market_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('market');return r.json();})
- ])
- .then(results=>{
-   if(results[0].status==='fulfilled')currentNews=results[0].value;
-   if(results[1].status==='fulfilled')marketData=results[1].value;
-   render();
- })
- .catch(()=>{});
+ try{show(JSON.parse(document.getElementById('editorial-macro').textContent));}catch{}
+ fetch('./macro_brief.json?v='+Date.now(),{cache:'no-store'})
+ .then(r=>{if(!r.ok)throw Error('unavailable');return r.json();})
+ .then(show).catch(()=>{});
 })();
 </script>
 </body></html>
