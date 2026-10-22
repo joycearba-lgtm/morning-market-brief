@@ -118,7 +118,7 @@ body{font-size:16px;line-height:1.65}
 </div>
 </section>
 <section id="advisor-talking-points" style="margin:20px 0">
- <div class="section-title"><h2>3 תובנות מעשיות לשיחה עם לקוחות</h2><span></span></div>
+ <div class="section-title"><h2>3 מסרים ברורים לשיחה עם לקוחות</h2><span></span></div>
  <div class="card" style="border-right:3px solid #197a70">
    <p class="sub" id="advisor-status">מכין נקודות לשיחה על בסיס הנתונים האחרונים…</p>
    <div id="advisor-points" style="display:grid;gap:14px"></div>
@@ -295,14 +295,14 @@ body{font-size:16px;line-height:1.65}
      if(!item || typeof item!=='object'){ if(typeof item==='string'&&item.trim())addText(advisor,'נקודה '+(i+1),item);return; }
      const el=document.createElement('section');el.className='advisor-point';
      const title=document.createElement('strong');title.textContent=(i+1)+'. '+(item.title||'לשיחה עם הלקוח');el.append(title);
-     for(const [label,value] of [['מה חשוב:',item.insight],['למי זה רלוונטי:',item.client_impact]]){
+     for(const [label,value] of [['מה לומר ללקוח:',item.insight],['מה המשמעות לתיק:',item.client_impact]]){
        if(typeof value!=='string'||!value)continue;
        const p=document.createElement('p');const bold=document.createElement('strong');bold.textContent=label+' ';
        p.append(bold,document.createTextNode(value));el.append(p);
      }
      if(item.question){
        const question=document.createElement('p');question.className='advisor-question';
-       const bold=document.createElement('strong');bold.textContent='שאלה ללקוח: ';
+       const bold=document.createElement('strong');bold.textContent='מה לבדוק בפגישה: ';
        question.append(bold,document.createTextNode(item.question));el.append(question);
      }
      if(item.reference){
