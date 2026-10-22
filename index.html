@@ -47,11 +47,11 @@
 <strong>🇺🇸 ארה״ב</strong>
 <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;align-items:center;font-size:14px;margin-top:6px">
 <span>ריבית כרגע</span><strong data-forecast="us.rate_now" dir="ltr">3.75%–4.00%</strong>
-<span>צפי ריבית שנה קדימה</span><strong data-forecast="us.rate_1y" dir="ltr">אין צפי מאומת</strong>
+<span>צפי ריבית שנה קדימה</span><strong data-forecast="us.rate_1y" dir="ltr">≈4.7%</strong>
 <span>אינפלציה כרגע (CPI)</span><strong data-forecast="us.inflation_now" dir="ltr">3.74%</strong>
 <span>צפי אינפלציה שנה קדימה (CPI)</span><strong data-forecast="us.inflation_1y" dir="ltr">2.98%</strong>
 </div>
-<p class="sub" id="forecast-asof" style="margin:9px 0 0">נתוני מקור אחרונים: 22.10.2026 · צפי אינפלציה ארה״ב לפי מודל הפד של קליבלנד (01.10.2026). צפי ריבית הפד לשנה קדימה טרם אומת; לא מוצג מספר משוער.</p>
+<p class="sub" id="forecast-asof" style="margin:9px 0 0">נתוני מקור אחרונים: 22.10.2026 · צפי אינפלציה ארה״ב לפי מודל הפד של קליבלנד (01.10.2026). צפי ריבית אפקטיבית ארה״ב כ־4.7% לפי חוזים עתידיים (20.10.2026), בתוקף לשבוע בלבד; אינו תחזית הפד.</p>
 </div>
 </section>
 <section id="advisor-talking-points" style="margin:20px 0">
@@ -230,23 +230,23 @@
     for(const el of fields){
       const [country,key] = el.dataset.forecast.split('.');
       const q = data?.[country]?.[key];
-      if(q?.status !== 'ok' || typeof q.value !== 'number' || !Number.isFinite(q.value)){
+      if(q?.status !== 'ok' || typeof q.value !== 'number' || !Number.isFinite(q.value) || (q.expires_at && Date.now() >= Date.parse(q.expires_at))){
         el.textContent='אין צפי מאומת';
         if(!key.endsWith('_1y'))el.textContent='נתון לא זמין';
         el.title='';
         continue;
       }
-      el.textContent = key==='rate_now' && typeof q.lower==='number' && typeof q.upper==='number'
+      el.textContent = (q.approximate ? '≈' : '') + (key==='rate_now' && typeof q.lower==='number' && typeof q.upper==='number'
         ? q.lower.toFixed(2)+'%–'+q.upper.toFixed(2)+'%'
-        : q.value.toFixed((country==='us' && key.startsWith('inflation')) || (country==='israel' && key==='rate_now') ? 2 : 1)+'%';
+        : q.value.toFixed((country==='us' && key.startsWith('inflation')) || (country==='israel' && key==='rate_now') ? 2 : 1)+'%');
       el.title = (q.source||'מקור') + ' · ' + (q.as_of||'תאריך לא ידוע');
     }
     const when = data?.checked_at ? new Date(data.checked_at) : null;
     const date = when && Number.isFinite(when.getTime()) ? when.toLocaleDateString('he-IL',{timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
     asof.replaceChildren();
-    const caption=document.createTextNode('נבדק: '+date+' · ציפיות ישראל מ־19.10.2026 (יפוגו אם לא יעודכנו). צפי האינפלציה בארה״ב הוא מודל קליבלנד, לא תחזית פד. ');
+    const caption=document.createTextNode('נבדק: '+date+' · ישראל: ציפיות שוק מ־19.10.2026. ארה״ב: צפי ריבית בקירוב מחוזים עתידיים מ־20.10.2026 (מוסתר אחרי שבוע); אינפלציה לפי מודל קליבלנד. ');
     asof.append(caption);
-    const sources=[['בנק ישראל','https://www.boi.org.il/'],['FRED','https://fred.stlouisfed.org/series/EXPINF1YR']];
+    const sources=[['בנק ישראל','https://www.boi.org.il/'],['FRED','https://fred.stlouisfed.org/series/EXPINF1YR'],['צפי ריבית ארה״ב','https://streetstats.finance/rates/fedfunds']];
     sources.forEach(([name,url],i)=>{if(i)asof.append(' · ');const a=document.createElement('a');a.href=url;a.textContent=name;a.className='source';a.target='_blank';a.rel='noopener noreferrer';asof.append(a);});
   }
   try {display(JSON.parse(document.getElementById('forecast-snapshot').textContent));}catch{}
