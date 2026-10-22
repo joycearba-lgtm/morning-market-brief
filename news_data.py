@@ -16,9 +16,12 @@ FEEDS = [
     ("חו״ל", "stocks Wall Street Federal Reserve Treasury inflation earnings when:2d", "en-US", "US", "US:en"),
     ("מאקרו ארה״ב", "Federal Reserve inflation OR jobs OR economic growth when:2d", "en-US", "US", "US:en"),
     ("מאקרו ישראל", "בנק ישראל ריבית OR אינפלציה OR תוצר OR אבטלה when:2d", "he", "IL", "IL:he"),
+    ("בחירות", "בחירות לכנסת 2026 מפלגות סקרים קואליציה תקציב ממשלה when:2d", "he", "IL", "IL:he"),
+    ("ביטחון", "ישראל איראן ביטחון מלחמה הסלמה נפט סיכון כלכלי when:2d", "he", "IL", "IL:he"),
+    ("פיסקלי", "ישראל גירעון תקציב המדינה הוצאות ביטחון אגח ממשלתיות when:2d", "he", "IL", "IL:he"),
 ]
 MARKET_TERMS = re.compile(
-    r"בורסה|מניות|שוק ההון|ריבית|אינפלצי|אג״ח|שקל|דולר|בנק ישראל|מדד|"
+    r"בורסה|מניות|שוק ההון|ריבית|אינפלצי|אג״ח|שקל|דולר|בנק ישראל|מדד|בחירות|כנסת|ממשלה|קואליצי|תקציב|גירעון|ביטחון|בטחוני|לחימה|איראן|הסלמה|מלחמה|נפט|"
     r"stocks?|shares?|market|wall street|federal reserve|fed |treasury|bond|"
     r"inflation|interest rate|nasdaq|s&p|earnings|oil price|gold price|economy|gdp|payroll|unemployment|צמיחה|תוצר|גירעון|אבטלה",
     re.IGNORECASE
@@ -75,16 +78,16 @@ def collect_news(group, query, language, country, edition):
             break
     return selected
 
-news = {"updated_at": NOW.isoformat(), "status": "unavailable", "items": [], "macro_items": [], "errors": []}
+news = {"updated_at": NOW.isoformat(), "status": "unavailable", "items": [], "macro_items": [], "israel_focus": [], "errors": []}
 for args in FEEDS:
     try:
         stories = collect_news(*args)
-        key = "macro_items" if args[0].startswith("מאקרו") else "items"
+        key = "israel_focus" if args[0] in ("בחירות","ביטחון","פיסקלי") else "macro_items" if args[0].startswith("מאקרו") else "items"
         news[key].extend(stories)
     except Exception as error:
         news["errors"].append(args[0] + ": " + type(error).__name__)
 
-if news["items"] or news["macro_items"]:
+if news["items"] or news["macro_items"] or news["israel_focus"]:
     news["status"] = "ok"
 
 with open("news_data.json", "w", encoding="utf-8") as file:
@@ -92,7 +95,7 @@ with open("news_data.json", "w", encoding="utf-8") as file:
 
 # Store the last successful briefing in the HTML itself as an offline-safe snapshot.
 # If this update fails, leave the previous stories (with original published dates) alone.
-if news["items"] or news["macro_items"]:
+if news["items"] or news["macro_items"] or news["israel_focus"]:
     from pathlib import Path
     page = Path("index.html")
     if page.exists():
