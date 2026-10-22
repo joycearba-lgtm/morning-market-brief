@@ -6,6 +6,18 @@
 <style>
 :root{--navy:#142d3a;--ink:#172a35;--muted:#647783;--line:#dce5e8;--bg:#f3f6f7;--teal:#197a70;--pale:#e7f3f0;--white:#fff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",sans-serif;line-height:1.55}.wrap{max-width:1080px;margin:auto;padding:22px}.hero{background:linear-gradient(120deg,#142d3a,#204b59);color:white;border-radius:22px;padding:26px 28px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:13px;background:#c4e6dc;color:#153d43;display:grid;place-items:center;font-size:24px;font-weight:bold}.eyebrow{font-size:12px;letter-spacing:.4px;color:#c4e0e5}.hero h1{margin:3px 0;font-size:28px}.hero p{margin:5px 0;color:#d3e2e7}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid #58717b;border-radius:999px;padding:5px 10px;font-size:12px;color:#edf6f7}.notice{border:1px solid #e7d4a5;background:#fff8e6;color:#72551a;border-radius:12px;padding:12px 14px;margin:14px 0 20px;font-size:13px}.section-title{display:flex;align-items:center;gap:10px;margin:24px 0 12px}.section-title h2{font-size:18px;margin:0}.section-title span{height:1px;background:var(--line);flex:1}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.card{background:white;border:1px solid var(--line);border-radius:15px;padding:15px;min-width:0}.label{font-size:12px;color:var(--muted)}.value{font-size:19px;font-weight:700;margin:5px 0}.sub{font-size:12px;color:var(--muted)}.two{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.story{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.story:last-child{border:0}.icon{flex:0 0 34px;height:34px;background:var(--pale);color:var(--teal);border-radius:10px;display:grid;place-items:center;font-weight:bold}.story h3{margin:0 0 4px;font-size:15px}.story p{margin:0;color:var(--muted);font-size:13px}.tag{font-size:11px;border-radius:6px;background:#eef2f4;padding:3px 7px;display:inline-block;margin-bottom:5px}.todo{padding-right:19px;margin:8px 0}.todo li{margin:8px 0;font-size:14px}.footer{color:var(--muted);font-size:11px;text-align:center;padding:24px 0 8px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.btn{border:1px solid #7c9ba3;background:transparent;color:white;border-radius:10px;padding:9px 13px;font-weight:600;font-size:13px;cursor:pointer}.btn.secondary{color:var(--ink);border-color:var(--line);background:white}.empty{color:var(--muted);font-size:13px}.source{font-size:12px;color:var(--teal);text-decoration:none}.source:hover{text-decoration:underline}
 @media(max-width:760px){.wrap{padding:12px}.hero{padding:21px;border-radius:17px}.hero h1{font-size:24px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.value{font-size:17px}}@media(max-width:380px){.grid{grid-template-columns:1fr 1fr}.card{padding:12px}}
+
+/* Market movement: high-contrast values, prominent daily changes, subtle directional edge */
+.grid .card{border-right:5px solid #dce5e8;padding:17px 15px}
+.grid .card.move-up{border-right-color:#14834a;background:#f4fcf7}
+.grid .card.move-down{border-right-color:#c8353d;background:#fff7f7}
+.grid .card.move-flat{border-right-color:#89959c}
+.grid .card .value{font-size:clamp(21px,2.4vw,29px);font-weight:800;line-height:1.25;font-variant-numeric:tabular-nums}
+.grid .card .daily-change{display:inline-block;direction:ltr;unicode-bidi:isolate;font-size:clamp(19px,2vw,25px);font-weight:800;line-height:1.25;margin:6px 0 5px;padding:3px 9px;border-radius:8px}
+.grid .card .daily-change.up{color:#116a3c;background:#ddf5e5}
+.grid .card .daily-change.down{color:#a91926;background:#ffe4e5}
+.grid .card .daily-change.flat{color:#52616a;background:#eef1f3}
+@media(max-width:760px){.grid .card .value{font-size:23px}.grid .card .daily-change{font-size:21px}.grid .card{padding:14px 10px}}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo">↗</div><div><div class="eyebrow">DAILY MARKET INTELLIGENCE</div><h1>Market Brief</h1><p>סקירת שווקים מקצועית ליועצת ההשקעות</p></div></div><div class="meta"><span class="pill">⏱ 2 דקות קריאה</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill">עדכון מתוכנן: כ־08:12 · שעון ישראל</span></div><div class="actions"><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div></header>
@@ -78,6 +90,18 @@
   function cardFor(label) {
     return cards.find(card => card.querySelector('.label')?.textContent.trim() === label);
   }
+  function setMovement(card, change, unit = '%', digits = 2) {
+    card.classList.remove('move-up', 'move-down', 'move-flat');
+    card.querySelectorAll('.daily-change').forEach(el => el.remove());
+    if (typeof change !== 'number' || !Number.isFinite(change)) return;
+    const direction = change > 0 ? 'up' : change < 0 ? 'down' : 'flat';
+    card.classList.add('move-' + direction);
+    const span = document.createElement('div');
+    span.className = 'daily-change ' + direction;
+    span.textContent = (change > 0 ? '▲ +' : change < 0 ? '▼ ' : '— ') + change.toFixed(digits) + unit;
+    span.setAttribute('aria-label', (change > 0 ? 'עלייה של ' : change < 0 ? 'ירידה של ' : 'ללא שינוי, ') + Math.abs(change).toFixed(digits) + ' ' + (unit === '%' ? 'אחוזים' : 'נקודות בסיס'));
+    card.querySelector('.value').insertAdjacentElement('afterend', span);
+  }
   function showQuote(label, item, suffix = '') {
     const card = cardFor(label);
     if (!card) return;
@@ -85,11 +109,11 @@
     const sub = card.querySelector('.sub');
     if (item && item.status === 'ok' && typeof item.value === 'number' && Number.isFinite(item.value)) {
       value.textContent = item.value.toLocaleString('en-US', {maximumFractionDigits: 2}) + suffix;
-      const change = typeof item.change_percent === 'number'
-        ? ' | ' + (item.change_percent >= 0 ? '+' : '') + item.change_percent.toFixed(2) + '%' : '';
-      sub.textContent = 'שער אחרון' + change + ' | ' + (item.source || 'מקור לא ידוע');
+      setMovement(card, item.change_percent);
+      sub.textContent = 'שער אחרון | ' + (item.source || 'מקור לא ידוע');
     } else {
       value.textContent = 'נתון לא זמין';
+      setMovement(card, null);
       sub.textContent = 'אין נתון מאומת לעדכון הנוכחי';
     }
   }
@@ -110,9 +134,11 @@
           v.textContent = yieldData.value.toFixed(3) + '%';
           const bps = typeof yieldData.change_bps === 'number' ? (yieldData.change_bps >= 0 ? '+' : '') + yieldData.change_bps.toFixed(1) + ' נ״ב' : 'לא זמין';
           const quotedAt = yieldData.as_of || (yieldData.market_time ? new Date(yieldData.market_time * 1000).toLocaleDateString('he-IL', {timeZone:'America/New_York'}) : 'לא ידוע');
-          sub.textContent = 'שינוי יומי: ' + bps + ' | נכון ל־' + quotedAt + ' | ' + (yieldData.source || 'מקור לא ידוע');
+          setMovement(treasuryCard, yieldData.change_bps, ' נ״ב', 1);
+          sub.textContent = 'תשואה שנתית | נכון ל־' + quotedAt + ' | ' + (yieldData.source || 'מקור לא ידוע');
         } else {
           v.textContent = 'נתון לא זמין';
+          setMovement(treasuryCard, null);
           sub.textContent = 'ממתין לנתון תשואה מאומת';
         }
       }
