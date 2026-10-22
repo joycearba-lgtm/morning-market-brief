@@ -15,9 +15,9 @@ on:
       - 'macro_surprises.py'
       - '.github/workflows/morning-brief.yml'
   schedule:
-    # Israel 08:12: use 05:12 UTC (summer) / 06:12 UTC (winter)
-    - cron: '12 5 * * 0-5'
-    - cron: '12 6 * * 0-5'
+    # Israel 08:12 every day (including weekends), with timezone gate preventing duplicate runs
+    - cron: '12 5 * * *'
+    - cron: '12 6 * * *'
 
 permissions:
   contents: write
@@ -49,6 +49,7 @@ jobs:
         run: python market_data.py
 
       - name: Update sourced news headlines
+        if: steps.israel_time.outputs.run == 'true'
         run: python news_data.py
 
       - name: Fetch official US macro indicators
