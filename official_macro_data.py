@@ -16,6 +16,8 @@ SPECS = {
     "us_unemployment": ("UNRATE", "US unemployment rate, seasonally adjusted", "level"),
     "us_real_gdp": ("GDPC1", "US real GDP, quarterly seasonally adjusted annual rate", "qoq_annualized"),
     "us_effective_fed_funds": ("DFF", "US effective federal funds rate, daily", "level"),
+    "us_fed_target_lower": ("DFEDTARL", "Fed funds target lower bound", "level"),
+    "us_fed_target_upper": ("DFEDTARU", "Fed funds target upper bound", "level"),
 }
 out = {"checked_at": NOW.isoformat(), "status": "unavailable", "indicators": {}, "errors": {}}
 
