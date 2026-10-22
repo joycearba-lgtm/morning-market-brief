@@ -47,7 +47,7 @@
 <strong>🇺🇸 ארה״ב</strong>
 <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;align-items:center;font-size:14px;margin-top:6px">
 <span>ריבית כרגע</span><strong data-forecast="us.rate_now" dir="ltr">3.75%–4.00%</strong>
-<span>צפי ריבית שנה קדימה</span><strong data-forecast="us.rate_1y" dir="ltr">≈4.71%</strong>
+<span>צפי ריבית שנה קדימה</span><strong data-forecast="us.rate_1y" dir="ltr">4.7%</strong>
 <span>אינפלציה כרגע (CPI)</span><strong data-forecast="us.inflation_now" dir="ltr">3.74%</strong>
 <span>צפי אינפלציה שנה קדימה (CPI)</span><strong data-forecast="us.inflation_1y" dir="ltr">2.98%</strong>
 </div>
@@ -236,7 +236,7 @@
         el.title='';
         continue;
       }
-      el.textContent = (q.approximate ? '≈' : '') + (key==='rate_now' && typeof q.lower==='number' && typeof q.upper==='number'
+      el.textContent = (key==='rate_now' && typeof q.lower==='number' && typeof q.upper==='number'
         ? q.lower.toFixed(2)+'%–'+q.upper.toFixed(2)+'%'
         : q.value.toFixed((country==='us' && key.startsWith('inflation')) || (country==='israel' && key==='rate_now') ? 2 : 1)+'%');
       el.title = (q.source||'מקור') + ' · ' + (q.as_of||'תאריך לא ידוע');
