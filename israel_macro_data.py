@@ -83,6 +83,9 @@ def israel_cpi():
     data=json.loads(get(url))
     rates=sorted(set(find_cpi_rates(data)))
     if not rates:
+        if isinstance(data,dict):
+            raise ValueError("No dated percentYear records; top-level CBS fields: " + ", ".join(str(k) for k in list(data.keys())[:12]))
+    if not rates:
         raise ValueError("No dated percentYear observations found in official CBS response")
     period,annual=rates[-1]
     year,month=map(int,period.split("-"))
@@ -94,7 +97,7 @@ def israel_cpi():
         "source_url":url,"note":"CBS percentYear field, not calculated from mixed index base series"}
 
 def unemployment():
-    code="LRUNTTTTILM156N"
+    code="LRUNTTTTILM156S"
     txt=get("https://fred.stlouisfed.org/graph/fredgraph.csv?id="+code)
     rows=[]
     for row in csv.DictReader(io.StringIO(txt)):
@@ -106,9 +109,9 @@ def unemployment():
     period,value=max(rows)
     year,month=map(int,period.split("-"))
     age=(NOW.year-year)*12+(NOW.month-month)
-    if age<0 or age>3:raise ValueError("Labor observation too old")
+    if age<0 or age>4:raise ValueError("Labor observation too old")
     return {"status":"ok","value":round(value,2),"unit":"%","observation_period":period,
-        "source":"OECD via FRED – Israel unemployment, unadjusted, age 15+",
+        "source":"OECD via FRED – Israel unemployment, seasonally adjusted, age 15+",
         "source_url":"https://fred.stlouisfed.org/series/"+code}
 
 for key,fn in (("israel_cpi_yoy",israel_cpi),("israel_unemployment",unemployment)):
