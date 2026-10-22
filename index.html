@@ -65,7 +65,7 @@ body{font-size:16px;line-height:1.65}
 <section id="macro-brief" style="margin:22px 0">
 <div class="section-title"><h2>סקירת בוקר · תמונת שווקים וכיוון להמשך</h2><span></span></div>
 <div class="card" style="border-top:3px solid #197a70">
-<p id="macro-date" class="sub">בודק עדכוני מאקרו…</p>
+<p id="macro-date" class="sub">סקירה תמציתית ללא חזרה על המדדים · גרסת תצוגה 23.10</p>
 <div id="macro-content" style="display:grid;gap:14px"><p class="empty">טוען התפתחויות מאקרו מאומתות.</p></div>
 <p class="sub" style="margin-top:16px;border-top:1px solid #dce5e8;padding-top:12px">
 הסקירה מבוססת על פרסומים מזוהים וכוללת ניתוח כלכלי. אם לא הוכנה סקירה חדשה, לא יוצג תוכן ישן בתור עדכון יומי.
@@ -242,7 +242,7 @@ body{font-size:16px;line-height:1.65}
      advisorStatus.textContent='ניסוחי שיחה יומיים יופיעו עם סקירת מאקרו מאומתת';
      return;
    }
-   const h2=document.createElement('strong');h2.textContent=brief.title;pane.append(h2);
+   const h2=document.createElement('strong');h2.textContent='מה השתנה בשווקים · פרשנות בלבד';pane.append(h2);
    for(const section of brief.sections.slice(0,5)){
      let el;
      if(Array.isArray(section.bullets)){
@@ -252,10 +252,13 @@ body{font-size:16px;line-height:1.65}
        const list=document.createElement('ul');list.style.cssText='padding:0 20px 0 0;margin:7px 0 8px;display:grid;gap:11px';
        for(const item of section.bullets.slice(0,4)){
          if(typeof item!=='string' || !item.trim())continue;
+         // The dashboard already displays market figures; never repeat the
+         // percentage/index/CPI/rate-summary bullets in the editorial section.
+         if(/\\d+(?:[.,]\\d+)?\\s*%|(?:S&P|Nasdaq|Dow Jones|ת״א[-־]?(?:35|125))\\s*[+−-]?\\d|\\bCPI\\b.{0,60}\\d/.test(item))continue;
          const li=document.createElement('li');li.style.cssText='font-size:16px;line-height:1.78;padding-right:3px';
          li.textContent=item;list.append(li);
        }
-       el.append(heading,list);pane.append(el);
+       if(list.children.length){el.append(heading,list);pane.append(el);}
      }else{
        el=addText(pane,section.heading,section.text||'');
      }
@@ -266,7 +269,7 @@ body{font-size:16px;line-height:1.65}
        }catch{}
      }
    }
-   addText(pane,'השורה התחתונה',brief.takeaway||'');
+   if(brief.takeaway && !/\\d+(?:[.,]\\d+)?\\s*%/.test(brief.takeaway)){addText(pane,'מוקדי המעקב',brief.takeaway);}
    if(brief.methodology){const m=document.createElement('p');m.className='sub';m.style.cssText='margin:7px 0;font-size:12px';m.textContent=brief.methodology;pane.append(m);}
    advisorStatus.textContent='שלוש נקודות לשיחה על בסיס סקירת המאקרו מ־'+brief.date;
    (brief.advisor||[]).slice(0,3).forEach((item,i)=>addText(advisor,'נקודה '+(i+1),item));
