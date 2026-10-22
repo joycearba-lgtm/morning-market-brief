@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T05:45:32.411118+00:00",
+  "updated_at": "2026-10-22T06:00:28.458413+00:00",
   "status": "ok",
   "items": [
     {
@@ -45,6 +45,49 @@
       "region": "חו״ל"
     }
   ],
-  "macro_items": [],
+  "macro_items": [
+    {
+      "title": "Gold slides toward $4,090 as Middle East tensions fuel inflation fears - Investing.com",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQdmlhb3pLU0NQQTViS2RnajU0NGlTWENPYlpOWUtZS3JYUkI0TGNVTHlXckJhMDZZUHBRakRLVVlfWDZTSkxSVzNZaFB3Umw0Uk9oT29DZ1pBdTFjTHhOZGMtU2FUS0U5cVVTOEZGTWhsSkN1YkhpTk9JTExha214NHZ6LWdla3BYanhtUEc2TDhLbXlNb3gwU3VvekdMWnNmRnBjR2FIOXBPZVQzUjd3ZEV3NXVLakxxam9OYUR4N2laWFNuV2ozVQ?oc=5",
+      "source": "Investing.com",
+      "published_at": "2026-10-22T05:20:43+00:00",
+      "region": "מאקרו ארה״ב"
+    },
+    {
+      "title": "Dollar Slips as Oil-Driven Inflation Fears Loom Over Next Week's Fed Meeting - BigGo Finance",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1JTV9MYlZOM0pjTEJGemJFbDltd3ZKYVhXMVVUV3ZtUzBBVGxVU2l0TFJ4cDlKV0dBaTRfYUNMZm9KUGtWelF4cl9BV0RrcTRnTUM0clctZ3Ayd3Q0QldkNWVKaEE3RzNMWWlQTTZMQzZoZTB0TVE?oc=5",
+      "source": "BigGo Finance",
+      "published_at": "2026-10-21T21:55:00+00:00",
+      "region": "מאקרו ארה״ב"
+    },
+    {
+      "title": "Texas employment growth drops below long-term average as 19,000 jobs shed: Dallas Fed - AOL.com",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNM2dTVjJXWDNrMkJUMExkdEdKOEpjNjE3c1JHaTNTYXU5cHNzOUtiWnJ4cVZWX3l2QzUzanA1T2dheFRGYVBCVUxXQ0NPYTA4LThRLXZ2T2VoTDB2QVF0bTg1VE9OOFBpcTdFNTBzYmtGc250T3pCYi13RlZaUjhzTzVURURadw?oc=5",
+      "source": "AOL.com",
+      "published_at": "2026-10-21T21:33:41+00:00",
+      "region": "מאקרו ארה״ב"
+    },
+    {
+      "title": "בנק ישראל חושף את הצמיחה האמיתית: 5.6% על הנייר, 3.4% במשק - ואנבידיה מסבירה את הפער - ביזפורטל",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFB2VXcwNDJkSXlyanJvYmNGT0RrYmVwYjUyVXlTVm9MdHl0VXV6ZGZ1NTB2MHVGUHNlYlNuWHdoQTZ6ZE1pd0N3NjI1U2JBc1dlaV96cXA5YnAzbG5SZEZTdVBDYVBua3MtVWtOUW5QMHhSdw?oc=5",
+      "source": "ביזפורטל",
+      "published_at": "2026-10-22T05:43:00+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "הכלכלן הבכיר: \"מחירי השכירות מזנקים - זה מה שיקרה לריבית\" - ice (אייס)",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0yZ3V4ejhGUmV5VE54WVFLX3RZakktYUlERlVvY0stOUFPRzNZSll1UTJYNDM0Y3NVa1ljdXN1ZzBjMUs1bzhBMkc1WTV0Q2xpYmVnUzExcVRHdlozcVhUcTY1cw?oc=5",
+      "source": "ice (אייס)",
+      "published_at": "2026-10-22T04:02:22+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "מה הסיכוי שהנגיד יוריד את הריבית שבוע לפני בחירות? - גלובס",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBMeTJvV1BBTHNnNXItUkVvbHh5aDllX3pVMFhPM1NpdVRTN1ctTmRVQk5KZlFHcDdUM1hkQ1p2VUhNUG5MVDctTHhHSS0wUUpfWlBTSlVHNzJiaUZDZlpkcUtic21WVnY2?oc=5",
+      "source": "גלובס",
+      "published_at": "2026-10-21T16:03:16+00:00",
+      "region": "מאקרו ישראל"
+    }
+  ],
   "errors": []
 }
