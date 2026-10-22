@@ -282,99 +282,130 @@ if fresh:
         {"heading":"כיוון להמשך","bullets":forward_bullets,
          "sources":[]}
     ]
-    # Daily newsroom format: source-specific event + factual context +
-    # conditional market implication; never a headline-only filler.
-    def is_recent(day, max_age=4):
-        try: age=(now.date()-datetime.fromisoformat(day).date()).days
-        except (ValueError,TypeError): return False
-        return 0<=age<=max_age
-
-    def find_headlines(region, limit=2):
-        approved=("ביזפורטל","כלכליסט","calcalist","גלובס","globes","reuters",
-                  "bloomberg","cnbc","financial times","themarker","stonex")
-        output=[]
-        for story in news.get("items",[]):
-            if not isinstance(story,dict) or story.get("region")!=region:continue
-            publisher=story.get("source","")
-            if not any(x in publisher.lower() for x in approved):continue
-            try: published=datetime.fromisoformat(story["published_at"]).astimezone(TZ)
+    # Refresh every morning from dated coverage, not a hard-coded historical news digest.
+    # Political/security/election developments get their own source-backed Israel context.
+    approved=("ביזפורטל","כלכליסט","calcalist","גלובס","globes","reuters",
+              "bloomberg","cnbc","financial times","themarker","stonex","הארץ","ynet")
+    def recent_stories(region,limit=3):
+        selected=[]
+        for entry in (news.get("israel_focus",[]) if region=="ישראל" else news.get("items",[])):
+            if not isinstance(entry,dict):continue
+            if region!="ישראל" and entry.get("region")!="חו״ל":continue
+            src=entry.get("source","")
+            if not any(name in src.lower() for name in approved):continue
+            try: published=datetime.fromisoformat(entry["published_at"]).astimezone(TZ)
             except (KeyError,ValueError,TypeError):continue
             if not timedelta(0)<=now-published<=timedelta(hours=36):continue
-            url=story.get("link","")
-            title=story.get("title","").rsplit(" - ",1)[0].strip()
-            if not title or not isinstance(url,str) or not url.startswith("https://"):continue
-            output.append((title,publisher,url))
-            if len(output)>=limit:break
-        return output
+            link=entry.get("link","")
+            headline=entry.get("title","").rsplit(" - ",1)[0].strip()
+            if not headline or not isinstance(link,str) or not link.startswith("https://"):continue
+            selected.append({"title":headline,"source":src,"url":link,
+                             "published_at":published.isoformat(),
+                             "region":entry.get("region","")})
+        # Add verified, relevant general business coverage only when less than three
+        if region=="ישראל" and len(selected)<limit:
+            for entry in news.get("items",[]):
+                if not isinstance(entry,dict) or entry.get("region")!="ישראל":continue
+                src=entry.get("source","")
+                if not any(name in src.lower() for name in approved):continue
+                try: published=datetime.fromisoformat(entry["published_at"]).astimezone(TZ)
+                except (KeyError,ValueError,TypeError):continue
+                if not timedelta(0)<=now-published<=timedelta(hours=36):continue
+                headline=entry.get("title","").rsplit(" - ",1)[0].strip()
+                link=entry.get("link","")
+                if headline and isinstance(link,str) and link.startswith("https://"):
+                    selected.append({"title":headline,"source":src,"url":link,
+                                     "published_at":published.isoformat(),"region":"שוק"})
+        seen=set()
+        ordered=[]
+        priority={"בחירות":0,"ביטחון":1,"פיסקלי":2,"שוק":3}
+        selected.sort(key=lambda x:(priority.get(x["region"],4),-datetime.fromisoformat(x["published_at"]).timestamp()))
+        for entry in selected:
+            key=entry["title"].casefold()[:90]
+            if key in seen:continue
+            seen.add(key);ordered.append(entry)
+            if len(ordered)>=limit:break
+        return ordered
 
-    def headline_takeaway(title):
-        t=title.lower()
-        if any(x in t for x in ("נפט","ברנט","oil","crude")):
-            return ("השלכה אפשרית: עלויות אנרגיה גבוהות עשויות לתמוך בחברות הפקה "
-                    "אך להכביד על צרכני אנרגיה ועל ציפיות האינפלציה. "
-                    "יש להבחין בין מחירי ספוט לחוזים ארוכי טווח.")
-        if any(x in t for x in ("meta","tesla","earnings","דוחות","רווח")):
-            return ("השלכה אפשרית: כשציפיות המשקיעים גבוהות, תחזית ההוצאות "
-                    "והתזרים של החברות משפיעה על התמחור לא פחות מהרווח המדווח.")
-        if any(x in t for x in ("הסלמה","איראן","ביטחונ","סיכון")):
-            return ("השלכה אפשרית: סיכון אזורי עשוי להגדיל פרמיית סיכון ולהשפיע "
-                    "על שקל, אג״ח ושווי חברות מקומיות.")
-        if any(x in t for x in ("ריבית","inflation","fed","בנק ישראל")):
-            return ("השלכה אפשרית: שינוי בתוואי הריבית הצפוי משליך על מח״מ "
-                    "אג״ח, על שווי מניות צמיחה ועל עלויות מימון.")
-        return ("משמעות לשוק: חשוב להשוות את ההודעה לנתון הקודם "
-                "ולמחיר שכבר היה מגולם לפני הפרסום.")
+    def implication(topic):
+        if topic=="בחירות":
+            return ("המשמעות: הרכב הממשלה והחלטותיה לגבי תקציב ומסים עלולים "
+                    "לשנות את מסלול הגירעון, את פרמיית הסיכון ואת תשואות האג״ח.")
+        if topic=="ביטחון":
+            return ("המשמעות: שינוי בעצימות הלחימה עלול להשפיע על הוצאות ביטחון, "
+                    "מגבלות היצע, מחירי אנרגיה והשקל. אין להסיק תגובת שוק בלי נתוני מסחר.")
+        if topic=="פיסקלי":
+            return ("המשמעות: גירעון גבוה מהמתוכנן עלול להגביר צורכי גיוס ממשלתיים "
+                    "ולהשפיע על תשואות ומרווחי אשראי.")
+        return ("המשמעות לתיק תלויה במידה שבה האירוע משנה ציפיות ריבית, "
+                "רווחיות או פרמיית סיכון, ולא רק בכותרת.")
 
+    israel_stories=recent_stories("ישראל",3)
+    israel_bullets=[]
+    israel_sources=[]
+    covered=set()
+    for story in israel_stories:
+        topic=story["region"]
+        covered.add(topic)
+        israel_bullets.append(
+            f'**{topic if topic!="שוק" else "שוק מקומי"} — לפי {story["source"]}:** '
+            f'{story["title"]}. '+implication(topic))
+        israel_sources.append({"label":story["source"]+" · "+topic,"url":story["url"]})
+
+    # A new official bank risk assessment may supply non-news background for up to
+    # 14 days. Mark as last published assessment; never pass it off as new today.
+    bank_age=(now.date()-datetime(2026,10,21).date()).days
+    if 0<=bank_age<=14:
+        if "בחירות" not in covered:
+            israel_bullets.append(
+                "בחירות — בהערכת בנק ישראל מ־21.10.2026: סיכון לאי־הכרעה "
+                "פוליטית לאחר הבחירות והחלטות ממשלה בנושא התקציב. "
+                "השפעה אפשרית: תנודתיות בפרמיית הסיכון ובשוק האג״ח; "
+                "זו הערכת סיכון מתוארכת ולא ידיעה חדשה מהיום.")
+        if "ביטחון" not in covered:
+            israel_bullets.append(
+                "מצב ביטחוני — על פי תחזית בנק ישראל מ־21.10.2026: "
+                "התעצמות לחימה מחודשת עשויה להגדיל גיוס מילואים והוצאות ביטחון, "
+                "להחריף מגבלות היצע ולהפעיל לחץ על האינפלציה. "
+                "התחזית מניחה עצימות לחימה נמוכה יחסית; זו הנחת תרחיש, לא אימות לאירוע חדש.")
+        if "פיסקלי" not in covered:
+            israel_bullets.append(
+                "תקציב הביטחון והגירעון — תחזית בנק ישראל מ־21.10.2026 "
+                "מציגה גירעון של 4.4% תוצר ב־2026 ושל 4.6% ב־2027, "
+                "בהנחה שהוצאות הביטחון לא יחרגו מהרזרבה בתקציב. "
+                "חריגה עשויה להגדיל את צורכי המימון ולהכביד על תשואות האג״ח.")
+        israel_sources.extend([
+            {"label":"בנק ישראל — החלטת 21.10","url":"https://www.boi.org.il/publications/pressreleases/21-10-26b/"},
+            {"label":"בנק ישראל — תחזית סיכונים","url":"https://www.boi.org.il/publications/pressreleases/21-10-26a/"}])
+    if not israel_bullets:
+        israel_bullets=["לא אותרו היום התפתחויות מאומתות בבחירות, בביטחון או בתקציב "
+                        "ממקורות החדשות המחוברים. אין להציג מידע ישן כאירוע חדש."]
+
+    world_stories=recent_stories("חו״ל",3)
     world=[]
-    world_links=[]
-    # Dated Reuters reports, included only for 4 days from publication.
-    if is_recent("2026-10-22",4):
-        world.extend([
-          "עונת דוחות הטכנולוגיה: לפי רויטרס, גם אחרי דוחות Meta וטסלה המשקיעים התמקדו בעלויות הגבוהות של ההשקעות ב־AI ובמועד שבו יתורגמו לתזרים. מניות הטכנולוגיה נחלשו; הדגש קדימה הוא על תחזיות השקעה, שיעורי רווחיות ותזרים חופשי, לא רק על קצב ההכנסות.",
-          "מחירי הנפט והמתיחות האזורית: רויטרס דיווחה כי הברנט טיפס מעל 110 דולר לחבית על רקע מתיחות במזרח התיכון. אם המחיר יישאר גבוה, הוא עשוי להכביד על האינפלציה ולהאט הפחתות ריבית, ובמקביל לשחוק רווחיות של חברות עתירות אנרגיה.",
-          "אג״ח אירופה: המתיחות התקציבית בצרפת הובילה, לפי רויטרס, לעליית תשואות ופרמיית סיכון ביחס לגרמניה. ההתפתחות ממחישה שסיכון פיסקלי יכול להעלות תשואות גם ללא העלאת ריבית מצד הבנק המרכזי."
-        ])
-        world_links=[
-          {"label":"רויטרס — שווקים, 22.10","url":"https://www.reuters.com/world/china/global-markets-global-markets-2026-10-22/"},
-          {"label":"רויטרס — מבט בוקר","url":"https://www.marketscreener.com/news/rattled-by-oil-tech-and-france-ce785cded98af022"}
-        ]
+    world_sources=[]
+    for story in world_stories[:3]:
+        world.append(f'לפי {story["source"]}: {story["title"]}. '
+                     "זו כותרת מתוארכת; לפני ייחוס תנועת מדד לאירוע נדרש אימות נוסף. "
+                     "ההשלכות האפשריות הן דרך רווחיות החברות, ציפיות הריבית או מחירי האנרגיה, בהתאם לאירוע.")
+        world_sources.append({"label":story["source"],"url":story["url"]})
     if not world:
-        for title,publisher,url in find_headlines("חו״ל",2):
-            world.append("לפי "+publisher+": "+title+". "+headline_takeaway(title))
-            world_links.append({"label":publisher,"url":url})
-
-    israel=[]
-    israel_links=[]
-    if is_recent("2026-10-21",4):
-        israel.extend([
-          "החלטת ריבית והבחירות: בנק ישראל עצר את רצף ההפחתות והותיר את הריבית ללא שינוי לפני הבחירות. ההשהיה ממחישה שהחלטת מדיניות אינה נקבעת רק לפי המדד האחרון: ציפיות האינפלציה, פרמיית הסיכון ואי־הוודאות התקציבית נשארות גורמי מפתח.",
-          "הגירעון וצרכי הגיוס: תחזית חטיבת המחקר של בנק ישראל מציגה גירעון ממשלתי של 4.4% תוצר השנה ו־4.6% ב־2027, על רקע אי־ודאות והוצאות ביטחון. גירעון גבוה לאורך זמן עשוי להגביר צורכי גיוס, להשפיע על תשואות אג״ח ממשלתיות ועל היקף המימון הפרטי.",
-          "כלכלה ובחירות: לקראת ההצבעה הקרובה, שאלת הרכב הממשלה והמדיניות הפיסקלית עשויה להשפיע על תמחור הסיכון המקומי. חשוב להפריד בין תנודה קצרת טווח סביב מערכת הבחירות לבין שינוי מתמשך בהערכות הגירעון והצמיחה."
-        ])
-        israel_links=[
-          {"label":"בנק ישראל — החלטת ריבית","url":"https://www.boi.org.il/publications/pressreleases/21-10-26b/"},
-          {"label":"בנק ישראל — תחזית אוקטובר","url":"https://www.boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/"}
-        ]
-    if not israel:
-        for title,publisher,url in find_headlines("ישראל",2):
-            israel.append("לפי "+publisher+": "+title+". "+headline_takeaway(title))
-            israel_links.append({"label":publisher,"url":url})
-
-    if not world:
-        world=["לא נמצא דיווח כלכלי משמעותי מאומת מהיממה האחרונה. נתוני המחירים והריבית מופיעים בנפרד באתר."]
-    if not israel:
-        israel=["לא נמצא דיווח משמעותי מאומת לישראל מהיממה האחרונה. נמנעים מלמחזר כותרות או פרשנות ישנה."]
+        world=["לא זוהה דיווח שוק גלובלי מאומת מהיממה האחרונה במקורות החדשות המחוברים."]
 
     sections=[
-      {"heading":"גלובלי — אירועים מרכזיים","bullets":world[:3],"sources":world_links[:3]},
-      {"heading":"ישראל — מדיניות, בחירות וסיכון","bullets":israel[:3],"sources":israel_links[:3]},
-      {"heading":"מה צפוי להשפיע בהמשך","bullets":[
-          "גלובלי: השילוב של דוחות ענקיות הטכנולוגיה ועלויות האנרגיה יעמוד למבחן מול ציפיות הריבית והתשואות הארוכות. בנתונים הקרובים יש לבדוק תעסוקה, שכר ואינפלציה.",
-          "ישראל: השאלה היא האם אי־הוודאות הפוליטית תיתרגם לשינויים בתוואי הגירעון, במרווחי הסיכון ובשער השקל — או תדעך לאחר הבחירות. אין להסיק כיוון שוק ודאי מהתרחיש."
-      ],"sources":[]}
+        {"heading":"ישראל — בחירות, ביטחון ותקציב","bullets":israel_bullets[:6],
+         "sources":israel_sources[:6]},
+        {"heading":"גלובלי — התפתחויות מרכזיות","bullets":world,
+         "sources":world_sources},
+        {"heading":"כיוון להמשך","bullets":[
+            "בישראל: לבדוק אם חדשות הבחירות והביטחון משנות בפועל את השקל, "
+            "את פרמיית הסיכון, את תשואות האג״ח ואת ציפיות האינפלציה.",
+            "בעולם: להתמקד בהפתעות בנתוני המאקרו, בדוחות החברות "
+            "ובתמחור מסלול הריבית — ולא להסיק כיוון חד־משמעי מהכותרות."
+        ],"sources":[]}
     ]
-    title = "סקירת שווקים · האירועים המרכזיים והמשמעות"
-    takeaway = "המוקדים: עלויות AI ותמחור טכנולוגיה, מחירי אנרגיה, סיכון פיסקלי בישראל וציפיות הריבית. בדיקה מקצועית מחייבת מעקב אחר פרסומים חדשים."
+    title = "סקירת בוקר מתעדכנת: ישראל, גלובלי והשפעות השוק"
+    takeaway = "עדכון יומי: בחירות, ביטחון, תקציב, מאקרו ותמחור סיכונים. ידיעות חדשות מסומנות בנפרד מהערכות סיכון קודמות."
     status = "automatic_conditional"
 else:
     title = "סקירת המאקרו טרם עודכנה"
