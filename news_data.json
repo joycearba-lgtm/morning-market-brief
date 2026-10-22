@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T17:28:31.797711+00:00",
+  "updated_at": "2026-10-22T17:45:43.554545+00:00",
   "status": "ok",
   "items": [
     {
@@ -17,11 +17,18 @@
       "region": "ישראל"
     },
     {
-      "title": "פאלו אלטו מתחזקת 4%, נקסט ויז'ן ב-3%; הירידות במדדים נמשכות - ביזפורטל",
+      "title": "נעילה אדומה - ירידות של 1% במדדי הדגל בלחץ של מניות ה'טנק': רני צים התחזקה ב-5.5% - ביזפורטל",
       "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5FVlpWVmJETVQ4Y3JRN1ZucFVGZUxzLW5IRjAyRGhuLTJ1Tl9rU2w5akRMWF8zVEV2WTlvRENoUTFDVGtJMml6QVFUQlZiREJ5YVUwN2pvUlE1U3pxbUl0OWFjMGhaUmxBSjN2SkQ4NU8?oc=5",
       "source": "ביזפורטל",
       "published_at": "2026-10-22T04:48:00+00:00",
       "region": "ישראל"
+    },
+    {
+      "title": "S&P 500 Forecast: SPX falls, led by tech after Meta, Tesla earnings - StoneX",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPakxVVDI1b0tDV1ozbWZXd29kTFR0VU5QOU9USWFDeWtoWXVfY2dDS3NoWGFmWTNyTkxUQVNCaDVXTjJNSk85SmE5eVVSNlQxbmhVUkZLSTB6R2xiWDJYeE1GM1BHVDhQRGtwN3BlMC1taWlrX0JUYmZockc1c0hKVnV4VWRqLWlZWkZGRDExQjZVQ28tdFJIN2REQVFQSXVhQmMySnptRURVUTU0endoUFNMOGo?oc=5",
+      "source": "StoneX",
+      "published_at": "2026-10-22T17:30:56+00:00",
+      "region": "חו״ל"
     },
     {
       "title": "US Treasury flags possible 5-year note reopening after October 26 auction - Business Upturn",
@@ -32,32 +39,18 @@
     },
     {
       "title": "Wall Street falls as Nasdaq drops 2.2% and Meta shares sink nearly 7% - Business Upturn",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPdnJhb3FXTERfZjllWTdRVkZxam42VEliMzBQa2NJU0p5R2d1a3dUeXVDQThfM28ydXJ6Q1dWaXVDdlprZlVNbTJ0LWdJTzJqT3FZTnFuQ3o2Nl9sUlR2VHBwQXdxNWJsRFZ6Y196ZnhBWTkzQ1pQNVZqUnhiWFotbTVmYzc5V2dteUpyMjNNbEVEck1GSHczUllXVkM4Zk5oWFZuUjJ5SEFQRW1BLXdJUGZVaWpBQlE?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPRTJSME1CU3I4eFpZZkZ1NnBpMUdieTJwbkY4b1FyTFJ2VUoxNGZZTzhYMWZqS1dTZE03R01QLXV4V3J3ZTNieE5NMDlNVFVkTGJobEo4NjVrbkZTR1VWay1FXzJmdy1OemFnZmd2a0Z2M1RLQnZjV1BvTFZTbm9ZUVZPbl8wbGpkNngwVWhVbWJCeW50SW5tUnVCbDE5YnE2amFrb0JLR0ZDa3l2ck12dGw0X0lWSUN1bGdBbQ?oc=5",
       "source": "Business Upturn",
       "published_at": "2026-10-22T15:15:00+00:00",
-      "region": "חו״ל"
-    },
-    {
-      "title": "S&P 500 Forecast: SPX falls, led by tech after Meta, Tesla earnings - FOREX.com",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNbVRzWU15ZG5MSThoMGRyTHhvQzluVnZwbGJYYnAxS05fMGp6R1JUWVpTVnlZSnliWnMyYVhoaUlXbFRrc2tUWjhoclNxdmZ0VlpBZGFoQ1BBNGRBeUF6dDVjYnNaRHNIclBrOHQtMTJnQ29oNG80YURfN1NYMHR6UWRRRE1SS1dWLWEza0xtTzhLMzFSeXhxcHh3eEJWYllHRk1YcEEzZ1djZlh3Tm03alE0YVR2WFZmbDlGMTF0SdIBvwFBVV95cUxNbVRzWU15ZG5MSThoMGRyTHhvQzluVnZwbGJYYnAxS05fMGp6R1JUWVpTVnlZSnliWnMyYVhoaUlXbFRrc2tUWjhoclNxdmZ0VlpBZGFoQ1BBNGRBeUF6dDVjYnNaRHNIclBrOHQtMTJnQ29oNG80YURfN1NYMHR6UWRRRE1SS1dWLWEza0xtTzhLMzFSeXhxcHh3eEJWYllHRk1YcEEzZ1djZlh3Tm03alE0YVR2WFZmbDlGMTF0SQ?oc=5",
-      "source": "FOREX.com",
-      "published_at": "2026-10-22T15:04:09+00:00",
       "region": "חו״ל"
     }
   ],
   "macro_items": [
     {
       "title": "Why is US Stock Market Down Today? Dow Jones Slips 200 Points, S&P 500 Falls 1.25%, Nasdaq Climbs 1.04% as SpaceX Rally, AI Demand & Fed Rate Hike Ahead of Big Tech Earnings — Chec",
-      "link": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxOV2lXZ0dfVUktc0pkZzUxU3BvZlNEVDhRTEFRNTVXbDItLV9kNDQ5WHRsY2JfMzFWSnlqTnhwb0pySXdWSTRkWGQ3bzR4TTBjcW5MS214RHBzLXI5WFpsdnZNdWstc3g5dFh6cGp5SzBQa1o2OUlCaDdqS1VBWGpTeXdzX0dTYjA1cWFpVm1oZG5EY3I4ZlZJeGFoVG9mcEhNaWZseDJoQ3cwM0F3M3hIOGhkWXZ2UU5hcFg4MFNGUkpacjd3VzQ1Vkk0UDRxRjdYRmhaVG5QUVJScWtzNWdSSFZwdThRSzg2bmtYYkhnNVFOT25LenhwenNvUlRFcFJOTlQ0c2hhbkJlS2NqdFItWHpiS1VUMTFiYzkwQ3c3aHF4N3hKY3ZTY2N5cnJMbHB2LXJZZUE2UnlIVE5YWjJCLTc1MThBcEV3am9kVDlnUXRSdm1ERmfSAdYCQVVfeXFMTldpV2dHX1VJLXNKZGc1MVNwb2ZTRFQ4UUxBUTU1V2wyLS1fZDQ0OVh0bGNiXzMxVkp5ak54cG9Kckl3Vkk0ZFhkN280eE0wY3FuTEtteERwcy1yOVhabHZ2TXVrLXN4OXRYenBqeUswUGtaNjlJQmg3aktVQVhqU3l3c19HU2IwNXFhaVZtaGRuRGNyOGZWSXhhaFRvZnBITWlmbHgyaEN3MDNBdzN4SDhoZFl2dlFOYXBYODBTRlJKWnI3d1c0NVZJNFA0cUY3WEZoWlRuUFFSUnFrczVnUkhWcHU4UUs4Nm5rWGJIZzVRTk9uS3p4cHpzb1JURXBSTk5UNHNoYW5CZUtjanRSLVh6YktVVDExYmM5MEN3N2hxeDd4SmN2U2NjeXJyTGxwdi1yWWVBNlJ5SFROWFoyQi03NTE4QXBFd2pvZFQ5Z1F0UnZtREZn?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxPaDFRUVBra1duT1NfZlkybm8ybmJfUlQwdFMwa0E1eXNGMDdjaTNYZjhfVGdvMGhyZVdoZDNTQ1ZEX09BRlNnT2xIYWFKSm9zNk0tSnlldjA2THl2M0pFQmdERkJHU3MwTG9Obm9fTjhFSG4tMWRkeGhMb0JLbkRvQTdTUzN1SFR6WW92UHJoVWhid01aU2FRMHNmdFRNLUIwQ2VjVmRRd2tBZ0Z3LVVIRlUta3l0NU9LbFZEaXBFbjhxZDdlQ21lajdPcnRrZ2NKYmxVdUIxd0U4YjBJcVdRRkZuVEY5b3daazllUGM4SmVMYmNoN2ZfcmZXRElaNkxienplRktNTUFOSFRfSEtWTjVCclJrcXAzRl9fSUdNTWpBMGxNWHBzZmtXZWRsNWtTVEc0ZWpJRGFMdmdsWDZ2LURmY291ZzJ2VDJvVDJGZmjSAdYCQVVfeXFMTldpV2dHX1VJLXNKZGc1MVNwb2ZTRFQ4UUxBUTU1V2wyLS1fZDQ0OVh0bGNiXzMxVkp5ak54cG9Kckl3Vkk0ZFhkN280eE0wY3FuTEtteERwcy1yOVhabHZ2TXVrLXN4OXRYenBqeUswUGtaNjlJQmg3aktVQVhqU3l3c19HU2IwNXFhaVZtaGRuRGNyOGZWSXhhaFRvZnBITWlmbHgyaEN3MDNBdzN4SDhoZFl2dlFOYXBYODBTRlJKWnI3d1c0NVZJNFA0cUY3WEZoWlRuUFFSUnFrczVnUkhWcHU4UUs4Nm5rWGJIZzVRTk9uS3p4cHpzb1JURXBSTk5UNHNoYW5CZUtjanRSLVh6YktVVDExYmM5MEN3N2hxeDd4SmN2U2NjeXJyTGxwdi1yWWVBNlJ5SFROWFoyQi03NTE4QXBFd2pvZFQ5Z1F0UnZtREZn?oc=5",
       "source": "The Sunday Guardian",
-      "published_at": "2026-10-22T16:18:03+00:00",
-      "region": "מאקרו ארה״ב"
-    },
-    {
-      "title": "US Stock Market Today LIVE: Dow Jones Slips 300 Points, S&P 500 Slips 1.27% and Nasdaq Down 2.07% as Price Tops $111, SpaceX & Tech Stocks Slide; Check Latest Wall Street Updates -",
-      "link": "https://news.google.com/rss/articles/CBMivwJBVV95cUxObEhJN0JJQnNpREZEb0tJVEJmV2dLUnZnanhKUjJmekt0VWNRdVY1LWdYVndZMmtLTkhsSWZ6bFhQRXJ3eWNMZXdndktmTnFLRmN2NFYwS2NMRmtsYmlCS200b1NkTXFWcVRFamk1WV95SmdmZm1hQ29xWE9WWE1XbEtNT0NhRTAtUDh2UHRyWlFJNkxjZFNMYUhTMXNiTjRiTmppOURqaGdUbGZMUDdmblM1VVNPRDNGSml0TGQzZGk2ZVdTQzhya0xIX201eW1FS256bEV5cmQxaHg3SjJCdWUwZE1vMUwtVEx1ai1WU3hseXVyclY5cTktWTd6dV9ueVhsMXd5UHJ1cUdTd1RvUFM5OWx2aExTTlNlbnN2aHV1VlNFd2xCdzVMbTNhV083MVM5cFNUbGVxUldyUlpR0gG_AkFVX3lxTE5sSEk3QklCc2lERkRvS0lUQmZXZ0tSdmdqeEpSMmZ6S3RVY1F1VjUtZ1hWd1kya0tOSGxJZnpsWFBFcnd5Y0xld2d2S2ZOcUtGY3Y0VjBLY0xGa2xiaUJLbTRvU2RNcVZxVEVqaTVZX3lKZ2ZmbWFDb3FYT1ZYTVdsS01PQ2FFMC1QOHZQdHJaUUk2TGNkU0xhSFMxc2JONGJOamk5RGpoZ1RsZkxQN2ZuUzVVU09EM0ZKaXRMZDNkaTZlV1NDOHJrTEhfbTV5bUVLbnpsRXlyZDFoeDdKMkJ1ZTBkTW8xTC1UTHVqLVZTeGx5dXJyVjlxOS1ZN3p1X255WGwxd3lQcnVxR1N3VG9QUzk5bHZoTFNOU2Vuc3ZodXVWU0V3bEJ3NUxtM2FXTzcxUzlwU1RsZXFSV3JSWlE?oc=5",
-      "source": "The Sunday Guardian",
-      "published_at": "2026-10-22T14:56:43+00:00",
+      "published_at": "2026-10-22T16:17:58+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
@@ -65,6 +58,13 @@
       "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPY3F1c1Nzc0JHaWxVU2FyTkpZTGVMUXVYc0twRG5pbzZFV2lUN3VxVHdmcmNOcnJNaDV6SmY5anAxbUJjWGtIVjdEdEFNNUFoeHRVNEZkMDYzdFJNb2FxakNUczhtR2tKcUNBT1hzZm5LSlo5NnZnSjAzaFRXeXEzSmREekktTGVKZGRaYXV6ZXhYbURGb2V0OURUNTd3RlEtNlZKZW43NzB2azVhWVAwc3FDOF9yS1IxR05TY25tazNBRzJxd1BRZGlvQ3dqbHZnZTd4ZkE2NFprdURhMldPUTRFVmNMcGNuQ291aW5PenRRa1I3?oc=5",
       "source": "WV News",
       "published_at": "2026-10-22T14:50:00+00:00",
+      "region": "מאקרו ארה״ב"
+    },
+    {
+      "title": "Federal Reserve Outlook Dominates Markets Ahead of Next Policy Decision - kalkine.ca",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPWDN2a2pnaFYyRW9BZW1BaDBLTnp4Y1hMeHFGYjRhRFpweEktUXZYMGNHV0MwU0J6WVZrRmxFZzZyMGdiQ3lwV3JvRl9HTmhwTy1pLWFnY1J0azk4NlV1TXY1VzFPQy1OYUFaOUdHSEVqdzZVa3pWQURlbmFwUVJBaUpHTnRORVNTVW5tR3gzU0VnYlY4cTc1TWMtaVU2ZTlWV1E4REcyYU02Y2lEa3c?oc=5",
+      "source": "kalkine.ca",
+      "published_at": "2026-10-22T14:33:00+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
