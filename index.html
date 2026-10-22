@@ -18,9 +18,40 @@
 .grid .card .daily-change.down{color:#a91926;background:#ffe4e5}
 .grid .card .daily-change.flat{color:#52616a;background:#eef1f3}
 @media(max-width:760px){.grid .card .value{font-size:23px}.grid .card .daily-change{font-size:21px}.grid .card{padding:14px 10px}}
+
+/* Readability refresh: compact quotes, comfortable editorial typography. */
+body{font-size:16px;line-height:1.65}
+.wrap{max-width:980px}
+.section-title h2{font-size:20px;line-height:1.35}
+.grid{gap:8px}
+.grid .card,.grid .card.move-up,.grid .card.move-down{padding:10px 12px;border-right-width:3px;border-radius:11px}
+.grid .card .label{font-size:13px;font-weight:600}
+.grid .card .value{font-size:19px;font-weight:750;margin:3px 0;line-height:1.2}
+.grid .card .daily-change{font-size:16px;font-weight:750;margin:3px 0;padding:2px 5px;border-radius:5px}
+.grid .card .sub{font-size:11px;line-height:1.35}
+#macro-brief .card,#advisor-talking-points .card,#macro-surprises .card{padding:20px 22px}
+#macro-content,#advisor-points{gap:18px!important}
+#macro-content section,#advisor-points section{border-bottom:1px solid var(--line);padding-bottom:14px}
+#macro-content section:last-child,#advisor-points section:last-child{border-bottom:0;padding-bottom:0}
+#macro-content section>strong,#advisor-points section>strong{font-size:17px;line-height:1.45;display:block}
+#macro-content section p,#advisor-points section p{font-size:16px!important;line-height:1.82!important;margin-top:7px!important}
+#macro-brief .sub,#advisor-talking-points .sub,#macro-surprises .sub{font-size:13px;line-height:1.55}
+#macro-surprises #surprise-items{font-size:15px}
+#macro-surprises #surprise-items p,#macro-surprises #surprise-items details{font-size:14px!important;line-height:1.65}
+#macro-surprises #surprise-items details summary{font-size:14px!important}
+#economic-calendar #calendar-events a{font-size:15px!important}
+@media(max-width:760px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .grid .card,.grid .card.move-up,.grid .card.move-down{padding:9px 10px}
+ .grid .card .value{font-size:18px;letter-spacing:-.2px;overflow-wrap:anywhere}
+ .grid .card .daily-change{font-size:16px}
+ .grid .card .sub{font-size:10.5px}
+ #macro-brief .card,#advisor-talking-points .card,#macro-surprises .card{padding:16px 15px}
+ #macro-content section p,#advisor-points section p{font-size:16px!important;line-height:1.85!important}
+}
 </style></head>
 <body><main class="wrap">
-<header class="hero"><div class="brand"><div class="logo">↗</div><div><div class="eyebrow">DAILY MARKET INTELLIGENCE</div><h1>Market Brief</h1><p>סקירת שווקים מקצועית ליועצת ההשקעות</p></div></div><div class="meta"><span class="pill">⏱ 2 דקות קריאה</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill">עדכון מתוכנן: כ־08:12 · שעון ישראל</span></div><div class="actions"><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div></header>
+<header class="hero"><div class="brand"><div class="logo">↗</div><div><div class="eyebrow">DAILY MARKET INTELLIGENCE</div><h1>Market Brief</h1><p>סקירת שווקים מקצועית ליועצת ההשקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill">עדכון מתוכנן: כ־08:12 · שעון ישראל</span></div><div class="actions"><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div></header>
 <div class="notice" id="data-status">טוען את נתוני השוק האחרונים... נתונים שאינם זמינים יסומנו במפורש.</div>
 <div class="section-title"><h2>תמונת מצב מהירה</h2><span></span></div>
 <section class="grid"><article class="card"><div class="label">ת״א-35</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">ת״א-125</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">S&amp;P 500</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Nasdaq</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Dow Jones</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">דולר / שקל</div><div class="value">ממתין לחיבור</div><div class="sub">שער וזמן ציטוט</div></article><article class="card"><div class="label">אג״ח ארה״ב ל־10 שנים</div><div class="value">ממתין לחיבור</div><div class="sub">תשואה אחרונה</div></article><article class="card"><div class="label">נפט WTI</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לחבית</div></article><article class="card"><div class="label">זהב</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לאונקיה</div></article></section>
