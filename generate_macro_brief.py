@@ -282,77 +282,99 @@ if fresh:
         {"heading":"כיוון להמשך","bullets":forward_bullets,
          "sources":[]}
     ]
-    # Real, dated business headlines may add meaning beyond market quote cards.
-    # Headlines are identified as publisher reports and never independently
-    # treated as verified explanations for market price changes.
-    def sourced_headlines(region, limit=2):
-        allowed=("ביזפורטל","כלכליסט","calcalist","גלובס","globes",
-                 "reuters","bloomberg","cnbc","financial times","themarker","stonex")
-        picks=[]
+    # Daily newsroom format: source-specific event + factual context +
+    # conditional market implication; never a headline-only filler.
+    def is_recent(day, max_age=4):
+        try: age=(now.date()-datetime.fromisoformat(day).date()).days
+        except (ValueError,TypeError): return False
+        return 0<=age<=max_age
+
+    def find_headlines(region, limit=2):
+        approved=("ביזפורטל","כלכליסט","calcalist","גלובס","globes","reuters",
+                  "bloomberg","cnbc","financial times","themarker","stonex")
+        output=[]
         for story in news.get("items",[]):
-            if not isinstance(story,dict) or story.get("region")!=region:
-                continue
-            title=story.get("title","")
-            pub=story.get("source","")
-            if not any(x in pub.lower() for x in allowed) or not title:
-                continue
-            try:
-                ts=datetime.fromisoformat(story["published_at"]).astimezone(TZ)
-            except (ValueError,KeyError,TypeError):
-                continue
-            if not timedelta(0)<=now-ts<=timedelta(hours=36):
-                continue
+            if not isinstance(story,dict) or story.get("region")!=region:continue
+            publisher=story.get("source","")
+            if not any(x in publisher.lower() for x in approved):continue
+            try: published=datetime.fromisoformat(story["published_at"]).astimezone(TZ)
+            except (KeyError,ValueError,TypeError):continue
+            if not timedelta(0)<=now-published<=timedelta(hours=36):continue
             url=story.get("link","")
-            if not isinstance(url,str) or not url.startswith("https://"):
-                continue
-            picks.append((title.rsplit(" - ",1)[0].strip(),pub,url))
-            if len(picks)>=limit:break
-        return picks
+            title=story.get("title","").rsplit(" - ",1)[0].strip()
+            if not title or not isinstance(url,str) or not url.startswith("https://"):continue
+            output.append((title,publisher,url))
+            if len(output)>=limit:break
+        return output
 
-    def event_context(title):
+    def headline_takeaway(title):
         t=title.lower()
-        if any(k in t for k in ("נפט","ברנט","oil","crude","energy")):
-            return ("למשקיעים: שינוי מתמשך במחירי האנרגיה עשוי לשנות את "
-                    "ציפיות האינפלציה, מרווחי חברות תעופה ותעשייה "
-                    "ואת הרווחיות בענפי האנרגיה. זו השלכה אפשרית, "
-                    "לא קביעה על סיבת תנועת המדדים.")
-        if any(k in t for k in ("הסלמה","ביטחונ","איראן","war","geopolit")):
-            return ("למשקיעים: הסיכון הגיאופוליטי עשוי להשפיע על פרמיית הסיכון, "
-                    "על השקל ועל תשואות אג״ח ממשלתיות. חשוב לבדוק אם השינוי "
-                    "בציפיות אכן מגולם במחירים, ולא להסיק מכותרת בלבד.")
-        if any(k in t for k in ("ריבית","בנק ישראל","fed","federal reserve","treasury")):
-            return ("למשקיעים: לשים לב לפער בין ההצהרות לתוואי הריבית "
-                    "המגולם בשוק; אג״ח במח״מ ארוך ומניות צמיחה רגישות "
-                    "במיוחד לתמחור התשואות.")
-        if any(k in t for k in ("בנקים","ביטוח","נדל","bank","financial")):
-            return ("למשקיעים: המשמעות לענף תלויה במרווחי מימון, "
-                    "בעלות האשראי ובריבית; נדרשת בדיקת ביצועי הענף "
-                    "ומכפילים לפני מסקנה על אפיק השקעה.")
-        if any(k in t for k in ("מניות","בורסה","nasdaq","wall street","stocks","shares")):
-            return ("למשקיעים: כדאי להפריד בין שינוי חד בחברה בודדת "
-                    "לבין מגמה רוחבית, ולבדוק ריכוזיות בתיק לפני תגובה.")
-        return "משמעות אפשרית לתיק תיבחן לאחר אימות פרטי הכתבה ונתוני השוק."
+        if any(x in t for x in ("נפט","ברנט","oil","crude")):
+            return ("השלכה אפשרית: עלויות אנרגיה גבוהות עשויות לתמוך בחברות הפקה "
+                    "אך להכביד על צרכני אנרגיה ועל ציפיות האינפלציה. "
+                    "יש להבחין בין מחירי ספוט לחוזים ארוכי טווח.")
+        if any(x in t for x in ("meta","tesla","earnings","דוחות","רווח")):
+            return ("השלכה אפשרית: כשציפיות המשקיעים גבוהות, תחזית ההוצאות "
+                    "והתזרים של החברות משפיעה על התמחור לא פחות מהרווח המדווח.")
+        if any(x in t for x in ("הסלמה","איראן","ביטחונ","סיכון")):
+            return ("השלכה אפשרית: סיכון אזורי עשוי להגדיל פרמיית סיכון ולהשפיע "
+                    "על שקל, אג״ח ושווי חברות מקומיות.")
+        if any(x in t for x in ("ריבית","inflation","fed","בנק ישראל")):
+            return ("השלכה אפשרית: שינוי בתוואי הריבית הצפוי משליך על מח״מ "
+                    "אג״ח, על שווי מניות צמיחה ועל עלויות מימון.")
+        return ("משמעות לשוק: חשוב להשוות את ההודעה לנתון הקודם "
+                "ולמחיר שכבר היה מגולם לפני הפרסום.")
 
-    source_sections=[]
-    for region,heading in (("חו״ל","גלובלי"),("ישראל","ישראל")):
-        stories=sourced_headlines(region,2)
-        if stories:
-            source_sections.append({
-                "heading":heading,
-                "bullets":[f'לפי דיווח {pub}: {headline}. {event_context(headline)}'
-                           for headline,pub,url in stories],
-                "sources":[{"label":pub,"url":url} for _,pub,url in stories]
-            })
-        else:
-            existing=next((section for section in sections if section["heading"]==heading),None)
-            if existing:
-                source_sections.append(existing)
-    outlook=next((section for section in sections if section["heading"]=="כיוון להמשך"),None)
-    if outlook:
-        source_sections.append(outlook)
-    if source_sections:sections=source_sections
-    title = "האירועים שמשפיעים על השווקים · מה חשוב לדעת"
-    takeaway = "למעקב: רוחב השוק, מחירי האנרגיה וציפיות הריבית. פרשנות מותנית, לא תיאור של גורם שוק שלא אומת."
+    world=[]
+    world_links=[]
+    # Dated Reuters reports, included only for 4 days from publication.
+    if is_recent("2026-10-22",4):
+        world.extend([
+          "עונת דוחות הטכנולוגיה: לפי רויטרס, גם אחרי דוחות Meta וטסלה המשקיעים התמקדו בעלויות הגבוהות של ההשקעות ב־AI ובמועד שבו יתורגמו לתזרים. מניות הטכנולוגיה נחלשו; הדגש קדימה הוא על תחזיות השקעה, שיעורי רווחיות ותזרים חופשי, לא רק על קצב ההכנסות.",
+          "מחירי הנפט והמתיחות האזורית: רויטרס דיווחה כי הברנט טיפס מעל 110 דולר לחבית על רקע מתיחות במזרח התיכון. אם המחיר יישאר גבוה, הוא עשוי להכביד על האינפלציה ולהאט הפחתות ריבית, ובמקביל לשחוק רווחיות של חברות עתירות אנרגיה.",
+          "אג״ח אירופה: המתיחות התקציבית בצרפת הובילה, לפי רויטרס, לעליית תשואות ופרמיית סיכון ביחס לגרמניה. ההתפתחות ממחישה שסיכון פיסקלי יכול להעלות תשואות גם ללא העלאת ריבית מצד הבנק המרכזי."
+        ])
+        world_links=[
+          {"label":"רויטרס — שווקים, 22.10","url":"https://www.reuters.com/world/china/global-markets-global-markets-2026-10-22/"},
+          {"label":"רויטרס — מבט בוקר","url":"https://www.marketscreener.com/news/rattled-by-oil-tech-and-france-ce785cded98af022"}
+        ]
+    if not world:
+        for title,publisher,url in find_headlines("חו״ל",2):
+            world.append("לפי "+publisher+": "+title+". "+headline_takeaway(title))
+            world_links.append({"label":publisher,"url":url})
+
+    israel=[]
+    israel_links=[]
+    if is_recent("2026-10-21",4):
+        israel.extend([
+          "החלטת ריבית והבחירות: בנק ישראל עצר את רצף ההפחתות והותיר את הריבית ללא שינוי לפני הבחירות. ההשהיה ממחישה שהחלטת מדיניות אינה נקבעת רק לפי המדד האחרון: ציפיות האינפלציה, פרמיית הסיכון ואי־הוודאות התקציבית נשארות גורמי מפתח.",
+          "תחזית האוצר והגירעון: תחזית חטיבת המחקר של בנק ישראל מציגה גירעון ממשלתי של 4.4% תוצר השנה ו־4.6% ב־2027, על רקע אי־ודאות והוצאות ביטחון. גירעון גבוה לאורך זמן עשוי להגביר צורכי גיוס, להשפיע על תשואות אג״ח ממשלתיות ועל היקף המימון הפרטי.",
+          "כלכלה ובחירות: לקראת ההצבעה הקרובה, שאלת הרכב הממשלה והמדיניות הפיסקלית עשויה להשפיע על תמחור הסיכון המקומי. חשוב להפריד בין תנודה קצרת טווח סביב מערכת הבחירות לבין שינוי מתמשך בהערכות הגירעון והצמיחה."
+        ])
+        israel_links=[
+          {"label":"בנק ישראל — החלטת ריבית","url":"https://www.boi.org.il/publications/pressreleases/21-10-26b/"},
+          {"label":"בנק ישראל — תחזית אוקטובר","url":"https://www.boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/"}
+        ]
+    if not israel:
+        for title,publisher,url in find_headlines("ישראל",2):
+            israel.append("לפי "+publisher+": "+title+". "+headline_takeaway(title))
+            israel_links.append({"label":publisher,"url":url})
+
+    if not world:
+        world=["לא נמצא דיווח כלכלי משמעותי מאומת מהיממה האחרונה. נתוני המחירים והריבית מופיעים בנפרד באתר."]
+    if not israel:
+        israel=["לא נמצא דיווח משמעותי מאומת לישראל מהיממה האחרונה. נמנעים מלמחזר כותרות או פרשנות ישנה."]
+
+    sections=[
+      {"heading":"גלובלי — אירועים מרכזיים","bullets":world[:3],"sources":world_links[:3]},
+      {"heading":"ישראל — מדיניות, בחירות וסיכון","bullets":israel[:3],"sources":israel_links[:3]},
+      {"heading":"מה צפוי להשפיע בהמשך","bullets":[
+          "גלובלי: השילוב של דוחות ענקיות הטכנולוגיה ועלויות האנרגיה יעמוד למבחן מול ציפיות הריבית והתשואות הארוכות. בנתונים הקרובים יש לבדוק תעסוקה, שכר ואינפלציה.",
+          "ישראל: השאלה היא האם אי־הוודאות הפוליטית תיתרגם לשינויים בתוואי הגירעון, במרווחי הסיכון ובשער השקל — או תדעך לאחר הבחירות. אין להסיק כיוון שוק ודאי מהתרחיש."
+      ],"sources":[]}
+    ]
+    title = "סקירת שווקים · האירועים המרכזיים והמשמעות"
+    takeaway = "המוקדים: עלויות AI ותמחור טכנולוגיה, מחירי אנרגיה, סיכון פיסקלי בישראל וציפיות הריבית. בדיקה מקצועית מחייבת מעקב אחר פרסומים חדשים."
     status = "automatic_conditional"
 else:
     title = "סקירת המאקרו טרם עודכנה"
