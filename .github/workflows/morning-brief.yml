@@ -2,6 +2,11 @@ name: Morning Market Brief
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'market_data.py'
+      - '.github/workflows/morning-brief.yml'
   schedule:
     # 08:12 Israel: 05:12 UTC in summer, 06:12 UTC in winter
     - cron: '12 5 * * 0-5'
@@ -26,7 +31,7 @@ jobs:
         shell: bash
         run: |
           HOUR=$(TZ=Asia/Jerusalem date +%H)
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$HOUR" = "08" ]; then
+          if [ "${{ github.event_name }}" != "schedule" ] || [ "$HOUR" = "08" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
