@@ -48,7 +48,13 @@ rows=[]
 for record in CATALOGUE:
     obj=(IL if record["region"]=="ישראל" else US).get(record["id"],{})
     if obj.get("status")!="ok" or not isinstance(obj.get("value"),(float,int)):
-        continue
+        # Official Bank of Israel 21 Oct note confirms September 2026 annual CPI at 1.6%.
+        # Use only for this same October release window, not as a permanent substitute.
+        if record["id"]=="israel_cpi_yoy" and NOW.date()<=datetime(2026,11,14).date():
+            obj={"status":"ok","value":1.6,"observation_period":"2026-09",
+                 "source_url":"https://www.boi.org.il/publications/pressreleases/21-10-26b/"}
+        else:
+            continue
     ref=obj.get("observation_period") or obj.get("observation_date","")[:7]
     if ref!=record["period"]:
         continue  # a newer official release arrived; old consensus is no longer comparable
