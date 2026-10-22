@@ -1,27 +1,33 @@
 {
-  "updated_at": "2026-10-21T16:25:20.328761+03:00",
+  "updated_at": "2026-10-22T06:46:03.096314+03:00",
   "source": "Bank of Israel",
   "usd_ils": 3.091,
   "rate_date": "2026-10-21T12:21:09.9484221Z",
   "status": "ok",
   "indices": {
     "S&P 500": {
-      "status": "unavailable",
-      "reason": "Not enough price data",
-      "rows_received": 0,
-      "response_preview": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript t"
+      "status": "ok",
+      "value": 7757.17,
+      "change_percent": 0.58,
+      "source": "Yahoo Finance",
+      "type": "daily_close",
+      "market_time": 1792612800
     },
     "Nasdaq Composite": {
-      "status": "unavailable",
-      "reason": "Not enough price data",
-      "rows_received": 0,
-      "response_preview": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript t"
+      "status": "ok",
+      "value": 26702.86,
+      "change_percent": 1.05,
+      "source": "Yahoo Finance",
+      "type": "daily_close",
+      "market_time": 1792617359
     },
     "Dow Jones": {
-      "status": "unavailable",
-      "reason": "Not enough price data",
-      "rows_received": 0,
-      "response_preview": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript t"
+      "status": "ok",
+      "value": 52856.09,
+      "change_percent": 0.69,
+      "source": "Yahoo Finance",
+      "type": "daily_close",
+      "market_time": 1792615008
     },
     "TA-35": {
       "status": "unavailable"
