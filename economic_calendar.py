@@ -74,6 +74,18 @@ for date in boi_dates:
     add(dt,"החלטת הריבית של בנק ישראל","בנק ישראל",
         "https://www.boi.org.il/roles/monetary-policy/interest-rate-dates/",1)
 
+# Federal Reserve official 2026 FOMC calendar: statement at 14:00 ET.
+# Verified meeting and minutes dates from federalreserve.gov. Eastern time conversion handles DST.
+fed_calendar=[
+    ("2026-10-28 14:00", "החלטת ריבית הפד", 1),
+    ("2026-11-18 14:00", "פרוטוקול ישיבת הפד", 2),
+    ("2026-12-09 14:00", "החלטת ריבית הפד", 1),
+]
+for date,title,priority in fed_calendar:
+    dt=datetime.strptime(date,"%Y-%m-%d %H:%M").replace(tzinfo=NY)
+    add(dt,title,"Federal Reserve",
+        "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",priority)
+
 # Keep only verified today events; otherwise show a concise upcoming list.
 seen=set()
 ordered=[]
