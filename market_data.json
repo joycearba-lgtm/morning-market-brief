@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T06:46:03.096314+03:00",
+  "updated_at": "2026-10-22T06:49:30.579622+03:00",
   "source": "Bank of Israel",
   "usd_ils": 3.091,
   "rate_date": "2026-10-21T12:21:09.9484221Z",
@@ -30,10 +30,16 @@
       "market_time": 1792615008
     },
     "TA-35": {
-      "status": "unavailable"
+      "status": "unavailable",
+      "reason": "query1.finance.yahoo.com: HTTPError: HTTP Error 404: Not Found; query2.finance.yahoo.com: HTTPError: HTTP Error 404: Not Found"
     },
     "TA-125": {
-      "status": "unavailable"
+      "status": "ok",
+      "value": 4106.27,
+      "change_percent": 0.36,
+      "source": "Yahoo Finance",
+      "type": "daily_close",
+      "market_time": 1792592694
     }
   }
 }
