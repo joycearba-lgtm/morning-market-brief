@@ -1,9 +1,14 @@
 {
-  "checked_at": "2026-10-22T12:54:55.637266+03:00",
+  "checked_at": "2026-10-22T12:56:21.085228+03:00",
   "indicators": {
     "israel_cpi_yoy": {
-      "status": "unavailable",
-      "reason": "URLError: <urlopen error timed out>"
+      "status": "ok",
+      "value": 1.6,
+      "unit": "% YoY",
+      "observation_period": "2026-09",
+      "source": "CBS Israel CPI published annual percentage change",
+      "source_url": "https://api.cbs.gov.il/index/data/price?id=120010&last=16&coef=true&format=json&download=false&lang=en",
+      "note": "CBS percentYear field, not calculated from mixed index base series"
     },
     "israel_unemployment": {
       "status": "ok",

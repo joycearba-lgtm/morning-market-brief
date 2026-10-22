@@ -1,8 +1,26 @@
 {
-  "checked_at": "2026-10-22T12:55:07.349641+03:00",
+  "checked_at": "2026-10-22T12:56:23.222459+03:00",
   "status": "ok",
   "method": "Consensus snapshots are dated and independently sourced, never estimated from the official actual.",
   "items": [
+    {
+      "id": "israel_cpi_yoy",
+      "region": "ישראל",
+      "title": "אינפלציה שנתית (CPI)",
+      "period": "2026-09",
+      "released": "2026-10-15",
+      "consensus": 1.8,
+      "forecast_source": "Investing.com economic calendar, Oct 15 2026",
+      "forecast_url": "https://www.investing.com/economic-calendar/israeli-cpi-880",
+      "actual_source": "הלמ״ס",
+      "actual": 1.6,
+      "expected": 1.8,
+      "surprise_pp": -0.2,
+      "unit": "%",
+      "difference_unit": "percentage_points",
+      "actual_url": "https://api.cbs.gov.il/index/data/price?id=120010&last=16&coef=true&format=json&download=false&lang=en",
+      "interpretation": "אינפלציה נמוכה מהצפי עשויה לתמוך בציפיות להקלה מוניטרית; ההשפעה תלויה גם בשקל ובסיכוני האינפלציה."
+    },
     {
       "id": "us_cpi",
       "region": "ארה״ב",
