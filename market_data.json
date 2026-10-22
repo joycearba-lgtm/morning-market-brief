@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T20:59:51.985324+03:00",
+  "updated_at": "2026-10-22T21:00:24.090169+03:00",
   "source": "Bank of Israel",
   "usd_ils": 3.107,
   "rate_date": "2026-10-22T12:22:03.8897022Z",
@@ -7,27 +7,27 @@
   "indices": {
     "S&P 500": {
       "status": "ok",
-      "value": 7652.76,
-      "change_percent": -1.35,
+      "value": 7650.91,
+      "change_percent": -1.37,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691992
+      "market_time": 1792692023
     },
     "Nasdaq Composite": {
       "status": "ok",
-      "value": 26011.11,
-      "change_percent": -2.59,
+      "value": 26002.2,
+      "change_percent": -2.62,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691990
+      "market_time": 1792692021
     },
     "Dow Jones": {
       "status": "ok",
-      "value": 52766.73,
-      "change_percent": -0.17,
+      "value": 52758.79,
+      "change_percent": -0.18,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691992
+      "market_time": 1792692024
     },
     "TA-35": {
       "status": "ok",
@@ -49,19 +49,19 @@
   "commodities": {
     "WTI futures": {
       "status": "ok",
-      "value": 99.86,
-      "change_percent": 2.79,
+      "value": 99.99,
+      "change_percent": 2.92,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691390
+      "market_time": 1792691422
     },
     "Gold futures": {
       "status": "ok",
-      "value": 4061.3,
-      "change_percent": -2.14,
+      "value": 4060.2,
+      "change_percent": -2.16,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691390
+      "market_time": 1792691421
     }
   },
   "treasury_10y": {
@@ -70,6 +70,6 @@
     "change_bps": -18.1,
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
-    "market_time": 1792691083
+    "market_time": 1792691123
   }
 }
