@@ -21,6 +21,14 @@
 דיווחי מאקרו ממקורות חדשות מזוהים והשלכות כלכליות אפשריות; לא אימות של גוף הכתבה או המלצת השקעה. בהיעדר מידע עדכני לא יוצג ניתוח מומצא.
 </p>
 </div></section>
+<section id="advisor-talking-points" style="margin:20px 0">
+ <div class="section-title"><h2>דגשים ליועץ · מה לומר ללקוחות</h2><span></span></div>
+ <div class="card" style="border-right:3px solid #197a70">
+   <p class="sub" id="advisor-status">מכין נקודות לשיחה על בסיס הנתונים האחרונים…</p>
+   <div id="advisor-points" style="display:grid;gap:14px"></div>
+   <p class="sub" style="margin-top:13px;border-top:1px solid #dce5e8;padding-top:10px">ניסוחים לשיחה ולא המלצות קנייה או מכירה; יש להתאים לאופק ההשקעה, לצרכי הנזילות, לסיבולת הסיכון ולמדיניות הבנק.</p>
+ </div>
+</section>
 <section id="market-news" style="margin:22px 0">
 <div class="section-title"><h2>חדשות שווקים – ישראל והעולם</h2><span></span></div>
 <div class="card">
@@ -202,6 +210,50 @@
    }
    pane.append(sec);
  }
+ function renderAdvisor(){
+   const dest=document.getElementById('advisor-points');
+   const note=document.getElementById('advisor-status');
+   if(!dest||!note)return;
+   dest.replaceChildren();
+   const updated=Date.parse(marketData?.updated_at);
+   const age=Date.now()-updated;
+   const fresh=Number.isFinite(updated)&&age>=0&&age<72*3600*1000;
+   note.textContent='נוסחי שיחה מקצועיים · '+(fresh?'לפי נתונים אחרונים זמינים':'נתוני שוק אינם מעודכנים – דגשים כלליים בלבד');
+   function point(title,say,check){
+     const block=document.createElement('div');
+     const h=document.createElement('strong');h.textContent=title;
+     const p=document.createElement('p');p.style.cssText='margin:5px 0;font-size:14px';p.textContent='אפשר לומר ללקוח: ״'+say+'״';
+     const q=document.createElement('p');q.className='sub';q.style.margin='4px 0';q.textContent='שאלת המשך: '+check;
+     block.append(h,p,q);dest.append(block);
+   }
+   point('תנודתיות והקצאת נכסים',
+     'התנודות בטווח הקצר אינן בהכרח שינוי בתוכנית ההשקעה. נבדוק אם הרכב התיק עדיין תואם את מטרותיך ואת רמת הסיכון המתאימה לך.',
+     'האם צפויה משיכה מהתיק בשנה־שנתיים הקרובות?');
+   const treasury=marketData?.treasury_10y;
+   if(fresh&&treasury?.status==='ok'&&typeof treasury.change_bps==='number'&&treasury.change_bps!==0){
+     point('אג״ח, ריבית ומח״מ',
+       treasury.change_bps>0
+       ? 'נרשמה עלייה בתשואת אג״ח ממשלת ארה״ב ל־10 שנים. כאשר תשואות עולות, אג״ח קיימות עלולות לרדת במחיר, בעיקר במח״מ ארוך. נבחן את רגישות התיק לריבית.'
+       : 'נרשמה ירידה בתשואת אג״ח ממשלת ארה״ב ל־10 שנים. ירידת תשואות עשויה לתמוך במחירי אג״ח קיימות, במיוחד במח״מ ארוך, אבל כדאי לבחון את הסיכון הכולל.',
+       'מהו אופק ההשקעה בחלק האג״חי והאם רמת רגישות התיק לריבית מתאימה לך?');
+   }else{
+     point('אג״ח ומח״מ',
+       'השינוי בציפיות הריבית עשוי להשפיע על מחירי האג״ח. נבחן את משך החיים הממוצע של האג״ח בתיק ואת ההתאמה לאופק ההשקעה שלך.',
+       'האם חשובה לך יציבות בטווח הקרוב או שאפשר לספוג תנודתיות?');
+   }
+   const oil=marketData?.commodities?.['WTI futures'];
+   if(fresh&&oil?.status==='ok'&&typeof oil.change_percent==='number'&&Math.abs(oil.change_percent)>=1){
+     point('אנרגיה והשפעתה על אינפלציה',
+       oil.change_percent>0
+       ? 'מחירי חוזי הנפט התחזקו. אם העלייה תימשך, היא עשויה להשפיע על מחירי האנרגיה ועל ציפיות האינפלציה, אך לא בהכרח על אינפלציית הליבה.'
+       : 'מחירי חוזי הנפט נחלשו. אם הירידה תימשך, ייתכן לחץ נמוך יותר מצד האנרגיה, אך חשוב לבחון גם את יתר רכיבי האינפלציה.',
+       'האם לתיק יש חשיפה משמעותית לענפי אנרגיה או לניירות רגישים לאינפלציה?');
+   }else{
+     point('פיזור ומטבע',
+       'תיק שמושקע גם בחו״ל חשוף לא רק למניות ולאג״ח אלא לעיתים גם לשינויי שערי חליפין. נבחן את החשיפה למטבע ואת הצורך בגידור בהתאם למטרות.',
+       'באיזה מטבע צפויות ההוצאות שלך והאם יש צורך בהגנה מפני תנודות בשער החליפין?');
+   }
+ }
  function render(){
    pane.replaceChildren();
    const now=Date.now();
@@ -247,6 +299,7 @@
      }
    }
    addSection('מה לבדוק היום','לוח הפרסומים הרשמי: נתוני אינפלציה ותעסוקה, הודעות הפד ובנק ישראל, ותשואות האג״ח. בכל נתון חשוב להשוות לתחזיות ולא רק לפרסום הקודם.');
+   renderAdvisor();
  }
  try{currentNews=JSON.parse(document.getElementById('news-snapshot').textContent);}catch{}
  try{marketData=JSON.parse(document.getElementById('market-snapshot').textContent);}catch{}
