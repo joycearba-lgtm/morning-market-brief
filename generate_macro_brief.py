@@ -18,6 +18,7 @@ def load(path):
 
 market = load("market_data.json")
 news = load("news_data.json")
+observations = load("macro_indicators.json")
 prior = load("macro_brief.json")
 
 def quote_valid(item, age_days=4):
@@ -74,6 +75,32 @@ if fresh:
     else:
         yield_read = "אין נתון תשואה חדש ומאומת לעשר שנים."
 
+    # Real official macro observations, with their reference periods.
+    official = observations.get("indicators", {})
+    us_lines = []
+    for key, label, maximum_age in [
+        ("us_cpi", "אינפלציית CPI שנתית", 95),
+        ("us_unemployment", "שיעור האבטלה", 95),
+        ("us_real_gdp", "צמיחת תוצר ריאלי, קצב שנתי", 160),
+        ("us_effective_fed_funds", "ריבית אפקטיבית בפועל", 15),
+    ]:
+        entry = official.get(key, {})
+        if entry.get("status") != "ok":
+            continue
+        try:
+            age = (now.date() - datetime.fromisoformat(entry["observation_date"]).date()).days
+        except (TypeError, KeyError, ValueError):
+            continue
+        if not 0 <= age <= maximum_age:
+            continue
+        value = entry.get("value")
+        if not isinstance(value, (int, float)):
+            continue
+        us_lines.append(f'{label}: {value:.2f}% (חודש/תקופת ייחוס עד {entry["observation_date"]})')
+    if us_lines:
+        sections.append(section("ארה״ב — נתוני המאקרו הרשמיים האחרונים",
+           ". ".join(us_lines) + ". אלו תאריכי תצפית, לא מועדי הפרסום. הנתונים אינם משמשים בפני עצמם לחיזוי החלטת הריבית.",
+           [{"label": "FRED — מאגר סדרות כלכליות", "url": "https://fred.stlouisfed.org/"}]))
     sections.append(section("ארה״ב — ריבית, אג״ח ומניות",
         yield_read + " " + market_read + " המבחן המאקרו־כלכלי הוא האם נתוני האינפלציה והתעסוקה הבאים ישנו את ציפיות הריבית.",
         [{"label": "מקור נתוני שוק: Cboe / Yahoo Finance", "url": "https://finance.yahoo.com/quote/%5ETNX/"}]))
@@ -86,7 +113,7 @@ if fresh:
         energy = "חוזי הנפט נחלשו; אם המהלך יימשך, הוא עשוי למתן חלק מלחצי המחירים מצד האנרגיה."
     else:
         energy = "לא התקבל ציטוט נפט עדכני; אין להסיק שינוי בסביבת המחירים."
-    sections.append(section("אינפלציה — סימן חשוב, לא תחזית חדשה",
+    sections.append(section("אינפלציה — סיכוני אנרגיה לעומת הנתונים הרשמיים",
         energy + " שינוי יומי בנפט אינו מחליף נתון CPI או PCE. תחזיות הפד מספטמבר 2026 הן תחזיות במועד פרסומן ואינן מתעדכנות מדי יום.",
         [{"label": "תחזיות הפד (ספטמבר 2026)", "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm"}]))
 
