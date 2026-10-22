@@ -124,7 +124,26 @@ def get_treasury_10y():
         # No made-up or stale values: explicitly flag a source failure.
         return {"status": "unavailable", "reason": str(error)}
 
-result["treasury_10y"] = get_treasury_10y()
+# Prefer the Yahoo chart API already working for the other US indices.
+# ^TNX is quoted as an annual yield percentage, not a bond price.
+tnx = get_index("^TNX")
+if tnx.get("status") == "ok":
+    last_yield = float(tnx["value"])
+    pct_change = float(tnx["change_percent"])
+    previous_yield = last_yield / (1 + pct_change / 100)
+    result["treasury_10y"] = {
+        "status": "ok",
+        "value": last_yield,
+        "change_bps": round((last_yield - previous_yield) * 100, 1),
+        "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
+        "type": "annual_yield_percent",
+        "market_time": tnx.get("market_time"),
+    }
+else:
+    result["treasury_10y"] = get_treasury_10y()
+    if result["treasury_10y"].get("status") != "ok":
+        result["treasury_10y"]["fallback_error"] = tnx.get("reason", "No Yahoo yield quote")
+
 
 with open("market_data.json", "w", encoding="utf-8") as file:
     json.dump(result, file, ensure_ascii=False, indent=2)
