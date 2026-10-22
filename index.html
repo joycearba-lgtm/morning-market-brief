@@ -23,99 +23,66 @@
 </section>
 </main>
 <script>
-const formatValue = value => typeof value === 'number' && Number.isFinite(value)
-  ? value.toLocaleString('en-US',{maximumFractionDigits:2}) : 'נתון לא זמין';
-function setCard(label, item, suffix='') {
-  const card = [...document.querySelectorAll('.grid .card')]
-    .find(card => card.querySelector('.label')?.textContent.trim() === label);
-  if (!card) return;
-  const valueEl = card.querySelector('.value');
-  const subEl = card.querySelector('.sub');
-  if (item?.status === 'ok' && typeof item.value === 'number') {
-    valueEl.textContent = formatValue(item.value) + suffix;
-    const change = typeof item.change_percent === 'number'
-      ? ' | ' + (item.change_percent > 0 ? '+' : '') + item.change_percent.toFixed(2) + '%' : '';
-    subEl.textContent = 'סגירה אחרונה' + change + ' | ' + (item.source || 'מקור לא ידוע');
-  } else {
-    valueEl.textContent = 'נתון לא זמין';
-    subEl.textContent = 'אין נתון מאומת לעדכון הנוכחי';
+(function () {
+  const cards = [...document.querySelectorAll('.grid .card')];
+  function cardFor(label) {
+    return cards.find(card => card.querySelector('.label')?.textContent.trim() === label);
   }
-}
-fetch('./market_data.json?v=' + Date.now())
-  .then(response => {
-    if (!response.ok) throw new Error('Data unavailable');
-    return response.json();
-  })
-  .then(data => {
-    const indices = data.indices || {};
-    window.marketBriefLastData = data;
-    setCard('S&P 500',indices['S&P 500']);
-    setCard('Nasdaq',indices['Nasdaq Composite']);
-    setCard('Dow Jones',indices['Dow Jones']);
-    setCard('ת״א-35',indices['TA-35']);
-    setCard('ת״א-125',indices['TA-125']);
-    const commodities = data.commodities || {};
-    setCard('נפט WTI',commodities['WTI futures'],' 
-    for (const [label, key] of [['נפט WTI','WTI futures'],['זהב','Gold futures']]) {
-      const card = [...document.querySelectorAll('.grid .card')].find(el => el.querySelector('.label')?.textContent.trim() === label);
-      if (card && commodities[key]?.status === 'ok') {
-        card.querySelector('.sub').textContent += label === 'נפט WTI' ? ' | חוזה עתידי, דולר לחבית' : ' | חוזה עתידי, דולר לאונקיה';
+  function showQuote(label, item, suffix = '') {
+    const card = cardFor(label);
+    if (!card) return;
+    const value = card.querySelector('.value');
+    const sub = card.querySelector('.sub');
+    if (item && item.status === 'ok' && typeof item.value === 'number' && Number.isFinite(item.value)) {
+      value.textContent = item.value.toLocaleString('en-US', {maximumFractionDigits: 2}) + suffix;
+      const change = typeof item.change_percent === 'number'
+        ? ' | ' + (item.change_percent >= 0 ? '+' : '') + item.change_percent.toFixed(2) + '%' : '';
+      sub.textContent = 'שער אחרון' + change + ' | ' + (item.source || 'מקור לא ידוע');
+    } else {
+      value.textContent = 'נתון לא זמין';
+      sub.textContent = 'אין נתון מאומת לעדכון הנוכחי';
+    }
+  }
+  fetch('./market_data.json?v=' + Date.now(), {cache:'no-store'})
+    .then(response => {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
+    })
+    .then(data => {
+      const indices = data.indices || {};
+      const commodities = data.commodities || {};
+      showQuote('ת״א-35', indices['TA-35']);
+      showQuote('ת״א-125', indices['TA-125']);
+      showQuote('S&P 500', indices['S&P 500']);
+      showQuote('Nasdaq', indices['Nasdaq Composite']);
+      showQuote('Dow Jones', indices['Dow Jones']);
+      showQuote('נפט WTI', commodities['WTI futures'], ' $');
+      showQuote('זהב', commodities['Gold futures'], ' $');
+      for (const [label, unit] of [['נפט WTI', 'חוזה עתידי, דולר לחבית'], ['זהב', 'חוזה עתידי, דולר לאונקיה']]) {
+        const card = cardFor(label);
+        if (card && card.querySelector('.value').textContent !== 'נתון לא זמין')
+          card.querySelector('.sub').textContent += ' | ' + unit;
       }
-    }
-    const dollar = typeof data.usd_ils === 'number' ? data.usd_ils.toFixed(3) + ' ₪' : 'נתון לא זמין';
-    const dollarCard = [...document.querySelectorAll('.grid .card')]
-      .find(card => card.querySelector('.label')?.textContent.trim() === 'דולר / שקל');
-    if (dollarCard) {
-      dollarCard.querySelector('.value').textContent = dollar;
-      dollarCard.querySelector('.sub').textContent = 'שער יציג אחרון | בנק ישראל';
-    }
-    document.getElementById('usd-rate').textContent = dollar;
-    document.getElementById('usd-info').textContent = 'מקור: בנק ישראל | תאריך פרסום: ' + (data.rate_date || 'לא זמין');
-    const updated = data.updated_at ? new Date(data.updated_at).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
-    document.getElementById('data-status').textContent = 'נתונים אחרונים בקובץ: ' + updated + ' (שעון ישראל). מדדים מוצגים לפי הסגירה הזמינה, לא בזמן אמת. כרטיסים חסרים אינם אומדן.';
-  })
-  .catch(() => {
-    document.getElementById('usd-rate').textContent = 'לא ניתן לטעון נתונים';
-    document.getElementById('data-status').textContent = 'קובץ נתוני השוק אינו זמין כרגע.';
-  });
-</script>
-</body></html>
-);
-    setCard('זהב',commodities['Gold futures'],' 
-    const dollar = typeof data.usd_ils === 'number' ? data.usd_ils.toFixed(3) + ' ₪' : 'נתון לא זמין';
-    const dollarCard = [...document.querySelectorAll('.grid .card')]
-      .find(card => card.querySelector('.label')?.textContent.trim() === 'דולר / שקל');
-    if (dollarCard) {
-      dollarCard.querySelector('.value').textContent = dollar;
-      dollarCard.querySelector('.sub').textContent = 'שער יציג אחרון | בנק ישראל';
-    }
-    document.getElementById('usd-rate').textContent = dollar;
-    document.getElementById('usd-info').textContent = 'מקור: בנק ישראל | תאריך פרסום: ' + (data.rate_date || 'לא זמין');
-    const updated = data.updated_at ? new Date(data.updated_at).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
-    document.getElementById('data-status').textContent = 'נתונים אחרונים בקובץ: ' + updated + ' (שעון ישראל). מדדים מוצגים לפי הסגירה הזמינה, לא בזמן אמת. כרטיסים חסרים אינם אומדן.';
-  })
-  .catch(() => {
-    document.getElementById('usd-rate').textContent = 'לא ניתן לטעון נתונים';
-    document.getElementById('data-status').textContent = 'קובץ נתוני השוק אינו זמין כרגע.';
-  });
-</script>
-</body></html>
-);
-    const dollar = typeof data.usd_ils === 'number' ? data.usd_ils.toFixed(3) + ' ₪' : 'נתון לא זמין';
-    const dollarCard = [...document.querySelectorAll('.grid .card')]
-      .find(card => card.querySelector('.label')?.textContent.trim() === 'דולר / שקל');
-    if (dollarCard) {
-      dollarCard.querySelector('.value').textContent = dollar;
-      dollarCard.querySelector('.sub').textContent = 'שער יציג אחרון | בנק ישראל';
-    }
-    document.getElementById('usd-rate').textContent = dollar;
-    document.getElementById('usd-info').textContent = 'מקור: בנק ישראל | תאריך פרסום: ' + (data.rate_date || 'לא זמין');
-    const updated = data.updated_at ? new Date(data.updated_at).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
-    document.getElementById('data-status').textContent = 'נתונים אחרונים בקובץ: ' + updated + ' (שעון ישראל). מדדים מוצגים לפי הסגירה הזמינה, לא בזמן אמת. כרטיסים חסרים אינם אומדן.';
-  })
-  .catch(() => {
-    document.getElementById('usd-rate').textContent = 'לא ניתן לטעון נתונים';
-    document.getElementById('data-status').textContent = 'קובץ נתוני השוק אינו זמין כרגע.';
-  });
+      const dollar = typeof data.usd_ils === 'number' && Number.isFinite(data.usd_ils)
+        ? data.usd_ils.toFixed(3) + ' ₪' : 'נתון לא זמין';
+      const dollarCard = cardFor('דולר / שקל');
+      if (dollarCard) {
+        dollarCard.querySelector('.value').textContent = dollar;
+        dollarCard.querySelector('.sub').textContent = 'שער יציג אחרון | בנק ישראל';
+      }
+      document.getElementById('usd-rate').textContent = dollar;
+      document.getElementById('usd-info').textContent = 'מקור: בנק ישראל | מועד השער: ' + (data.rate_date || 'לא זמין');
+      const dt = data.updated_at ? new Date(data.updated_at) : null;
+      const updated = dt && !isNaN(dt.getTime())
+        ? dt.toLocaleString('he-IL', {timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
+      document.getElementById('data-status').textContent =
+        'עדכון קובץ: ' + updated + ' (שעון ישראל). הנתונים הם שערים אחרונים זמינים ואינם בזמן אמת.';
+    })
+    .catch(error => {
+      document.getElementById('data-status').textContent =
+        'לא ניתן לטעון נתוני שוק כרגע: ' + error.message;
+      document.getElementById('usd-rate').textContent = 'נתון לא זמין';
+    });
+})();
 </script>
 </body></html>
