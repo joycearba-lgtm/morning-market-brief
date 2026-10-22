@@ -288,7 +288,76 @@ if fresh:
         {"heading":"כיוון להמשך","bullets":forward_bullets,
          "sources":[]}
     ]
-    title = "מה חשוב בשווקים · מעבר למספרים"
+    # Real, dated business headlines may add meaning beyond market quote cards.
+    # Headlines are identified as publisher reports and never independently
+    # treated as verified explanations for market price changes.
+    def sourced_headlines(region, limit=2):
+        allowed=("ביזפורטל","כלכליסט","calcalist","גלובס","globes",
+                 "reuters","bloomberg","cnbc","financial times","themarker")
+        picks=[]
+        for story in news.get("items",[]):
+            if not isinstance(story,dict) or story.get("region")!=region:
+                continue
+            title=story.get("title","")
+            pub=story.get("source","")
+            if not any(x in pub.lower() for x in allowed) or not title:
+                continue
+            try:
+                ts=datetime.fromisoformat(story["published_at"]).astimezone(TZ)
+            except (ValueError,KeyError,TypeError):
+                continue
+            if not timedelta(0)<=now-ts<=timedelta(hours=36):
+                continue
+            url=story.get("link","")
+            if not isinstance(url,str) or not url.startswith("https://"):
+                continue
+            picks.append((title.rsplit(" - ",1)[0].strip(),pub,url))
+            if len(picks)>=limit:break
+        return picks
+
+    def event_context(title):
+        t=title.lower()
+        if any(k in t for k in ("נפט","ברנט","oil","crude","energy")):
+            return ("למשקיעים: שינוי מתמשך במחירי האנרגיה עשוי לשנות את "
+                    "ציפיות האינפלציה, מרווחי חברות תעופה ותעשייה "
+                    "ואת הרווחיות בענפי האנרגיה. זו השלכה אפשרית, "
+                    "לא קביעה על סיבת תנועת המדדים.")
+        if any(k in t for k in ("הסלמה","ביטחונ","איראן","war","geopolit")):
+            return ("למשקיעים: הסיכון הגיאופוליטי עשוי להשפיע על פרמיית הסיכון, "
+                    "על השקל ועל תשואות אג״ח ממשלתיות. חשוב לבדוק אם השינוי "
+                    "בציפיות אכן מגולם במחירים, ולא להסיק מכותרת בלבד.")
+        if any(k in t for k in ("ריבית","בנק ישראל","fed","federal reserve","treasury")):
+            return ("למשקיעים: לשים לב לפער בין ההצהרות לתוואי הריבית "
+                    "המגולם בשוק; אג״ח במח״מ ארוך ומניות צמיחה רגישות "
+                    "במיוחד לתמחור התשואות.")
+        if any(k in t for k in ("בנקים","ביטוח","נדל","bank","financial")):
+            return ("למשקיעים: המשמעות לענף תלויה במרווחי מימון, "
+                    "בעלות האשראי ובריבית; נדרשת בדיקת ביצועי הענף "
+                    "ומכפילים לפני מסקנה על אפיק השקעה.")
+        if any(k in t for k in ("מניות","בורסה","nasdaq","wall street","stocks","shares")):
+            return ("למשקיעים: כדאי להפריד בין שינוי חד בחברה בודדת "
+                    "לבין מגמה רוחבית, ולבדוק ריכוזיות בתיק לפני תגובה.")
+        return "משמעות אפשרית לתיק תיבחן לאחר אימות פרטי הכתבה ונתוני השוק."
+
+    source_sections=[]
+    for region,heading in (("חו״ל","גלובלי"),("ישראל","ישראל")):
+        stories=sourced_headlines(region,2)
+        if stories:
+            source_sections.append({
+                "heading":heading,
+                "bullets":[f'לפי דיווח {pub}: {headline}. {event_context(headline)}'
+                           for headline,pub,url in stories],
+                "sources":[{"label":pub,"url":url} for _,pub,url in stories]
+            })
+        else:
+            existing=next((section for section in sections if section["heading"]==heading),None)
+            if existing:
+                source_sections.append(existing)
+    outlook=next((section for section in sections if section["heading"]=="כיוון להמשך"),None)
+    if outlook:
+        source_sections.append(outlook)
+    if source_sections:sections=source_sections
+    title = "האירועים שמשפיעים על השווקים · מה חשוב לדעת"
     takeaway = "למעקב: רוחב השוק, מחירי האנרגיה וציפיות הריבית. פרשנות מותנית, לא תיאור של גורם שוק שלא אומת."
     status = "automatic_conditional"
 else:
