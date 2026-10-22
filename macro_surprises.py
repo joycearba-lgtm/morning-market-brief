@@ -29,16 +29,16 @@ CATALOGUE=[
   {
     "id":"us_cpi","region":"ארה״ב","title":"אינפלציה שנתית (CPI)",
     "period":"2026-09","released":"2026-10-14",
-    "consensus":3.6,"forecast_source":"Reuters economists' poll before the Oct 14 release",
-    "forecast_url":"https://www.investing.com/news/economic-indicators/hot-september-cpi-sends-ratehike-bets-soaring-4949438",
+    "consensus":3.6,"forecast_source":"Forex Factory release calendar: Oct 14 2026",
+    "forecast_url":"https://www.forexfactory.com/calendar/884-us-cpi-yy",
     "actual_source":"BLS / FRED",
     "impact":"אינפלציה גבוהה מהצפי עשויה לדחוף את ציפיות הריבית כלפי מעלה ולהכביד על אג״ח ארוכות."
   },
   {
     "id":"us_unemployment","region":"ארה״ב","title":"שיעור האבטלה",
     "period":"2026-09","released":"2026-10-02",
-    "consensus":4.1,"forecast_source":"MUFG / Bloomberg contributor consensus, Oct 1 2026",
-    "forecast_url":"https://www.mufgresearch.com/macro/us-labor-update-october-1-2026",
+    "consensus":4.1,"forecast_source":"Investing.com economic calendar, Oct 2 2026",
+    "forecast_url":"https://www.investing.com/economiccalendar/unemployment-rate-300",
     "actual_source":"BLS / FRED",
     "impact":"אבטלה גבוהה מהצפי עשויה להצביע על ריכוך בשוק העבודה, אך נדרשים גם נתוני משרות ושכר."
   }
