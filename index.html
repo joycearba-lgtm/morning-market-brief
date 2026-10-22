@@ -291,7 +291,25 @@ body{font-size:16px;line-height:1.65}
    if(brief.takeaway && !/\\d+(?:[.,]\\d+)?\\s*%/.test(brief.takeaway)){addText(pane,'מוקדי המעקב',brief.takeaway);}
    if(brief.methodology){const m=document.createElement('p');m.className='sub';m.style.cssText='margin:7px 0;font-size:12px';m.textContent=brief.methodology;pane.append(m);}
    advisorStatus.textContent='שלוש נקודות לשיחה על בסיס סקירת המאקרו מ־'+brief.date;
-   (brief.advisor||[]).slice(0,3).forEach((item,i)=>addText(advisor,'נקודה '+(i+1),item));
+   (brief.advisor||[]).slice(0,3).forEach((item,i)=>{
+     if(!item || typeof item!=='object'){ if(typeof item==='string'&&item.trim())addText(advisor,'נקודה '+(i+1),item);return; }
+     const el=document.createElement('section');el.className='advisor-point';
+     const title=document.createElement('strong');title.textContent=(i+1)+'. '+(item.title||'לשיחה עם הלקוח');el.append(title);
+     for(const [label,value] of [['מה חשוב:',item.insight],['למי זה רלוונטי:',item.client_impact]]){
+       if(typeof value!=='string'||!value)continue;
+       const p=document.createElement('p');const bold=document.createElement('strong');bold.textContent=label+' ';
+       p.append(bold,document.createTextNode(value));el.append(p);
+     }
+     if(item.question){
+       const question=document.createElement('p');question.className='advisor-question';
+       const bold=document.createElement('strong');bold.textContent='שאלה ללקוח: ';
+       question.append(bold,document.createTextNode(item.question));el.append(question);
+     }
+     if(item.reference){
+       const ref=document.createElement('small');ref.className='sub';ref.textContent='בסיס: '+item.reference;el.append(ref);
+     }
+     advisor.append(el);
+   });
  }
  try{show(JSON.parse(document.getElementById('editorial-macro').textContent));}catch{}
  fetch('./macro_brief.json?v='+Date.now(),{cache:'no-store'})
