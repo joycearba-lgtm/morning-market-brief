@@ -1,0 +1,68 @@
+{
+  "checked_at": "2026-10-22T11:13:10.334931+03:00",
+  "israel": {
+    "rate_now": {
+      "status": "ok",
+      "value": 3.25,
+      "as_of": "2026-10-22",
+      "source": "Bank of Israel official interest API",
+      "source_url": "https://boi.org.il/PublicApi/GetInterest",
+      "detail": "API rate checked on date shown; not the date of last rate decision"
+    },
+    "rate_1y": {
+      "status": "ok",
+      "value": 3.1,
+      "as_of": "2026-10-19",
+      "source": "BOI: market interest expectations",
+      "source_url": "https://boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/",
+      "detail": "SHIR market based; approximately one year; dated snapshot"
+    },
+    "inflation_1y": {
+      "status": "ok",
+      "value": 1.8,
+      "as_of": "2026-10-19",
+      "source": "BOI: 12 CPI readings from inflation contracts",
+      "source_url": "https://boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/",
+      "detail": "Market-derived next 12 CPI releases; dated snapshot"
+    },
+    "inflation_now": {
+      "status": "ok",
+      "value": 1.6,
+      "as_of": "2026-09",
+      "source": "CBS Israel CPI",
+      "source_url": "https://api.cbs.gov.il/index/data/price?id=120010&last=16&coef=true&format=json&download=false&lang=en",
+      "detail": "Last 12-month CPI change; reference month"
+    }
+  },
+  "us": {
+    "rate_now": {
+      "status": "ok",
+      "value": 4.0,
+      "lower": 3.75,
+      "upper": 4.0,
+      "as_of": "2026-10-21",
+      "source": "Federal Reserve via FRED",
+      "source_url": "https://fred.stlouisfed.org/series/DFEDTARU"
+    },
+    "inflation_now": {
+      "status": "ok",
+      "value": 3.74,
+      "as_of": "2026-09-01",
+      "source": "BLS CPI via FRED",
+      "source_url": "https://fred.stlouisfed.org/series/CPIAUCNS",
+      "detail": "12-month CPI, not PCE"
+    },
+    "inflation_1y": {
+      "status": "ok",
+      "value": 2.98,
+      "as_of": "2026-10-01",
+      "source": "Cleveland Fed model via FRED",
+      "source_url": "https://fred.stlouisfed.org/series/EXPINF1YR",
+      "detail": "One-year expected CPI inflation, model-based, monthly"
+    },
+    "rate_1y": {
+      "status": "unavailable",
+      "reason": "No validated twelve-month-ahead policy rate expectations source"
+    }
+  }
+}
