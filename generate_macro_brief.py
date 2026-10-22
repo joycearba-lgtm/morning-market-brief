@@ -160,51 +160,45 @@ if fresh:
     sections.append(section("תרחישים למשקיעים — מניות, אג״ח ומט״ח",
         risk_view,[{"label":"נתוני ריבית ואינפלציה – FRED", "url":"https://fred.stlouisfed.org/"}]))
 
-    # Three usable conversations: insight, client impact, concrete diagnostic.
-    # Keep them tied to dated validated observations and never recommend a trade.
+    # Advisor-facing short client language, portfolio consequence, and a concrete review.
     advisor=[]
-    il_cpi=observation("israel_cpi_yoy",israel_observations)
-    us_cpi=observation("us_cpi",observations)
-    fed_lo=observation("us_fed_target_lower",observations,14)
-    fed_hi=observation("us_fed_target_upper",observations,14)
-    if il_cpi:
+    if observation("israel_cpi_yoy",israel_observations):
         advisor.append({
-            "title":"האג״ח בתיק: האם ההצמדה עדיין מתאימה?",
-            "insight":"ההתמתנות באינפלציה בישראל אינה מבטיחה הורדת ריבית מיידית. אם התשואות ישתנו, מח״מ ארוך יהיה רגיש יותר, בעוד הגנות הצמדה עשויות להתנהג אחרת.",
-            "client_impact":"לקוח עם צורך בכסף בשנתיים הקרובות חשוף אחרת מלקוח שמשקיע לעשור; גם משקל הצמודות מול השקליות משנה.",
-            "question":"מהו סכום המשיכה הצפוי בשנתיים הקרובות, ומה שיעור האג״ח הארוכות והצמודות בתיק?",
-            "reference":"נתוני הלמ״ס ובנק ישראל; מדד "+il_cpi["observation_period"]
+            "title":"אג״ח: לא להמר על הורדת ריבית קרובה",
+            "insight":"המדד התמתן, אבל הריבית לא ירדה בהחלטה האחרונה. לכן לא נכון להניח שמח״מ ארוך ירוויח מיד מהפחתה.",
+            "client_impact":"באג״ח במח״מ חמש, עליית תשואה של נקודת אחוז עלולה לגרום בקירוב לירידת מחיר של כ־5% לפני קופונים וקמירות. זו המחשה, לא תחזית.",
+            "question":"לבדוק מח״מ משוקלל, מועדי פדיון וכסף שיידרש בשנתיים הקרובות; להשוות חלופות קצרות וארוכות בהתאם לצרכים.",
+            "reference":"החלטת בנק ישראל ומדד ספטמבר 2026"
         })
-    if us_cpi:
+    if observation("us_cpi",observations):
         advisor.append({
-            "title":"חשיפה למניות ארה״ב: האם התיק מרוכז בצמיחה?",
-            "insight":"אינפלציה עיקשת בארה״ב עשויה להקשות על הפחתות ריבית. מניות שתמחורן נשען על רווחים עתידיים רגישות לעיתים יותר לעליית שיעור ההיוון.",
-            "client_impact":"גם תיק שעוקב אחרי מדד רחב עשוי להכיל חשיפה מרוכזת לענקיות טכנולוגיה, בלי שהלקוח מודע לריכוזיות.",
-            "question":"כמה מהחלק המנייתי שלך חשוף לחברות הטכנולוגיה הגדולות, והאם ירידה חדה בענף תשנה את הצורך שלך בנזילות?",
-            "reference":"CPI ארה״ב, תקופת "+us_cpi["observation_date"][:7]
+            "title":"מניות חו״ל: הסיכון הוא גם ריכוזיות",
+            "insight":"גם אם הלקוח מחזיק כמה קרנות, חלקן עשויות להחזיק את אותן מניות טכנולוגיה גדולות. גיוון שמות הקרנות אינו בהכרח גיוון סיכונים.",
+            "client_impact":"אם רכיב הטכנולוגיה מתקן בחדות, כמה קרנות עלולות לרדת יחד, במיוחד כשציפיות הריבית עולות.",
+            "question":"לרכז את עשר ההחזקות הגדולות מכל הקרנות, לחשב חשיפה חופפת ולבדוק התאמה לתקרת הסיכון של הלקוח.",
+            "reference":"ניתוח סיכוני ריכוזיות על רקע סביבת ריבית בארה״ב"
         })
-    dollar=market.get("usd_ils")
-    rate_stamp=market.get("rate_date","")
+    usd_stamp=market.get("rate_date","")
     try:
-        age=now-datetime.fromisoformat(rate_stamp.replace("Z","+00:00")).astimezone(TZ)
+        usd_age=now-datetime.fromisoformat(usd_stamp.replace("Z","+00:00")).astimezone(TZ)
     except (ValueError,TypeError,AttributeError):
-        age=timedelta(days=99)
-    if isinstance(dollar,(int,float)) and timedelta(0)<=age<=timedelta(days=3):
+        usd_age=timedelta(days=99)
+    if timedelta(0)<=usd_age<=timedelta(days=3):
         advisor.append({
-            "title":"השקעות חו״ל: לזהות סיכון מטבעי סמוי",
-            "insight":"תשואה חיובית בדולר עלולה להישחק בשקלים כשהמטבע האמריקאי נחלש. המטבע של הקרן או הבורסה שבה נסחרת אינו בהכרח מטבע החשיפה הכלכלית.",
-            "client_impact":"לקוח שהוצאותיו הקרובות בשקלים עשוי להזדקק לפיזור שונה מלקוח שיש לו התחייבויות בדולרים.",
-            "question":"באיזה מטבע יהיו ההוצאות הגדולות שלך בשלוש השנים הקרובות, ומה שיעור החשיפה הלא־מגודרת למט״ח?",
-            "reference":"שער יציג בנק ישראל, "+rate_stamp[:10]
+            "title":"מט״ח: תשואה דולרית אינה תשואה שקלית",
+            "insight":"עלייה של 5% בנכס דולרי לצד היחלשות של 5% בדולר מול השקל משמעה תשואה שקלית של כ־0.25%−, לפני עלויות.",
+            "client_impact":"לקוח עם הוצאות קרובות בשקלים עשוי להיות חשוף להפסד מטבעי גם כאשר ההשקעה עצמה עולה.",
+            "question":"למפות הוצאות והתחייבויות לפי מטבע, לחשב חשיפה לא־מגודרת ולבחון האם גידור מתאים לאחר עלויות.",
+            "reference":"המחשה חישובית והנתון היציג האחרון של בנק ישראל"
         })
-    fallbacks=[
-        {"title":"סיכון מח״מ","insight":"עליית תשואות מורידה את מחירן של אג״ח קיימות; הרגישות עולה עם המח״מ.","client_impact":"צרכי נזילות קצרים עלולים להתנגש עם החזקה במח״מ ארוך.","question":"מתי צפויה המשיכה הבאה ומה המח״מ המשוקלל בתיק?","reference":"ניתוח עקרוני"},
-        {"title":"ריכוז מנייתי","insight":"מדד רחב עשוי לכלול ריכוז גבוה בחברות ענק.","client_impact":"פיזור בין קרנות שונות אינו מבטיח פיזור בחשיפה הכלכלית.","question":"מהו משקל עשר המניות הגדולות בתיק מכל הקרנות יחד?","reference":"ניתוח עקרוני"},
-        {"title":"חשיפה מטבעית","insight":"תנודות מט״ח משפיעות על התשואה במונחי שקל.","client_impact":"פער בין מטבע ההשקעה למטבע ההוצאות מוסיף אי־ודאות.","question":"איזה חלק מההוצאות העתידיות שלך נקוב בשקלים ומהי החשיפה הלא־מגודרת?","reference":"ניתוח עקרוני"}
+    fallback=[
+       {"title":"אג״ח: להבין את רגישות המח״מ","insight":"רווח ממחיר אג״ח תלוי בשינוי התשואות, לא רק בגובה הריבית הנוכחית.","client_impact":"באג״ח במח״מ חמש, שינוי תשואה של נקודת אחוז משנה את המחיר בקירוב בכ־5% בכיוון ההפוך.","question":"לחשב מח״מ והפסד תרחישי ולבחון התאמה לנזילות.","reference":"המחשה פיננסית"},
+       {"title":"מניות: לבדוק חפיפה בקרנות","insight":"קרנות מדד שונות עשויות להחזיק את אותן מניות מובילות.","client_impact":"קורלציה גבוהה יכולה ליצור ריכוזיות לא מתוכננת.","question":"לחשב חפיפה ועשר החזקות גדולות בתיק המאוחד.","reference":"המחשה פיננסית"},
+       {"title":"מט״ח: לבחון מטבע מול התחייבויות","insight":"תשואת ההשקעה בשקלים תלויה גם בשער החליפין.","client_impact":"לקוח שמוציא שקלים עלול לחוות תנודתיות מטבעית משמעותית.","question":"למפות הוצאות לפי מטבע ולבדוק רמת גידור רצויה.","reference":"המחשה פיננסית"}
     ]
-    for item in fallbacks:
+    for row in fallback:
         if len(advisor)>=3:break
-        if not any(x["title"]==item["title"] for x in advisor):advisor.append(item)
+        advisor.append(row)
     advisor=advisor[:3]
     # Insight-only trading-desk note. Market quotations and macro levels are already
     # displayed elsewhere on the page. No duplicate numbers or invented events.
@@ -293,7 +287,7 @@ if fresh:
     # treated as verified explanations for market price changes.
     def sourced_headlines(region, limit=2):
         allowed=("ביזפורטל","כלכליסט","calcalist","גלובס","globes",
-                 "reuters","bloomberg","cnbc","financial times","themarker")
+                 "reuters","bloomberg","cnbc","financial times","themarker","stonex")
         picks=[]
         for story in news.get("items",[]):
             if not isinstance(story,dict) or story.get("region")!=region:
