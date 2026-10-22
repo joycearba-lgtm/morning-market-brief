@@ -86,9 +86,9 @@ result["indices"]["S&P 500"] = get_index("^GSPC")
 result["indices"]["Nasdaq Composite"] = get_index("^IXIC")
 result["indices"]["Dow Jones"] = get_index("^DJI")
 
-# Israeli indices require a separately verified data source.
-result["indices"]["TA-35"] = {"status": "unavailable"}
-result["indices"]["TA-125"] = {"status": "unavailable"}
+# Israeli indices - Yahoo Finance delayed EOD quotes; missing responses remain unavailable.
+result["indices"]["TA-35"] = get_index("^TA35.TA")
+result["indices"]["TA-125"] = get_index("^TA125.TA")
 
 with open("market_data.json", "w", encoding="utf-8") as file:
     json.dump(result, file, ensure_ascii=False, indent=2)
