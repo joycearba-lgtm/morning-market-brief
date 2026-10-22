@@ -12,6 +12,7 @@ on:
       - 'israel_macro_data.py'
       - 'forecast_data.py'
       - 'economic_calendar.py'
+      - 'macro_surprises.py'
       - '.github/workflows/morning-brief.yml'
   schedule:
     # Israel 08:12: use 05:12 UTC (summer) / 06:12 UTC (winter)
@@ -62,6 +63,10 @@ jobs:
         if: steps.israel_time.outputs.run == 'true'
         run: python forecast_data.py
 
+      - name: Build actual-versus-forecast comparisons
+        if: steps.israel_time.outputs.run == 'true'
+        run: python macro_surprises.py
+
       - name: Build macro release calendar
         if: steps.israel_time.outputs.run == 'true'
         run: python economic_calendar.py
@@ -75,7 +80,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add market_data.json news_data.json macro_indicators.json israel_macro.json forecast_data.json economic_calendar.json macro_brief.json index.html
+          git add market_data.json news_data.json macro_indicators.json israel_macro.json forecast_data.json economic_calendar.json macro_surprises.json macro_brief.json index.html
           if ! git diff --cached --quiet; then
             git commit -m "Update morning market data"
             git pull --rebase
