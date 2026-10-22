@@ -19,6 +19,7 @@ def load(path):
 market = load("market_data.json")
 news = load("news_data.json")
 observations = load("macro_indicators.json")
+israel_observations = load("israel_macro.json")
 prior = load("macro_brief.json")
 
 def quote_valid(item, age_days=4):
@@ -97,6 +98,10 @@ if fresh:
         if not isinstance(value, (int, float)):
             continue
         us_lines.append(f'{label}: {value:.2f}% (חודש/תקופת ייחוס עד {entry["observation_date"]})')
+    low=official.get("us_fed_target_lower",{})
+    high=official.get("us_fed_target_upper",{})
+    if low.get("status")=="ok" and high.get("status")=="ok":
+        us_lines.insert(0, "טווח יעד הפד: " + str(low.get("value")) + "%–" + str(high.get("value")) + "%; תצפית " + str(high.get("observation_date")))
     if us_lines:
         sections.append(section("ארה״ב — נתוני המאקרו הרשמיים האחרונים",
            ". ".join(us_lines) + ". אלו תאריכי תצפית, לא מועדי הפרסום. הנתונים אינם משמשים בפני עצמם לחיזוי החלטת הריבית.",
@@ -117,6 +122,15 @@ if fresh:
         energy + " שינוי יומי בנפט אינו מחליף נתון CPI או PCE. תחזיות הפד מספטמבר 2026 הן תחזיות במועד פרסומן ואינן מתעדכנות מדי יום.",
         [{"label": "תחזיות הפד (ספטמבר 2026)", "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm"}]))
 
+    domestic=[]
+    for key,label in [("israel_cpi_yoy","אינפלציה שנתית בישראל"),("israel_unemployment","שיעור האבטלה בישראל")]:
+        entry=israel_observations.get("indicators",{}).get(key,{})
+        if entry.get("status")=="ok" and isinstance(entry.get("value"),(int,float)):
+            domestic.append(label + ": " + str(entry["value"]) + "% (תקופת ייחוס " + str(entry.get("observation_period")) + ")")
+    if domestic:
+        sections.append(section("ישראל — נתוני מאקרו בפועל",
+            ". ".join(domestic)+". אלו תאריכי תצפית, לא תאריכי פרסום.",
+            [{"label":"מקור נתוני ישראל: הלמ״ס / OECD", "url":"https://www.cbs.gov.il/"}]))
     sections.append(section("ישראל — מדיניות מוניטרית וגורמי סיכון",
         "בהחלטת 21 באוקטובר הותיר בנק ישראל את הריבית על 3.25%. בתחזית אוקטובר צפה הבנק אינפלציה של 2.1% ב־2027 וריבית ממוצעת של 3.0% ברבעון השלישי של 2027. אלו תחזיות ישנות ביחס למועד הסקירה, ולא החלטה חדשה היום. יש לעקוב אחר השקל, אנרגיה ופרמיית הסיכון.",
         [{"label": "החלטת בנק ישראל (21.10)", "url": "https://www.boi.org.il/publications/pressreleases/21-10-26b/"},
