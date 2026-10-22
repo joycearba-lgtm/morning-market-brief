@@ -14,6 +14,8 @@ MAX_AGE = timedelta(hours=52)
 FEEDS = [
     ("ישראל", "בורסה תל אביב ריבית בנק ישראל מניות שוק ההון when:2d", "he", "IL", "IL:he"),
     ("חו״ל", "stocks Wall Street Federal Reserve Treasury inflation earnings when:2d", "en-US", "US", "US:en"),
+    ("מאקרו ארה״ב", "Federal Reserve inflation CPI PCE employment GDP treasury yields macroeconomy when:2d", "en-US", "US", "US:en"),
+    ("מאקרו ישראל", "בנק ישראל אינפלציה מדד המחירים לצרכן ריבית צמיחה אבטלה גירעון when:2d", "he", "IL", "IL:he"),
 ]
 MARKET_TERMS = re.compile(
     r"בורסה|מניות|שוק ההון|ריבית|אינפלצי|אג״ח|שקל|דולר|בנק ישראל|מדד|"
@@ -73,14 +75,16 @@ def collect_news(group, query, language, country, edition):
             break
     return selected
 
-news = {"updated_at": NOW.isoformat(), "status": "unavailable", "items": [], "errors": []}
+news = {"updated_at": NOW.isoformat(), "status": "unavailable", "items": [], "macro_items": [], "errors": []}
 for args in FEEDS:
     try:
-        news["items"].extend(collect_news(*args))
+        stories = collect_news(*args)
+        key = "macro_items" if args[0].startswith("מאקרו") else "items"
+        news[key].extend(stories)
     except Exception as error:
         news["errors"].append(args[0] + ": " + type(error).__name__)
 
-if news["items"]:
+if news["items"] or news["macro_items"]:
     news["status"] = "ok"
 
 with open("news_data.json", "w", encoding="utf-8") as file:
@@ -88,7 +92,7 @@ with open("news_data.json", "w", encoding="utf-8") as file:
 
 # Store the last successful briefing in the HTML itself as an offline-safe snapshot.
 # If this update fails, leave the previous stories (with original published dates) alone.
-if news["items"]:
+if news["items"] or news["macro_items"]:
     from pathlib import Path
     page = Path("index.html")
     if page.exists():
