@@ -269,7 +269,7 @@ body{font-size:16px;line-height:1.65}
        const heading=document.createElement('h3');heading.textContent=section.heading;
        heading.style.cssText='font-size:19px;margin:0 0 8px;font-weight:800;text-decoration:underline;text-underline-offset:5px';
        const list=document.createElement('ul');list.style.cssText='padding:0 20px 0 0;margin:7px 0 8px;display:grid;gap:11px';
-       for(const item of section.bullets.slice(0,4)){
+       for(const item of section.bullets.slice(0,6)){
          if(typeof item!=='string' || !item.trim())continue;
          const li=document.createElement('li');li.style.cssText='font-size:16px;line-height:1.78;padding-right:3px';
          const boundary=item.indexOf(' — ');
