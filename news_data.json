@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T10:17:20.937886+00:00",
+  "updated_at": "2026-10-22T10:25:14.693051+00:00",
   "status": "ok",
   "items": [
     {
@@ -24,13 +24,6 @@
       "region": "ישראל"
     },
     {
-      "title": "S&P 500 Nears 8,000: Can Mega-Cap Earnings Sustain the Rally? - KuCoin",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5LS3VINnpGdDBmOHJKbE52VUR5enJOSlJUV2hUV3F2eWtHM3FjSWs5bmRzOW1JdjhjTkRVdy1ZWWg3ak1Idi1nQkNuY05UdUNhaTkzOWFqdHl3LUQyTm5HMGlQS0N0SjVsVkwxQU1B?oc=5",
-      "source": "KuCoin",
-      "published_at": "2026-10-22T07:53:00+00:00",
-      "region": "חו״ל"
-    },
-    {
       "title": "FTSE 100 set to fall as Asian technology stocks plunge - Share Talk",
       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPeVlsYzh1VHNrcW5xbDh0eUd5OWUzTXR4MWNTWUp3OG9Td1JsVFVydEtVTjNudUh3MDZmVXpvVjVqZWo3UUV1dHdFdk1BNEpOaWhUaU5GUk1PcWMzbEpiT0R2WDlqaWczOHd5cWZJWVJxS0hXTnN2d2ZYb01hVXp5dEhIbGxSdWQ2blE?oc=5",
       "source": "Share Talk",
@@ -43,9 +36,23 @@
       "source": "StoneX",
       "published_at": "2026-10-22T04:19:56+00:00",
       "region": "חו״ל"
+    },
+    {
+      "title": "Asian Stocks Rally 1.1% as Earnings Lift Sentiment, NextDC Collapse Revives AI Investment Fears - Tekedia",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPRTY0M2FDb2xLVWlOV2h6Z19TV0pJdURZTG5rMmNBN1pna1J3LXpDaWJlX0NseW4xa0xsYjJ6andEeVFSWlZEYW9SYjhSNGp6N193VnR3LWliVzVweVlwQzlINnRiMU02RDdGQ1Q3OFB4ODdVcS14aEYyZXdDM1VKU2hXbkEzOVdrM09rTVlIUUZ1elctVG8xVHVnUENvWjZoNFE2SlFxR0QyTFNiRERGZlJwcHZBb1JpYmc?oc=5",
+      "source": "Tekedia",
+      "published_at": "2026-10-22T04:09:05+00:00",
+      "region": "חו״ל"
     }
   ],
   "macro_items": [
+    {
+      "title": "Could oil at $120 trigger another global inflation shock? - Economies.com",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxON1huSlJrNExjRTU1UF9vUG10WGhyd1JUODg4S3JrYm1mR3NwMGdkWUtNYng5UU9ibExJcDdYY1QzRTV2NXRzTnZHWFFzWlVpS05zWE4yM0h2OTRYcEJqbHpTS185cUMzRThXbERNTkN3V2Zfbm1LaEhPdlIxaUNSeFV2ZUlSZzA2UDhaZjVtdWIyWGpHZmwzdUxicDNrM3N6WUhQUW01R09VQ1VZdjh2LQ?oc=5",
+      "source": "Economies.com",
+      "published_at": "2026-10-22T10:03:00+00:00",
+      "region": "מאקרו ארה״ב"
+    },
     {
       "title": "Nexo: Federal Reserve Decisions Put Crypto Market Recovery to the Test - Bitcoin News",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNOEhHTWpSZ0M2TTdaMl8tMVg1aEhqcE1EZ3FZdkNMUGo0SlYyWHNCcGlFbW1FMXljN1RVN3hHQzBZTExqaHRhaVp4YVFxRGZMRFVtYTQ2MWoyV1p1eFg3VW54RXFwMGRFUl80Ulp5SWNvZG51YTRhMjFybzlDelVXU1FGbkZkMXZnU1ZEZWgzX3hGaG1GTFNKT3FtQllzSDgyUTB0MWZZZw?oc=5",
@@ -58,13 +65,6 @@
       "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxObThZSWZpdEcySlhDYVdkeEVzOElQYkItb1Y0R3loZmxQRlpTTUFGWUVJa1B3bW1pNFhzaWdYS2dwSW5YdVpRRGxRTENXNGpJcGRIYndzUjVVNTdqV1pkaGFpWWswY1dNV1FQUzdYWW9uMURvay0xTW83QkVwTFlqaTE5UWhtLXdSMjNweWNhWjRvdkFlczBTSmcwQ25HR0N4TUpnQ0tyb0ZpWXd2T3ZjYzBPZGpoMFNhMTFIT015Unk4TmVjVHZyaGcwTDVBXzRMV3RuTXdod01CS0JxZkVsVnlKYzlDMHFzNnpwOdIB8gFBVV95cUxQYl9RaVAzTW54Wlo5a0RlT2VqQTBJSlBId2dtZEZmd3dEUUFZUUtVbG5RUHFIQjRuMlF6WS1sNmR0M05ad1c2Z3VBVHhiS190MXF2Zm5sQm0wa1dpcjdoUXJOTlowaDBuU2pUaTVTQmZsSFdsOVVwSHNZUW1vaXo4b2ZzVGhZX0FvMVlmQW01MG1fcEtLc0Q5Yk9ObEhWYTIycUluWGt2MjB4QXhhWFgwTHFKMEtjZmd1UTg3UE1HSVpoMVF4bW5adDg2T1lJaVVSaFZTVGxpSThCV1ZpdVNNNlZIaldwOXdwbzlFUU9NaURtUQ?oc=5",
       "source": "The Economic Times",
       "published_at": "2026-10-22T08:49:00+00:00",
-      "region": "מאקרו ארה״ב"
-    },
-    {
-      "title": "The Inflation Nemesis—More Fed Rate Hikes Are Coming - Cabot Wealth Network",
-      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZkdNWlNnTHI1dUJKWTBnaG9PbVl0dXpkVW8tcjJsS3Y5S1hGVlR5Ukh1d3JBVEQ4ajE5aVEybDhyMkVYbVhUT3NJSTQwUVRwUkI3WVZkMHRJSGtCYWpsR2RaaEJZZlQ4VnVZY2NfaG9XR3FqQTJOWVpDZlBab19UeE1n?oc=5",
-      "source": "Cabot Wealth Network",
-      "published_at": "2026-10-22T06:00:00+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
