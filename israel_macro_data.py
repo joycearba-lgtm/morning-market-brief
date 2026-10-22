@@ -20,11 +20,11 @@ def get(url):
 
 def parse_date(text):
     text=str(text or "").strip()
-    if re.fullmatch(r"\\d{4}-\\d{2}(-\\d{2})?",text):
+    if re.fullmatch(r"[0-9]{4}-[0-9]{2}(-[0-9]{2})?",text):
         return text[:7]
-    if re.fullmatch(r"\\d{2}-\\d{4}",text):
+    if re.fullmatch(r"[0-9]{2}-[0-9]{4}",text):
         return text[3:]+"-"+text[:2]
-    if re.fullmatch(r"\\d{6}",text):
+    if re.fullmatch(r"[0-9]{6}",text):
         return text[:4]+"-"+text[4:]
     return None
 
