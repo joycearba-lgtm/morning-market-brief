@@ -106,4 +106,20 @@ except Exception as e:
 us["rate_1y"]={"status":"unavailable","reason":"No validated twelve-month-ahead policy rate expectations source"}
 
 Path("forecast_data.json").write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
+# Embed a fall-back snapshot for GitHub Pages browsers that cannot fetch a separate JSON.
+try:
+    page=Path("index.html")
+    if page.exists():
+        html=page.read_text(encoding="utf-8")
+        start="<!-- FORECAST_SNAPSHOT_START -->"
+        end="<!-- FORECAST_SNAPSHOT_END -->"
+        if start in html and end in html:
+            payload=json.dumps(out,ensure_ascii=False,separators=(",",":")).replace("<","\\u003c")
+            replacement=start+'\n<script type="application/json" id="forecast-snapshot">'+payload+'</script>\n'+end
+            prefix,rest=html.split(start,1)
+            _,suffix=rest.split(end,1)
+            page.write_text(prefix+replacement+suffix,encoding="utf-8")
+except Exception as error:
+    print("Forecast snapshot warning:",type(error).__name__)
+
 print("Forecast availability:",{r:{k:v.get("status") for k,v in t.items()} for r,t in (("IL",isra),("US",us))})
