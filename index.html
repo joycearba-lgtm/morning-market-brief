@@ -22,6 +22,9 @@
   <p id="usd-info" style="color:#667785">מקור: בנק ישראל</p>
 </section>
 </main>
+<!-- MARKET_SNAPSHOT_START -->
+<script id="market-snapshot" type="application/json">{"updated_at":"2026-10-22T07:47:53.486715+03:00","source":"Bank of Israel","usd_ils":3.091,"rate_date":"2026-10-21T12:21:09.9484221Z","status":"ok","indices":{"S&P 500":{"status":"ok","value":7757.17,"change_percent":0.58,"source":"Yahoo Finance","type":"daily_close","market_time":1792614681},"Nasdaq Composite":{"status":"ok","value":26702.86,"change_percent":1.05,"source":"Yahoo Finance","type":"daily_close","market_time":1792617359},"Dow Jones":{"status":"ok","value":52856.09,"change_percent":0.69,"source":"Yahoo Finance","type":"daily_close","market_time":1792615008},"TA-35":{"status":"ok","value":4212.13,"change_percent":-0.05,"source":"Yahoo Finance","type":"daily_close","market_time":1792592693},"TA-125":{"status":"ok","value":4106.27,"change_percent":0.36,"source":"Yahoo Finance","type":"daily_close","market_time":1792592694}},"commodities":{"WTI futures":{"status":"ok","value":98.56,"change_percent":1.45,"source":"Yahoo Finance","type":"daily_close","market_time":1792643862},"Gold futures":{"status":"ok","value":4106.3,"change_percent":-1.05,"source":"Yahoo Finance","type":"daily_close","market_time":1792643872}}}</script>
+<!-- MARKET_SNAPSHOT_END -->
 <script>
 (function () {
   const cards = [...document.querySelectorAll('.grid .card')];
@@ -43,12 +46,7 @@
       sub.textContent = 'אין נתון מאומת לעדכון הנוכחי';
     }
   }
-  fetch('./market_data.json?v=' + Date.now(), {cache:'no-store'})
-    .then(response => {
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      return response.json();
-    })
-    .then(data => {
+  function renderData(data) {
       const indices = data.indices || {};
       const commodities = data.commodities || {};
       showQuote('ת״א-35', indices['TA-35']);
@@ -77,11 +75,22 @@
         ? dt.toLocaleString('he-IL', {timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
       document.getElementById('data-status').textContent =
         'עדכון קובץ: ' + updated + ' (שעון ישראל). הנתונים הם שערים אחרונים זמינים ואינם בזמן אמת.';
+  }
+  try {
+    const snapshotElement = document.getElementById('market-snapshot');
+    if (snapshotElement) renderData(JSON.parse(snapshotElement.textContent));
+  } catch (error) {
+    document.getElementById('data-status').textContent = 'נתוני הדף אינם זמינים';
+  }
+  fetch('./market_data.json?v=' + Date.now(), {cache:'no-store'})
+    .then(response => {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
     })
+    .then(renderData)
     .catch(error => {
-      document.getElementById('data-status').textContent =
-        'לא ניתן לטעון נתוני שוק כרגע: ' + error.message;
-      document.getElementById('usd-rate').textContent = 'נתון לא זמין';
+      // Keep the embedded snapshot displayed when network fetching fails.
+      console.warn('Market JSON refresh unavailable:', error);
     });
 })();
 </script>
