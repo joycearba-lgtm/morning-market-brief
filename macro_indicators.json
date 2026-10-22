@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-10-22T10:12:12.214347+03:00",
+  "status": "ok",
+  "indicators": {
+    "us_cpi": {
+      "status": "ok",
+      "name": "US CPI, not seasonally adjusted",
+      "value": 3.74,
+      "units": "% YoY",
+      "observation_date": "2026-09-01",
+      "source": "FRED / official US statistical agencies",
+      "source_url": "https://fred.stlouisfed.org/series/CPIAUCNS",
+      "series_id": "CPIAUCNS",
+      "change_from_previous": null,
+      "frequency": "monthly"
+    },
+    "us_unemployment": {
+      "status": "ok",
+      "name": "US unemployment rate, seasonally adjusted",
+      "value": 4.2,
+      "units": "%",
+      "observation_date": "2026-09-01",
+      "source": "FRED / official US statistical agencies",
+      "source_url": "https://fred.stlouisfed.org/series/UNRATE",
+      "series_id": "UNRATE",
+      "change_from_previous": 0.1,
+      "frequency": "monthly"
+    },
+    "us_real_gdp": {
+      "status": "ok",
+      "name": "US real GDP, quarterly seasonally adjusted annual rate",
+      "value": 2.22,
+      "units": "% QoQ annualized",
+      "observation_date": "2026-04-01",
+      "source": "FRED / official US statistical agencies",
+      "source_url": "https://fred.stlouisfed.org/series/GDPC1",
+      "series_id": "GDPC1",
+      "change_from_previous": null,
+      "frequency": "quarterly"
+    },
+    "us_effective_fed_funds": {
+      "status": "ok",
+      "name": "US effective federal funds rate, daily",
+      "value": 3.88,
+      "units": "%",
+      "observation_date": "2026-10-20",
+      "source": "FRED / official US statistical agencies",
+      "source_url": "https://fred.stlouisfed.org/series/DFF",
+      "series_id": "DFF",
+      "change_from_previous": 0.0,
+      "frequency": "daily"
+    }
+  },
+  "errors": {}
+}
