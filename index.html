@@ -181,6 +181,7 @@
  const pane = document.getElementById('macro-content');
  const stamp = document.getElementById('macro-date');
  let currentNews = null;
+ let marketData = null;
  const impacts = [
    {re:/אינפלצ|מדד המחירים|מחירים לצרכן|inflation|cpi|pce/i,topic:'אינפלציה וציפיות ריבית',impact:'נתוני אינפלציה משפיעים על הציפיות לתוואי הריבית. הפתעה כלפי מעלה עשויה לדחות ציפיות להורדה וללחוץ על אג״ח ארוכות; הפתעה כלפי מטה עשויה לפעול בכיוון ההפוך.'},
    {re:/ריבית|בנק ישראל|פד|fed\b|federal reserve|interest rate|central bank/i,topic:'בנקים מרכזיים וריבית',impact:'יש לבחון אם הדיווח מרמז על שינוי צפוי בריבית או רק על מסר תקשורתי. התמחור באג״ח ובשקל עשוי להגיב לפער שבין המסר לבין הציפיות שהיו קודם.'},
@@ -217,8 +218,7 @@
      if(selected.length===3)break;
    }
    if(!selected.length){
-     addSection('אין עדיין סקירת מאקרו יומית מבוססת','לא התקבלו דיווחי מאקרו טריים שמתאימים לתקציר. במקום להציג מדדים פעם נוספת או להסיק מסקנות מכותרות לא רלוונטיות, המדור ממתין לעדכון הבא.');
-     return;
+     addSection('לא התקבלו פרסומי מאקרו מהיממה האחרונה','אין כרגע דיווח מאקרו מזוהה שמאפשר לסכם שינוי בנתוני האינפלציה, התעסוקה או הריבית. להלן פרשנות מותנית לנתוני השוק, ולא תיאור של אירוע מאקרו חדש.');
    }
    for(const {item,match} of selected){
      const when=new Date(item.published_at).toLocaleDateString('he-IL',{timeZone:'Asia/Jerusalem'});
@@ -233,13 +233,33 @@
        }
      }catch{}
    }
-   addSection('מה לבדוק היום','האם הנתונים עצמם מפתיעים ביחס לתחזיות? האם הציפיות לריבית השתנו? ואילו אירועים רשמיים או דוחות עשויים לשנות את התמחור בהמשך המסחר?');
+   if (marketData) {
+     const ten=marketData.treasury_10y;
+     if(ten?.status==='ok' && typeof ten.change_bps==='number'){
+       const direction=ten.change_bps>0?'עליית תשואות באג״ח ארוכות עשויה להכביד על תמחור נכסים רגישים לריבית':'ירידת תשואות באג״ח ארוכות עשויה להקל על תמחור נכסים רגישים לריבית';
+       if(ten.change_bps!==0) addSection('קריאת מאקרו משוק האג״ח',direction+'. יש לבדוק אם השינוי משקף ציפיות לריבית, אינפלציה או פרמיית סיכון; התנועה לבדה אינה מוכיחה מה הסיבה.');
+     }
+     const oil=marketData.commodities?.['WTI futures'];
+     if(oil?.status==='ok' && typeof oil.change_percent==='number' && Math.abs(oil.change_percent)>=1){
+       addSection('אנרגיה ואינפלציה', oil.change_percent>0
+        ? 'התחזקות חוזי הנפט מעלה את החשיבות של מעקב אחר רכיב האנרגיה במדדי המחירים, אך אינה מספיקה כדי לקבוע שהאינפלציה תעלה.'
+        : 'היחלשות חוזי הנפט עשויה להפחית לחצי מחירים באנרגיה אם תימשך; השפעתה על אינפלציית הליבה מוגבלת ועקיפה.');
+     }
+   }
+   addSection('מה לבדוק היום','לוח הפרסומים הרשמי: נתוני אינפלציה ותעסוקה, הודעות הפד ובנק ישראל, ותשואות האג״ח. בכל נתון חשוב להשוות לתחזיות ולא רק לפרסום הקודם.');
  }
  try{currentNews=JSON.parse(document.getElementById('news-snapshot').textContent);}catch{}
+ try{marketData=JSON.parse(document.getElementById('market-snapshot').textContent);}catch{}
  render();
- fetch('./news_data.json?v='+Date.now(),{cache:'no-store'})
- .then(r=>{if(!r.ok)throw Error('unavailable');return r.json();})
- .then(data=>{currentNews=data;render();})
+ Promise.allSettled([
+   fetch('./news_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('news');return r.json();}),
+   fetch('./market_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('market');return r.json();})
+ ])
+ .then(results=>{
+   if(results[0].status==='fulfilled')currentNews=results[0].value;
+   if(results[1].status==='fulfilled')marketData=results[1].value;
+   render();
+ })
  .catch(()=>{});
 })();
 </script>
