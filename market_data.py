@@ -98,4 +98,28 @@ result["commodities"]["Gold futures"] = get_index("GC=F")
 with open("market_data.json", "w", encoding="utf-8") as file:
     json.dump(result, file, ensure_ascii=False, indent=2)
 
+
+# Keep a fully-renderable market snapshot inside the HTML page.
+# This makes the dashboard usable even when a separate JSON fetch is blocked.
+try:
+    import re
+    from pathlib import Path
+    page = Path("index.html")
+    if page.exists():
+        html = page.read_text(encoding="utf-8")
+        snapshot = json.dumps(result, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+        replacement = (
+            '<!-- MARKET_SNAPSHOT_START -->\\n'
+            '<script id="market-snapshot" type="application/json">' + snapshot + '</script>\\n'
+            '<!-- MARKET_SNAPSHOT_END -->'
+        )
+        pattern = r'<!-- MARKET_SNAPSHOT_START -->.*?<!-- MARKET_SNAPSHOT_END -->'
+        updated, count = re.subn(pattern, lambda match: replacement.replace('\\n', '\n'), html, count=1, flags=re.S)
+        if count == 1:
+            page.write_text(updated, encoding="utf-8")
+        else:
+            print("Warning: missing embedded snapshot markers")
+except Exception as error:
+    print("Warning: could not update embedded market snapshot:", error)
+
 print(json.dumps(result, ensure_ascii=False, indent=2))
