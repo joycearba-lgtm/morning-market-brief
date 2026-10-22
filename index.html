@@ -344,7 +344,54 @@
       for(const [label,raw] of [['נתון בפועל',x.actual_url],['תחזית לפני הפרסום',x.forecast_url]]){
         try{const url=new URL(raw);if(url.protocol!=='https:')continue;const a=document.createElement('a');a.className='source';a.textContent=label;a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';src.append(a)}catch{}
       }
-      card.append(heading,values,note,src);box.append(card);
+      // Directional scenarios, not claims about realized trading or a recommendation.
+      function scenario(item){
+        const n=item.surprise_pp;
+        if(Math.abs(n)<0.05) return [
+          ['ריבית','ללא איתות חדש מהפער לבדו'],
+          ['אג״ח','השפעה תלויה בפרטי הפרסום'],
+          ['מניות','אין כיוון חד-משמעי'],
+          ['שקל / דולר','הכיוון תלוי בגורמים נוספים']
+        ];
+        const high=n>0;
+        if(item.id==='israel_cpi_yoy')return high?[
+          ['ריבית','פחות מרחב להפחתה בישראל'],['אג״ח','לחץ אפשרי על אג״ח שקליות ארוכות'],
+          ['מניות','הכבדה אפשרית בענפים רגישים לריבית'],['שקל','השפעה מעורבת: ריבית מול סנטימנט']
+        ]:[
+          ['ריבית','עשוי לחזק ציפיות להפחתה בישראל'],['אג״ח','תמיכה אפשרית באג״ח שקליות'],
+          ['מניות','תמיכה אפשרית בענפים רגישים לריבית'],['שקל','הכיוון תלוי גם בסיכון ובפערי הריביות']
+        ];
+        if(item.id==='us_cpi')return high?[
+          ['ריבית','עשוי לצמצם ציפיות להפחתות הפד'],['אג״ח','לחץ לעליית תשואות, בעיקר בארוכות'],
+          ['מניות','לחץ אפשרי על מניות צמיחה'],['דולר / שקל','תמיכה אפשרית בדולר, לא ודאית']
+        ]:[
+          ['ריבית','עשוי לחזק ציפיות להפחתות הפד'],['אג״ח','תמיכה אפשרית במחירי אג״ח'],
+          ['מניות','תמיכה אפשרית במניות רגישות לריבית'],['דולר / שקל','לחץ אפשרי על הדולר, לא ודאי']
+        ];
+        if(item.id==='us_unemployment')return high?[
+          ['ריבית','עשוי לחזק ציפיות להפחתות הפד'],['אג״ח','תשואות עשויות לרדת אם חשש ההאטה גובר'],
+          ['מניות','מעורב: ריבית נמוכה מול חשש לצמיחה'],['דולר / שקל','כיוון לא ודאי ותלוי בבריחת/נטילת סיכון']
+        ]:[
+          ['ריבית','עשוי לצמצם ציפיות להפחתות הפד'],['אג״ח','תשואות עשויות לעלות'],
+          ['מניות','מעורב: צמיחה חזקה מול ריבית גבוהה'],['דולר / שקל','תמיכה אפשרית בדולר, לא ודאית']
+        ];
+        return [];
+      }
+      const impact=scenario(x);
+      if(impact.length){
+        const details=document.createElement('details');details.style.cssText='margin:7px 0 5px;border:1px solid #dce5e8;border-radius:8px;padding:6px 9px';
+        const summary=document.createElement('summary');summary.textContent='השפעה אפשרית על ריבית, אג״ח, מניות ומט״ח';summary.style.cssText='font-size:12px;font-weight:700;cursor:pointer;color:#197a70';
+        const content=document.createElement('div');content.style.cssText='display:grid;gap:5px;margin-top:7px;font-size:12px';
+        for(const [label,meaning] of impact){
+          const row=document.createElement('div');
+          const strong=document.createElement('strong');strong.textContent=label+': ';
+          row.append(strong,document.createTextNode(meaning));content.append(row);
+        }
+        const caveat=document.createElement('p');caveat.className='sub';caveat.style.cssText='margin:6px 0 0';caveat.textContent='תרחישים אפשריים בלבד, לא תיאור של תגובת שוק בפועל או המלצת השקעה.';
+        details.append(summary,content,caveat);
+        card.append(heading,values,note,details,src);
+      }else{card.append(heading,values,note,src);}
+      box.append(card);
     }
     if(!box.children.length)status.textContent='לא נמצאו נתונים מתאימים להשוואה';
   }
