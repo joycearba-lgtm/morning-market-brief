@@ -52,22 +52,46 @@ def find_entries(value):
         for child in value: result.extend(find_entries(child))
     return result
 
+def find_cpi_rates(value):
+    """Use CBS-provided annual % change, never infer it from mixed index bases."""
+    found=[]
+    if isinstance(value,dict):
+        period=None
+        for key in ("date","period","month","time","referencePeriod","dateValue"):
+            period=parse_date(value.get(key))
+            if period: break
+        if not period:
+            y=value.get("year")
+            m=value.get("month")
+            try:
+                y,m=int(y),int(m)
+                if 1900<=y<=2100 and 1<=m<=12:
+                    period=f"{y:04d}-{m:02d}"
+            except (ValueError,TypeError):
+                pass
+        annual=value.get("percentYear")
+        if period and isinstance(annual,(int,float)):
+            found.append((period,float(annual)))
+        for child in value.values():
+            found.extend(find_cpi_rates(child))
+    elif isinstance(value,list):
+        for child in value:found.extend(find_cpi_rates(child))
+    return found
+
 def israel_cpi():
-    # Series 120010 is the total consumer price index.
     url="https://api.cbs.gov.il/index/data/price?id=120010&last=16&coef=true&format=json&download=false&lang=en"
     data=json.loads(get(url))
-    entries=sorted(set(find_entries(data)))
-    if len(entries)<13: raise ValueError("CBS JSON structure unknown or insufficient comparable observations")
-    latest,level=entries[-1]
-    year,month=map(int,latest.split("-"))
-    earlier=f"{year-1:04d}-{month:02d}"
-    history=dict(entries)
-    if earlier not in history:raise ValueError("No same-month previous year")
+    rates=sorted(set(find_cpi_rates(data)))
+    if not rates:
+        raise ValueError("No dated percentYear observations found in official CBS response")
+    period,annual=rates[-1]
+    year,month=map(int,period.split("-"))
     age=(NOW.year-year)*12+(NOW.month-month)
-    if age<0 or age>3:raise ValueError("CBS inflation observation is stale")
-    return {"status":"ok","value":round((level/history[earlier]-1)*100,2),"unit":"% YoY",
-        "observation_period":latest,"source":"CBS Israel CPI","source_url":url,
-        "note":"Year-on-year rate computed from comparable CBS index levels"}
+    if age<0 or age>3:raise ValueError("CBS inflation rate is stale")
+    if not -10<=annual<=40:raise ValueError("CBS annual change outside plausible range")
+    return {"status":"ok","value":round(annual,2),"unit":"% YoY",
+        "observation_period":period,"source":"CBS Israel CPI published annual percentage change",
+        "source_url":url,"note":"CBS percentYear field, not calculated from mixed index base series"}
 
 def unemployment():
     code="LRUNTTTTILM156N"
