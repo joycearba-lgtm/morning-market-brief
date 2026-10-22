@@ -1,8 +1,22 @@
 {
-  "checked_at": "2026-10-22T12:09:36.557194+03:00",
+  "checked_at": "2026-10-22T12:10:28.236784+03:00",
   "date": "2026-10-22",
   "mode": "upcoming",
   "events": [
+    {
+      "title": "החלטת ריבית הפד",
+      "at": "2026-10-28T20:00:00+02:00",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "priority": 1
+    },
+    {
+      "title": "פרוטוקול ישיבת הפד",
+      "at": "2026-11-18T21:00:00+02:00",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "priority": 2
+    },
     {
       "title": "החלטת הריבית של בנק ישראל",
       "at": "2026-11-23T16:00:00+02:00",
