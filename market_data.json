@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T09:00:27.243574+03:00",
+  "updated_at": "2026-10-22T10:08:00.919334+03:00",
   "source": "Bank of Israel",
   "usd_ils": 3.091,
   "rate_date": "2026-10-21T12:21:09.9484221Z",
@@ -49,19 +49,19 @@
   "commodities": {
     "WTI futures": {
       "status": "ok",
-      "value": 99.12,
-      "change_percent": 2.03,
+      "value": 99.07,
+      "change_percent": 1.98,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792648226
+      "market_time": 1792652281
     },
     "Gold futures": {
       "status": "ok",
-      "value": 4087.0,
-      "change_percent": -1.52,
+      "value": 4110.9,
+      "change_percent": -0.94,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792648226
+      "market_time": 1792652276
     }
   },
   "treasury_10y": {
