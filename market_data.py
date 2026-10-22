@@ -87,7 +87,7 @@ result["indices"]["Nasdaq Composite"] = get_index("^IXIC")
 result["indices"]["Dow Jones"] = get_index("^DJI")
 
 # Israeli indices - Yahoo Finance delayed EOD quotes; missing responses remain unavailable.
-result["indices"]["TA-35"] = get_index("^TA35.TA")
+result["indices"]["TA-35"] = get_index("TA35.TA")
 result["indices"]["TA-125"] = get_index("^TA125.TA")
 
 with open("market_data.json", "w", encoding="utf-8") as file:
