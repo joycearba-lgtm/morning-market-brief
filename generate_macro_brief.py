@@ -348,7 +348,7 @@ if fresh:
         topic=story["region"]
         covered.add(topic)
         israel_bullets.append(
-            f'**{topic if topic!="שוק" else "שוק מקומי"} — לפי {story["source"]}:** '
+            f'{topic if topic!="שוק" else "שוק מקומי"} — לפי {story["source"]}: '
             f'{story["title"]}. '+implication(topic))
         israel_sources.append({"label":story["source"]+" · "+topic,"url":story["url"]})
 
