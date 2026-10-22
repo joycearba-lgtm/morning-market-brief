@@ -15,7 +15,8 @@ result = {
     "usd_ils": None,
     "rate_date": None,
     "status": "unavailable",
-    "indices": {}
+    "indices": {},
+    "commodities": {}
 }
 
 
@@ -89,6 +90,10 @@ result["indices"]["Dow Jones"] = get_index("^DJI")
 # Israeli indices - Yahoo Finance delayed EOD quotes; missing responses remain unavailable.
 result["indices"]["TA-35"] = get_index("TA35.TA")
 result["indices"]["TA-125"] = get_index("^TA125.TA")
+
+# Front-month futures, not spot: prices can change as contracts roll.
+result["commodities"]["WTI futures"] = get_index("CL=F")
+result["commodities"]["Gold futures"] = get_index("GC=F")
 
 with open("market_data.json", "w", encoding="utf-8") as file:
     json.dump(result, file, ensure_ascii=False, indent=2)
