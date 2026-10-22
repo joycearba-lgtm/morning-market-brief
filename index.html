@@ -68,9 +68,47 @@ body{font-size:16px;line-height:1.65}
 #advisor-points .advisor-point>strong{font-size:17px}
 #advisor-points .advisor-point p{margin:0!important}
 #advisor-points .advisor-question{background:#f1f7f5;border-right:3px solid #197a70;padding:9px 11px;border-radius:7px;font-size:15px!important;line-height:1.65!important}
+
+/* Discount-inspired independent analyst dashboard theme – 22 Oct 2026 */
+:root{--navy:#074b38;--ink:#173e31;--muted:#62776d;--line:#dceae1;--bg:#f5f9f6;--teal:#07814c;--pale:#e6f5eb;--white:#fff}
+body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",sans-serif}
+.hero{background:linear-gradient(117deg,#006f41 0%,#008c51 70%,#26a663 100%);box-shadow:0 10px 26px rgba(2,100,57,.12);border-radius:20px;padding:20px 23px 18px;position:relative}
+.hero .brand{align-items:center;gap:15px}
+.hero .logo{width:115px;height:66px;padding:10px 13px;background:#fff;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 11px rgba(0,0,0,.07)}
+.hero .logo img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.hero .logo .logo-fallback{color:#007c49;font-weight:900;font-size:20px;letter-spacing:-1px}
+.hero .eyebrow{font-size:11px;color:#dcf5e4;letter-spacing:.05em}
+.hero h1{font-size:27px;margin:0;color:#fff}
+.hero p{color:#e4ffed;font-size:14px;margin-top:3px}
+.hero .meta{margin-top:13px}
+.hero .pill{border-color:rgba(255,255,255,.48);background:rgba(255,255,255,.11);color:#fff;font-size:11px}
+.hero .actions{margin-top:12px}
+.hero .btn{border-color:rgba(255,255,255,.55);font-size:12px;background:rgba(255,255,255,.10)}
+.hero .btn:hover{background:rgba(255,255,255,.22)}
+.independent-note{font-size:11px;line-height:1.55;color:#e7fbee;margin-top:12px;border-top:1px solid rgba(255,255,255,.26);padding-top:9px}
+.card{border-color:var(--line);box-shadow:0 3px 12px rgba(0,72,36,.035);border-radius:13px}
+.section-title h2{color:#006b40}
+.section-title span{background:#d3e5d9}
+.grid .card.move-up{border-right-color:#08834d;background:#f0faf3}
+.grid .card.move-down{border-right-color:#bf4949;background:#fff8f7}
+.grid .card .daily-change.up{background:#def6e7;color:#096d41}
+#macro-brief .card,#advisor-talking-points .card{border-top:3px solid #13985c}
+#advisor-points .advisor-question{background:#eaf7ef;border-right-color:#07814c}
+.source{color:#00764b;text-decoration:underline;text-underline-offset:3px}
+.notice{background:#f3fbf5;border-color:#bbdbc6;color:#315b43}
+@media(max-width:760px){
+ .hero{padding:16px;border-radius:15px}
+ .hero .logo{width:83px;height:52px;padding:7px 8px}
+ .hero h1{font-size:22px}
+ .hero p{font-size:12px}
+ .hero .eyebrow{font-size:9px}
+ .hero .brand{gap:11px}
+ .independent-note{font-size:10px}
+}
+@media print{.hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}.hero .actions{display:none}}
 </style></head>
 <body><main class="wrap">
-<header class="hero"><div class="brand"><div class="logo">↗</div><div><div class="eyebrow">DAILY MARKET INTELLIGENCE</div><h1>Market Brief</h1><p>סקירת שווקים מקצועית ליועצת ההשקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill">עדכון מתוכנן: כ־08:12 · שעון ישראל</span></div><div class="actions"><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div></header>
+<header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://seeklogo.com/images/I/israel-discount-bank-logo-095AA28CB6-seeklogo.com.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill">עדכון מתוכנן: כ־08:12 · שעון ישראל</span></div><div class="actions"><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
 <div class="notice" id="data-status">טוען את נתוני השוק האחרונים... נתונים שאינם זמינים יסומנו במפורש.</div>
 <div class="section-title"><h2>תמונת מצב מהירה</h2><span></span></div>
 <section class="grid"><article class="card"><div class="label">ת״א-35</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">ת״א-125</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">S&amp;P 500</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Nasdaq</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Dow Jones</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">דולר / שקל</div><div class="value">ממתין לחיבור</div><div class="sub">שער וזמן ציטוט</div></article><article class="card"><div class="label">אג״ח ארה״ב ל־10 שנים</div><div class="value">ממתין לחיבור</div><div class="sub">תשואה אחרונה</div></article><article class="card"><div class="label">נפט WTI</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לחבית</div></article><article class="card"><div class="label">זהב</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לאונקיה</div></article></section>
