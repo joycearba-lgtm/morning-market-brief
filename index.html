@@ -73,11 +73,7 @@
 </div></section>
 <div class="section-title"><h2>מקורות וחותמת עדכון</h2><span></span></div><div class="card"><p class="empty">בגרסה המחוברת יוצגו לצד כל נתון המקור, זמן הציטוט, והאם מדובר בנתון בזמן אמת או בסגירה קודמת.</p><p><a class="source" href="https://www.boi.org.il/" target="_blank" rel="noopener">בנק ישראל</a>　·　<a class="source" href="https://www.cbs.gov.il/" target="_blank" rel="noopener">הלמ״ס</a>　·　<a class="source" href="https://www.federalreserve.gov/" target="_blank" rel="noopener">Federal Reserve</a>　·　<a class="source" href="https://www.bls.gov/" target="_blank" rel="noopener">U.S. Bureau of Labor Statistics</a></p></div>
 <footer class="footer">כלי מידע מקצועי לצורכי סקירה בלבד; אינו תחליף לבדיקת נתונים במערכות הבנק. נתוני סגירה עשויים להיות מושהים או חסרים.</footer>
-<section style="margin:24px 0;padding:22px;border:1px solid #d7e1e5;border-radius:18px;background:white;text-align:right">
-  <h2>שער דולר / שקל — USD/ILS</h2>
-  <div id="usd-rate" style="font-size:30px;font-weight:bold">טוען נתונים...</div>
-  <p id="usd-info" style="color:#667785">מקור: בנק ישראל</p>
-</section>
+
 </main>
 <!-- MARKET_SNAPSHOT_START -->
 <script id="market-snapshot" type="application/json">{"updated_at":"2026-10-22T09:00:27.243574+03:00","source":"Bank of Israel","usd_ils":3.091,"rate_date":"2026-10-21T12:21:09.9484221Z","status":"ok","indices":{"S&P 500":{"status":"ok","value":7757.17,"change_percent":0.58,"source":"Yahoo Finance","type":"daily_close","market_time":1792614681},"Nasdaq Composite":{"status":"ok","value":26702.86,"change_percent":1.05,"source":"Yahoo Finance","type":"daily_close","market_time":1792617359},"Dow Jones":{"status":"ok","value":52856.09,"change_percent":0.69,"source":"Yahoo Finance","type":"daily_close","market_time":1792615008},"TA-35":{"status":"ok","value":4212.13,"change_percent":-0.05,"source":"Yahoo Finance","type":"daily_close","market_time":1792592693},"TA-125":{"status":"ok","value":4106.27,"change_percent":0.36,"source":"Yahoo Finance","type":"daily_close","market_time":1792592694}},"commodities":{"WTI futures":{"status":"ok","value":99.12,"change_percent":2.03,"source":"Yahoo Finance","type":"daily_close","market_time":1792648226},"Gold futures":{"status":"ok","value":4087.0,"change_percent":-1.52,"source":"Yahoo Finance","type":"daily_close","market_time":1792648226}},"treasury_10y":{"status":"ok","value":5.15,"change_bps":2.9,"source":"Cboe 10Y Treasury Yield / Yahoo Finance","type":"annual_yield_percent","market_time":1792609194}}</script>
@@ -140,8 +136,8 @@
         dollarCard.querySelector('.value').textContent = dollar;
         dollarCard.querySelector('.sub').textContent = 'שער יציג אחרון | בנק ישראל';
       }
-      document.getElementById('usd-rate').textContent = dollar;
-      document.getElementById('usd-info').textContent = 'מקור: בנק ישראל | מועד השער: ' + (data.rate_date || 'לא זמין');
+      // Duplicate bottom USD card removed; primary dashboard card remains.
+      
       const dt = data.updated_at ? new Date(data.updated_at) : null;
       const updated = dt && !isNaN(dt.getTime())
         ? dt.toLocaleString('he-IL', {timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
