@@ -65,7 +65,7 @@ body{font-size:16px;line-height:1.65}
 <section id="macro-brief" style="margin:22px 0">
 <div class="section-title"><h2>סקירת בוקר · תמונת שווקים וכיוון להמשך</h2><span></span></div>
 <div class="card" style="border-top:3px solid #197a70">
-<p id="macro-date" class="sub">סקירה תמציתית ללא חזרה על המדדים · גרסת תצוגה 23.10</p>
+<p id="macro-date" class="sub">סקירה תמציתית ללא חזרה על המדדים · גרסת תצוגה B</p>
 <div id="macro-content" style="display:grid;gap:14px"><p class="empty">טוען התפתחויות מאקרו מאומתות.</p></div>
 <p class="sub" style="margin-top:16px;border-top:1px solid #dce5e8;padding-top:12px">
 הסקירה מבוססת על פרסומים מזוהים וכוללת ניתוח כלכלי. אם לא הוכנה סקירה חדשה, לא יוצג תוכן ישן בתור עדכון יומי.
@@ -254,7 +254,7 @@ body{font-size:16px;line-height:1.65}
          if(typeof item!=='string' || !item.trim())continue;
          // The dashboard already displays market figures; never repeat the
          // percentage/index/CPI/rate-summary bullets in the editorial section.
-         if(/\\d+(?:[.,]\\d+)?\\s*%|(?:S&P|Nasdaq|Dow Jones|ת״א[-־]?(?:35|125))\\s*[+−-]?\\d|\\bCPI\\b.{0,60}\\d/.test(item))continue;
+         if(/\d+(?:[.,]\d+)?\s*%|(?:S&P|Nasdaq|Dow Jones|ת״א[-־]?(?:35|125))\s*[+−-]?\d|\bCPI\b.{0,60}\d/.test(item))continue;
          const li=document.createElement('li');li.style.cssText='font-size:16px;line-height:1.78;padding-right:3px';
          li.textContent=item;list.append(li);
        }
