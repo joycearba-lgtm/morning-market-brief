@@ -238,7 +238,7 @@
       }
       el.textContent = key==='rate_now' && typeof q.lower==='number' && typeof q.upper==='number'
         ? q.lower.toFixed(2)+'%–'+q.upper.toFixed(2)+'%'
-        : q.value.toFixed(key==='inflation_now' && country==='us'?2:1)+'%';
+        : q.value.toFixed((country==='us' && key.startsWith('inflation')) || (country==='israel' && key==='rate_now') ? 2 : 1)+'%';
       el.title = (q.source||'מקור') + ' · ' + (q.as_of||'תאריך לא ידוע');
     }
     const when = data?.checked_at ? new Date(data.checked_at) : null;
