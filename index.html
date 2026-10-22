@@ -63,7 +63,7 @@ body{font-size:16px;line-height:1.65}
 </div>
 </section>
 <section id="macro-brief" style="margin:22px 0">
-<div class="section-title"><h2>סקירת מאקרו יומית · שתי דקות</h2><span></span></div>
+<div class="section-title"><h2>סקירת בוקר · תמונת שווקים וכיוון להמשך</h2><span></span></div>
 <div class="card" style="border-top:3px solid #197a70">
 <p id="macro-date" class="sub">בודק עדכוני מאקרו…</p>
 <div id="macro-content" style="display:grid;gap:14px"><p class="empty">טוען התפתחויות מאקרו מאומתות.</p></div>
@@ -244,7 +244,21 @@ body{font-size:16px;line-height:1.65}
    }
    const h2=document.createElement('strong');h2.textContent=brief.title;pane.append(h2);
    for(const section of brief.sections.slice(0,5)){
-     const el=addText(pane,section.heading,section.text);
+     let el;
+     if(Array.isArray(section.bullets)){
+       el=document.createElement('section');
+       const heading=document.createElement('h3');heading.textContent=section.heading;
+       heading.style.cssText='font-size:19px;margin:0 0 8px;font-weight:800;text-decoration:underline;text-underline-offset:5px';
+       const list=document.createElement('ul');list.style.cssText='padding:0 20px 0 0;margin:7px 0 8px;display:grid;gap:11px';
+       for(const item of section.bullets.slice(0,4)){
+         if(typeof item!=='string' || !item.trim())continue;
+         const li=document.createElement('li');li.style.cssText='font-size:16px;line-height:1.78;padding-right:3px';
+         li.textContent=item;list.append(li);
+       }
+       el.append(heading,list);pane.append(el);
+     }else{
+       el=addText(pane,section.heading,section.text||'');
+     }
      for(const source of (section.sources||[]).slice(0,2)){
        try{
          const url=new URL(source.url);if(url.protocol!=='https:')continue;
@@ -253,7 +267,7 @@ body{font-size:16px;line-height:1.65}
      }
    }
    addText(pane,'השורה התחתונה',brief.takeaway||'');
-   if(brief.methodology){addText(pane,'על אופן הפקת הסקירה',brief.methodology);}
+   if(brief.methodology){const m=document.createElement('p');m.className='sub';m.style.cssText='margin:7px 0;font-size:12px';m.textContent=brief.methodology;pane.append(m);}
    advisorStatus.textContent='שלוש נקודות לשיחה על בסיס סקירת המאקרו מ־'+brief.date;
    (brief.advisor||[]).slice(0,3).forEach((item,i)=>addText(advisor,'נקודה '+(i+1),item));
  }
