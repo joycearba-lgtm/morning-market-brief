@@ -12,6 +12,13 @@
 <div class="notice" id="data-status">טוען את נתוני השוק האחרונים... נתונים שאינם זמינים יסומנו במפורש.</div>
 <div class="section-title"><h2>תמונת מצב מהירה</h2><span></span></div>
 <section class="grid"><article class="card"><div class="label">ת״א-35</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">ת״א-125</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">S&amp;P 500</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Nasdaq</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Dow Jones</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">דולר / שקל</div><div class="value">ממתין לחיבור</div><div class="sub">שער וזמן ציטוט</div></article><article class="card"><div class="label">אג״ח ארה״ב ל־10 שנים</div><div class="value">ממתין לחיבור</div><div class="sub">תשואה אחרונה</div></article><article class="card"><div class="label">נפט WTI</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לחבית</div></article><article class="card"><div class="label">זהב</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לאונקיה</div></article></section>
+<section id="market-news" style="margin:22px 0">
+<div class="section-title"><h2>חדשות שווקים – ישראל והעולם</h2><span></span></div>
+<div class="card">
+<p id="news-status" class="empty">מחפש כותרות כלכליות עדכניות…</p>
+<div id="news-list" style="display:grid;gap:12px"></div>
+<p class="sub" style="margin-top:15px">כותרות ממקורות חיצוניים עם קישורים ותאריך פרסום. אין להסיק מכותרת לבדה מדוע השוק עלה או ירד.</p>
+</div></section>
 <div class="two"><section><div class="section-title"><h2>גורמים למעקב (טרם חוברו חדשות)</h2><span></span></div><div class="card"><div class="story"><div class="icon">1</div><div><span class="tag">מאקרו וריבית</span><h3>מעקב אחר נתוני מאקרו וריבית</h3><p>לא מחוברים עדיין עדכוני חדשות. בעתיד יופיע הסבר תמציתי על השפעת נתוני אינפלציה, תעסוקה וציפיות הריבית על מניות ואג״ח.</p></div></div><div class="story"><div class="icon">2</div><div><span class="tag">חברות וסקטורים</span><h3>מעקב אחר דוחות ומובילות שוק</h3><p>לא מחוברים עדיין עדכוני חדשות. בעתיד יופיעו הסקטורים והמניות הבולטים, רק אם יש אירוע מהותי ומאומת.</p></div></div><div class="story"><div class="icon">3</div><div><span class="tag">ישראל</span><h3>מעקב אחר שקל, ריבית וסיכון מקומי</h3><p>לא מחוברים עדיין עדכוני חדשות. בעתיד יופיעו ההתפתחויות המקומיות וההשפעה האפשרית על תשואות, מט״ח וסנטימנט.</p></div></div></div></section>
 <section><div class="section-title"><h2>מה על הפרק היום?</h2><span></span></div><div class="card"><p class="empty">לוח האירועים יתמלא לאחר חיבור ללוח מאקרו ודוחות מעודכן.</p><ul class="todo"><li>נתוני אינפלציה ותעסוקה</li><li>החלטות ריבית ונאומי בנקאים מרכזיים</li><li>דוחות חברות מרכזיות</li><li>אירועים מקומיים וגאופוליטיים מהותיים</li></ul></div><div class="section-title"><h2>3 נקודות לשיחה עם לקוחות</h2><span></span></div><div class="card"><ol class="todo"><li>מה השתנה מאז הסקירה הקודמת — ומהו רעש קצר־טווח?</li><li>האם שינוי בתשואות או בשער החליפין משנה את הסיכון בתיק?</li><li>איזה אירוע קרוב עשוי להגדיל תנודתיות, והאם הלקוח ערוך לכך?</li></ol></div></section></div>
 <div class="section-title"><h2>מקורות וחותמת עדכון</h2><span></span></div><div class="card"><p class="empty">בגרסה המחוברת יוצגו לצד כל נתון המקור, זמן הציטוט, והאם מדובר בנתון בזמן אמת או בסגירה קודמת.</p><p><a class="source" href="https://www.boi.org.il/" target="_blank" rel="noopener">בנק ישראל</a>　·　<a class="source" href="https://www.cbs.gov.il/" target="_blank" rel="noopener">הלמ״ס</a>　·　<a class="source" href="https://www.federalreserve.gov/" target="_blank" rel="noopener">Federal Reserve</a>　·　<a class="source" href="https://www.bls.gov/" target="_blank" rel="noopener">U.S. Bureau of Labor Statistics</a></p></div>
@@ -107,6 +114,57 @@
       // Keep the embedded snapshot displayed when network fetching fails.
       console.warn('Market JSON refresh unavailable:', error);
     });
+})();
+</script>
+<!-- NEWS_SNAPSHOT_START -->
+<!-- NEWS_SNAPSHOT_END -->
+<script>
+(function () {
+  const statusEl = document.getElementById('news-status');
+  const listEl = document.getElementById('news-list');
+  function display(news) {
+    if (!news || !Array.isArray(news.items) || !news.items.length) {
+      statusEl.textContent = 'אין כותרות מאומתות זמינות לעדכון זה.';
+      return;
+    }
+    const current = Date.now();
+    listEl.replaceChildren();
+    let count = 0;
+    for (const story of news.items.slice(0, 6)) {
+      const when = Date.parse(story.published_at);
+      if (!Number.isFinite(when) || when > current || current - when > 52 * 3600 * 1000) continue;
+      let url;
+      try { url = new URL(story.link); } catch { continue; }
+      if (url.protocol !== 'https:') continue;
+      const article = document.createElement('article');
+      article.style.cssText = 'padding:12px 0;border-bottom:1px solid #dce5e8';
+      const region = document.createElement('div');
+      region.className = 'tag';
+      region.textContent = story.region === 'ישראל' ? 'ישראל' : 'עולם';
+      const a = document.createElement('a');
+      a.href = url.href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = 'source';
+      a.style.cssText = 'display:block;color:#172a35;font-weight:700;font-size:15px;margin:4px 0';
+      a.textContent = story.title || 'לקריאת הכתבה';
+      const meta = document.createElement('div');
+      meta.className = 'sub';
+      meta.textContent = (story.source || 'מקור חדשות') + ' · ' + new Date(when).toLocaleString('he-IL', {timeZone:'Asia/Jerusalem',dateStyle:'short',timeStyle:'short'});
+      article.append(region, a, meta);
+      listEl.append(article);
+      count++;
+    }
+    statusEl.textContent = count ? 'כותרות חדשות מה־52 שעות האחרונות · הקישי על כותרת לקריאת המקור' : 'אין כותרות עדכניות מאומתות. הכותרות הישנות הוסתרו.';
+  }
+  const embedded = document.getElementById('news-snapshot');
+  if (embedded) {
+    try { display(JSON.parse(embedded.textContent)); } catch {}
+  }
+  fetch('./news_data.json?v=' + Date.now(), {cache:'no-store'})
+    .then(response => { if (!response.ok) throw new Error('News unavailable'); return response.json(); })
+    .then(display)
+    .catch(() => { if (!listEl.children.length) statusEl.textContent = 'כותרות החדשות אינן זמינות כרגע. המדדים ממשיכים להתעדכן בנפרד.'; });
 })();
 </script>
 </body></html>
