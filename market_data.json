@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T20:55:15.041742+03:00",
+  "updated_at": "2026-10-22T20:55:56.992097+03:00",
   "source": "Bank of Israel",
   "usd_ils": 3.107,
   "rate_date": "2026-10-22T12:22:03.8897022Z",
@@ -7,27 +7,27 @@
   "indices": {
     "S&P 500": {
       "status": "ok",
-      "value": 7655.67,
-      "change_percent": -1.31,
+      "value": 7654.85,
+      "change_percent": -1.32,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691715
+      "market_time": 1792691756
     },
     "Nasdaq Composite": {
       "status": "ok",
-      "value": 26031.11,
-      "change_percent": -2.52,
+      "value": 26025.96,
+      "change_percent": -2.53,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691714
+      "market_time": 1792691753
     },
     "Dow Jones": {
       "status": "ok",
-      "value": 52777.04,
-      "change_percent": -0.15,
+      "value": 52773.82,
+      "change_percent": -0.16,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691715
+      "market_time": 1792691756
     },
     "TA-35": {
       "status": "ok",
@@ -53,23 +53,23 @@
       "change_percent": 2.56,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691112
+      "market_time": 1792691154
     },
     "Gold futures": {
       "status": "ok",
-      "value": 4062.2,
-      "change_percent": -2.12,
+      "value": 4063.7,
+      "change_percent": -2.08,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792691112
+      "market_time": 1792691156
     }
   },
   "treasury_10y": {
     "status": "ok",
-    "value": 4.97,
-    "change_bps": -18.1,
+    "value": 4.96,
+    "change_bps": -18.3,
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
-    "market_time": 1792690813
+    "market_time": 1792690853
   }
 }
