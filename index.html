@@ -62,7 +62,8 @@
         if (yieldData?.status === 'ok' && typeof yieldData.value === 'number') {
           v.textContent = yieldData.value.toFixed(3) + '%';
           const bps = typeof yieldData.change_bps === 'number' ? (yieldData.change_bps >= 0 ? '+' : '') + yieldData.change_bps.toFixed(1) + ' נ״ב' : 'לא זמין';
-          sub.textContent = 'שינוי יומי: ' + bps + ' | נכון ל־' + (yieldData.as_of || 'לא ידוע') + ' | FRED';
+          const quotedAt = yieldData.as_of || (yieldData.market_time ? new Date(yieldData.market_time * 1000).toLocaleDateString('he-IL', {timeZone:'America/New_York'}) : 'לא ידוע');
+          sub.textContent = 'שינוי יומי: ' + bps + ' | נכון ל־' + quotedAt + ' | ' + (yieldData.source || 'מקור לא ידוע');
         } else {
           v.textContent = 'נתון לא זמין';
           sub.textContent = 'ממתין לנתון תשואה מאומת';
