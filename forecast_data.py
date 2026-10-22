@@ -105,7 +105,18 @@ except Exception as e:
 # No source with matching 12-month horizon has been verified for US policy-rate expectations.
 # A verified 12-month-ahead policy-rate quote is not yet available.
 # Do not substitute a year-end FOMC dot plot or stale futures figure.
-us["rate_1y"]={"status":"unavailable","reason":"No current validated 12-month expectation"}
+# Approximate 12-month effective Fed funds futures path, dated external market analysis.
+# The source reports "~4.7% by October 2027" rather than a precise 4.71%.
+futures_asof=datetime(2026,10,20,tzinfo=ZoneInfo("Asia/Jerusalem"))
+if timedelta(0)<=NOW-futures_asof<=timedelta(days=7):
+    us["rate_1y"]=entry(4.7,"2026-10-20","StreetStats futures-implied path",
+        "https://streetstats.finance/rates/fedfunds",
+        "Approximately 4.7% for October 2027; market-implied EFFECTIVE rate, not FOMC forecast or target range.")
+    us["rate_1y"]["approximate"]=True
+    us["rate_1y"]["expires_at"]="2026-10-27T00:00:00+03:00"
+else:
+    us["rate_1y"]={"status":"unavailable","reason":"Latest verified 12-month projection expired"}
+
 
 Path("forecast_data.json").write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
 # Embed a fall-back snapshot for GitHub Pages browsers that cannot fetch a separate JSON.
