@@ -33,7 +33,17 @@ def find_entries(value):
     result=[]
     if isinstance(value,dict):
         d=next((parse_date(value.get(k)) for k in ("date","period","month","time","referencePeriod","dateValue") if parse_date(value.get(k))),None)
-        v=next((value.get(k) for k in ("value","index","price","indexValue") if isinstance(value.get(k),(int,float))),None)
+        if not d:
+            year=value.get("year") or value.get("Year")
+            month=value.get("month") or value.get("Month")
+            if isinstance(year,(int,str)) and isinstance(month,(int,str)):
+                try:
+                    yy,mm=int(year),int(month)
+                    if 1900<=yy<=2100 and 1<=mm<=12:
+                        d=f"{yy:04d}-{mm:02d}"
+                except ValueError:
+                    pass
+        v=next((value.get(k) for k in ("value","index","price","indexValue","Value") if isinstance(value.get(k),(int,float))),None)
         if d and isinstance(v,(int,float)) and v>0:
             result.append((d,float(v)))
         for child in value.values():
