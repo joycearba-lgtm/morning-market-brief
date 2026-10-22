@@ -2,7 +2,7 @@
 No LLM, no inference of an event from a headline, and no fabricated new releases.
 """
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, time
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -109,10 +109,27 @@ else:
     status = "unavailable"
 
 brief = {
-    "date": date, "valid_until": (now + timedelta(hours=26)).isoformat(),
+    "date": date, "valid_until": datetime.combine(now.date() + timedelta(days=1), time(hour=9), tzinfo=TZ).isoformat(),
     "title": title, "status": status,
     "methodology": "אוטומציה מבוססת כללים ונתונים; אינה תחקיר עצמאי או סקירת פרסומים מלאה.",
     "sections": sections, "takeaway": takeaway, "advisor": advisor
 }
 Path("macro_brief.json").write_text(json.dumps(brief, ensure_ascii=False, indent=2), encoding="utf-8")
+
+# Keep the displayed editorial snapshot in sync with the published JSON.
+try:
+    page = Path("index.html")
+    if page.exists():
+        html = page.read_text(encoding="utf-8")
+        start = "<!-- EDITORIAL_MACRO_START -->"
+        end = "<!-- EDITORIAL_MACRO_END -->"
+        if start in html and end in html:
+            json_payload = json.dumps(brief, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+            new_snapshot = start + '\n<script id="editorial-macro" type="application/json">' + json_payload + '</script>\n' + end
+            prefix, rest = html.split(start, 1)
+            _, suffix = rest.split(end, 1)
+            page.write_text(prefix + new_snapshot + suffix, encoding="utf-8")
+except Exception as error:
+    print("Warning: could not embed macro note:", type(error).__name__)
+
 print(f"Macro note {date}: {status}, {len(sections)} sections")
