@@ -14,8 +14,8 @@ MAX_AGE = timedelta(hours=52)
 FEEDS = [
     ("ישראל", "בורסה תל אביב ריבית בנק ישראל מניות שוק ההון when:2d", "he", "IL", "IL:he"),
     ("חו״ל", "stocks Wall Street Federal Reserve Treasury inflation earnings when:2d", "en-US", "US", "US:en"),
-    ("מאקרו ארה״ב", ""Federal Reserve" OR inflation OR payrolls OR "US GDP" when:2d", "en-US", "US", "US:en"),
-    ("מאקרו ישראל", ""בנק ישראל" OR אינפלציה OR אבטלה OR "נתוני צמיחה" when:2d", "he", "IL", "IL:he"),
+    ("מאקרו ארה״ב", "Federal Reserve inflation OR jobs OR economic growth when:2d", "en-US", "US", "US:en"),
+    ("מאקרו ישראל", "בנק ישראל ריבית OR אינפלציה OR תוצר OR אבטלה when:2d", "he", "IL", "IL:he"),
 ]
 MARKET_TERMS = re.compile(
     r"בורסה|מניות|שוק ההון|ריבית|אינפלצי|אג״ח|שקל|דולר|בנק ישראל|מדד|"
@@ -67,7 +67,7 @@ def collect_news(group, query, language, country, edition):
     seen = set()
     selected = []
     for item in sorted(headlines, key=lambda x: x["published_at"], reverse=True):
-        key = re.sub(r"\\W+", "", item["title"].lower())[:90]
+        key = re.sub(r"\W+", "", item["title"].lower())[:90]
         if key not in seen:
             seen.add(key)
             selected.append(item)
