@@ -54,6 +54,20 @@
       showQuote('S&P 500', indices['S&P 500']);
       showQuote('Nasdaq', indices['Nasdaq Composite']);
       showQuote('Dow Jones', indices['Dow Jones']);
+      const treasuryCard = cardFor('אג״ח ארה״ב ל־10 שנים');
+      if (treasuryCard) {
+        const yieldData = data.treasury_10y;
+        const v = treasuryCard.querySelector('.value');
+        const sub = treasuryCard.querySelector('.sub');
+        if (yieldData?.status === 'ok' && typeof yieldData.value === 'number') {
+          v.textContent = yieldData.value.toFixed(3) + '%';
+          const bps = typeof yieldData.change_bps === 'number' ? (yieldData.change_bps >= 0 ? '+' : '') + yieldData.change_bps.toFixed(1) + ' נ״ב' : 'לא זמין';
+          sub.textContent = 'שינוי יומי: ' + bps + ' | נכון ל־' + (yieldData.as_of || 'לא ידוע') + ' | FRED';
+        } else {
+          v.textContent = 'נתון לא זמין';
+          sub.textContent = 'ממתין לנתון תשואה מאומת';
+        }
+      }
       showQuote('נפט WTI', commodities['WTI futures'], ' $');
       showQuote('זהב', commodities['Gold futures'], ' $');
       for (const [label, unit] of [['נפט WTI', 'חוזה עתידי, דולר לחבית'], ['זהב', 'חוזה עתידי, דולר לאונקיה']]) {
