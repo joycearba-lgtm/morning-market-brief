@@ -94,4 +94,20 @@ result={
     "errors":ERRORS,
 }
 Path("economic_calendar.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
+# Embed current calendar for browsers where fetching the JSON fails.
+try:
+    page=Path("index.html")
+    if page.exists():
+        html=page.read_text(encoding="utf-8")
+        start="<!-- CALENDAR_SNAPSHOT_START -->"
+        end="<!-- CALENDAR_SNAPSHOT_END -->"
+        if start in html and end in html:
+            payload=json.dumps(result,ensure_ascii=False,separators=(",",":")).replace("<","\\u003c")
+            replacement=start+'\n<script type="application/json" id="calendar-snapshot">'+payload+'</script>\n'+end
+            prefix,rest=html.split(start,1)
+            _,suffix=rest.split(end,1)
+            page.write_text(prefix+replacement+suffix,encoding="utf-8")
+except Exception as error:
+    print("Calendar snapshot warning:",type(error).__name__)
+
 print("Calendar:",result["mode"],[(x["title"],x["at"]) for x in chosen],"errors:",ERRORS)
