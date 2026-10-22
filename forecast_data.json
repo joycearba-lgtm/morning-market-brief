@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-22T11:19:34.428457+03:00",
+  "checked_at": "2026-10-22T11:21:49.091400+03:00",
   "israel": {
     "rate_now": {
       "status": "ok",
@@ -61,12 +61,8 @@
       "detail": "One-year expected CPI inflation, model-based, monthly"
     },
     "rate_1y": {
-      "status": "ok",
-      "value": 4.71,
-      "as_of": "2026-10-20",
-      "source": "StreetStats futures-implied Fed funds Oct 2027",
-      "source_url": "https://streetstats.finance/rates/fedfunds",
-      "detail": "12-month market-implied effective policy rate; as of Oct 20 2026. Expires after 7 days."
+      "status": "unavailable",
+      "reason": "No current validated 12-month expectation"
     }
   }
 }
