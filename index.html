@@ -49,6 +49,25 @@ body{font-size:16px;line-height:1.65}
  #macro-brief .card,#advisor-talking-points .card,#macro-surprises .card{padding:16px 15px}
  #macro-content section p,#advisor-points section p{font-size:16px!important;line-height:1.85!important}
 }
+
+/* Phone dashboard: 9 market tiles in three compact rows rather than a full screen. */
+@media(max-width:760px){
+  section.grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important}
+  section.grid .card{padding:7px 6px!important;border-right-width:3px!important;border-radius:9px!important;min-height:76px;display:flex;flex-direction:column;justify-content:space-between}
+  section.grid .card .label{font-size:11px!important;line-height:1.22!important;min-height:25px}
+  section.grid .card .value{font-size:15px!important;line-height:1.18!important;margin:1px 0!important;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  section.grid .card .daily-change{font-size:12px!important;line-height:1.14!important;padding:2px 3px!important;margin:1px 0!important;align-self:flex-start;white-space:nowrap}
+  section.grid .card .sub{display:none!important}
+}
+@media(max-width:350px){
+  section.grid .card .value{font-size:13px!important}
+  section.grid .card .daily-change{font-size:11px!important}
+  section.grid .card .label{font-size:10px!important}
+}
+#advisor-points .advisor-point{display:grid;gap:7px}
+#advisor-points .advisor-point>strong{font-size:17px}
+#advisor-points .advisor-point p{margin:0!important}
+#advisor-points .advisor-question{background:#f1f7f5;border-right:3px solid #197a70;padding:9px 11px;border-radius:7px;font-size:15px!important;line-height:1.65!important}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo">↗</div><div><div class="eyebrow">DAILY MARKET INTELLIGENCE</div><h1>Market Brief</h1><p>סקירת שווקים מקצועית ליועצת ההשקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill">עדכון מתוכנן: כ־08:12 · שעון ישראל</span></div><div class="actions"><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div></header>
@@ -99,7 +118,7 @@ body{font-size:16px;line-height:1.65}
 </div>
 </section>
 <section id="advisor-talking-points" style="margin:20px 0">
- <div class="section-title"><h2>דגשים ליועץ · מה לומר ללקוחות</h2><span></span></div>
+ <div class="section-title"><h2>3 תובנות מעשיות לשיחה עם לקוחות</h2><span></span></div>
  <div class="card" style="border-right:3px solid #197a70">
    <p class="sub" id="advisor-status">מכין נקודות לשיחה על בסיס הנתונים האחרונים…</p>
    <div id="advisor-points" style="display:grid;gap:14px"></div>
