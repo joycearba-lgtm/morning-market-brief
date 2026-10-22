@@ -103,16 +103,9 @@ except Exception as e:
     us["inflation_1y"]={"status":"unavailable","reason":type(e).__name__}
 
 # No source with matching 12-month horizon has been verified for US policy-rate expectations.
-# Market-implied effective Fed funds rate for October 2027.
-# Dated futures-based snapshot (NOT the FOMC median year-end dot).
-rate_source_day=datetime(2026,10,20,tzinfo=ZoneInfo("Asia/Jerusalem"))
-if timedelta(0)<=NOW-rate_source_day<=timedelta(days=7):
-    us["rate_1y"]=entry(4.71,"2026-10-20","StreetStats futures-implied Fed funds Oct 2027",
-      "https://streetstats.finance/rates/fedfunds",
-      "12-month market-implied effective policy rate; as of Oct 20 2026. Expires after 7 days.")
-else:
-    us["rate_1y"]={"status":"unavailable","reason":"One-year futures quote older than seven days; fresh feed not connected"}
-
+# A verified 12-month-ahead policy-rate quote is not yet available.
+# Do not substitute a year-end FOMC dot plot or stale futures figure.
+us["rate_1y"]={"status":"unavailable","reason":"No current validated 12-month expectation"}
 
 Path("forecast_data.json").write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
 # Embed a fall-back snapshot for GitHub Pages browsers that cannot fetch a separate JSON.
