@@ -82,7 +82,7 @@ body{font-size:16px;line-height:1.65}
 </div>
 </section>
 <section id="macro-brief" style="margin:22px 0">
-<div class="section-title"><h2>סקירת בוקר · תמונת שווקים וכיוון להמשך</h2><span></span></div>
+<div class="section-title"><h2>סקירת שווקים · אירועים, הקשר ומשמעות</h2><span></span></div>
 <div class="card" style="border-top:3px solid #197a70">
 <p id="macro-date" class="sub">סקירה תמציתית ללא חזרה על המדדים · גרסת תצוגה B</p>
 <div id="macro-content" style="display:grid;gap:14px"><p class="empty">טוען התפתחויות מאקרו מאומתות.</p></div>
@@ -271,11 +271,16 @@ body{font-size:16px;line-height:1.65}
        const list=document.createElement('ul');list.style.cssText='padding:0 20px 0 0;margin:7px 0 8px;display:grid;gap:11px';
        for(const item of section.bullets.slice(0,4)){
          if(typeof item!=='string' || !item.trim())continue;
-         // The dashboard already displays market figures; never repeat the
-         // percentage/index/CPI/rate-summary bullets in the editorial section.
-         if(/\d+(?:[.,]\d+)?\s*%|(?:S&P|Nasdaq|Dow Jones|ת״א[-־]?(?:35|125))\s*[+−-]?\d|\bCPI\b.{0,60}\d/.test(item))continue;
          const li=document.createElement('li');li.style.cssText='font-size:16px;line-height:1.78;padding-right:3px';
-         li.textContent=item;list.append(li);
+         const boundary=item.indexOf(' — ');
+         const colon=item.indexOf(': ');
+         const split=boundary>=0&&boundary<95?boundary:colon>=0&&colon<75?colon:-1;
+         if(split>0){
+           const strong=document.createElement('strong');
+           strong.textContent=item.slice(0,split+1)+' ';
+           li.append(strong,document.createTextNode(item.slice(split+2)));
+         }else li.textContent=item;
+         list.append(li);
        }
        if(list.children.length){el.append(heading,list);pane.append(el);}
      }else{
