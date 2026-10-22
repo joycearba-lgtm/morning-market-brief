@@ -206,7 +206,7 @@
    pane.replaceChildren();advisor.replaceChildren();
    const until=Date.parse(brief.valid_until);
    const valid=Number.isFinite(until) && Date.now() < until && Date.now() >= Date.parse(brief.date+'T00:00:00+03:00');
-   stamp.textContent=valid?'סקירה מבוססת פרסומים רשמיים · '+brief.date:'הסקירה האחרונה התיישנה · '+brief.date;
+   stamp.textContent=valid?(brief.status==='automatic_conditional'?'ניתוח אוטומטי מבוסס נתוני שוק ומקורות מצוטטים · ':'סקירה ממקורות מזוהים · ')+brief.date:'הסקירה האחרונה התיישנה · '+brief.date;
    if(!valid){
      addText(pane,'לא פורסמה עדיין סקירת מאקרו מאומתת ליום זה','הסקירה הקודמת הוסתרה כדי שלא תוצג בטעות כסקירה מעודכנת. נתוני המדדים מוצגים בנפרד למעלה.');
      advisorStatus.textContent='ניסוחי שיחה יומיים יופיעו עם סקירת מאקרו מאומתת';
@@ -223,6 +223,7 @@
      }
    }
    addText(pane,'השורה התחתונה',brief.takeaway||'');
+   if(brief.methodology){addText(pane,'על אופן הפקת הסקירה',brief.methodology);}
    advisorStatus.textContent='שלוש נקודות לשיחה על בסיס סקירת המאקרו מ־'+brief.date;
    (brief.advisor||[]).slice(0,3).forEach((item,i)=>addText(advisor,'נקודה '+(i+1),item));
  }
