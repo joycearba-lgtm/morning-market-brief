@@ -1,0 +1,30 @@
+name: Hourly USD ILS Quote
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '3 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forex-hourly
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch USD/ILS market quote
+        run: python forex_data.py
+      - name: Save quote when changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add fx_data.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update intraday USD ILS market quote"
+            git pull --rebase
+            git push
+          fi
