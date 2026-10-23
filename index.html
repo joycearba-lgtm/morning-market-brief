@@ -293,7 +293,9 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
    pane.replaceChildren();advisor.replaceChildren();
    const until=Date.parse(brief.valid_until);
    const valid=Number.isFinite(until) && Date.now() < until && Date.now() >= Date.parse(brief.date+'T00:00:00+03:00');
-   stamp.textContent=valid?(brief.status==='automatic_conditional'?'ניתוח אוטומטי מבוסס נתוני שוק ומקורות מצוטטים · ':'סקירה ממקורות מזוהים · ')+brief.date:'הסקירה האחרונה התיישנה · '+brief.date;
+   const generated=Date.parse(brief.generated_at||'');
+   const checkedLabel=Number.isFinite(generated)?new Date(generated).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):brief.date;
+   stamp.textContent=valid?'סקירת שוק אוטומטית · נוצרה '+checkedLabel:'הסקירה האחרונה התיישנה · '+brief.date;
    if(!valid){
      addText(pane,'לא פורסמה עדיין סקירת מאקרו מאומתת ליום זה','הסקירה הקודמת הוסתרה כדי שלא תוצג בטעות כסקירה מעודכנת. נתוני המדדים מוצגים בנפרד למעלה.');
      advisorStatus.textContent='ניסוחי שיחה יומיים יופיעו עם סקירת מאקרו מאומתת';
