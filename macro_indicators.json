@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-22T21:22:19.967077+03:00",
+  "checked_at": "2026-10-23T08:36:49.904811+03:00",
   "status": "ok",
   "indicators": {
     "us_cpi": {
@@ -43,7 +43,7 @@
       "name": "US effective federal funds rate, daily",
       "value": 3.88,
       "units": "%",
-      "observation_date": "2026-10-20",
+      "observation_date": "2026-10-21",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFF",
       "series_id": "DFF",
