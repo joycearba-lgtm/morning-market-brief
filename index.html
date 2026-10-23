@@ -119,6 +119,32 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 .hero .btn{padding:6px 9px!important;font-size:11px!important}
 .hero .independent-note{margin-top:8px!important;padding-top:6px!important;line-height:1.3!important}
 }
+
+/* Compact, high-contrast forecast directly below the editorial macro brief */
+.compact-forecast{margin:10px 0 16px}
+.compact-forecast .section-title{margin-bottom:8px}
+.compact-forecast .section-title h2{font-size:19px;font-weight:850}
+.compact-forecast .forecast-card{padding:12px 14px;border:1.5px solid #b8dbc6;border-top:4px solid #067d48;background:#fff;box-shadow:0 4px 14px rgba(0,92,52,.06)}
+.forecast-two-countries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.forecast-country{min-width:0}
+.forecast-country+.forecast-country{border-right:1px solid #dbe8df;padding-right:12px}
+.forecast-country-name{font-size:17px;font-weight:850;color:#075b3b;margin-bottom:7px}
+.forecast-country-data{display:grid;gap:8px}
+.forecast-metric{display:flex;justify-content:space-between;align-items:center;gap:7px;min-width:0}
+.forecast-metric span{font-size:12px;line-height:1.4;font-weight:550;color:#375449}
+.forecast-metric strong{font-size:17px;font-weight:850;color:#075735;white-space:nowrap;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+.compact-forecast #forecast-asof{font-size:10px;line-height:1.6;margin:11px 0 0!important;border-top:1px solid #e2ece5;padding-top:6px;color:#61776a}
+@media(max-width:760px){
+ .compact-forecast .section-title h2{font-size:18px}
+ .compact-forecast .forecast-card{padding:10px 10px}
+ .forecast-two-countries{gap:8px}
+ .forecast-country+.forecast-country{padding-right:8px}
+ .forecast-country-name{font-size:15px}
+ .forecast-country-data{gap:7px}
+ .forecast-metric{display:flex;flex-direction:column;align-items:flex-start;gap:1px}
+ .forecast-metric span{font-size:11px;line-height:1.28}
+ .forecast-metric strong{font-size:17px;line-height:1.2}
+}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -141,33 +167,14 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 הסקירה מבוססת על פרסומים מזוהים וכוללת ניתוח כלכלי. אם לא הוכנה סקירה חדשה, לא יוצג תוכן ישן בתור עדכון יומי.
 </p>
 </div></section>
+<section id="rate-inflation-forecast" class="compact-forecast"><div class="section-title"><h2>ריבית ואינפלציה · שנה קדימה</h2><span></span></div><div class="card forecast-card"><div class="forecast-two-countries"><div class="forecast-country"><div class="forecast-country-name">🇮🇱 ישראל</div><div class="forecast-country-data"><div class="forecast-metric"><span>ריבית כרגע</span><strong data-forecast="israel.rate_now" dir="ltr">3.25%</strong></div><div class="forecast-metric"><span>צפי ריבית שנה קדימה</span><strong data-forecast="israel.rate_1y" dir="ltr">3.1%</strong></div><div class="forecast-metric"><span>אינפלציה כרגע</span><strong data-forecast="israel.inflation_now" dir="ltr">1.6%</strong></div><div class="forecast-metric"><span>צפי אינפלציה שנה קדימה</span><strong data-forecast="israel.inflation_1y" dir="ltr">1.8%</strong></div></div></div><div class="forecast-country"><div class="forecast-country-name">🇺🇸 ארה״ב</div><div class="forecast-country-data"><div class="forecast-metric"><span>ריבית כרגע</span><strong data-forecast="us.rate_now" dir="ltr">3.75%–4.00%</strong></div><div class="forecast-metric"><span>צפי ריבית שנה קדימה</span><strong data-forecast="us.rate_1y" dir="ltr">4.7%</strong></div><div class="forecast-metric"><span>אינפלציה כרגע (CPI)</span><strong data-forecast="us.inflation_now" dir="ltr">3.74%</strong></div><div class="forecast-metric"><span>צפי אינפלציה שנה קדימה (CPI)</span><strong data-forecast="us.inflation_1y" dir="ltr">2.98%</strong></div></div></div></div><p class="sub" id="forecast-asof" style="margin:9px 0 0">ציפיות שוק ותחזיות · עודכן 22.10.2026 · <a class="source" href="https://www.boi.org.il/" target="_blank" rel="noopener noreferrer">בנק ישראל</a> · <a class="source" href="https://fred.stlouisfed.org/series/EXPINF1YR" target="_blank" rel="noopener noreferrer">FRED</a> · <a class="source" href="https://streetstats.finance/rates/fedfunds" target="_blank" rel="noopener noreferrer">צפי ריבית ארה״ב</a></p></div></section>
 <section id="macro-surprises" style="margin:14px 0">
 <div class="section-title"><h2>בפועל מול התחזית · פרסומי מאקרו</h2><span></span></div>
 <div class="card" style="padding:12px 14px">
 <p id="surprise-status" class="sub" style="margin:0 0 7px">בודק פרסומים ותחזיות מאומתים…</p>
 <div id="surprise-items" style="display:grid;gap:8px"></div>
 </div></section>
-<section id="rate-inflation-forecast" style="margin:14px 0">
-<div class="section-title"><h2>ריבית ואינפלציה · שנה קדימה</h2><span></span></div>
-<div class="card" style="padding:12px 14px">
-<strong>🇮🇱 ישראל</strong>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;align-items:center;font-size:14px;margin-top:6px">
-<span>ריבית כרגע</span><strong data-forecast="israel.rate_now" dir="ltr">3.25%</strong>
-<span>צפי ריבית שנה קדימה</span><strong data-forecast="israel.rate_1y" dir="ltr">3.1%</strong>
-<span>אינפלציה כרגע</span><strong data-forecast="israel.inflation_now" dir="ltr">1.6%</strong>
-<span>צפי אינפלציה שנה קדימה</span><strong data-forecast="israel.inflation_1y" dir="ltr">1.8%</strong>
-</div>
-<div style="border-top:1px solid #dce5e8;margin:10px 0 8px"></div>
-<strong>🇺🇸 ארה״ב</strong>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;align-items:center;font-size:14px;margin-top:6px">
-<span>ריבית כרגע</span><strong data-forecast="us.rate_now" dir="ltr">3.75%–4.00%</strong>
-<span>צפי ריבית שנה קדימה</span><strong data-forecast="us.rate_1y" dir="ltr">4.7%</strong>
-<span>אינפלציה כרגע (CPI)</span><strong data-forecast="us.inflation_now" dir="ltr">3.74%</strong>
-<span>צפי אינפלציה שנה קדימה (CPI)</span><strong data-forecast="us.inflation_1y" dir="ltr">2.98%</strong>
-</div>
-<p class="sub" id="forecast-asof" style="margin:9px 0 0">ציפיות שוק ותחזיות · עודכן 22.10.2026 · <a class="source" href="https://www.boi.org.il/" target="_blank" rel="noopener noreferrer">בנק ישראל</a> · <a class="source" href="https://fred.stlouisfed.org/series/EXPINF1YR" target="_blank" rel="noopener noreferrer">FRED</a> · <a class="source" href="https://streetstats.finance/rates/fedfunds" target="_blank" rel="noopener noreferrer">צפי ריבית ארה״ב</a></p>
-</div>
-</section>
+
 <section id="advisor-talking-points" style="margin:20px 0">
  <div class="section-title"><h2>3 מסרים ברורים לשיחה עם לקוחות</h2><span></span></div>
  <div class="card" style="border-right:3px solid #197a70">
