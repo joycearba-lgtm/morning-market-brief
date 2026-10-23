@@ -160,45 +160,66 @@ if fresh:
     sections.append(section("תרחישים למשקיעים — מניות, אג״ח ומט״ח",
         risk_view,[{"label":"נתוני ריבית ואינפלציה – FRED", "url":"https://fred.stlouisfed.org/"}]))
 
-    # Advisor-facing short client language, portfolio consequence, and a concrete review.
+    # Event-led, client-ready points, selected from dated market coverage.
+    def news_event(terms):
+        for row in news.get("items", [])+news.get("israel_focus", []):
+            if not isinstance(row,dict):continue
+            title=row.get("title","").lower()
+            try: ts=datetime.fromisoformat(row.get("published_at","")).astimezone(TZ)
+            except (TypeError,ValueError):continue
+            if timedelta(0)<=now-ts<=timedelta(hours=36) and any(term in title for term in terms):
+                return row
+        return None
     advisor=[]
-    if observation("israel_cpi_yoy",israel_observations):
-        advisor.append({
-            "title":"אג״ח: לא להמר על הורדת ריבית קרובה",
-            "insight":"המדד התמתן, אבל הריבית לא ירדה בהחלטה האחרונה. לכן לא נכון להניח שמח״מ ארוך ירוויח מיד מהפחתה.",
-            "client_impact":"באג״ח במח״מ חמש, עליית תשואה של נקודת אחוז עלולה לגרום בקירוב לירידת מחיר של כ־5% לפני קופונים וקמירות. זו המחשה, לא תחזית.",
-            "question":"לבדוק מח״מ משוקלל, מועדי פדיון וכסף שיידרש בשנתיים הקרובות; להשוות חלופות קצרות וארוכות בהתאם לצרכים.",
-            "reference":"החלטת בנק ישראל ומדד ספטמבר 2026"
-        })
-    if observation("us_cpi",observations):
-        advisor.append({
-            "title":"מניות חו״ל: הסיכון הוא גם ריכוזיות",
-            "insight":"גם אם הלקוח מחזיק כמה קרנות, חלקן עשויות להחזיק את אותן מניות טכנולוגיה גדולות. גיוון שמות הקרנות אינו בהכרח גיוון סיכונים.",
-            "client_impact":"אם רכיב הטכנולוגיה מתקן בחדות, כמה קרנות עלולות לרדת יחד, במיוחד כשציפיות הריבית עולות.",
-            "question":"לרכז את עשר ההחזקות הגדולות מכל הקרנות, לחשב חשיפה חופפת ולבדוק התאמה לתקרת הסיכון של הלקוח.",
-            "reference":"ניתוח סיכוני ריכוזיות על רקע סביבת ריבית בארה״ב"
-        })
-    usd_stamp=market.get("rate_date","")
-    try:
-        usd_age=now-datetime.fromisoformat(usd_stamp.replace("Z","+00:00")).astimezone(TZ)
-    except (ValueError,TypeError,AttributeError):
-        usd_age=timedelta(days=99)
-    if timedelta(0)<=usd_age<=timedelta(days=3):
-        advisor.append({
-            "title":"מט״ח: תשואה דולרית אינה תשואה שקלית",
-            "insight":"עלייה של 5% בנכס דולרי לצד היחלשות של 5% בדולר מול השקל משמעה תשואה שקלית של כ־0.25%−, לפני עלויות.",
-            "client_impact":"לקוח עם הוצאות קרובות בשקלים עשוי להיות חשוף להפסד מטבעי גם כאשר ההשקעה עצמה עולה.",
-            "question":"למפות הוצאות והתחייבויות לפי מטבע, לחשב חשיפה לא־מגודרת ולבחון האם גידור מתאים לאחר עלויות.",
-            "reference":"המחשה חישובית והנתון היציג האחרון של בנק ישראל"
-        })
-    fallback=[
-       {"title":"אג״ח: להבין את רגישות המח״מ","insight":"רווח ממחיר אג״ח תלוי בשינוי התשואות, לא רק בגובה הריבית הנוכחית.","client_impact":"באג״ח במח״מ חמש, שינוי תשואה של נקודת אחוז משנה את המחיר בקירוב בכ־5% בכיוון ההפוך.","question":"לחשב מח״מ והפסד תרחישי ולבחון התאמה לנזילות.","reference":"המחשה פיננסית"},
-       {"title":"מניות: לבדוק חפיפה בקרנות","insight":"קרנות מדד שונות עשויות להחזיק את אותן מניות מובילות.","client_impact":"קורלציה גבוהה יכולה ליצור ריכוזיות לא מתוכננת.","question":"לחשב חפיפה ועשר החזקות גדולות בתיק המאוחד.","reference":"המחשה פיננסית"},
-       {"title":"מט״ח: לבחון מטבע מול התחייבויות","insight":"תשואת ההשקעה בשקלים תלויה גם בשער החליפין.","client_impact":"לקוח שמוציא שקלים עלול לחוות תנודתיות מטבעית משמעותית.","question":"למפות הוצאות לפי מטבע ולבדוק רמת גידור רצויה.","reference":"המחשה פיננסית"}
-    ]
-    for row in fallback:
-        if len(advisor)>=3:break
-        advisor.append(row)
+    def add_client_point(title,message,impact,action,source):
+        if len(advisor)<3:
+            advisor.append({"title":title,"insight":message,"client_impact":impact,
+                            "question":action,"reference":source})
+    oil_story=news_event(("נפט","ברנט","oil","crude"))
+    if oil_story:
+        add_client_point(
+          "אנרגיה: לבדוק מנצחות ומפסידות",
+          "ההתפתחות במחירי הנפט אינה משפיעה באופן זהה על מפיקות נפט, חברות גז בחוזים ארוכים וצרכניות דלק כמו תעופה ותעשייה.",
+          "התייקרות ממושכת עלולה לפגוע ברווחיות ענפים עתירי אנרגיה ולהעלות לחצים אינפלציוניים; השפעתה על כל חברה תלויה בחוזים וביכולת גלגול עלויות.",
+          "למפות מניות מפיקות מול צרכניות אנרגיה; לבדוק חוזי מכירה, חשיפה לאינפלציה ומח״מ אג״ח בתיק.",
+          oil_story.get("source","פרסום כלכלי")+" · "+oil_story.get("published_at","")[:10])
+    chip_story=news_event(("שבבים","semiconductor","chips","meta","tesla","טכנולוגיה"))
+    if chip_story:
+        add_client_point(
+          "טכנולוגיה: לאחד חשיפה חופפת",
+          "דיווח עדכני על מניות טכנולוגיה מחייב להבחין בין תוצאות חברות מסוימות לבין מצב הענף כולו; ירידת מניה אחת אינה בהכרח מגמה.",
+          "מדדי מניות וקרנות שבבים עשויים להכיל אותן מניות גדולות, כך שהתיק חשוף לתנודתיות ענפית גם כשהקרנות שונות.",
+          "לחשב את משקל חברות השבבים והטכנולוגיה בכל ההחזקות, כולל קרנות, ולבחון תרחיש תיקון ענפי.",
+          chip_story.get("source","פרסום כלכלי")+" · "+chip_story.get("published_at","")[:10])
+    local_story=news_event(("בחירות","ביטחון","איראן","גירעון","תקציב"))
+    if local_story:
+        add_client_point(
+          "ישראל: לבדוק את השקל ואת תשואות האג״ח",
+          "התפתחות פוליטית, ביטחונית או פיסקלית עשויה לשנות את פרמיית הסיכון ואת צורכי גיוס החוב; יש לבדוק את תגובת השוק בפועל.",
+          "שינוי בתשואות הארוכות ובשער השקל יכול להשפיע על אג״ח ממשלתיות, מניות מקומיות וחשיפה לחו״ל.",
+          "להשוות שקל, תשואות אג״ח ומרווחי אשראי לפני האירוע ואחריו; לבדוק מח״מ, הצמדה ונזילות.",
+          local_story.get("source","פרסום כלכלי")+" · "+local_story.get("published_at","")[:10])
+    if len(advisor)<3 and 0<=decision_age<=14:
+        add_client_point(
+          "תקציב וביטחון: סיכון למח״מ הארוך",
+          "תחזית בנק ישראל מ־21.10 תלויה בהנחות על עצימות הלחימה והוצאות הביטחון, ואינה כוללת מדיניות פיסקלית עתידית לאחר הבחירות.",
+          "חריגה בהוצאות עלולה להגדיל צורכי גיוס ותשואות ארוכות גם ללא העלאת ריבית קצרה.",
+          "לבדוק מח״מ אג״ח ממשלתיות בתיק, אינפלציה גלומה וחשיפה דולרית מול צורכי הלקוח.",
+          "בנק ישראל · תחזית 21.10.2026")
+    if len(advisor)<3 and observation("us_cpi",observations):
+        add_client_point(
+          "הפד: להפריד בין נתון לבין ציפיות שוק",
+          "השפעת האינפלציה תלויה בהפתעה מול הצפי ובתוואי הריבית המגולם בשוק, לא רק בגובה המדד.",
+          "אג״ח ארוכות ומניות צמיחה עשויות להיות רגישות לשינוי בתשואות גם אם נתון בודד לא משנה את מגמת הצמיחה.",
+          "לבדוק עקום תשואות, מח״מ וחפיפה בין קרנות צמיחה בתיק.",
+          "FRED · נתוני מאקרו אחרונים")
+    if len(advisor)<3:
+        add_client_point(
+          "מט״ח: לתרגם תשואות לשקלים",
+          "עלייה של 5% בנכס דולרי לצד ירידה של 5% בדולר פירושה תשואה של מינוס 0.25% בשקלים, לפני עלויות.",
+          "תשואה חיובית בדולר עלולה להתקזז כשלקוח מודד את ההון ואת התחייבויותיו בשקלים.",
+          "למפות התחייבויות לפי מטבע ולבחון חשיפה לא מגודרת, עלות גידור ונזילות.",
+          "המחשה מתמטית · לא תחזית לשער החליפין")
     advisor=advisor[:3]
     # Insight-only trading-desk note. Market quotations and macro levels are already
     # displayed elsewhere on the page. No duplicate numbers or invented events.
