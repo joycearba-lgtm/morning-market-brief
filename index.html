@@ -533,6 +533,22 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
         if(text)chunks.push(text);
       }
     }
+    const advisorStatus=document.getElementById('advisor-status')?.textContent||'';
+    if(!advisorStatus.includes('יופיעו')&&!advisorStatus.includes('התיישנה')){
+      const advisor=document.getElementById('advisor-points');
+      const points=[...advisor?.querySelectorAll('.advisor-point')||[]];
+      if(points.length){
+        chunks.push('שלוש נקודות לשיחה עם לקוחות.');
+        for(const point of points){
+          const title=point.querySelector(':scope > strong')?.textContent?.trim();
+          if(title)chunks.push(title);
+          for(const para of point.querySelectorAll('p')){
+            const line=para.textContent?.trim();
+            if(line)chunks.push(line);
+          }
+        }
+      }
+    }
     return chunks.length>1?chunks:[];
   }
   play.addEventListener('click',()=>{
