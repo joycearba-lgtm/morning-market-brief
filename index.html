@@ -243,6 +243,7 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
         dollarCard.querySelector('.value').textContent = dollar;
         dollarCard.querySelector('.sub').textContent = 'שער יציג אחרון | בנק ישראל';
       }
+      window.dispatchEvent(new Event('market-data-rendered'));
       // Duplicate bottom USD card removed; primary dashboard card remains.
       
       const dt = data.updated_at ? new Date(data.updated_at) : null;
@@ -272,6 +273,60 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 
 
 
+<script>
+(function(){
+ const card=[...document.querySelectorAll('.grid .card')].find(x=>x.querySelector('.label')?.textContent.trim()==='דולר / שקל');
+ if(!card)return;
+ const value=card.querySelector('.value'),sub=card.querySelector('.sub');
+ const note=document.createElement('div');note.className='fx-quote-label';
+ note.style.cssText='font-size:10px;line-height:1.25;margin-top:3px;color:#176746;font-weight:700';
+ card.append(note);
+ let latest=null;
+ const fmt=iso=>new Date(iso).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+ function boiValue(){
+   try{
+     const info=JSON.parse(document.getElementById('market-snapshot').textContent);
+     return {value:info.usd_ils,rateDate:info.rate_date};
+   }catch{return {}}
+ }
+ function show(){
+   const rate=latest,when=Date.parse(rate?.market_time||'');
+   const fresh=rate?.status==='ok'&&typeof rate.value==='number'&&Number.isFinite(rate.value)&&rate.value>1&&rate.value<10
+      &&Number.isFinite(when)&&Date.now()-when>=0&&Date.now()-when<=120*60*1000;
+   if(fresh){
+     value.textContent=rate.value.toFixed(4)+' ₪';
+     sub.textContent='שער שוק מעוכב · Yahoo Finance · '+fmt(rate.market_time);
+     note.textContent='שער שוק מעוכב · '+new Date(rate.market_time).toLocaleTimeString('he-IL',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit'});
+     note.style.color='#176746';
+     const more=boiValue();
+     card.title=(typeof more.value==='number'?'שער יציג בנק ישראל האחרון: '+more.value.toFixed(4)+' ₪. ':'')+
+       'המחיר עשוי להיות מעוכב ואינו שער עסקה או שער יציג.';
+   }else{
+     const official=boiValue();
+     if(typeof official.value==='number'&&Number.isFinite(official.value)){
+       value.textContent=official.value.toFixed(4)+' ₪';
+       sub.textContent='שער יציג אחרון · בנק ישראל · '+(official.rateDate?fmt(official.rateDate):'');
+       note.textContent='שער יציג אחרון · לא ציטוט רציף';
+       note.style.color='#66746c';
+       card.title='אין כרגע ציטוט שוק תוך־יומי מאומת. מוצג השער היציג האחרון.';
+     }else{
+       note.textContent='אין שער עדכני מאומת';
+       note.style.color='#a44141';
+     }
+   }
+ }
+ function refresh(){
+   fetch('./fx_data.json?t='+Date.now(),{cache:'no-store'})
+     .then(r=>{if(!r.ok)throw Error('FX unavailable');return r.json()})
+     .then(q=>{latest=q;show()})
+     .catch(()=>{latest=null;show()});
+ }
+ window.addEventListener('market-data-rendered',()=>show());
+ show();refresh();
+ // Recheck published hourly quote while dashboard remains open.
+ setInterval(refresh,5*60*1000);
+})();
+</script>
 <!-- EDITORIAL_MACRO_START -->
 <script id="editorial-macro" type="application/json">{"date":"2026-10-23","generated_at":"2026-10-23T08:51:13.960629+03:00","valid_until":"2026-10-24T09:00:00+03:00","title":"סקירה כלכלית מקצועית — עולם וישראל","status":"automatic_conditional","methodology":"אוטומציה מבוססת כללים ונתונים; אינה תחקיר עצמאי או סקירת פרסומים מלאה.","sections":[{"heading":"גלובלי — צמיחה ותמונת המשק","bullets":["צמיחה עולמית — בתחזית קרן המטבע מאוקטובר 2026 צפויה האטה ל־3.1% השנה והתאוששות ל־3.4% ב־2027. הצמיחה אינה אחידה: השקעות AI תומכות במדינות ובחברות הקשורות לשרשרת הטכנולוגיה, בעוד יבואניות אנרגיה נפגעות ממחירים גבוהים. הסיכון הוא פער גדל בין מנצחות טכנולוגיה לענפים מסורתיים."],"sources":[{"label":"קרן המטבע — תחזית אוקטובר 2026","url":"https://www.imf.org/en/Publications/WEO/Issues/2026/10/13/world-economic-outlook-october-2026"}]},{"heading":"מדיניות מוניטרית — הפד ואירופה","bullets":["הפד — טווח ריבית היעד האחרון הוא 3.75%–4.00%. המוקד המקצועי הוא הפער בין אינפלציה שנותרת דביקה לבין התמתנות בתעסוקה: מגמת שכר, ליבת המחירים וציפיות השוק יכריעו אם יש מרחב להקלה. אין להסיק מהטווח הנוכחי לבדו שהפחתה כבר תומחרה במלואה.","אירופה וה־ECB — בספטמבר העלה הבנק המרכזי את הריביות ברבע נקודת אחוז על רקע לחצי מחירים מהעימות במזרח התיכון. בתחזית הבנק, צמיחת גוש האירו ב־2026 היא 0.9% והאינפלציה 3.0%. המשמעות: מדיניות מרסנת יחד עם צמיחה חלשה מגדילה רגישות לאג״ח ולרווחיות החברות. זו החלטה מספטמבר, לא הודעת ריבית חדשה מהיום."],"sources":[{"label":"פד — נתוני ריבית","url":"https://fred.stlouisfed.org/"},{"label":"ECB — החלטת ספטמבר","url":"https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260910~314e508016.en.html"}]},{"heading":"מניות, תמחור ואנרגיה","bullets":["מניות ותמחור — המדד הרחב הפגין עוצמה יחסית לנאסד״ק בסגירה האחרונה. חשוב לבדוק אם זו רוטציה לענפים אחרים באמצעות ביצועי סקטורים ורוחב השוק; אין לקבוע רוטציה מתוך יום מסחר בודד."],"sources":[]},{"heading":"ישראל — צמיחה, תקציב וסיכון","bullets":["פעילות בישראל — בתחזית בנק ישראל מ־21.10.2026, הצמיחה ללא ייצור של חברות ישראליות בחו״ל עומדת על 3.4% ב־2026 ועל 5.1% ב־2027. המדד הזה מייצג טוב יותר פעילות מקומית מאשר נתוני התמ״ג הכוללים ייצור בחו״ל. גם בסוף 2027 הפעילות צפויה להישאר מתחת למגמת טרום המלחמה.","תקציב וביטחון — תחזית הבנק מצביעה על גירעון של 4.4% תוצר השנה ו־4.6% ב־2027, כשגידול בהוצאות הביטחון הוא אחד הגורמים. ההנחה היא שעצימות הלחימה נותרת נמוכה יחסית. התעצמות בלחימה או חריגה בתקציב הביטחון עלולות להגביר צורכי גיוס ולהעלות לחץ על אג״ח ממשלתיות.","בחירות ומדיניות פיסקלית — תחזית בנק ישראל מציינת במפורש שאינה כוללת את ההשלכות האפשריות של הבחירות. לכן שינוי עתידי במיסוי, בסדרי העדיפויות או בהוצאות הממשלה הוא סיכון לתרחיש הבסיס, ולא תוצאה שכבר התרחשה.","התפתחות מדווחת — לפי TheMarker: מניות השבבים הישראליות נפלו בוול סטריט - איך תגיב הבורסה בת\"א?. המשמעות לתיק תלויה במידה שבה האירוע משנה ציפיות ריבית, רווחיות או פרמיית סיכון, ולא רק בכותרת.","התפתחות מדווחת — לפי ביזפורטל: הברנט מעל 110 דולר: מה עושה זינוק הנפט למניות הגז בתל אביב. המשמעות לתיק תלויה במידה שבה האירוע משנה ציפיות ריבית, רווחיות או פרמיית סיכון, ולא רק בכותרת."],"sources":[{"label":"בנק ישראל — תחזית אוקטובר","url":"https://www.boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/"},{"label":"TheMarker · שוק","url":"https://news.google.com/rss/articles/CBMiowFBVV95cUxPNElmMGFITjhfZ2l0UG0tZk5GdG5SQ1NvSWZ0RXJ1ajdfVHg0alBZeFRIZnhGLTZvd0xYcC1Cc25hZ19QY2ZUMW50Z05RaVAtUjNhc2praFZwNW1Zb2M3cm85UXFkaUJzN0xZc2NWUzJaQk4tcDVYOWsxUmZiX0luYUdHUzY4QTFyWjBoOHV1N21JaWRscVJfOEl4Mjd3QzB3WkQ4?oc=5"},{"label":"ביזפורטל · שוק","url":"https://news.google.com/rss/articles/CBMicEFVX3lxTFAtZW1pM0JCUkFrRlBfdV8xV1VuaThVOVpPb2ZMT0F6SGNMZWdGWndCQUZBeTd1bF9xWGZQNW1yUGxMMWRhVXg3Qlk0VXVvZEhxZC1NX3RPQU5BMDhsbUxkM2RaTU9JY0dfODhPTXYzNmY?oc=5"}]},{"heading":"כיוון להמשך","bullets":["גלובלי: לעקוב אחר פערי הצמיחה בין כלכלות, אינפלציית ליבה, נתוני תעסוקה וההשפעה של מחירי האנרגיה על תשואות האג״ח.","ישראל: לבחון אם התפתחויות ביטחוניות והחלטות תקציב משנות את התחזית, את השקל, את האינפלציה הגלומה ואת פרמיית הסיכון."],"sources":[]}],"takeaway":"למעקב: פערי צמיחה עולמיים, מסלול הפד וה־ECB, תמחור המניות ותחזית הצמיחה והגירעון בישראל. להפריד תמיד בין תחזית מתוארכת לבין אירוע חדש.","advisor":[{"title":"אג״ח: לא להמר על הורדת ריבית קרובה","insight":"המדד התמתן, אבל הריבית לא ירדה בהחלטה האחרונה. לכן לא נכון להניח שמח״מ ארוך ירוויח מיד מהפחתה.","client_impact":"באג״ח במח״מ חמש, עליית תשואה של נקודת אחוז עלולה לגרום בקירוב לירידת מחיר של כ־5% לפני קופונים וקמירות. זו המחשה, לא תחזית.","question":"לבדוק מח״מ משוקלל, מועדי פדיון וכסף שיידרש בשנתיים הקרובות; להשוות חלופות קצרות וארוכות בהתאם לצרכים.","reference":"החלטת בנק ישראל ומדד ספטמבר 2026"},{"title":"מניות חו״ל: הסיכון הוא גם ריכוזיות","insight":"גם אם הלקוח מחזיק כמה קרנות, חלקן עשויות להחזיק את אותן מניות טכנולוגיה גדולות. גיוון שמות הקרנות אינו בהכרח גיוון סיכונים.","client_impact":"אם רכיב הטכנולוגיה מתקן בחדות, כמה קרנות עלולות לרדת יחד, במיוחד כשציפיות הריבית עולות.","question":"לרכז את עשר ההחזקות הגדולות מכל הקרנות, לחשב חשיפה חופפת ולבדוק התאמה לתקרת הסיכון של הלקוח.","reference":"ניתוח סיכוני ריכוזיות על רקע סביבת ריבית בארה״ב"},{"title":"מט״ח: תשואה דולרית אינה תשואה שקלית","insight":"עלייה של 5% בנכס דולרי לצד היחלשות של 5% בדולר מול השקל משמעה תשואה שקלית של כ־0.25%−, לפני עלויות.","client_impact":"לקוח עם הוצאות קרובות בשקלים עשוי להיות חשוף להפסד מטבעי גם כאשר ההשקעה עצמה עולה.","question":"למפות הוצאות והתחייבויות לפי מטבע, לחשב חשיפה לא־מגודרת ולבחון האם גידור מתאים לאחר עלויות.","reference":"המחשה חישובית והנתון היציג האחרון של בנק ישראל"}]}</script>
 <!-- EDITORIAL_MACRO_END -->
