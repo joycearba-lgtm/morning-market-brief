@@ -149,7 +149,7 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 .forecast-build-label{font-size:11px;font-weight:650;color:#0a7349;margin:-4px 0 7px}
 @media(max-width:760px){.hero .actions{display:flex;flex-wrap:wrap}.hero .actions .btn{flex:0 1 auto}}
 
-/* Native browser read-aloud: one-tap listening without API charges */
+/* Improved native Hebrew browser read-aloud without paid TTS */
 .voice-controls{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:10px 0 16px;padding:10px;background:#edf7f0;border:1px solid #d1e8d9;border-radius:12px}
 .voice-button{appearance:none;background:#fff;color:#086442;border:1px solid #aecfb9;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:750;cursor:pointer;min-height:40px}
 .voice-primary{background:#087a47;color:#fff;border-color:#087a47}
@@ -185,9 +185,10 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
   <button type="button" id="voice-play" class="voice-button voice-primary">▶ השמעת סקירת הבוקר</button>
   <button type="button" id="voice-pause" class="voice-button" disabled>⏸ השהיה</button>
   <button type="button" id="voice-stop" class="voice-button" disabled>⏹ עצירה</button>
+  <label for="voice-choice" class="voice-speed-label">קול</label><select id="voice-choice" aria-label="בחירת קול עברי"><option value="auto">אוטומטי</option></select>
   <label for="voice-speed" class="voice-speed-label">מהירות</label>
-  <select id="voice-speed" aria-label="מהירות הקראה"><option value="0.9">רגועה</option><option value="1" selected>רגילה</option><option value="1.15">מהירה</option></select>
-  <span id="voice-status" class="voice-status" role="status" aria-live="polite">להאזנה בעברית, לחצי על השמעה</span>
+  <select id="voice-speed" aria-label="מהירות הקראה"><option value="0.88">רגועה</option><option value="1" selected>רגילה</option><option value="1.12">מהירה</option></select>
+  <span id="voice-status" class="voice-status" role="status" aria-live="polite">גרסת האזנה מקוצרת, בקצב נעים יותר</span>
 </div>
 <div id="macro-content" style="display:grid;gap:14px"><p class="empty">טוען התפתחויות מאקרו מאומתות.</p></div>
 <p class="sub" style="margin-top:16px;border-top:1px solid #dce5e8;padding-top:12px">
@@ -475,6 +476,7 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
   const pause=document.getElementById('voice-pause');
   const stop=document.getElementById('voice-stop');
   const speed=document.getElementById('voice-speed');
+  const voiceChoice=document.getElementById('voice-choice');
   const status=document.getElementById('voice-status');
   const synth=window.speechSynthesis;
   if(!synth||typeof window.SpeechSynthesisUtterance!=='function'){
@@ -490,11 +492,45 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
     pause.disabled=!active||paused;
     stop.disabled=!active;
   };
-  const hebrewVoice=()=>{
-    const voices=synth.getVoices();
-    return voices.find(v=>/^he[-_]/i.test(v.lang)&&v.localService)||
-           voices.find(v=>/^he([-_]|$)/i.test(v.lang))||null;
+  const availableHebrewVoices=()=>synth.getVoices().filter(v=>/^he([-_]|$)/i.test(v.lang));
+  const listVoices=()=>{
+    const selected=voiceChoice.value;
+    const voices=availableHebrewVoices();
+    voiceChoice.replaceChildren(new Option('אוטומטי','auto'));
+    voices.forEach((v,i)=>voiceChoice.add(new Option(v.name+(v.localService?' · במכשיר':''),String(i))));
+    if([...voiceChoice.options].some(o=>o.value===selected))voiceChoice.value=selected;
+    voiceChoice.disabled=voices.length<2;
   };
+  listVoices();
+  if(typeof synth.addEventListener==='function')synth.addEventListener('voiceschanged',listVoices);
+  else synth.onvoiceschanged=listVoices;
+  const hebrewVoice=()=>{
+    const voices=availableHebrewVoices();
+    const picked=Number(voiceChoice.value);
+    if(voiceChoice.value!=='auto'&&Number.isInteger(picked)&&voices[picked])return voices[picked];
+    return voices.find(v=>v.localService)||voices[0]||null;
+  };
+  // Pronunciation helpers for financial terms frequently misread by Hebrew TTS.
+  function speechFriendly(input){
+    return String(input||'')
+      .replace(/S&P\s*500/gi,'אס אנד פי חמש מאות')
+      .replace(/Nasdaq/gi,'נאסדק')
+      .replace(/CPI/gi,'מדד המחירים לצרכן')
+      .replace(/ECB/gi,'הבנק המרכזי האירופי')
+      .replace(/FRED/gi,'מאגר הנתונים של הפד')
+      .replace(/AI\b/gi,'בינה מלאכותית')
+      .replace(/WTI/gi,'נפט אמריקאי')
+      .replace(/\bUSD\b/gi,'דולר')
+      .replace(/\bGDP\b/gi,'תוצר')
+      .replace(/\s*[|·—]\s*/g,', ')
+      .replace(/\s+/g,' ').trim();
+  }
+  function spokenSentences(line){
+    const clean=speechFriendly(line);
+    if(!clean)return [];
+    // Break at real sentence boundaries, not arbitrary character positions.
+    return (clean.match(/[^.!?]+[.!?]?/g)||[clean]).map(v=>v.trim()).filter(Boolean);
+  }
   function finish(message){
     token++;
     active=false;paused=false;parts=[];index=0;
@@ -510,7 +546,7 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
     utterance.lang='he-IL';
     const voice=hebrewVoice();
     if(voice)utterance.voice=voice;
-    utterance.rate=Number(speed.value)||1;
+    utterance.rate=(Number(speed.value)||1)*0.94;
     utterance.pitch=1;
     utterance.onend=()=>{if(id!==token||!active)return;index++;speakNext(id);};
     utterance.onerror=event=>{
@@ -528,33 +564,33 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
       setStatus('לא קיימת סקירה עדכנית להאזנה כרגע');
       return [];
     }
+    // Listen like a short morning radio brief, not a verbatim reading of a long page.
+    const chunks=['בוקר טוב. הנה עיקרי סקירת השווקים.'];
     const sections=[...pane.querySelectorAll('section')];
-    const chunks=['סקירת השווקים של היום.'];
-    for(const section of sections){
+    for(const section of sections.slice(0,5)){
       const heading=section.querySelector('h3, strong')?.textContent?.trim();
-      if(heading)chunks.push(heading.replace(/[·—]/g,', ')+'.');
-      for(const node of section.querySelectorAll('li, p')){
-        const text=node.textContent?.trim();
-        if(text)chunks.push(text);
+      const bullets=[...section.querySelectorAll('li, p')].map(n=>n.textContent?.trim()).filter(Boolean);
+      if(!bullets.length)continue;
+      if(heading)chunks.push(speechFriendly(heading)+'.');
+      for(const bullet of bullets.slice(0,2)){
+        // At most two complete sentences from each major subject.
+        chunks.push(...spokenSentences(bullet).slice(0,2));
       }
     }
-    const advisorStatus=document.getElementById('advisor-status')?.textContent||'';
-    if(!advisorStatus.includes('יופיעו')&&!advisorStatus.includes('התיישנה')){
-      const advisor=document.getElementById('advisor-points');
-      const points=[...advisor?.querySelectorAll('.advisor-point')||[]];
-      if(points.length){
-        chunks.push('שלוש נקודות לשיחה עם לקוחות.');
-        for(const point of points){
-          const title=point.querySelector(':scope > strong')?.textContent?.trim();
-          if(title)chunks.push(title);
-          for(const para of point.querySelectorAll('p')){
-            const line=para.textContent?.trim();
-            if(line)chunks.push(line);
-          }
-        }
+    const advisor=document.getElementById('advisor-points');
+    const points=[...advisor.querySelectorAll('.advisor-point')].slice(0,3);
+    if(points.length){
+      chunks.push('ועכשיו, נקודות מרכזיות לשיחה עם לקוחות.');
+      for(const point of points){
+        const title=point.querySelector(':scope > strong')?.textContent?.trim();
+        if(title)chunks.push(speechFriendly(title)+'.');
+        const paras=[...point.querySelectorAll('p')];
+        for(const para of paras.slice(0,2))chunks.push(...spokenSentences(para.textContent).slice(0,2));
       }
     }
-    return chunks.length>1?chunks:[];
+    if(chunks.length<=1)return [];
+    chunks.push('עד כאן סקירת הבוקר.');
+    return chunks.filter(Boolean);
   }
   play.addEventListener('click',()=>{
     if(paused){
