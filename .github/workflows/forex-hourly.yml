@@ -1,6 +1,11 @@
 name: Hourly USD ILS Quote
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'forex_data.py'
+      - '.github/workflows/forex-hourly.yml'
   schedule:
     - cron: '3 * * * *'
 
