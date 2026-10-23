@@ -513,7 +513,7 @@ else:
     status = "unavailable"
 
 brief = {
-    "date": date, "valid_until": datetime.combine(now.date() + timedelta(days=1), time(hour=9), tzinfo=TZ).isoformat(),
+    "date": date, "generated_at": now.isoformat(), "valid_until": datetime.combine(now.date() + timedelta(days=1), time(hour=9), tzinfo=TZ).isoformat(),
     "title": title, "status": status,
     "methodology": "אוטומציה מבוססת כללים ונתונים; אינה תחקיר עצמאי או סקירת פרסומים מלאה.",
     "sections": sections, "takeaway": takeaway, "advisor": advisor
