@@ -43,24 +43,54 @@ jobs:
           python-version: '3.12'
       - name: Install free neural TTS runtime
         if: steps.local_time.outputs.run == 'true'
+        id: install
+        continue-on-error: true
+        timeout-minutes: 9
         run: |
           python -m pip install -q blue-onnx huggingface_hub soundfile numpy
           ffmpeg -version | head -n 1
+
       - name: Create daily audio file
-        if: steps.local_time.outputs.run == 'true'
-        run: python generate_audio.py
-      - name: Publish recording if created
-        if: steps.local_time.outputs.run == 'true'
+        if: steps.local_time.outputs.run == 'true' && steps.install.outcome == 'success'
+        id: synth
+        continue-on-error: true
+        timeout-minutes: 22
+        run: python -u generate_audio.py
+
+      - name: Publish recording or diagnostic status
+        if: always() && steps.local_time.outputs.run == 'true'
+        env:
+          INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          SYNTH_OUTCOME: ${{ steps.synth.outcome }}
         run: |
-          if [ ! -s audio/morning-brief.mp3 ] || [ ! -f daily_audio.json ]; then
-            echo "No audio file generated for today"
-            exit 0
-          fi
+          python - <<'PY'
+          import json,os
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          today=datetime.now(ZoneInfo("Asia/Jerusalem")).date().isoformat()
+          audio=Path("audio/morning-brief.mp3")
+          manifest=Path("daily_audio.json")
+          complete=audio.is_file() and audio.stat().st_size>1000 and manifest.is_file()
+          if complete:
+              result=json.loads(manifest.read_text(encoding="utf-8"))
+              complete=result.get("date")==today and result.get("status")=="ok"
+          if not complete:
+              reason=("dependency_installation_failed" if os.environ.get("INSTALL_OUTCOME")!="success"
+                      else "audio_generation_failed" if os.environ.get("SYNTH_OUTCOME")!="success"
+                      else "no_valid_audio_file")
+              result={"date":today,"status":"unavailable","reason":reason,
+                      "checked_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat()}
+              manifest.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
+              print("Daily audio unavailable:",reason)
+          else: print("Daily audio ready:",audio.stat().st_size,"bytes")
+          PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f audio/morning-brief.mp3 daily_audio.json
+          git add -f daily_audio.json
+          if [ -s audio/morning-brief.mp3 ]; then git add -f audio/morning-brief.mp3; fi
           if ! git diff --cached --quiet; then
-            git commit -m "Publish daily Hebrew audio briefing"
+            git commit -m "Publish daily Hebrew audio status"
             git pull --rebase
             git push
           fi
