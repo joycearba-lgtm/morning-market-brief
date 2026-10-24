@@ -3,7 +3,6 @@ Runs in GitHub Actions: no third-party paid speech API. If any dependency
 fails, the website continues to work and no stale audio is labelled today's.
 """
 import json
-import os
 import subprocess
 from datetime import datetime
 from pathlib import Path
@@ -39,9 +38,14 @@ def main():
     import soundfile as sf
     from blue_onnx import BlueTTS
     model_dir=snapshot_download(repo_id="notmax123/BlueTTS2.5-onnx",local_dir="/tmp/bluetts-model")
-    import urllib.request
-    voice_file="/tmp/bluetts-noa.json"
-    urllib.request.urlretrieve("https://raw.githubusercontent.com/maxmelichov/BlueTTS/main/voices/noa.json",voice_file)
+    # The official model bundle includes voice presets; use those instead of
+    # downloading a potentially renamed file from a separate repository.
+    voice_files=sorted(Path(model_dir).glob("voices/*.json"))
+    voice_file=next((str(p) for p in voice_files if p.stem.lower()=="noa"),None)
+    if not voice_file and voice_files:
+        voice_file=str(voice_files[0])
+    if not voice_file:
+        raise FileNotFoundError("No bundled voice preset found under voices/*.json")
     tts=BlueTTS(onnx_dir=model_dir,style_json=voice_file)
     audio=[]
     rate=None
@@ -66,7 +70,7 @@ def main():
     wav="/tmp/daily-brief.wav"
     sf.write(wav,np.concatenate(audio),rate)
     subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-y","-i",wav,"-ac","1","-b:a","64k","audio/morning-brief.mp3"],check=True)
-    manifest={"date":today,"status":"ok","file":"audio/morning-brief.mp3","engine":"BlueTTS open source","voice":"Noa","generated_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat()}
+    manifest={"date":today,"status":"ok","file":"audio/morning-brief.mp3","engine":"BlueTTS open source","voice":Path(voice_file).stem,"generated_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat()}
     Path("daily_audio.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
     print("Audio ready:",Path(manifest["file"]).stat().st_size,"bytes")
 
