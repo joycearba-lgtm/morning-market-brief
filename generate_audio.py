@@ -34,7 +34,7 @@ def main():
             blocks.append(p.get("client_impact",""))
     blocks.append("עד כאן סקירת השווקים.")
     blocks=[str(b).strip() for b in blocks if b and str(b).strip()]
-    from huggingface_hub import snapshot_download, hf_hub_download
+    from huggingface_hub import snapshot_download
     import numpy as np
     import soundfile as sf
     from blue_onnx import BlueTTS
@@ -45,11 +45,23 @@ def main():
     tts=BlueTTS(onnx_dir=model_dir,style_json=voice_file)
     audio=[]
     rate=None
+    def split_short(text, limit=120):
+        import re
+        for sentence in re.split(r"(?<=[.!?])\\s+",text):
+            current=""
+            for word in sentence.split():
+                if current and len(current)+len(word)+1>limit:
+                    yield current
+                    current=""
+                current=(current+" "+word).strip()
+            if current:
+                yield current
     for paragraph in blocks:
-        samples,sr=tts.synthesize(paragraph,lang="he")
-        rate=sr
-        audio.append(np.asarray(samples,dtype=np.float32))
-        audio.append(np.zeros(int(sr*0.38),dtype=np.float32))
+        for phrase in split_short(paragraph):
+            samples,sr=tts.synthesize(phrase,lang="he")
+            rate=sr
+            audio.append(np.asarray(samples,dtype=np.float32))
+            audio.append(np.zeros(int(sr*0.32),dtype=np.float32))
     Path("audio").mkdir(exist_ok=True)
     wav="/tmp/daily-brief.wav"
     sf.write(wav,np.concatenate(audio),rate)
