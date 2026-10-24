@@ -179,7 +179,7 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
   <div class="daily-audio-head"><strong>🎧 סקירת הבוקר להאזנה</strong><span>קריינות עברית מוכנה מראש · ניסוי ללא שירות בתשלום</span></div>
   <p id="daily-audio-status" aria-live="polite">בודק אם הקלטת הבוקר זמינה…</p>
   <audio id="daily-audio-player" controls preload="none" playsinline style="display:none;width:100%"></audio>
-  <p class="daily-audio-help">אם ההקלטה עדיין לא זמינה, ניתן להאזין לסקירה כאן ב־ChatGPT. איכות הקריינות הניסיונית עשויה להשתנות.</p>
+  <p class="daily-audio-help">אם ההקלטה עדיין לא זמינה, ניתן להאזין לסקירה כאן ב־ChatGPT. איכות הקריינות הניסיונית עשויה להשתנות. הקריינות מבוססת BlueTTS; קול ההקלטה נשען על דגימת LibriTTS-R ברישיון CC BY 4.0.</p>
 </section>
 <div class="notice" id="data-status">טוען את נתוני השוק האחרונים... נתונים שאינם זמינים יסומנו במפורש.</div>
 <div class="section-title"><h2>תמונת מצב מהירה</h2><span></span></div>
@@ -636,7 +636,9 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
   const player=document.getElementById('daily-audio-player');
   const status=document.getElementById('daily-audio-status');
   if(!player||!status)return;
-  const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Jerusalem',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const todayFields=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jerusalem',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+  const datePart=type=>todayFields.find(x=>x.type===type)?.value;
+  const today=[datePart('year'),datePart('month'),datePart('day')].join('-');
   fetch('./daily_audio.json?v='+Date.now(),{cache:'no-store'})
     .then(r=>{if(!r.ok)throw Error('No audio file');return r.json()})
     .then(info=>{
