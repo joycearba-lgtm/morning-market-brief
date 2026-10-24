@@ -43,7 +43,7 @@ def main():
     # The official model bundle includes voice presets; use those instead of
     # downloading a potentially renamed file from a separate repository.
     voice_files=sorted(Path(model_dir).glob("voices/*.json"))
-    voice_file=next((str(p) for p in voice_files if p.stem.lower()=="noa"),None)
+    voice_file=next((str(p) for p in voice_files if p.stem.lower()=="libri_female_6147"),None)
     if not voice_file and voice_files:
         voice_file=str(voice_files[0])
     if not voice_file:
@@ -73,7 +73,8 @@ def main():
     Path("audio").mkdir(exist_ok=True)
     wav="/tmp/daily-brief.wav"
     sf.write(wav,np.concatenate(audio),rate)
-    subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-y","-i",wav,"-ac","1","-b:a","64k","audio/morning-brief.mp3"],check=True)
+    import imageio_ffmpeg
+    subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(),"-hide_banner","-loglevel","error","-y","-i",wav,"-ac","1","-b:a","64k","audio/morning-brief.mp3"],check=True)
     manifest={"date":today,"status":"ok","file":"audio/morning-brief.mp3","engine":"BlueTTS open source","voice":Path(voice_file).stem,"generated_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat()}
     Path("daily_audio.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
     print("Audio ready:",Path(manifest["file"]).stat().st_size,"bytes",flush=True)
