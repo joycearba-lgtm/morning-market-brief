@@ -49,7 +49,12 @@ def main():
     if not voice_file:
         raise FileNotFoundError("No bundled voice preset found under voices/*.json")
     print("Loading voice:",Path(voice_file).name,flush=True)
-    tts=BlueTTS(onnx_dir=model_dir,style_json=voice_file)
+    # Pin the actual Hebrew G2P model locally. The library's default downloader
+    # requests datastore.json, which no longer exists in the model repository.
+    from huggingface_hub import hf_hub_download
+    renikud_model=hf_hub_download(repo_id="notmax123/RenikudPlus",filename="model.onnx")
+    print("Hebrew phonemization model ready",flush=True)
+    tts=BlueTTS(onnx_dir=model_dir,style_json=voice_file,renikud_path=renikud_model)
     audio=[]
     rate=None
     def split_short(text, limit=120):
