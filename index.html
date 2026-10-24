@@ -163,9 +163,24 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 .hero-listen button{background:#fff;color:#075c39;border:2px solid #c2f4d4;border-radius:12px;font-size:16px;font-weight:850;padding:11px 17px;min-height:46px;box-shadow:0 3px 12px rgba(0,0,0,.12);cursor:pointer}
 .hero-listen span{color:#e5ffec;font-size:12px}
 @media(max-width:760px){.hero-listen{margin-top:10px;gap:5px}.hero-listen button{width:100%;font-size:16px;padding:10px}.hero-listen span{width:100%;text-align:center;font-size:11px}}
+
+.hero-listen .hero-audio-link{background:#fff;color:#075c39;border:2px solid #c2f4d4;border-radius:12px;font-size:16px;font-weight:850;padding:11px 17px;min-height:46px;box-shadow:0 3px 12px rgba(0,0,0,.12);text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.daily-audio-section{scroll-margin-top:14px;margin:12px 0 16px;padding:12px 14px;background:#f2faf5;border:1px solid #bcdcc9;border-right:4px solid #09824d;border-radius:12px}
+.daily-audio-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.daily-audio-head strong{font-size:17px;color:#07663d}
+.daily-audio-head span{font-size:11px;color:#456656}
+.daily-audio-section #daily-audio-status{font-size:13px;color:#24523c;margin:8px 0}
+.daily-audio-help{margin:6px 0 0;color:#5b7568;font-size:11px;line-height:1.5}
+@media(max-width:760px){.hero-listen .hero-audio-link{width:100%;font-size:16px;padding:10px}.daily-audio-section{padding:10px}.daily-audio-head strong{font-size:16px}}
 </style></head>
 <body><main class="wrap">
-<header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="hero-listen"><button type="button" id="hero-voice-play" aria-label="השמעת סקירת השווקים בעברית" onclick="document.getElementById('voice-play')?.click()">🔊 השמעת סקירת הבוקר בעברית</button><span>כולל 3 נקודות לשיחה עם לקוחות</span></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
+<header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="hero-listen"><a href="#daily-audio-section" class="hero-audio-link" aria-label="מעבר לנגן סקירת הבוקר">🔊 האזנה לסקירת הבוקר</a><span>כולל 3 נקודות לשיחה עם לקוחות</span></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
+<section id="daily-audio-section" class="daily-audio-section" aria-label="סקירת הבוקר להאזנה">
+  <div class="daily-audio-head"><strong>🎧 סקירת הבוקר להאזנה</strong><span>קריינות עברית מוכנה מראש · ניסוי ללא שירות בתשלום</span></div>
+  <p id="daily-audio-status" aria-live="polite">בודק אם הקלטת הבוקר זמינה…</p>
+  <audio id="daily-audio-player" controls preload="none" playsinline style="display:none;width:100%"></audio>
+  <p class="daily-audio-help">אם ההקלטה עדיין לא זמינה, ניתן להאזין לסקירה כאן ב־ChatGPT. איכות הקריינות הניסיונית עשויה להשתנות.</p>
+</section>
 <div class="notice" id="data-status">טוען את נתוני השוק האחרונים... נתונים שאינם זמינים יסומנו במפורש.</div>
 <div class="section-title"><h2>תמונת מצב מהירה</h2><span></span></div>
 <section class="grid"><article class="card"><div class="label">ת״א-35</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">ת״א-125</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">S&amp;P 500</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Nasdaq</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Dow Jones</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">דולר / שקל</div><div class="value">ממתין לחיבור</div><div class="sub">שער וזמן ציטוט</div></article><article class="card"><div class="label">אג״ח ארה״ב ל־10 שנים</div><div class="value">ממתין לחיבור</div><div class="sub">תשואה אחרונה</div></article><article class="card"><div class="label">נפט WTI</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לחבית</div></article><article class="card"><div class="label">זהב</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לאונקיה</div></article></section>
@@ -616,6 +631,25 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 })();
 </script>
 
+<script>
+(function(){
+  const player=document.getElementById('daily-audio-player');
+  const status=document.getElementById('daily-audio-status');
+  if(!player||!status)return;
+  const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Jerusalem',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  fetch('./daily_audio.json?v='+Date.now(),{cache:'no-store'})
+    .then(r=>{if(!r.ok)throw Error('No audio file');return r.json()})
+    .then(info=>{
+      if(info.status!=='ok'||info.date!==today||info.file!=='audio/morning-brief.mp3')
+        throw Error('No verified audio for today');
+      player.src='./audio/morning-brief.mp3?v='+encodeURIComponent(info.date);
+      player.style.display='block';
+      status.textContent='הקלטת הבוקר זמינה להאזנה · '+info.date+' · לחצי Play';
+      player.addEventListener('error',()=>{player.style.display='none';status.textContent='קובץ השמע טרם זמין. אפשר להאזין דרך ChatGPT.'});
+    })
+    .catch(()=>{status.textContent='הקלטת הבוקר עדיין אינה זמינה. יצירת הקול הניסיונית מתבצעת אוטומטית רק אם המנוע מצליח.';});
+})();
+</script>
 <!-- FORECAST_SNAPSHOT_START -->
 <script type="application/json" id="forecast-snapshot">{"checked_at":"2026-10-24T21:55:45.720562+03:00","israel":{"rate_now":{"status":"ok","value":3.25,"as_of":"2026-10-24","source":"Bank of Israel official interest API","source_url":"https://boi.org.il/PublicApi/GetInterest","detail":"API rate checked on date shown; not the date of last rate decision"},"rate_1y":{"status":"ok","value":3.1,"as_of":"2026-10-19","source":"BOI: market interest expectations","source_url":"https://boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/","detail":"SHIR market based; approximately one year; dated snapshot"},"inflation_1y":{"status":"ok","value":1.8,"as_of":"2026-10-19","source":"BOI: 12 CPI readings from inflation contracts","source_url":"https://boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/","detail":"Market-derived next 12 CPI releases; dated snapshot"},"inflation_now":{"status":"ok","value":1.6,"as_of":"2026-09","source":"CBS Israel CPI","source_url":"https://api.cbs.gov.il/index/data/price?id=120010&last=16&coef=true&format=json&download=false&lang=en","detail":"Last 12-month CPI change; reference month"}},"us":{"rate_now":{"status":"ok","value":4.0,"lower":3.75,"upper":4.0,"as_of":"2026-10-24","source":"Federal Reserve via FRED","source_url":"https://fred.stlouisfed.org/series/DFEDTARU"},"inflation_now":{"status":"ok","value":3.74,"as_of":"2026-09-01","source":"BLS CPI via FRED","source_url":"https://fred.stlouisfed.org/series/CPIAUCNS","detail":"12-month CPI, not PCE"},"inflation_1y":{"status":"ok","value":2.98,"as_of":"2026-10-01","source":"Cleveland Fed model via FRED","source_url":"https://fred.stlouisfed.org/series/EXPINF1YR","detail":"One-year expected CPI inflation, model-based, monthly"},"rate_1y":{"status":"ok","value":4.7,"as_of":"2026-10-20","source":"StreetStats futures-implied path","source_url":"https://streetstats.finance/rates/fedfunds","detail":"Approximately 4.7% for October 2027; market-implied EFFECTIVE rate, not FOMC forecast or target range.","approximate":true,"expires_at":"2026-10-27T00:00:00+03:00"}}}</script>
 <!-- FORECAST_SNAPSHOT_END -->
