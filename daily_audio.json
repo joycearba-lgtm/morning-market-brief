@@ -1,6 +1,8 @@
 {
   "date": "2026-10-24",
-  "status": "unavailable",
-  "reason": "audio_generation_failed",
-  "checked_at": "2026-10-24T22:11:51.633047+03:00"
+  "status": "ok",
+  "file": "audio/morning-brief.mp3",
+  "engine": "BlueTTS open source",
+  "voice": "libri_female_6147",
+  "generated_at": "2026-10-24T22:15:34.214092+03:00"
 }
