@@ -47,8 +47,8 @@ jobs:
         continue-on-error: true
         timeout-minutes: 9
         run: |
-          python -m pip install -q blue-onnx huggingface_hub soundfile numpy
-          ffmpeg -version | head -n 1
+          python -m pip install -q 'git+https://github.com/maxmelichov/BlueTTS.git@0e38dbf' huggingface_hub soundfile numpy imageio-ffmpeg
+          python -c 'from blue_onnx import BlueTTS; import imageio_ffmpeg; print("BlueTTS and FFmpeg ready", imageio_ffmpeg.get_ffmpeg_exe())'
 
       - name: Create daily audio file
         if: steps.local_time.outputs.run == 'true' && steps.install.outcome == 'success'
