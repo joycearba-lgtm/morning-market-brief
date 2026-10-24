@@ -23,7 +23,7 @@ def main():
             if not isinstance(point,str): continue
             # Two human-sized sentences per topic; no raw whole-page reading.
             import re
-            sentences=re.split(r"(?<=[.!?])\\s+",point)
+            sentences=re.split(r"(?<=[.!?])\s+",point)
             blocks.extend(sentences[:2])
     advisor=data.get("advisor",[])[:3]
     if advisor:
@@ -47,7 +47,7 @@ def main():
     rate=None
     def split_short(text, limit=120):
         import re
-        for sentence in re.split(r"(?<=[.!?])\\s+",text):
+        for sentence in re.split(r"(?<=[.!?])\s+",text):
             current=""
             for word in sentence.split():
                 if current and len(current)+len(word)+1>limit:
