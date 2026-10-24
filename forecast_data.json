@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-24T08:36:01.368330+03:00",
+  "checked_at": "2026-10-24T21:55:45.720562+03:00",
   "israel": {
     "rate_now": {
       "status": "ok",
@@ -40,7 +40,7 @@
       "value": 4.0,
       "lower": 3.75,
       "upper": 4.0,
-      "as_of": "2026-10-23",
+      "as_of": "2026-10-24",
       "source": "Federal Reserve via FRED",
       "source_url": "https://fred.stlouisfed.org/series/DFEDTARU"
     },

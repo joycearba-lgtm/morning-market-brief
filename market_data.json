@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T08:35:55.157457+03:00",
+  "updated_at": "2026-10-24T21:55:39.507092+03:00",
   "source": "Bank of Israel",
   "usd_ils": 3.112,
   "rate_date": "2026-10-23T09:25:06.0734118Z",
@@ -11,7 +11,7 @@
       "change_percent": -0.52,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792787900
+      "market_time": 1792787901
     },
     "Nasdaq Composite": {
       "status": "ok",
