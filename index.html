@@ -418,23 +418,23 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
    const valid=Number.isFinite(until) && Date.now() < until && todayJerusalem===brief.date;
    const generated=Date.parse(brief.generated_at||'');
    const checkedLabel=Number.isFinite(generated)?new Date(generated).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):brief.date;
-   stamp.textContent=valid?'סקירת שוק אוטומטית · נוצרה '+checkedLabel:'הסקירה האחרונה התיישנה · '+brief.date;
+   stamp.textContent=valid?(brief.editorial_mode==='researched'?'סקירת בוקר מבוססת מקורות · עודכנה ':'סקירה מוגבלת המבוססת על כותרות · נוצרה ')+checkedLabel:'הסקירה האחרונה התיישנה · '+brief.date;
    if(!valid){
      addText(pane,'לא פורסמה עדיין סקירת מאקרו מאומתת ליום זה','הסקירה הקודמת הוסתרה כדי שלא תוצג בטעות כסקירה מעודכנת. נתוני המדדים מוצגים בנפרד למעלה.');
      advisorStatus.textContent='ניסוחי שיחה יומיים יופיעו עם סקירת מאקרו מאומתת';
      return;
    }
-   const h2=document.createElement('strong');h2.textContent='מה השתנה בשווקים · פרשנות בלבד';pane.append(h2);
+   const h2=document.createElement('strong');h2.textContent=brief.editorial_mode==='researched'?'האירועים המרכזיים ומשמעותם להשקעות':'כותרות והשלכות אפשריות';pane.append(h2);
    for(const section of brief.sections.slice(0,5)){
      let el;
      if(Array.isArray(section.bullets)){
        el=document.createElement('section');
        const heading=document.createElement('h3');heading.textContent=section.heading;
        heading.style.cssText='font-size:19px;margin:0 0 8px;font-weight:800;text-decoration:underline;text-underline-offset:5px';
-       const list=document.createElement('ul');list.style.cssText='padding:0 20px 0 0;margin:7px 0 8px;display:grid;gap:11px';
+       const list=document.createElement(brief.editorial_mode==='researched'?'div':'ul');list.style.cssText='padding:'+(brief.editorial_mode==='researched'?'0':'0 20px 0 0')+';margin:7px 0 8px;display:grid;gap:11px';
        for(const item of section.bullets.slice(0,6)){
          if(typeof item!=='string' || !item.trim())continue;
-         const li=document.createElement('li');li.style.cssText='font-size:16px;line-height:1.78;padding-right:3px';
+         const li=document.createElement(brief.editorial_mode==='researched'?'p':'li');li.style.cssText='font-size:16px;line-height:1.78;padding-right:3px';
          const boundary=item.indexOf(' — ');
          const colon=item.indexOf(': ');
          const split=boundary>=0&&boundary<95?boundary:colon>=0&&colon<75?colon:-1;
