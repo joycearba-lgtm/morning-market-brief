@@ -7,22 +7,23 @@
     {
       "heading": "תמונת הבוקר — הסיפור שמחבר את השווקים",
       "bullets": [
-        "בישראל המוקד מתרחב מהבחירות גם לקשרים הכלכליים עם העולם; בארה״ב מתקרב שבוע של החלטת ריבית ודוחות חברות. פרשנות: האתגר המשותף הוא צמיחה תחת עלויות גבוהות ואי־ודאות."
+        "בסגירת 23.10, המניות בתל אביב ובוול סטריט ירדו, הנפט עלה ותשואת אג״ח ארה״ב ל־10 שנים עלתה מעט. פרשנות: מחירי האנרגיה ועלויות המימון הגבוהים מעמידים במבחן את רווחיות החברות ואת האפשרות להתמתנות האינפלציה."
       ],
       "sources": [
         {
-          "label": "Reuters · לקראת השבוע · 23.10",
-          "url": "https://www.reuters.com/business/take-five/global-markets-themes-graphic-2026-10-23/"
+          "label": "Yahoo Finance · נתוני סגירה 23.10",
+          "url": "https://finance.yahoo.com/quote/%5EGSPC/history/"
         },
         {
-          "label": "בנק ישראל · תחזית 21.10",
-          "url": "https://www.boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/"
+          "label": "AP · סיכום מסחר 23.10",
+          "url": "https://apnews.com/article/stocks-markets-ai-oil-inflation-7b47ef3b037bfba4e34f685329b9b963"
         }
       ],
       "items_meta": [
         {
           "event_date": "2026-10-23",
-          "kind": "background"
+          "kind": "last_session",
+          "session_date": "2026-10-23"
         }
       ]
     },
@@ -126,6 +127,6 @@
   ],
   "takeaway": "",
   "date": "2026-10-25",
-  "generated_at": "2026-10-25T14:21:25+02:00",
+  "generated_at": "2026-10-25T17:59:02+02:00",
   "valid_until": "2026-10-26T09:00:00+02:00"
 }
