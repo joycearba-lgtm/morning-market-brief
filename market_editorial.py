@@ -88,13 +88,6 @@ def build(market, news, now):
     sections, points = [], []
     def add(heading, lines, refs=None):
         if lines: sections.append({'heading':heading,'bullets':lines,'sources':refs or []})
-    def valid(row):
-        if not isinstance(row,dict) or row.get('status')!='ok': return False
-        try: return timedelta(0)<=now-datetime.fromtimestamp(row['market_time'],TZ)<=timedelta(days=4)
-        except (KeyError,TypeError,ValueError,OverflowError): return False
-    def quote(row, label):
-        if not valid(row) or not isinstance(row.get('change_percent'),(float,int)): return None
-        return f"{label} {row['change_percent']:+.2f}% ({datetime.fromtimestamp(row['market_time'],TZ):%d.%m})"
     events=select_events(news,now)
     for local,heading in ((True,'ישראל — האירועים והמשמעות לשווקים'),(False,'העולם — מה עומד במוקד')):
         lines,refs=[],[]
@@ -118,24 +111,7 @@ def build(market, news, now):
                 if not any(e['local'] and e['topic'][0]==topic for e in events):
                     lines.append(f'{label}: לא נמצא דיווח חדשותי עדכני מתאים במקורות שנאספו. זהו פער בכיסוי, ולא קביעה שלא היו התפתחויות.')
         elif not lines:
-            lines.append('לא נמצא דיווח בינלאומי עדכני מתאים; נתוני הסגירה מופיעים בנפרד להלן.')
+            lines.append('לא נמצא דיווח בינלאומי עדכני מתאים במקורות שנאספו.')
         add(heading,lines,refs)
-    indices=market.get('indices') or {}
-    for heading,names in [('תל אביב — הסגירה האחרונה',[('TA-35','ת״א־35'),('TA-125','ת״א־125')]),
-                          ('וול סטריט — הסגירה האחרונה',[('S&P 500','S&P 500'),('Nasdaq Composite','Nasdaq'),('Dow Jones','Dow Jones')])]:
-        quotes=[q for key,label in names if (q:=quote(indices.get(key,{}),label))]
-        if quotes: add(heading,['; '.join(quotes)+'.'])
-    oil=(market.get('commodities') or {}).get('WTI futures',{})
-    oilquote=quote(oil,'נפט WTI')
-    if oilquote and abs(oil['change_percent'])>=1:
-        up=oil['change_percent']>0
-        impact=('התייקרות הדלק עשויה להכביד על תעופה ותעשייה ולהוסיף לחץ אינפלציוני אם תימשך.' if up else
-                'הוזלת הדלק עשויה להקל על עלויות החברות; עבור מפיקות נפט היא עלולה לפגוע בהכנסות.')
-        add('נפט — עלויות ואינפלציה',[oilquote+'. '+impact])
-        if len(points)<3:
-            points.append({'title':'מה אומר השינוי בנפט?','insight':f'בסגירה האחרונה הנפט {"עלה" if up else "ירד"} ב־{abs(oil["change_percent"]):.2f}%. '+impact,
-                'client_impact':'ההשפעה על התיק תלויה במשקל חברות האנרגיה מול חברות הצורכות דלק ובמשך השינוי במחיר.',
-                'question':'האם יש בתיק חשיפה גדולה לענפים שמושפעים ממחירי הדלק?',
-                'reference':oilquote+' · Yahoo Finance'})
-    return {'sections':sections,'advisor':points,'takeaway':'למעקב: שינוי ממשי במדיניות ובתקציב בישראל, התפתחויות ביטחוניות, ותנועת הנפט והתשואות לעומת הסגירה הקודמת.',
+    return {'sections':sections,'advisor':points,'takeaway':'',
         'methodology':'סקירה אוטומטית ללא עלות נוספת. דיווחי החדשות מבוססים על כותרות מתוארכות; ההשלכות הן תרחישים לפי נושא, ולא ניתוח מלא של הכתבות או הסבר מוכח לתנועות השוק.'}
