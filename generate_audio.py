@@ -4,7 +4,7 @@ fails, the website continues to work and no stale audio is labelled today's.
 """
 import json
 import subprocess
-from audio_content import narration_parts, content_hash
+from audio_content import narration_parts, content_hash, speaking, split_short
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -15,28 +15,6 @@ def main():
     if data.get("date")!=today or data.get("status")=="unavailable":
         print("No current editorial brief; not creating audio")
         return
-    import re
-    def speaking(text):
-        text=str(text or "")
-        for src,dest in (("AI","בינה מלאכותית"),("ECB","הבנק המרכזי האירופי"),
-                         ("CPI","מדד המחירים לצרכן"),("GDP","תוצר מקומי גולמי"),
-                         ("Nasdaq","נאסדק"),("מח״מ","משך חיים ממוצע"),
-                         ("אג״ח","איגרות חוב"),("ארה״ב","ארצות הברית"),
-                         ("תמ״ג","תוצר מקומי גולמי")):
-            text=text.replace(src,dest)
-        def say_percent(m):
-            digits={"0":"אפס","1":"אחת","2":"שתיים","3":"שלוש",
-                    "4":"ארבע","5":"חמש","6":"שש","7":"שבע","8":"שמונה","9":"תשע"}
-            whole=m.group(1)
-            fraction=m.group(2)
-            num=whole+(" נקודה "+" ".join(digits[d] for d in fraction) if fraction else "")
-            return num+" אחוז"
-        text=re.sub(r"(\\d+)(?:\\.(\\d+))?\\s*%",say_percent,text)
-        text=re.sub(r"\\b(20\\d{2})\\b",lambda m:"שנת "+m.group(1),text)
-        text=text.replace("3.25", "שלוש נקודה שתיים חמש")
-        text=text.replace("4.00", "ארבע")
-        text=text.replace("—",", ").replace("·",", ").replace("–"," עד ")
-        return re.sub(r"\\s+"," ",text).strip()
     # Narrate every paragraph and client message; only pronunciation is normalized.
     blocks=[speaking(text) for text in narration_parts(data)]
     if not blocks:
@@ -65,24 +43,15 @@ def main():
     tts=BlueTTS(onnx_dir=model_dir,style_json=voice_file,renikud_path=renikud_model)
     audio=[]
     rate=None
-    def split_short(text, limit=120):
-        import re
-        for sentence in re.split(r"(?<=[.!?])\s+",text):
-            current=""
-            for word in sentence.split():
-                if current and len(current)+len(word)+1>limit:
-                    yield current
-                    current=""
-                current=(current+" "+word).strip()
-            if current:
-                yield current
     for idx,paragraph in enumerate(blocks):
         print("Synthesizing block",idx+1,"of",len(blocks),flush=True)
-        for phrase in split_short(paragraph):
+        phrases=list(split_short(paragraph))
+        for phrase_index,phrase in enumerate(phrases):
             samples,sr=tts.synthesize(phrase,lang="he")
             rate=sr
             audio.append(np.asarray(samples,dtype=np.float32))
-            audio.append(np.zeros(int(sr*0.55),dtype=np.float32))
+            pause=0.55 if phrase_index==len(phrases)-1 else 0.28 if phrase.endswith((".", "?", "!")) else 0.14
+            audio.append(np.zeros(int(sr*pause),dtype=np.float32))
     Path("audio").mkdir(exist_ok=True)
     wav="/tmp/daily-brief.wav"
     sf.write(wav,np.concatenate(audio),rate)
