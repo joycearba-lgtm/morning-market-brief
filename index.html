@@ -172,14 +172,32 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 .daily-audio-section #daily-audio-status{font-size:13px;color:#24523c;margin:8px 0}
 .daily-audio-help{margin:6px 0 0;color:#5b7568;font-size:11px;line-height:1.5}
 @media(max-width:760px){.hero-listen .hero-audio-link{width:100%;font-size:16px;padding:10px}.daily-audio-section{padding:10px}.daily-audio-head strong{font-size:16px}}
+</style><style>
+/* Compact introduction with one listening surface. */
+.hero{padding:16px 18px!important;margin-bottom:10px!important}
+.hero .eyebrow,.hero .brand p,.hero .meta .pill:not(:last-child){display:none!important}
+.hero h1{font-size:26px!important;margin:0!important}
+.hero .logo{width:76px!important;height:52px!important;min-width:76px!important}
+.hero .brand{gap:12px!important;margin:0!important}
+.hero .meta{margin:8px 0!important;gap:0!important}
+.hero .pill{font-size:11px!important;padding:3px 8px!important}
+.hero .actions{gap:6px!important;margin:8px 0 0!important}
+.hero .actions .btn{font-size:11px!important;padding:5px 8px!important;min-height:30px!important}
+.hero .independent-note{font-size:10px!important;line-height:1.35!important;padding-top:6px!important;margin-top:7px!important}
+#voice-controls{display:none!important}
+.daily-audio-section{margin:8px 0!important;padding:9px 12px!important}
+.daily-audio-section #daily-audio-status{font-size:11px!important;margin:4px 0!important}
+.daily-audio-head strong{font-size:15px!important}
+.daily-audio-help summary{cursor:pointer;font-size:10px}
+#data-status{padding:8px 12px!important;margin:8px 0!important;font-size:11px!important;line-height:1.4!important}
 </style></head>
 <body><main class="wrap">
-<header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="hero-listen"><a href="#daily-audio-section" class="hero-audio-link" aria-label="מעבר לנגן סקירת הבוקר">🔊 האזנה לסקירת הבוקר</a><span>מסרים לשיחה עם לקוחות לפי אירועי היום</span></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
+<header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
 <section id="daily-audio-section" class="daily-audio-section" aria-label="סקירת הבוקר להאזנה">
-  <div class="daily-audio-head"><strong>🎧 סקירת הבוקר להאזנה</strong><span>קריינות עברית מוכנה מראש · ניסוי ללא שירות בתשלום</span></div>
+  <div class="daily-audio-head"><strong>🎧 סקירת הבוקר להאזנה</strong></div>
   <p id="daily-audio-status" aria-live="polite">בודק אם הקלטת הבוקר זמינה…</p>
   <audio id="daily-audio-player" controls preload="none" playsinline style="display:none;width:100%"></audio>
-  <p class="daily-audio-help">אם ההקלטה עדיין לא זמינה, ניתן להאזין לסקירה כאן ב־ChatGPT. איכות הקריינות הניסיונית עשויה להשתנות. הקריינות מבוססת BlueTTS; קול ההקלטה נשען על דגימת LibriTTS-R ברישיון CC BY 4.0.</p>
+  <details class="daily-audio-help"><summary>פרטי הקריינות</summary><p>אם ההקלטה עדיין לא זמינה, ניתן להאזין לסקירה כאן ב־ChatGPT. איכות הקריינות הניסיונית עשויה להשתנות. הקריינות מבוססת BlueTTS; קול ההקלטה נשען על דגימת LibriTTS-R ברישיון CC BY 4.0.</p></details>
 </section>
 <div class="notice" id="data-status">טוען את נתוני השוק האחרונים... נתונים שאינם זמינים יסומנו במפורש.</div>
 <div class="section-title"><h2>תמונת מצב מהירה</h2><span></span></div>
