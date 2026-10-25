@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "generated_at": "2026-10-25T06:50:23.157694+02:00",
+  "generated_at": "2026-10-25T06:51:21.954179+02:00",
   "valid_until": "2026-10-26T09:00:00+02:00",
   "title": "סקירה כלכלית מקצועית — עולם וישראל",
   "status": "automatic_conditional",
@@ -9,12 +9,22 @@
     {
       "heading": "אירועי השוק האחרונים — מה חשוב הבוקר",
       "bullets": [
-        "שוק המניות — על פי דיווח של TheMarker מ־25.10.2026: \"אם אפשר לקבל 7% באג\"ח, למה לקחת סיכון במניות?\". הדיווח עשוי להיות רלוונטי לרוחב העליות או הירידות ולרווחי החברות, ולא רק למדד הכותרת. זו השלכה אפשרית ולא ייחוס סיבתי מאומת."
+        "ריבית, צמיחה ותעסוקה — על פי דיווח של כלכליסט מ־25.10.2026: ריבית על העו\"ש – נשמע הגיוני ופופולרי, אבל יפגע דווקא בחלשים. המידע עשוי לשנות את תמחור תוואי הריבית, ואת הרגישות של מניות צמיחה ואג״ח למח״מ. זו השלכה אפשרית ולא ייחוס סיבתי מאומת.",
+        "בנקאות, עמלות ותחרות — על פי דיווח של TheMarker מ־25.10.2026: 1.6 מיליון חשבונות, 4.3 מיליארד שקל - והבנקים עדיין חוגגים על העמלות שלכם - שוק ההון - TheMarker. דיווח על עמלות או תחרות בבנקאות עשוי להשפיע על עלות ניהול הכסף, מרווחי הבנקים ועל בחירת חלופות חיסכון. זו השלכה אפשרית ולא ייחוס סיבתי מאומת.",
+        "שוק המניות — על פי דיווח של TheMarker מ־25.10.2026: המניות שקפצו ביותר מ-1,000% בת\"א - וההתעלמות של המשקיעים מהאיום המרכזי. הדיווח עשוי להיות רלוונטי לרוחב העליות או הירידות ולרווחי החברות, ולא רק למדד הכותרת. זו השלכה אפשרית ולא ייחוס סיבתי מאומת."
       ],
       "sources": [
         {
+          "label": "כלכליסט · 25.10.2026",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5qOVVHRktiRm1OT3dDVmxsTGgxQ2lKNHBId3RZRC1OUF9TVDhuUUE5OTlaUHVldnByZWFEX3BFZ1JFRVhQbzdmQ3NhMjBuSTF0TWYzWXhwdllrSmotTnEwV1JsUQ?oc=5"
+        },
+        {
           "label": "TheMarker · 25.10.2026",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNV2lIckJKV094eEI1LWVlZnNaQlhtRVdseGpKTS1RbXFVM0UzeExFQVJGdjlBWjNybVhPeEZ6bHRiSldVVDVxamtCZGpaQ0lsOXdMcVd2S2pMNWFIX3ltZmxwMkpCdEdVeUZvZVVnTGRkRmxqLWh5LU1RSmRpYlo0V3U5NGRCLVp4a0FKZ1NjV2tsZlktWUdTOUdNMDZiSlVKYmk0?oc=5"
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNOXNBVU92Q0lXSm1wcTRtT21ZRWdxWlN5RUdzNVdwb0k3bnRpY0RIaXk2MndFVWoybnc3d0JmR3BLcDYxOU1lY293RUpzWXU3NkZSSFAzS21kZ2ZlMS1rdHpsdS1kZVpfNVZOZEVndmFkNDQ1R3JVY2FOYjFNRUhxRl9fdkZLRnpNXzZldGh6bGpSQ2U0SVoxLUg2QWFCZUEtX2hnaEp3?oc=5"
+        },
+        {
+          "label": "TheMarker · 25.10.2026",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPOVphUHhzaV9lN3hwSFhsRVhvTFpOaVo2TENLUHM5ZTJ4UWxJZGxxSTlqeGcybkxHVG1pQTA1el8tZGthTGJOMUExcFIwVV9oWDFwdnJocWlzeHZPQXJzaTB4c2VHYWY1Q3RRUjBCR1kwY09Qd3hHY21GQXpXZzRHdUg4amY1ZEtCWVZkanZ2M1UzUmFNcGkwVEFHX2RHbERaZ1JFUUpn?oc=5"
         }
       ]
     },
@@ -91,27 +101,31 @@
   "takeaway": "למעקב: פערי צמיחה עולמיים, מסלול הפד וה־ECB, תמחור המניות ותחזית הצמיחה והגירעון בישראל. להפריד תמיד בין תחזית מתוארכת לבין אירוע חדש.",
   "advisor": [
     {
-      "title": "שוק המניות — מה לבדוק בעקבות הדיווח?",
-      "insight": "על פי דיווח של TheMarker מ־25.10.2026: \"אם אפשר לקבל 7% באג\"ח, למה לקחת סיכון במניות?\".",
-      "client_impact": "הדיווח עשוי להיות רלוונטי לרוחב העליות או הירידות ולרווחי החברות, ולא רק למדד הכותרת. יש לבדוק אם השוק כבר תימחר את האירוע.",
-      "question": "לבדוק תרומה ענפית, ריכוזיות בתיק והאם מדובר בסגירה אחרונה או במסחר פעיל.",
-      "reference": "TheMarker · 25.10.2026",
-      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNV2lIckJKV094eEI1LWVlZnNaQlhtRVdseGpKTS1RbXFVM0UzeExFQVJGdjlBWjNybVhPeEZ6bHRiSldVVDVxamtCZGpaQ0lsOXdMcVd2S2pMNWFIX3ltZmxwMkpCdEdVeUZvZVVnTGRkRmxqLWh5LU1RSmRpYlo0V3U5NGRCLVp4a0FKZ1NjV2tsZlktWUdTOUdNMDZiSlVKYmk0?oc=5",
+      "title": "ריבית, צמיחה ותעסוקה — מה לבדוק בעקבות הדיווח?",
+      "insight": "על פי דיווח של כלכליסט מ־25.10.2026: ריבית על העו\"ש – נשמע הגיוני ופופולרי, אבל יפגע דווקא בחלשים.",
+      "client_impact": "המידע עשוי לשנות את תמחור תוואי הריבית, ואת הרגישות של מניות צמיחה ואג״ח למח״מ. יש לבדוק אם השוק כבר תימחר את האירוע.",
+      "question": "להשוות את הנתון לציפיות השוק ואת תזוזת התשואות בפועל, לפני שינוי מח״מ.",
+      "reference": "כלכליסט · 25.10.2026",
+      "source_url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5qOVVHRktiRm1OT3dDVmxsTGgxQ2lKNHBId3RZRC1OUF9TVDhuUUE5OTlaUHVldnByZWFEX3BFZ1JFRVhQbzdmQ3NhMjBuSTF0TWYzWXhwdllrSmotTnEwV1JsUQ?oc=5",
       "event_date": "2026-10-25"
     },
     {
-      "title": "אנרגיה: לבדוק מנצחות ומפסידות",
-      "insight": "ההתפתחות במחירי הנפט אינה משפיעה באופן זהה על מפיקות נפט, חברות גז בחוזים ארוכים וצרכניות דלק כמו תעופה ותעשייה.",
-      "client_impact": "התייקרות ממושכת עלולה לפגוע ברווחיות ענפים עתירי אנרגיה ולהעלות לחצים אינפלציוניים; השפעתה על כל חברה תלויה בחוזים וביכולת גלגול עלויות.",
-      "question": "למפות מניות מפיקות מול צרכניות אנרגיה; לבדוק חוזי מכירה, חשיפה לאינפלציה ומח״מ אג״ח בתיק.",
-      "reference": "The Sunday Guardian · 2026-10-24"
+      "title": "בנקאות, עמלות ותחרות — מה לבדוק בעקבות הדיווח?",
+      "insight": "על פי דיווח של TheMarker מ־25.10.2026: 1.6 מיליון חשבונות, 4.3 מיליארד שקל - והבנקים עדיין חוגגים על העמלות שלכם - שוק ההון - TheMarker.",
+      "client_impact": "דיווח על עמלות או תחרות בבנקאות עשוי להשפיע על עלות ניהול הכסף, מרווחי הבנקים ועל בחירת חלופות חיסכון. יש לבדוק אם השוק כבר תימחר את האירוע.",
+      "question": "לבדוק עמלות בפועל, תשואה נטו על יתרות מזומן ופיקדונות, והאם קיימת חלופה מתאימה לפרופיל הלקוח.",
+      "reference": "TheMarker · 25.10.2026",
+      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNOXNBVU92Q0lXSm1wcTRtT21ZRWdxWlN5RUdzNVdwb0k3bnRpY0RIaXk2MndFVWoybnc3d0JmR3BLcDYxOU1lY293RUpzWXU3NkZSSFAzS21kZ2ZlMS1rdHpsdS1kZVpfNVZOZEVndmFkNDQ1R3JVY2FOYjFNRUhxRl9fdkZLRnpNXzZldGh6bGpSQ2U0SVoxLUg2QWFCZUEtX2hnaEp3?oc=5",
+      "event_date": "2026-10-25"
     },
     {
-      "title": "תקציב וביטחון: סיכון למח״מ הארוך",
-      "insight": "תחזית בנק ישראל מ־21.10 תלויה בהנחות על עצימות הלחימה והוצאות הביטחון, ואינה כוללת מדיניות פיסקלית עתידית לאחר הבחירות.",
-      "client_impact": "חריגה בהוצאות עלולה להגדיל צורכי גיוס ותשואות ארוכות גם ללא העלאת ריבית קצרה.",
-      "question": "לבדוק מח״מ אג״ח ממשלתיות בתיק, אינפלציה גלומה וחשיפה דולרית מול צורכי הלקוח.",
-      "reference": "בנק ישראל · תחזית 21.10.2026"
+      "title": "שוק המניות — מה לבדוק בעקבות הדיווח?",
+      "insight": "על פי דיווח של TheMarker מ־25.10.2026: המניות שקפצו ביותר מ-1,000% בת\"א - וההתעלמות של המשקיעים מהאיום המרכזי.",
+      "client_impact": "הדיווח עשוי להיות רלוונטי לרוחב העליות או הירידות ולרווחי החברות, ולא רק למדד הכותרת. יש לבדוק אם השוק כבר תימחר את האירוע.",
+      "question": "לבדוק תרומה ענפית, ריכוזיות בתיק והאם מדובר בסגירה אחרונה או במסחר פעיל.",
+      "reference": "TheMarker · 25.10.2026",
+      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPOVphUHhzaV9lN3hwSFhsRVhvTFpOaVo2TENLUHM5ZTJ4UWxJZGxxSTlqeGcybkxHVG1pQTA1el8tZGthTGJOMUExcFIwVV9oWDFwdnJocWlzeHZPQXJzaTB4c2VHYWY1Q3RRUjBCR1kwY09Qd3hHY21GQXpXZzRHdUg4amY1ZEtCWVZkanZ2M1UzUmFNcGkwVEFHX2RHbERaZ1JFUUpn?oc=5",
+      "event_date": "2026-10-25"
     }
   ]
 }
