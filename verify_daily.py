@@ -40,10 +40,21 @@ for filename, data, key in [
 
 if brief.get("date")!=today or brief.get("status")!="automatic_conditional":
     issues.append("macro_brief.json: missing valid current-day briefing")
-if not isinstance(brief.get("sections"),list) or len(brief["sections"])<3:
-    issues.append("macro_brief.json: fewer than three editorial sections")
-elif sum(len(x.get("bullets",[])) for x in brief["sections"] if isinstance(x,dict))<5:
-    issues.append("macro_brief.json: editorial points unexpectedly missing")
+# Editorial content must cover both geographies, without padding it with quote tables.
+sections=brief.get("sections")
+required_headings={"ישראל — האירועים והמשמעות לשווקים","העולם — מה עומד במוקד"}
+if not isinstance(sections,list) or not required_headings.issubset(
+        {x.get("heading") for x in sections if isinstance(x,dict)}):
+    issues.append("macro_brief.json: missing Israel/world editorial coverage")
+else:
+    for section in sections:
+        bullets=section.get("bullets") if isinstance(section,dict) else None
+        if not isinstance(bullets,list) or not bullets or not all(isinstance(b,str) and b.strip() for b in bullets):
+            issues.append("macro_brief.json: empty or malformed editorial section")
+        if isinstance(section,dict) and "הסגירה האחרונה" in section.get("heading",""):
+            issues.append("macro_brief.json: duplicated quote section in editorial")
+    if not any(x.get("sources") for x in sections if isinstance(x,dict)):
+        warnings.append("No sourced news event available; explicit coverage gaps only")
 if news.get("status")!="ok":
     warnings.append("No validated current headlines; institutional context may still be current")
 for problem in news.get("errors",[]):
