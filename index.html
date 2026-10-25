@@ -639,6 +639,7 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
    const toggle=document.createElement('summary');toggle.textContent='להעמקה ולמקורות';
    expansion.append(toggle);pane.append(expansion);
    for(const section of brief.sections.slice(0,5)){
+     if(items.length && section===intro)continue;
      let el;
      if(Array.isArray(section.bullets)){
        el=document.createElement('section');
