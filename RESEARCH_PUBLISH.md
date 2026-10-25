@@ -44,3 +44,7 @@ Use natural spoken Hebrew, short complete sentences and explicit logical connect
 
 ## Daily headline
 The title is displayed as the headline inside the morning summary card. Write one clear, specific Hebrew headline of about 6–12 words conveying that day's main economic story. It must be supported by the researched body, not imply causation or certainty absent from sources, and should change only when the underlying story changes. Avoid generic prefixes like סקירת הבוקר, clickbait, redundant dates and repeated numbers. Never invent an event merely to create a new headline.
+
+
+## Client conversation substance
+Frame each point around a real client concern prompted by the researched event, not a topic label or a generic portfolio checklist. The insight should be ready-to-say Hebrew, explaining the event's investment significance with one clear mechanism. Add a distinct investor implication rather than repeating the insight or the main brief. Examples of reasoning structure: election outcome vs ability to implement fiscal policy; earnings growth vs expectations already priced; energy costs feeding inflation/rate expectations and bond sensitivity. These are examples, not fixed daily topics. Select only what current evidence supports; avoid repeated canned sentences. Label possible effects as conditional, do not promise a market direction, and do not present upcoming earnings as published results. Keep to 2–3 focused sentences per point where possible; no compulsory meeting question or personal investment instruction.
