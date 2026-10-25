@@ -4,6 +4,7 @@ fails, the website continues to work and no stale audio is labelled today's.
 """
 import json
 import subprocess
+from audio_content import narration_parts, content_hash
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -36,44 +37,10 @@ def main():
         text=text.replace("4.00", "ארבע")
         text=text.replace("—",", ").replace("·",", ").replace("–"," עד ")
         return re.sub(r"\\s+"," ",text).strip()
-    def first_sentence(text):
-        text=str(text or "").strip()
-        parts=re.split(r"(?<=[.!?])\\s+",text)
-        if not parts:return ""
-        sentence=parts[0]
-        if len(sentence)>250:
-            # Prefer complete clauses over cutting at an arbitrary character.
-            clauses=re.split(r"[,;:]\\s+",sentence)
-            if len(clauses)>1 and len(clauses[0])>=45:
-                sentence=clauses[0].rstrip(" .")+"."
-            # Otherwise preserve the full sentence; speech chunking below
-            # will handle the model's short-utterance limit.
-        return speaking(sentence)
-    blocks=["בוקר טוב. הנה עיקרי סקירת השווקים להיום."]
-    for i,section in enumerate(data.get("sections",[])[:4]):
-        points=section.get("bullets") or [section.get("text","")]
-        points=[x for x in points if isinstance(x,str) and x.strip()]
-        if not points:continue
-        heading=str(section.get("heading",""))
-        if "התפתחויות החשובות" in heading or "אירועי השוק" in heading:
-            blocks.append("נתחיל באירועים החשובים שפורסמו לאחרונה.")
-        elif "התנהגות השוק" in heading:
-            blocks.append("ומה אומרים נתוני השוק?")
-        elif "רקע מאקרו" in heading:
-            blocks.append("ועכשיו, רקע כלכלי קצר שמסייע להבין את התמונה.")
-        else:
-            blocks.append("נמשיך ל"+speaking(heading)+".")
-        for item in points[:2]:
-            blocks.append(first_sentence(item))
-    advisor=data.get("advisor",[])[:3]
-    if advisor:
-        blocks.append("ועכשיו, שלוש נקודות שאפשר להעלות בשיחה עם לקוחות.")
-        for intro,item in zip(("הנקודה הראשונה.", "הנקודה השנייה.", "הנקודה השלישית."),advisor):
-            blocks.append(intro)
-            blocks.append(speaking(item.get("title",""))+".")
-            blocks.append(first_sentence(item.get("insight","")))
-    blocks.append("עד כאן סקירת השווקים. המשך יום נעים.")
-    blocks=[x for x in blocks if x]
+    # Narrate every paragraph and client message; only pronunciation is normalized.
+    blocks=[speaking(text) for text in narration_parts(data)]
+    if not blocks:
+        raise ValueError("Empty narration")
     from huggingface_hub import snapshot_download
     import numpy as np
     import soundfile as sf
@@ -121,7 +88,7 @@ def main():
     sf.write(wav,np.concatenate(audio),rate)
     import imageio_ffmpeg
     subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(),"-hide_banner","-loglevel","error","-y","-i",wav,"-ac","1","-b:a","64k","audio/morning-brief.mp3"],check=True)
-    manifest={"date":today,"status":"ok","file":"audio/morning-brief.mp3","engine":"BlueTTS open source","voice":Path(voice_file).stem,"generated_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat()}
+    manifest={"date":today,"status":"ok","file":"audio/morning-brief.mp3","engine":"BlueTTS open source","voice":Path(voice_file).stem,"generated_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat(),"brief_generated_at":data.get("generated_at"),"content_hash":content_hash(data),"duration_seconds":round(len(np.concatenate(audio))/rate,1),"coverage":"full_editorial"}
     Path("daily_audio.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
     print("Audio ready:",Path(manifest["file"]).stat().st_size,"bytes",flush=True)
 

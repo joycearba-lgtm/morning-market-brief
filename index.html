@@ -739,17 +739,36 @@ background:#f1f7eb;color:#426f32!important;font-size:13px!important;font-weight:
   const todayFields=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jerusalem',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
   const datePart=type=>todayFields.find(x=>x.type===type)?.value;
   const today=[datePart('year'),datePart('month'),datePart('day')].join('-');
-  fetch('./daily_audio.json?v='+Date.now(),{cache:'no-store'})
-    .then(r=>{if(!r.ok)throw Error('No audio file');return r.json()})
-    .then(info=>{
-      if(info.status!=='ok'||info.date!==today||info.file!=='audio/morning-brief.mp3')
-        throw Error('No verified audio for today');
-      player.src='./audio/morning-brief.mp3?v='+encodeURIComponent(info.date);
+  async function getJson(path){
+    const r=await fetch(path+'?v='+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw Error('unavailable');return r.json();
+  }
+  function narrationParts(data){
+    const parts=[],add=x=>{if(typeof x==='string'&&x.trim())parts.push(x.trim());};
+    add(data.title);
+    for(const s of data.sections||[]){add(s.heading);for(const p of s.bullets||[s.text||''])add(p);}
+    for(const item of data.advisor||[]){
+      if(typeof item==='string'){add(item);continue;}
+      for(const key of ['title','insight','client_impact','question'])add(item[key]);
+    }
+    add(data.takeaway);return parts;
+  }
+  Promise.all([getJson('./daily_audio.json'),getJson('./macro_brief.json')])
+    .then(async ([info,brief])=>{
+      const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(narrationParts(brief))));
+      const hash=Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
+      if(info.status!=='ok'||info.date!==today||brief.date!==today||info.file!=='audio/morning-brief.mp3'||info.content_hash!==hash||info.coverage!=='full_editorial')
+        throw Error('Audio does not match current briefing');
+      player.src='./audio/morning-brief.mp3?v='+encodeURIComponent(info.generated_at);
       player.style.display='block';
-      status.textContent='הקלטת הבוקר זמינה להאזנה · '+info.date+' · לחצי Play';
-      player.addEventListener('error',()=>{player.style.display='none';status.textContent='קובץ השמע טרם זמין. אפשר להאזין דרך ChatGPT.'});
+      const time=new Date(info.generated_at).toLocaleTimeString('he-IL',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit'});
+      const seconds=Number(info.duration_seconds);
+      const duration=Number.isFinite(seconds)?' · '+Math.floor(seconds/60)+':'+String(Math.round(seconds%60)).padStart(2,'0')+' דקות':'';
+      status.textContent='תואמת לסקירה הנוכחית · הוכנה '+time+duration;
+      player.addEventListener('error',()=>{player.style.display='none';status.textContent='קובץ ההקלטה אינו זמין כרגע.';});
     })
-    .catch(()=>{status.textContent='הקלטת הבוקר עדיין אינה זמינה. יצירת הקול הניסיונית מתבצעת אוטומטית רק אם המנוע מצליח.';});
+    .catch(()=>{player.style.display='none';status.textContent='הקלטה תוצג כאן לאחר שתהיה מוכנה ותתאים לסקירה הנוכחית.';});
+
 })();
 </script>
 <!-- FORECAST_SNAPSHOT_START -->

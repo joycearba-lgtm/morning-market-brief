@@ -2,11 +2,16 @@ name: Daily Hebrew Audio
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: [Morning Market Brief]
+    branches: [main]
+    types: [completed]
   push:
     branches: [main]
     paths:
       - 'macro_brief.json'
       - 'generate_audio.py'
+      - 'audio_content.py'
       - '.github/workflows/audio-brief.yml'
   schedule:
     # 09:30 local Israel; second UTC slot is skipped by the local-hour gate.
@@ -18,7 +23,7 @@ permissions:
 
 concurrency:
   group: daily-hebrew-audio
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   narrate:
@@ -31,7 +36,9 @@ jobs:
         shell: bash
         run: |
           HOUR=$(TZ=Asia/Jerusalem date +%H)
-          if [ "${{ github.event_name }}" != "schedule" ] || [ "$HOUR" = "09" ]; then
+          if [ "${{ github.event_name }}" = "workflow_run" ] && [ "${{ github.event.workflow_run.conclusion }}" != "success" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" != "schedule" ] || [ "$HOUR" = "09" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
@@ -65,16 +72,20 @@ jobs:
         run: |
           python - <<'PY'
           import json,os
+          from audio_content import content_hash
           from datetime import datetime
           from pathlib import Path
           from zoneinfo import ZoneInfo
           today=datetime.now(ZoneInfo("Asia/Jerusalem")).date().isoformat()
           audio=Path("audio/morning-brief.mp3")
           manifest=Path("daily_audio.json")
-          complete=audio.is_file() and audio.stat().st_size>1000 and manifest.is_file()
+          complete=os.environ.get("SYNTH_OUTCOME")=="success" and audio.is_file() and audio.stat().st_size>1000 and manifest.is_file()
           if complete:
               result=json.loads(manifest.read_text(encoding="utf-8"))
-              complete=result.get("date")==today and result.get("status")=="ok"
+              brief=json.loads(Path("macro_brief.json").read_text(encoding="utf-8"))
+              complete=(result.get("date")==today and result.get("status")=="ok"
+                        and result.get("content_hash")==content_hash(brief)
+                        and result.get("coverage")=="full_editorial")
           if not complete:
               reason=("dependency_installation_failed" if os.environ.get("INSTALL_OUTCOME")!="success"
                       else "audio_generation_failed" if os.environ.get("SYNTH_OUTCOME")!="success"
