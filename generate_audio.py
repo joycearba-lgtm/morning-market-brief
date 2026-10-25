@@ -23,6 +23,17 @@ def main():
                          ("אג״ח","איגרות חוב"),("ארה״ב","ארצות הברית"),
                          ("תמ״ג","תוצר מקומי גולמי")):
             text=text.replace(src,dest)
+        def say_percent(m):
+            digits={"0":"אפס","1":"אחת","2":"שתיים","3":"שלוש",
+                    "4":"ארבע","5":"חמש","6":"שש","7":"שבע","8":"שמונה","9":"תשע"}
+            whole=m.group(1)
+            fraction=m.group(2)
+            num=whole+(" נקודה "+" ".join(digits[d] for d in fraction) if fraction else "")
+            return num+" אחוז"
+        text=re.sub(r"(\\d+)(?:\\.(\\d+))?\\s*%",say_percent,text)
+        text=re.sub(r"\\b(20\\d{2})\\b",lambda m:"שנת "+m.group(1),text)
+        text=text.replace("3.25", "שלוש נקודה שתיים חמש")
+        text=text.replace("4.00", "ארבע")
         text=text.replace("—",", ").replace("·",", ").replace("–"," עד ")
         return re.sub(r"\\s+"," ",text).strip()
     def first_sentence(text):
