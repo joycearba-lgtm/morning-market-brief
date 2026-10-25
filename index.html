@@ -336,6 +336,25 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 .hero .actions .btn{font-size:10px!important;line-height:1.3!important;padding:5px 3px!important;min-height:27px!important;border-radius:7px!important;justify-content:center;text-align:center}
 .hero .independent-note{font-size:9px!important;line-height:1.3!important;margin-top:6px!important;padding-top:5px!important}
 @media(max-width:350px){.hero h1{font-size:20px!important}.hero .actions .btn{font-size:9px!important}}
+</style><style id="smaller-market-overview">
+section.grid{gap:6px!important}
+section.grid .card{padding:9px 10px!important;gap:2px}
+section.grid .card .label{font-size:12px!important;min-height:24px}
+section.grid .card .daily-change{font-size:21px!important;margin:0 0 2px!important;padding:2px 5px!important}
+section.grid .card .value{font-size:12px!important}
+.trend-card{padding:9px 11px!important;border-color:#9cbc87!important;box-shadow:0 2px 8px #42672d0a}
+#trend-plot{background:linear-gradient(180deg,#f5faef 0%,#fff 100%);border-radius:8px}
+#trend-plot svg{max-height:175px}
+#trend-status .trend-period-change{font-size:18px}
+.trend-period-buttons{margin:6px 0 3px}
+@media(max-width:760px){
+section.grid{gap:5px!important}
+section.grid .card{padding:7px 6px!important;min-height:78px!important;gap:1px}
+section.grid .card .label{font-size:10.5px!important;min-height:24px!important}
+section.grid .card .daily-change{font-size:16.5px!important;padding:2px 3px!important;margin:0 0 2px!important}
+section.grid .card .value{font-size:11.5px!important}
+}
+@media(max-width:350px){section.grid .card .daily-change{font-size:14px!important}}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()" aria-label="הדפסה או שמירה כקובץ PDF">הדפסה / PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -1106,7 +1125,7 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   const stamp=Date.parse(dataset.updated_at||'');
   if(!Number.isFinite(stamp)||Date.now()-stamp>4*86400000||stamp>Date.now()+300000){status.textContent='נתוני הגרף אינם מעודכנים כרגע.';return;}
   const first=points[0],last=points[points.length-1],pct=(last.close/first.close-1)*100;
-  const color=pct<0?'#c43840':'#07834f';
+  const color=pct<0?'#c12535':'#007f45';
   const fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
   const date=s=>s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(2,4);
   status.replaceChildren();
@@ -1115,13 +1134,13 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   const dates=document.createElement('span');dates.textContent='שינוי בתקופה · '+date(first.date)+'–'+date(last.date)+(limited?' · היסטוריה חלקית':'');
   status.append(change,dates);
   const values=points.map(p=>p.close),min=Math.min(...values),max=Math.max(...values),pad=(max-min||max*.01)*.15;
-  const low=min-pad,high=max+pad,W=620,H=220,left=60,right=15,top=18,bottom=30;
+  const low=min-pad,high=max+pad,W=620,H=160,left=66,right=18,top=14,bottom=25;
   const x=i=>left+i/(points.length-1)*(W-left-right),y=v=>top+(high-v)/(high-low)*(H-top-bottom);
   const svg=node('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':select.options[select.selectedIndex].text+' · '+points.length+' סגירות. ציר המחיר אינו מתחיל באפס.'});
   svg.append(node('title',{},'מגמת שערי סגירה · '+(customRange?'טווח תאריכים נבחר':period.options[period.selectedIndex].text)));
   const defs=node('defs');
   const gradient=node('linearGradient',{id:'trend-area-fill',x1:'0',y1:'0',x2:'0',y2:'1'});
-  gradient.append(node('stop',{offset:'0%','stop-color':color,'stop-opacity':'.19'}),node('stop',{offset:'100%','stop-color':color,'stop-opacity':'.025'}));
+  gradient.append(node('stop',{offset:'0%','stop-color':color,'stop-opacity':'.29'}),node('stop',{offset:'100%','stop-color':color,'stop-opacity':'.025'}));
   defs.append(gradient);svg.append(defs);
   for(let i=0;i<3;i++){
     const value=low+(high-low)*i/2,yy=y(value);
@@ -1131,9 +1150,9 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   const path=points.map((p,i)=>(i?'L':'M')+x(i).toFixed(1)+','+y(p.close).toFixed(1)).join(' ');
   const area=path+' L'+x(points.length-1).toFixed(1)+','+(H-bottom)+' L'+x(0).toFixed(1)+','+(H-bottom)+' Z';
   svg.append(node('path',{d:area,fill:'url(#trend-area-fill)',stroke:'none'}));
-  svg.append(node('path',{d:path,fill:'none',stroke:color,'stroke-width':2.6,'vector-effect':'non-scaling-stroke','stroke-linecap':'round','stroke-linejoin':'round'}));
-  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:8,fill:color,'fill-opacity':'.12'}));
-  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:4.5,fill:color,stroke:'#fff','stroke-width':2}));
+  svg.append(node('path',{d:path,fill:'none',stroke:color,'stroke-width':3.2,'vector-effect':'non-scaling-stroke','stroke-linecap':'round','stroke-linejoin':'round'}));
+  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:10,fill:color,'fill-opacity':'.16'}));
+  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:5.5,fill:color,stroke:'#fff','stroke-width':2}));
   svg.append(node('text',{x:left,y:H-7,fill:'#4e6655','font-size':11},date(first.date)));
   svg.append(node('text',{x:W-right,y:H-7,'text-anchor':'end',fill:'#4e6655','font-size':11},date(last.date)));
   plot.append(svg);
