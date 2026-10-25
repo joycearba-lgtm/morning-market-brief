@@ -308,7 +308,9 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 <div class="card trend-card">
 <div class="trend-toolbar"><label for="trend-index">מדד</label><select id="trend-index">
 <option value="TA-35">ת״א־35</option><option value="TA-125">ת״א־125</option><option value="S&P 500">S&amp;P 500</option><option value="Nasdaq Composite">נאסד״ק</option>
-</select><span>חודש אחרון · שערי סגירה</span></div>
+</select><label for="trend-period">תקופה</label><select id="trend-period">
+<option value="1">חודש</option><option value="3">3 חודשים</option><option value="6">חצי שנה</option><option value="12">שנה</option><option value="36">3 שנים</option><option value="60">5 שנים</option>
+</select><span>שערי סגירה</span></div>
 <p id="trend-status" role="status">טוען נתונים היסטוריים…</p>
 <div id="trend-plot"></div>
 <details class="trend-data"><summary>נתוני הגרף</summary><div id="trend-table"></div></details>
@@ -1008,26 +1010,36 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 <script>
 (function(){
  const select=document.getElementById('trend-index'),plot=document.getElementById('trend-plot'),status=document.getElementById('trend-status'),table=document.getElementById('trend-table');
+ const period=document.getElementById('trend-period');
  let dataset={};
  const NS='http://www.w3.org/2000/svg';
  function node(tag,attrs,text){const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs||{}))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}
  function render(){
   plot.replaceChildren();table.replaceChildren();
   const series=dataset.indices?.[select.value];
-  const points=(series?.history||[]).filter(p=>typeof p.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(p.date)&&Number.isFinite(p.close)&&p.close>0).sort((a,b)=>a.date.localeCompare(b.date));
+  let points=(series?.history||[]).filter(p=>typeof p.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(p.date)&&Number.isFinite(p.close)&&p.close>0).sort((a,b)=>a.date.localeCompare(b.date));
   if(points.length<2){status.textContent='אין כרגע מספיק נתוני סגירה מאומתים לגרף זה.';return;}
+  const availableStart=points[0].date;
+  const ending=new Date(points[points.length-1].date+'T00:00:00Z');
+  const cutoff=new Date(ending),day=cutoff.getUTCDate();
+  cutoff.setUTCDate(1);cutoff.setUTCMonth(cutoff.getUTCMonth()-Number(period.value));
+  cutoff.setUTCDate(Math.min(day,new Date(Date.UTC(cutoff.getUTCFullYear(),cutoff.getUTCMonth()+1,0)).getUTCDate()));
+  const from=cutoff.toISOString().slice(0,10);
+  points=points.filter(p=>p.date>=from);
+  if(points.length<2){status.textContent='אין מספיק נתוני סגירה בתקופה שנבחרה.';return;}
+  const limited=Date.parse(availableStart+'T00:00:00Z')-cutoff.getTime()>7*86400000;
   const stamp=Date.parse(dataset.updated_at||'');
   if(!Number.isFinite(stamp)||Date.now()-stamp>4*86400000||stamp>Date.now()+300000){status.textContent='נתוני הגרף אינם מעודכנים כרגע.';return;}
   const first=points[0],last=points[points.length-1],pct=(last.close/first.close-1)*100;
   const color=pct<0?'#c43840':'#07834f';
   const fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
-  const date=s=>s.slice(8,10)+'.'+s.slice(5,7);
-  status.textContent=date(first.date)+'–'+date(last.date)+' · שינוי בתקופה: '+(pct>0?'+':'')+pct.toFixed(2)+'% · מקור: Yahoo Finance';
+  const date=s=>s.slice(8,10)+'.'+s.slice(5,7)+(Number(period.value)>=12?'.'+s.slice(2,4):'');
+  status.textContent=date(first.date)+'–'+date(last.date)+' · שינוי בתקופה: '+(pct>0?'+':'')+pct.toFixed(2)+'% · מקור: Yahoo Finance'+(limited?' · היסטוריה חלקית לתקופה שנבחרה':'');
   const values=points.map(p=>p.close),min=Math.min(...values),max=Math.max(...values),pad=(max-min||max*.01)*.15;
   const low=min-pad,high=max+pad,W=620,H=220,left=60,right=15,top=18,bottom=30;
   const x=i=>left+i/(points.length-1)*(W-left-right),y=v=>top+(high-v)/(high-low)*(H-top-bottom);
   const svg=node('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':select.options[select.selectedIndex].text+' · '+points.length+' סגירות. ציר המחיר אינו מתחיל באפס.'});
-  svg.append(node('title',{},'מגמת שערי סגירה בחודש האחרון'));
+  svg.append(node('title',{},'מגמת שערי סגירה · '+period.options[period.selectedIndex].text));
   const defs=node('defs');
   const gradient=node('linearGradient',{id:'trend-area-fill',x1:'0',y1:'0',x2:'0',y2:'1'});
   gradient.append(node('stop',{offset:'0%','stop-color':color,'stop-opacity':'.24'}),node('stop',{offset:'100%','stop-color':color,'stop-opacity':'.025'}));
@@ -1049,9 +1061,10 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   const t=document.createElement('table'),head=document.createElement('tr');
   for(const label of ['תאריך סגירה','שער המדד']){const th=document.createElement('th');th.scope='col';th.textContent=label;head.append(th);}t.append(head);
   for(const p of points){const tr=document.createElement('tr');for(const value of [p.date,fmt(p.close)]){const td=document.createElement('td');td.textContent=value;tr.append(td);}t.append(tr);}
-  const note=document.createElement('p');note.textContent='ימי מסחר בלבד; ללא נתונים תוך־יומיים. ציר המחיר אינו מתחיל באפס. השינוי מתייחס לנקודות המוצגות, ולא לתשואה חודשית קלנדרית.';table.append(note,t);
+  const note=document.createElement('p');note.textContent='ימי מסחר בלבד; ללא נתונים תוך־יומיים. ציר המחיר אינו מתחיל באפס. השינוי מתייחס לנקודות המוצגות, ולא לתקופה קלנדרית מלאה.';table.append(note,t);
  }
  select.addEventListener('change',render);
+ period.addEventListener('change',render);
  try{dataset=JSON.parse(document.getElementById('market-snapshot').textContent);render();}catch{}
  fetch('./market_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(d=>{dataset=d;render();}).catch(()=>{if(!plot.children.length)status.textContent='נתוני הגרף אינם זמינים כרגע.';});
 })();

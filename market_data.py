@@ -49,12 +49,13 @@ except Exception as error:
 
 
 # Daily closing prices - Yahoo Finance (try both public chart hosts)
-def get_index(symbol):
+def get_index(symbol, history_range='1mo'):
     from urllib.parse import quote
     encoded = quote(symbol, safe="")
     failures = []
-    for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
-        url = f"https://{host}/v8/finance/chart/{encoded}?range=1mo&interval=1d"
+    ranges=[history_range,"1mo"] if history_range!="1mo" else ["1mo"]
+    for host,selected_range in [(h,r) for r in ranges for h in ("query1.finance.yahoo.com","query2.finance.yahoo.com")]:
+        url = f"https://{host}/v8/finance/chart/{encoded}?range={selected_range}&interval=1d"
         try:
             data = json.loads(download(url))
             charts = data.get("chart", {}).get("result") or []
@@ -89,6 +90,7 @@ def get_index(symbol):
             history=[{"date":day,"close":value} for day,value in sorted(points.items())]
             return {
                 "history": history,
+                "history_range": selected_range,
                 "history_status": "ok" if len(history)>=2 else "unavailable",
                 "status": "ok",
                 "value": round(latest, 2),
@@ -101,13 +103,13 @@ def get_index(symbol):
             failures.append(f"{host}: {type(error).__name__}: {str(error)[:120]}")
     return {"status": "unavailable", "reason": "; ".join(failures)}
 
-result["indices"]["S&P 500"] = get_index("^GSPC")
-result["indices"]["Nasdaq Composite"] = get_index("^IXIC")
+result["indices"]["S&P 500"] = get_index("^GSPC", "5y")
+result["indices"]["Nasdaq Composite"] = get_index("^IXIC", "5y")
 result["indices"]["Dow Jones"] = get_index("^DJI")
 
 # Israeli indices - Yahoo Finance delayed EOD quotes; missing responses remain unavailable.
-result["indices"]["TA-35"] = get_index("TA35.TA")
-result["indices"]["TA-125"] = get_index("^TA125.TA")
+result["indices"]["TA-35"] = get_index("TA35.TA", "5y")
+result["indices"]["TA-125"] = get_index("^TA125.TA", "5y")
 
 # Front-month futures, not spot: prices can change as contracts roll.
 result["commodities"]["WTI futures"] = get_index("CL=F")
