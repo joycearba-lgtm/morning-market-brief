@@ -219,7 +219,7 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 </div></section>
 
 <section id="advisor-talking-points" style="margin:20px 0">
- <div class="section-title"><h2>3 מסרים ברורים לשיחה עם לקוחות</h2><span></span></div>
+ <div class="section-title"><h2>נקודות מקצועיות לשיחה עם לקוחות</h2><span></span></div>
  <div class="card" style="border-right:3px solid #197a70">
    <p class="sub" id="advisor-status">מכין נקודות לשיחה על בסיס הנתונים האחרונים…</p>
    <div id="advisor-points" style="display:grid;gap:14px"></div>
@@ -412,7 +412,10 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
    if(!brief || !Array.isArray(brief.sections)) return;
    pane.replaceChildren();advisor.replaceChildren();
    const until=Date.parse(brief.valid_until);
-   const valid=Number.isFinite(until) && Date.now() < until && Date.now() >= Date.parse(brief.date+'T00:00:00+03:00');
+   const localParts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jerusalem',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+   const part=t=>localParts.find(p=>p.type===t)?.value;
+   const todayJerusalem=[part('year'),part('month'),part('day')].join('-');
+   const valid=Number.isFinite(until) && Date.now() < until && todayJerusalem===brief.date;
    const generated=Date.parse(brief.generated_at||'');
    const checkedLabel=Number.isFinite(generated)?new Date(generated).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):brief.date;
    stamp.textContent=valid?'סקירת שוק אוטומטית · נוצרה '+checkedLabel:'הסקירה האחרונה התיישנה · '+brief.date;
@@ -455,7 +458,8 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
    }
    if(brief.takeaway && !/\\d+(?:[.,]\\d+)?\\s*%/.test(brief.takeaway)){addText(pane,'מוקדי המעקב',brief.takeaway);}
    if(brief.methodology){const m=document.createElement('p');m.className='sub';m.style.cssText='margin:7px 0;font-size:12px';m.textContent=brief.methodology;pane.append(m);}
-   advisorStatus.textContent='שלוש נקודות לשיחה על בסיס סקירת המאקרו מ־'+brief.date;
+   const pointCount=Math.min(3,(brief.advisor||[]).length);
+   advisorStatus.textContent=pointCount?pointCount+' נקודות לשיחה מתוך אירועי הסקירה מ־'+brief.date:'לא נמצא אירוע חדש שמצדיק מסר ייעודי ללקוח היום';
    (brief.advisor||[]).slice(0,3).forEach((item,i)=>{
      if(!item || typeof item!=='object'){ if(typeof item==='string'&&item.trim())addText(advisor,'נקודה '+(i+1),item);return; }
      const el=document.createElement('section');el.className='advisor-point';
@@ -471,7 +475,12 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
        question.append(bold,document.createTextNode(item.question));el.append(question);
      }
      if(item.reference){
-       const ref=document.createElement('small');ref.className='sub';ref.textContent='בסיס: '+item.reference;el.append(ref);
+       const ref=document.createElement('small');ref.className='sub';ref.textContent='בסיס: '+item.reference+' ';
+       if(item.source_url && String(item.source_url).startsWith('https://')){
+         const anchor=document.createElement('a');anchor.className='source';anchor.href=item.source_url;
+         anchor.target='_blank';anchor.rel='noopener noreferrer';anchor.textContent='לקריאת המקור';ref.append(anchor);
+       }
+       el.append(ref);
      }
      advisor.append(el);
    });
