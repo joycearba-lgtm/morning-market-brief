@@ -50,14 +50,21 @@ def main():
             # will handle the model's short-utterance limit.
         return speaking(sentence)
     blocks=["בוקר טוב. הנה עיקרי סקירת השווקים להיום."]
-    intros=["נתחיל בתמונה הכלכלית בעולם.",
-            "ועכשיו, מה קורה עם הריביות והבנקים המרכזיים?",
-            "מכאן נעבור לשוק המניות ולאנרגיה.",
-            "ולסיום תמונת המאקרו, נתמקד בישראל."]
     for i,section in enumerate(data.get("sections",[])[:4]):
         points=section.get("bullets") or [section.get("text","")]
-        if points and points[0]:
-            blocks.extend((intros[i],first_sentence(points[0])))
+        points=[x for x in points if isinstance(x,str) and x.strip()]
+        if not points:continue
+        heading=str(section.get("heading",""))
+        if "התפתחויות החשובות" in heading or "אירועי השוק" in heading:
+            blocks.append("נתחיל באירועים החשובים שפורסמו לאחרונה.")
+        elif "התנהגות השוק" in heading:
+            blocks.append("ומה אומרים נתוני השוק?")
+        elif "רקע מאקרו" in heading:
+            blocks.append("ועכשיו, רקע כלכלי קצר שמסייע להבין את התמונה.")
+        else:
+            blocks.append("נמשיך ל"+speaking(heading)+".")
+        for item in points[:2]:
+            blocks.append(first_sentence(item))
     advisor=data.get("advisor",[])[:3]
     if advisor:
         blocks.append("ועכשיו, שלוש נקודות שאפשר להעלות בשיחה עם לקוחות.")
