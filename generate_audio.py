@@ -42,7 +42,12 @@ def main():
         if not parts:return ""
         sentence=parts[0]
         if len(sentence)>250:
-            sentence=sentence[:250].rsplit(" ",1)[0].rstrip(" ,:;")+"."
+            # Prefer complete clauses over cutting at an arbitrary character.
+            clauses=re.split(r"[,;:]\\s+",sentence)
+            if len(clauses)>1 and len(clauses[0])>=45:
+                sentence=clauses[0].rstrip(" .")+"."
+            # Otherwise preserve the full sentence; speech chunking below
+            # will handle the model's short-utterance limit.
         return speaking(sentence)
     blocks=["בוקר טוב. הנה עיקרי סקירת השווקים להיום."]
     intros=["נתחיל בתמונה הכלכלית בעולם.",
