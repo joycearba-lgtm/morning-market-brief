@@ -14,25 +14,43 @@ def main():
     if data.get("date")!=today or data.get("status")=="unavailable":
         print("No current editorial brief; not creating audio")
         return
-    # Audio digest rather than a verbatim recitation of the webpage:
-    # keep the neural model's CPU workload bounded.
-    blocks=["בוקר טוב. הנה עיקרי סקירת השווקים של היום."]
-    for section in data.get("sections",[])[:4]:
-        heading=section.get("heading","")
-        bullet=(section.get("bullets") or [section.get("text","")])[0]
-        if heading and bullet:
-            blocks.append(str(heading).replace("—",", "))
-            import re
-            sentences=re.split(r"(?<=[.!?])\\s+",str(bullet))
-            blocks.append(sentences[0][:260])
+    import re
+    def speaking(text):
+        text=str(text or "")
+        for src,dest in (("AI","בינה מלאכותית"),("ECB","הבנק המרכזי האירופי"),
+                         ("CPI","מדד המחירים לצרכן"),("GDP","תוצר מקומי גולמי"),
+                         ("Nasdaq","נאסדק"),("מח״מ","משך חיים ממוצע"),
+                         ("אג״ח","איגרות חוב"),("ארה״ב","ארצות הברית"),
+                         ("תמ״ג","תוצר מקומי גולמי")):
+            text=text.replace(src,dest)
+        text=text.replace("—",", ").replace("·",", ").replace("–"," עד ")
+        return re.sub(r"\\s+"," ",text).strip()
+    def first_sentence(text):
+        text=str(text or "").strip()
+        parts=re.split(r"(?<=[.!?])\\s+",text)
+        if not parts:return ""
+        sentence=parts[0]
+        if len(sentence)>250:
+            sentence=sentence[:250].rsplit(" ",1)[0].rstrip(" ,:;")+"."
+        return speaking(sentence)
+    blocks=["בוקר טוב. הנה עיקרי סקירת השווקים להיום."]
+    intros=["נתחיל בתמונה הכלכלית בעולם.",
+            "ועכשיו, מה קורה עם הריביות והבנקים המרכזיים?",
+            "מכאן נעבור לשוק המניות ולאנרגיה.",
+            "ולסיום תמונת המאקרו, נתמקד בישראל."]
+    for i,section in enumerate(data.get("sections",[])[:4]):
+        points=section.get("bullets") or [section.get("text","")]
+        if points and points[0]:
+            blocks.extend((intros[i],first_sentence(points[0])))
     advisor=data.get("advisor",[])[:3]
     if advisor:
-        blocks.append("ועכשיו, שלוש נקודות חשובות לשיחה עם לקוחות.")
-        for item in advisor:
-            blocks.append(item.get("title",""))
-            blocks.append(str(item.get("insight",""))[:180])
-    blocks.append("עד כאן סקירת השווקים.")
-    blocks=[str(b).strip() for b in blocks if b and str(b).strip()]
+        blocks.append("ועכשיו, שלוש נקודות שאפשר להעלות בשיחה עם לקוחות.")
+        for intro,item in zip(("הנקודה הראשונה.", "הנקודה השנייה.", "הנקודה השלישית."),advisor):
+            blocks.append(intro)
+            blocks.append(speaking(item.get("title",""))+".")
+            blocks.append(first_sentence(item.get("insight","")))
+    blocks.append("עד כאן סקירת השווקים. המשך יום נעים.")
+    blocks=[x for x in blocks if x]
     from huggingface_hub import snapshot_download
     import numpy as np
     import soundfile as sf
@@ -74,7 +92,7 @@ def main():
             samples,sr=tts.synthesize(phrase,lang="he")
             rate=sr
             audio.append(np.asarray(samples,dtype=np.float32))
-            audio.append(np.zeros(int(sr*0.32),dtype=np.float32))
+            audio.append(np.zeros(int(sr*0.55),dtype=np.float32))
     Path("audio").mkdir(exist_ok=True)
     wav="/tmp/daily-brief.wav"
     sf.write(wav,np.concatenate(audio),rate)
