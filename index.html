@@ -294,6 +294,26 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 .trend-date-filter input{width:100%;min-width:0;border:1px solid #d0dfc6;border-radius:6px;padding:5px;color:#355833;background:#fff;font:inherit;font-size:12px}
 .trend-date-filter button{border:1px solid #97b980;background:#edf5e5;color:#3c662f;border-radius:6px;padding:6px 9px;font:inherit;font-size:11px;cursor:pointer;min-height:30px}
 #trend-period[hidden]{display:none!important}
+</style><style id="refined-chart">
+.trend-card{padding:11px 12px!important;background:#fff!important;border:1px solid #cfdfc7!important;border-radius:13px}
+.trend-toolbar{gap:7px}
+.trend-toolbar label{font-size:10px;color:#74816d}
+.trend-toolbar select{padding:4px 8px;font-size:12px;border-radius:6px;background:#f3f8ee}
+.trend-toolbar>span{margin-right:auto;font-size:9px}
+.trend-period-buttons{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;margin:8px 0 5px;padding:3px;background:#f1f5ed;border-radius:8px}
+.trend-period-buttons button{border:0;background:transparent;border-radius:6px;padding:4px 1px;font-size:10px;min-height:26px;white-space:nowrap}
+.trend-period-buttons button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 4px #284c2217;color:#2f682c;font-weight:750}
+.trend-custom-range{font-size:10px;color:#608052;margin:3px 0}
+.trend-custom-range>summary{cursor:pointer;padding:3px 0;min-height:22px}
+.trend-date-filter{margin:6px 0}
+.trend-date-filter label{font-size:9px}
+.trend-date-filter input{padding:4px;font-size:11px}
+.trend-date-filter button{padding:4px 7px;font-size:10px;min-height:27px}
+#trend-status{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 9px;margin:5px 0 0;font-size:10px;font-weight:400;color:#71806a}
+#trend-status .trend-period-change{font-size:19px;font-weight:800;letter-spacing:-.5px;line-height:1.35}
+#trend-plot{margin-top:0;background:transparent;border-radius:0}
+.trend-data{margin-top:2px;font-size:10px}
+.trend-data>summary{padding:2px 0;color:#718568}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -319,15 +339,15 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 <option value="TA-35">ת״א־35</option><option value="TA-125">ת״א־125</option><option value="S&P 500">S&amp;P 500</option><option value="Nasdaq Composite">נאסד״ק</option>
 </select><select id="trend-period" aria-label="תקופת הגרף" hidden>
 <option value="1">חודש</option><option value="3">3 חודשים</option><option value="6">חצי שנה</option><option value="12">שנה</option><option value="36">3 שנים</option><option value="60">5 שנים</option>
-</select><span>שערי סגירה</span></div>
+</select><span>שערי סגירה · Yahoo Finance</span></div>
 <div class="trend-period-buttons" role="group" aria-label="סינון מהיר לפי תקופה">
 <button type="button" data-months="1" aria-pressed="true">חודש</button><button type="button" data-months="3" aria-pressed="false">3 ח׳</button><button type="button" data-months="6" aria-pressed="false">חצי שנה</button><button type="button" data-months="12" aria-pressed="false">שנה</button><button type="button" data-months="36" aria-pressed="false">3 שנים</button><button type="button" data-months="60" aria-pressed="false">5 שנים</button>
 </div>
-<form id="trend-date-filter" class="trend-date-filter">
+<details class="trend-custom-range"><summary>טווח תאריכים מותאם</summary><form id="trend-date-filter" class="trend-date-filter">
 <label>מתאריך<input type="date" id="trend-from" required aria-label="תאריך התחלה לגרף"></label>
 <label>עד תאריך<input type="date" id="trend-to" required aria-label="תאריך סיום לגרף"></label>
 <button type="submit">הצגת טווח</button>
-</form>
+</form></details>
 <p id="trend-status" role="status">טוען נתונים היסטוריים…</p>
 <div id="trend-plot"></div>
 <details class="trend-data"><summary>נתוני הגרף</summary><div id="trend-table"></div></details>
@@ -1062,7 +1082,11 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   const color=pct<0?'#c43840':'#07834f';
   const fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
   const date=s=>s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(2,4);
-  status.textContent=date(first.date)+'–'+date(last.date)+' · שינוי בתקופה: '+(pct>0?'+':'')+pct.toFixed(2)+'% · מקור: Yahoo Finance'+(limited?' · היסטוריה חלקית לתקופה שנבחרה':'');
+  status.replaceChildren();
+  const change=document.createElement('strong');change.className='trend-period-change';change.dir='ltr';change.style.color=color;
+  change.textContent=(pct>0?'+':'')+pct.toFixed(2)+'%';
+  const dates=document.createElement('span');dates.textContent='שינוי בתקופה · '+date(first.date)+'–'+date(last.date)+(limited?' · היסטוריה חלקית':'');
+  status.append(change,dates);
   const values=points.map(p=>p.close),min=Math.min(...values),max=Math.max(...values),pad=(max-min||max*.01)*.15;
   const low=min-pad,high=max+pad,W=620,H=220,left=60,right=15,top=18,bottom=30;
   const x=i=>left+i/(points.length-1)*(W-left-right),y=v=>top+(high-v)/(high-low)*(H-top-bottom);
@@ -1070,19 +1094,19 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   svg.append(node('title',{},'מגמת שערי סגירה · '+(customRange?'טווח תאריכים נבחר':period.options[period.selectedIndex].text)));
   const defs=node('defs');
   const gradient=node('linearGradient',{id:'trend-area-fill',x1:'0',y1:'0',x2:'0',y2:'1'});
-  gradient.append(node('stop',{offset:'0%','stop-color':color,'stop-opacity':'.24'}),node('stop',{offset:'100%','stop-color':color,'stop-opacity':'.025'}));
+  gradient.append(node('stop',{offset:'0%','stop-color':color,'stop-opacity':'.19'}),node('stop',{offset:'100%','stop-color':color,'stop-opacity':'.025'}));
   defs.append(gradient);svg.append(defs);
   for(let i=0;i<3;i++){
     const value=low+(high-low)*i/2,yy=y(value);
-    svg.append(node('line',{x1:left,x2:W-right,y1:yy,y2:yy,stroke:'#d3dfd5','stroke-dasharray':'3 4'}));
+    svg.append(node('line',{x1:left,x2:W-right,y1:yy,y2:yy,stroke:'#e5ebe3','stroke-width':'.8'}));
     svg.append(node('text',{x:left-7,y:yy+4,'text-anchor':'end',fill:'#4e6655','font-size':11},fmt(value)));
   }
   const path=points.map((p,i)=>(i?'L':'M')+x(i).toFixed(1)+','+y(p.close).toFixed(1)).join(' ');
   const area=path+' L'+x(points.length-1).toFixed(1)+','+(H-bottom)+' L'+x(0).toFixed(1)+','+(H-bottom)+' Z';
   svg.append(node('path',{d:area,fill:'url(#trend-area-fill)',stroke:'none'}));
-  svg.append(node('path',{d:path,fill:'none',stroke:color,'stroke-width':4,'stroke-linecap':'round','stroke-linejoin':'round'}));
-  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:9,fill:color,'fill-opacity':'.14'}));
-  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:5,fill:color,stroke:'#fff','stroke-width':2}));
+  svg.append(node('path',{d:path,fill:'none',stroke:color,'stroke-width':2.6,'vector-effect':'non-scaling-stroke','stroke-linecap':'round','stroke-linejoin':'round'}));
+  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:8,fill:color,'fill-opacity':'.12'}));
+  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:4.5,fill:color,stroke:'#fff','stroke-width':2}));
   svg.append(node('text',{x:left,y:H-7,fill:'#4e6655','font-size':11},date(first.date)));
   svg.append(node('text',{x:W-right,y:H-7,'text-anchor':'end',fill:'#4e6655','font-size':11},date(last.date)));
   plot.append(svg);
