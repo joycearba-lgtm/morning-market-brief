@@ -573,7 +573,7 @@ if fresh and sections:
             ts=datetime.fromisoformat(str(item.get("published_at","")).replace("Z","+00:00")).astimezone(TZ)
         except (ValueError,TypeError):continue
         age=now-ts
-        if not timedelta(0)<=age<=timedelta(hours=42):continue
+        if not timedelta(0)<=age<=timedelta(hours=36):continue
         url=str(item.get("link",""))
         headline=str(item.get("title","")).rsplit(" - ",1)[0].strip()
         # Some syndicated RSS titles repeat the publisher or category suffix.
@@ -588,6 +588,15 @@ if fresh and sections:
                                             "המלצות","אחרי שלוש שנים טובות")):continue
         if headline.lstrip().startswith(('"', "״", "“", "'")):continue
         if any(phrase in low for phrase in ("נשמע הגיוני", "ההתעלמות של המשקיעים")):continue
+        # Editorial columns, predictions and rhetorical titles are not new
+        # measurable developments. Do not present them as same-day events.
+        if any(phrase in low for phrase in (
+            "מדגימה איך", "שלוש שריפות", "מי הסקטור", "למה לקחת סיכון",
+            "המחיר הכלכלי המפלצתי", "what does this mean",
+            "will the fed", "bubble warning", "community insights",
+            "דעה:", "טור דעה", "פרשנות:", "טור אישי")):continue
+        if "?" in headline or "?" in low or "？" in headline:continue
+
         canonical=re.sub(r"[^\w\u0590-\u05ff]+","",headline.casefold())[:75]
         if canonical in seen:continue
         classified=next((entry for entry in topics if any(word in headline.lower() for word in entry[1])),None)
@@ -637,7 +646,7 @@ if fresh and sections:
         advisor=advisor[:3]
     else:
         sections.insert(0,{"heading":"אירועים חדשים — מצב מקורות",
-                           "bullets":["לא אותרו ידיעות כלכליות מתוארכות ממקורות מאושרים ב־42 השעות האחרונות. "
+                           "bullets":["לא אותרו התפתחויות כלכליות מתוארכות העומדות בכללי הסינון ב־36 השעות האחרונות. "
                                       "אין להציג סקירת רקע כאילו היא אירוע חדש מהבוקר."],
                            "sources":[]})
 
