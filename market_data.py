@@ -71,7 +71,25 @@ def get_index(symbol):
                 previous = meta.get("chartPreviousClose") or meta.get("previousClose")
                 if not isinstance(latest, (int, float)) or not isinstance(previous, (int, float)) or previous == 0:
                     raise ValueError("Not enough closing price data")
+            # Historical chart points: retain exchange-local session dates and
+            # exclude an unfinished current session or invalid/missing prices.
+            import math
+            meta=chart.get("meta",{})
+            exchange_tz=ZoneInfo(meta.get("exchangeTimezoneName") or "UTC")
+            period=meta.get("currentTradingPeriod",{}).get("regular",{})
+            session_start=period.get("start",0)
+            session_end=period.get("end",0)
+            points={}
+            for stamp,close in zip(chart.get("timestamp") or [],quote_data.get("close") or []):
+                if not isinstance(stamp,(int,float)) or stamp>TODAY.timestamp(): continue
+                if session_start<=stamp and TODAY.timestamp()<session_end: continue
+                if not isinstance(close,(int,float)) or not math.isfinite(close) or close<=0: continue
+                day=datetime.fromtimestamp(stamp,exchange_tz).date().isoformat()
+                points[day]=round(close,4)
+            history=[{"date":day,"close":value} for day,value in sorted(points.items())]
             return {
+                "history": history,
+                "history_status": "ok" if len(history)>=2 else "unavailable",
                 "status": "ok",
                 "value": round(latest, 2),
                 "change_percent": round((latest / previous - 1) * 100, 2),

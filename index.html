@@ -269,6 +269,17 @@ section.grid .card .daily-change{font-size:18px!important;padding:3px 4px!import
 section.grid .card .value{font-size:12px!important;line-height:1.3!important;letter-spacing:0!important}
 }
 @media(max-width:350px){section.grid .card .daily-change{font-size:15px!important}section.grid .card .value{font-size:11px!important}}
+</style><style id="trend-chart-style">
+.trend-card{padding:12px 14px}
+.trend-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px}
+.trend-toolbar select{font:inherit;font-weight:700;color:#316139;border:1px solid #cdddbe;border-radius:7px;background:#f4f9ee;padding:6px 9px}
+.trend-toolbar>span{color:#778272;font-size:10px}
+#trend-status{font-size:12px;color:#536b56;margin:8px 0 0}
+#trend-plot svg{display:block;width:100%;height:auto;max-height:230px;direction:ltr}
+.trend-data{font-size:11px;color:#55724b;margin-top:6px}
+.trend-data summary{cursor:pointer}
+.trend-data table{width:100%;border-collapse:collapse;font-size:12px}
+.trend-data td,.trend-data th{padding:4px 8px;text-align:right;border-bottom:1px solid #e3ebdf}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -287,6 +298,16 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 <div class="notice" id="data-status">טוען את נתוני השוק האחרונים... נתונים שאינם זמינים יסומנו במפורש.</div>
 <div class="section-title"><h2>תמונת מצב מהירה</h2><span></span></div>
 <section class="grid"><article class="card"><div class="label">ת״א-35</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">ת״א-125</div><div class="value">ממתין לחיבור</div><div class="sub">שער אחרון ושינוי יומי</div></article><article class="card"><div class="label">S&amp;P 500</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Nasdaq</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">Dow Jones</div><div class="value">ממתין לחיבור</div><div class="sub">סגירת המסחר האחרונה</div></article><article class="card"><div class="label">דולר / שקל</div><div class="value">ממתין לחיבור</div><div class="sub">שער וזמן ציטוט</div></article><article class="card"><div class="label">אג״ח ארה״ב ל־10 שנים</div><div class="value">ממתין לחיבור</div><div class="sub">תשואה אחרונה</div></article><article class="card"><div class="label">נפט WTI</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לחבית</div></article><article class="card"><div class="label">זהב</div><div class="value">ממתין לחיבור</div><div class="sub">מחיר לאונקיה</div></article></section>
+<section id="market-trends" aria-label="גרפי מדדים">
+<div class="section-title"><h2>מגמת המדדים</h2><span></span></div>
+<div class="card trend-card">
+<div class="trend-toolbar"><label for="trend-index">מדד</label><select id="trend-index">
+<option value="TA-35">ת״א־35</option><option value="TA-125">ת״א־125</option><option value="S&P 500">S&amp;P 500</option><option value="Nasdaq Composite">נאסד״ק</option>
+</select><span>חודש אחרון · שערי סגירה</span></div>
+<p id="trend-status" role="status">טוען נתונים היסטוריים…</p>
+<div id="trend-plot"></div>
+<details class="trend-data"><summary>נתוני הגרף</summary><div id="trend-table"></div></details>
+</div></section>
 <section id="economic-calendar" style="margin:14px 0">
 <div class="section-title"><h2>יומן מאקרו · בקרוב</h2><span></span></div>
 <div class="card" style="padding:8px 12px">
@@ -979,5 +1000,48 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   fetch('./macro_surprises.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(draw).catch(()=>{if(!box.children.length)status.textContent='ההשוואות עדיין אינן זמינות';});
 })();
 </script>
-</body></html>
+<script>
+(function(){
+ const select=document.getElementById('trend-index'),plot=document.getElementById('trend-plot'),status=document.getElementById('trend-status'),table=document.getElementById('trend-table');
+ let dataset={};
+ const NS='http://www.w3.org/2000/svg';
+ function node(tag,attrs,text){const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs||{}))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}
+ function render(){
+  plot.replaceChildren();table.replaceChildren();
+  const series=dataset.indices?.[select.value];
+  const points=(series?.history||[]).filter(p=>typeof p.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(p.date)&&Number.isFinite(p.close)&&p.close>0).sort((a,b)=>a.date.localeCompare(b.date));
+  if(points.length<2){status.textContent='אין כרגע מספיק נתוני סגירה מאומתים לגרף זה.';return;}
+  const stamp=Date.parse(dataset.updated_at||'');
+  if(!Number.isFinite(stamp)||Date.now()-stamp>4*86400000||stamp>Date.now()+300000){status.textContent='נתוני הגרף אינם מעודכנים כרגע.';return;}
+  const first=points[0],last=points[points.length-1],pct=(last.close/first.close-1)*100;
+  const color=pct<0?'#ad4d49':'#43834c';
+  const fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
+  const date=s=>s.slice(8,10)+'.'+s.slice(5,7);
+  status.textContent=date(first.date)+'–'+date(last.date)+' · שינוי בתקופה: '+(pct>0?'+':'')+pct.toFixed(2)+'% · מקור: Yahoo Finance';
+  const values=points.map(p=>p.close),min=Math.min(...values),max=Math.max(...values),pad=(max-min||max*.01)*.15;
+  const low=min-pad,high=max+pad,W=620,H=220,left=60,right=15,top=18,bottom=30;
+  const x=i=>left+i/(points.length-1)*(W-left-right),y=v=>top+(high-v)/(high-low)*(H-top-bottom);
+  const svg=node('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':select.options[select.selectedIndex].text+' · '+points.length+' סגירות. ציר המחיר אינו מתחיל באפס.'});
+  svg.append(node('title',{},'מגמת שערי סגירה בחודש האחרון'));
+  for(let i=0;i<3;i++){
+    const value=low+(high-low)*i/2,yy=y(value);
+    svg.append(node('line',{x1:left,x2:W-right,y1:yy,y2:yy,stroke:'#e3eade','stroke-dasharray':'3 4'}));
+    svg.append(node('text',{x:left-7,y:yy+4,'text-anchor':'end',fill:'#788574','font-size':11},fmt(value)));
+  }
+  const path=points.map((p,i)=>(i?'L':'M')+x(i).toFixed(1)+','+y(p.close).toFixed(1)).join(' ');
+  svg.append(node('path',{d:path,fill:'none',stroke:color,'stroke-width':2.5,'stroke-linecap':'round','stroke-linejoin':'round'}));
+  svg.append(node('circle',{cx:x(points.length-1),cy:y(last.close),r:4,fill:color}));
+  svg.append(node('text',{x:left,y:H-7,fill:'#788574','font-size':11},date(first.date)));
+  svg.append(node('text',{x:W-right,y:H-7,'text-anchor':'end',fill:'#788574','font-size':11},date(last.date)));
+  plot.append(svg);
+  const t=document.createElement('table'),head=document.createElement('tr');
+  for(const label of ['תאריך סגירה','שער המדד']){const th=document.createElement('th');th.scope='col';th.textContent=label;head.append(th);}t.append(head);
+  for(const p of points){const tr=document.createElement('tr');for(const value of [p.date,fmt(p.close)]){const td=document.createElement('td');td.textContent=value;tr.append(td);}t.append(tr);}
+  const note=document.createElement('p');note.textContent='ימי מסחר בלבד; ללא נתונים תוך־יומיים. ציר המחיר אינו מתחיל באפס. השינוי מתייחס לנקודות המוצגות, ולא לתשואה חודשית קלנדרית.';table.append(note,t);
+ }
+ select.addEventListener('change',render);
+ try{dataset=JSON.parse(document.getElementById('market-snapshot').textContent);render();}catch{}
+ fetch('./market_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(d=>{dataset=d;render();}).catch(()=>{if(!plot.children.length)status.textContent='נתוני הגרף אינם זמינים כרגע.';});
+})();
+</script></body></html>
 
