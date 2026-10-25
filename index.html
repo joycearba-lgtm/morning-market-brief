@@ -198,6 +198,19 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 .brief-expansion>summary{cursor:pointer;font-weight:750;color:#07663d;min-height:28px}
 .brief-expansion[open]>summary{margin-bottom:14px}
 @media print{.brief-expansion:not([open])>*{display:block!important}}
+</style><style>
+.macro-compare{width:100%;border-collapse:collapse;font-size:13px;text-align:right}
+.macro-compare th,.macro-compare td{padding:9px 5px;border-bottom:1px solid #dce5e8}
+.macro-compare thead th{font-size:11px;color:#647783;font-weight:500}
+.macro-compare tbody th{font-size:12px;font-weight:700;max-width:160px}
+.macro-compare td{text-align:center;white-space:nowrap;font-weight:700}
+.macro-compare small{display:block;color:#647783;font-size:10px;font-weight:400;margin-top:3px}
+.macro-compare-more{margin-top:10px;font-size:12px}
+.macro-compare-more summary{cursor:pointer;color:#176750;font-weight:700;padding:5px 0}
+.macro-compare-more section{padding:10px 0;border-bottom:1px solid #dce5e8}
+.macro-compare-more p{line-height:1.6;margin:5px 0}
+.macro-compare-more a{margin-left:12px}
+#surprise-status{font-size:11px!important;margin:3px 0 6px!important}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -238,7 +251,7 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 </div></section>
 
 <section id="macro-surprises" style="margin:14px 0">
-<div class="section-title"><h2>בפועל מול התחזית · פרסומי מאקרו</h2><span></span></div>
+<div class="section-title"><h2>מאקרו · בפועל מול צפי</h2><span></span></div>
 <div class="card" style="padding:12px 14px">
 <p id="surprise-status" class="sub" style="margin:0 0 7px">בודק פרסומים ותחזיות מאומתים…</p>
 <div id="surprise-items" style="display:grid;gap:8px"></div>
@@ -808,86 +821,34 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
   const status=document.getElementById('surprise-status'),box=document.getElementById('surprise-items');
   function draw(data){
     box.replaceChildren();
-    if(!data || !Array.isArray(data.items) || !data.items.length){
-      status.textContent='אין כעת השוואת בפועל מול צפי מאומתת לאותה תקופה';return;
-    }
-    const t=Date.parse(data.checked_at||'');
-    if(!Number.isFinite(t) || Date.now()-t>36*3600000 || Date.now()<t-3600000){
-      status.textContent='נתוני ההשוואה אינם מעודכנים';return;
-    }
-    status.textContent='הפרסומים האחרונים · פער בנקודות אחוז לעומת קונצנזוס לפני הפרסום';
-    for(const x of data.items.slice(0,3)){
-      if(!Number.isFinite(x.actual)||!Number.isFinite(x.expected)||!Number.isFinite(x.surprise_pp))continue;
-      const card=document.createElement('div');card.style.cssText='border-bottom:1px solid #dce5e8;padding:7px 0';
-      const heading=document.createElement('div');heading.style.cssText='display:flex;justify-content:space-between;gap:8px;align-items:baseline';
-      const name=document.createElement('strong');name.textContent=x.region+' · '+x.title;
-      const stamp=document.createElement('span');stamp.className='sub';stamp.textContent=x.released.split('-').reverse().join('.');
-      heading.append(name,stamp);
-      const values=document.createElement('div');values.style.cssText='display:flex;flex-wrap:wrap;gap:9px 16px;align-items:baseline;font-size:13px;margin-top:4px';
-      for(const [label,n] of [['בפועל',x.actual],['צפי',x.expected]]){
-        const part=document.createElement('span');part.textContent=label+': ';
-        const number=document.createElement('strong');number.dir='ltr';number.textContent=n.toFixed(1)+'%';part.append(number);values.append(part);
-      }
-      const diff=document.createElement('span');
-      const v=x.surprise_pp;
-      diff.textContent='פער: '+(v>0?'+':'')+v.toFixed(1)+' נק׳ אחוז';
-      diff.style.cssText='font-weight:700;color:'+ (v>0?'#9a3d25':v<0?'#176750':'#52616a');
-      values.append(diff);
-      const note=document.createElement('p');note.style.cssText='margin:5px 0 0;font-size:12px;color:#647783';note.textContent=x.interpretation||'';
-      const src=document.createElement('div');src.style.cssText='display:flex;gap:12px;flex-wrap:wrap';
+    const t=Date.parse(data?.checked_at||'');
+    if(!Number.isFinite(t)||Date.now()-t>36*3600000||Date.now()<t-3600000){status.textContent='נתוני ההשוואה אינם מעודכנים';return;}
+    const items=(data.items||[]).slice(0,3).filter(x=>Number.isFinite(x.actual)&&Number.isFinite(x.expected)&&Number.isFinite(x.surprise_pp));
+    status.textContent='פרסומים אחרונים · הפער בנקודות אחוז';
+    const table=document.createElement('table');table.className='macro-compare';table.setAttribute('aria-label','מאקרו בפועל לעומת צפי');
+    const head=document.createElement('thead'),hr=document.createElement('tr');
+    for(const label of ['פרסום','בפועל','צפי','פער']){const th=document.createElement('th');th.scope='col';th.textContent=label;hr.append(th);}
+    head.append(hr);table.append(head);
+    const body=document.createElement('tbody'),more=document.createElement('details');
+    more.className='macro-compare-more';const toggle=document.createElement('summary');toggle.textContent='המשמעות והמקורות';more.append(toggle);
+    for(const x of items){
+      const row=document.createElement('tr'),name=document.createElement('th');name.scope='row';
+      name.textContent=x.region+' · '+String(x.title||'').replace(' (CPI)','');
+      const stamp=document.createElement('small');stamp.textContent=String(x.released||'').split('-').reverse().join('.');name.append(stamp);row.append(name);
+      [x.actual,x.expected,x.surprise_pp].forEach((v,i)=>{
+        const td=document.createElement('td'),n=document.createElement('span');n.dir='ltr';n.textContent=(i===2&&v>0?'+':'')+v.toFixed(1)+(i===2?'':'%');
+        if(i===2)td.style.color=v>0?'#9a3d25':v<0?'#176750':'#52616a';td.append(n);row.append(td);
+      });
+      body.append(row);
+      const section=document.createElement('section'),title=document.createElement('strong'),p=document.createElement('p');
+      title.textContent=x.region+' · '+x.title;p.textContent=x.interpretation||'';section.append(title,p);
       for(const [label,raw] of [['נתון בפועל',x.actual_url],['תחזית לפני הפרסום',x.forecast_url]]){
-        try{const url=new URL(raw);if(url.protocol!=='https:')continue;const a=document.createElement('a');a.className='source';a.textContent=label;a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';src.append(a)}catch{}
+        try{const url=new URL(raw);if(url.protocol!=='https:')continue;const a=document.createElement('a');a.textContent=label;a.href=url.href;a.className='source';a.target='_blank';a.rel='noopener noreferrer';section.append(a);}catch{}
       }
-      // Directional scenarios, not claims about realized trading or a recommendation.
-      function scenario(item){
-        const n=item.surprise_pp;
-        if(Math.abs(n)<0.05) return [
-          ['ריבית','ללא איתות חדש מהפער לבדו'],
-          ['אג״ח','השפעה תלויה בפרטי הפרסום'],
-          ['מניות','אין כיוון חד-משמעי'],
-          ['שקל / דולר','הכיוון תלוי בגורמים נוספים']
-        ];
-        const high=n>0;
-        if(item.id==='israel_cpi_yoy')return high?[
-          ['ריבית','פחות מרחב להפחתה בישראל'],['אג״ח','לחץ אפשרי על אג״ח שקליות ארוכות'],
-          ['מניות','הכבדה אפשרית בענפים רגישים לריבית'],['שקל','השפעה מעורבת: ריבית מול סנטימנט']
-        ]:[
-          ['ריבית','עשוי לחזק ציפיות להפחתה בישראל'],['אג״ח','תמיכה אפשרית באג״ח שקליות'],
-          ['מניות','תמיכה אפשרית בענפים רגישים לריבית'],['שקל','הכיוון תלוי גם בסיכון ובפערי הריביות']
-        ];
-        if(item.id==='us_cpi')return high?[
-          ['ריבית','עשוי לצמצם ציפיות להפחתות הפד'],['אג״ח','לחץ לעליית תשואות, בעיקר בארוכות'],
-          ['מניות','לחץ אפשרי על מניות צמיחה'],['דולר / שקל','תמיכה אפשרית בדולר, לא ודאית']
-        ]:[
-          ['ריבית','עשוי לחזק ציפיות להפחתות הפד'],['אג״ח','תמיכה אפשרית במחירי אג״ח'],
-          ['מניות','תמיכה אפשרית במניות רגישות לריבית'],['דולר / שקל','לחץ אפשרי על הדולר, לא ודאי']
-        ];
-        if(item.id==='us_unemployment')return high?[
-          ['ריבית','עשוי לחזק ציפיות להפחתות הפד'],['אג״ח','תשואות עשויות לרדת אם חשש ההאטה גובר'],
-          ['מניות','מעורב: ריבית נמוכה מול חשש לצמיחה'],['דולר / שקל','כיוון לא ודאי ותלוי בבריחת/נטילת סיכון']
-        ]:[
-          ['ריבית','עשוי לצמצם ציפיות להפחתות הפד'],['אג״ח','תשואות עשויות לעלות'],
-          ['מניות','מעורב: צמיחה חזקה מול ריבית גבוהה'],['דולר / שקל','תמיכה אפשרית בדולר, לא ודאית']
-        ];
-        return [];
-      }
-      const impact=scenario(x);
-      if(impact.length){
-        const details=document.createElement('details');details.style.cssText='margin:7px 0 5px;border:1px solid #dce5e8;border-radius:8px;padding:6px 9px';
-        const summary=document.createElement('summary');summary.textContent='השפעה אפשרית על ריבית, אג״ח, מניות ומט״ח';summary.style.cssText='font-size:12px;font-weight:700;cursor:pointer;color:#197a70';
-        const content=document.createElement('div');content.style.cssText='display:grid;gap:5px;margin-top:7px;font-size:12px';
-        for(const [label,meaning] of impact){
-          const row=document.createElement('div');
-          const strong=document.createElement('strong');strong.textContent=label+': ';
-          row.append(strong,document.createTextNode(meaning));content.append(row);
-        }
-        const caveat=document.createElement('p');caveat.className='sub';caveat.style.cssText='margin:6px 0 0';caveat.textContent='תרחישים אפשריים בלבד, לא תיאור של תגובת שוק בפועל או המלצת השקעה.';
-        details.append(summary,content,caveat);
-        card.append(heading,values,note,details,src);
-      }else{card.append(heading,values,note,src);}
-      box.append(card);
+      more.append(section);
     }
-    if(!box.children.length)status.textContent='לא נמצאו נתונים מתאימים להשוואה';
+    table.append(body);box.append(table,more);
+    if(!items.length)status.textContent='אין כעת נתוני השוואה זמינים';
   }
   try{draw(JSON.parse(document.getElementById('surprise-snapshot').textContent));}catch{}
   fetch('./macro_surprises.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(draw).catch(()=>{if(!box.children.length)status.textContent='ההשוואות עדיין אינן זמינות';});
