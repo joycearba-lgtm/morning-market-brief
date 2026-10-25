@@ -533,6 +533,94 @@ else:
     takeaway = "לא התקבל קובץ נתוני שוק חדש להיום; אין להסתמך על סקירה קודמת כעל סקירת בוקר חדשה."
     status = "unavailable"
 
+# Daily event desk: prioritize source-dated developments over evergreen paragraphs.
+# RSS headlines are treated strictly as *reported headlines*, never verified causality.
+if fresh and sections:
+    import re
+    topics = [
+        ("ביטחון ומדיניות", ("ביטחון","איראן","מלחמה","לחימה","עימות","סנקציות","security","war","sanctions"),
+         "התפתחות מדינית או ביטחונית עשויה להשפיע על פרמיית הסיכון, השקל, עלויות האנרגיה והגירעון.",
+         "לבדוק מה השתנה בפועל בשקל, בתשואות ובמרווחי האשראי מאז הפרסום."),
+        ("אנרגיה ואינפלציה", ("נפט","ברנט","אנרגיה","oil","crude","brent","gas prices"),
+         "למחירי אנרגיה עשויה להיות השפעה שונה על מפיקות לעומת חברות תעופה, תעשייה וצרכניות דלק.",
+         "לבדוק חשיפת מניות בענפי אנרגיה ותחבורה, תמחור אינפלציה ומח״מ."),
+        ("טכנולוגיה ורווחיות", ("שבבים","טכנולוג","בינה מלאכותית","nasdaq","semiconductor","chip","ai stocks","meta","nvidia"),
+         "התפתחות בענף הטכנולוגיה עשויה לשנות ציפיות לרווחיות ולשיעורי ההיוון, אך כותרת אחת אינה מוכיחה שינוי מגמה.",
+         "לאחד חשיפה למניות טכנולוגיה דרך מניות וקרנות שונות ולבחון ריכוזיות."),
+        ("ריבית, צמיחה ותעסוקה", ("פד","ריבית","אינפלציה","תעסוקה","צמיחה","fed","rate decision","inflation","jobs","wages"),
+         "המידע עשוי לשנות את תמחור תוואי הריבית, ואת הרגישות של מניות צמיחה ואג״ח למח״מ.",
+         "להשוות את הנתון לציפיות השוק ואת תזוזת התשואות בפועל, לפני שינוי מח״מ."),
+        ("שוק המניות", ("בורסה","מדד","מניות","וול סטריט","stock market","wall street","s&p","dow"),
+         "הדיווח עשוי להיות רלוונטי לרוחב העליות או הירידות ולרווחי החברות, ולא רק למדד הכותרת.",
+         "לבדוק תרומה ענפית, ריכוזיות בתיק והאם מדובר בסגירה אחרונה או במסחר פעיל."),
+        ("תקציב ומימון", ("תקציב","גירעון","אג״ח","חוב","בחירות","budget","deficit","bond","election"),
+         "שינויים אפשריים במדיניות פיסקלית עשויים להשפיע על צורכי גיוס ופרמיית הסיכון.",
+         "לבדוק מח״מ ממשלתי, הצמדה לאינפלציה וחשיפה לשקל; אין לייחס תנועה פוליטית לשוק בלי נתונים.")
+    ]
+    approved_sources=("reuters","bloomberg","cnbc","financial times","globes","גלובס",
+                      "themarker","כלכליסט","calcalist","ביזפורטל","ynet","funder","פאנדר",
+                      "marketwatch","yahoo finance","הארץ")
+    candidates=[]
+    seen=set()
+    for item in news.get("items",[])+news.get("israel_focus",[])+news.get("macro_items",[]):
+        if not isinstance(item,dict):continue
+        source=str(item.get("source","")).strip()
+        if not any(known in source.lower() for known in approved_sources):continue
+        try:
+            ts=datetime.fromisoformat(str(item.get("published_at","")).replace("Z","+00:00")).astimezone(TZ)
+        except (ValueError,TypeError):continue
+        age=now-ts
+        if not timedelta(0)<=age<=timedelta(hours=42):continue
+        url=str(item.get("link",""))
+        headline=str(item.get("title","")).rsplit(" - ",1)[0].strip()
+        if not (url.startswith("https://") and len(headline)>20):continue
+        canonical=re.sub(r"[^\\w\\u0590-\\u05ff]+","",headline.casefold())[:75]
+        if canonical in seen:continue
+        classified=next((entry for entry in topics if any(word in headline.lower() for word in entry[1])),None)
+        if not classified:continue
+        seen.add(canonical)
+        scope=str(item.get("region",""))
+        score=(4 if ts.date()==now.date() else 1)+(2 if scope in ("ישראל","חו״ל","מאקרו ישראל","מאקרו ארה״ב") else 0)
+        score+=2 if classified[0] in ("ביטחון ומדיניות","ריבית, צמיחה ותעסוקה") else 0
+        candidates.append((score,ts,classified,item,headline,source,url))
+    candidates.sort(key=lambda x:(-x[0],-x[1].timestamp()))
+    selected=[]
+    used_topics=set()
+    for c in candidates:
+        topic=c[2][0]
+        if topic in used_topics:continue
+        selected.append(c);used_topics.add(topic)
+        if len(selected)>=3:break
+    if selected:
+        bullets=[]
+        links=[]
+        points=[]
+        for _,ts,(topic,_,interpretation,action),item,headline,source,url in selected:
+            day=ts.strftime("%d.%m.%Y")
+            locale="ישראל" if "ישראל" in str(item.get("region","")) else "חו״ל"
+            reported=f'על פי דיווח של {source} מ־{day}: {headline}.'
+            bullets.append(f'{topic} — {reported} {interpretation} זו השלכה אפשרית ולא ייחוס סיבתי מאומת.')
+            links.append({"label":source+" · "+day,"url":url})
+            points.append({
+                "title":topic+" — מה לבדוק בעקבות הדיווח?",
+                "insight":reported,
+                "client_impact":interpretation+" יש לבדוק אם השוק כבר תימחר את האירוע.",
+                "question":action,
+                "reference":source+" · "+day,
+                "source_url":url,
+                "event_date":ts.date().isoformat()
+            })
+        sections.insert(0,{"heading":"אירועי השוק האחרונים — מה חשוב הבוקר",
+                           "bullets":bullets,"sources":links})
+        # Relevant and sourced client points take precedence over fixed topics.
+        advisor=points+advisor[:max(0,3-len(points))]
+        advisor=advisor[:3]
+    else:
+        sections.insert(0,{"heading":"אירועים חדשים — מצב מקורות",
+                           "bullets":["לא אותרו ידיעות כלכליות מתוארכות ממקורות מאושרים ב־42 השעות האחרונות. "
+                                      "אין להציג סקירת רקע כאילו היא אירוע חדש מהבוקר."],
+                           "sources":[]})
+
 brief = {
     "date": date, "generated_at": now.isoformat(), "valid_until": datetime.combine(now.date() + timedelta(days=1), time(hour=9), tzinfo=TZ).isoformat(),
     "title": title, "status": status,
