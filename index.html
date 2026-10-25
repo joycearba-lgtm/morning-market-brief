@@ -190,6 +190,14 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 .daily-audio-head strong{font-size:15px!important}
 .daily-audio-help summary{cursor:pointer;font-size:10px}
 #data-status{padding:8px 12px!important;margin:8px 0!important;font-size:11px!important;line-height:1.4!important}
+</style><style>
+.morning-overview{background:#edf8f1;border-right:4px solid #09824d;border-radius:10px;padding:12px 14px;margin:10px 0}
+.morning-overview h3{margin:0 0 8px;font-size:20px;color:#075c39}
+.morning-overview p{font-size:16px;line-height:1.65;margin:8px 0}
+.brief-expansion{margin:12px 0;border:1px solid #c9ddd2;border-radius:10px;padding:10px 12px}
+.brief-expansion>summary{cursor:pointer;font-weight:750;color:#07663d;min-height:28px}
+.brief-expansion[open]>summary{margin-bottom:14px}
+@media print{.brief-expansion:not([open])>*{display:block!important}}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -442,7 +450,33 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
      advisorStatus.textContent='ניסוחי שיחה יומיים יופיעו עם סקירת מאקרו מאומתת';
      return;
    }
-   const h2=document.createElement('strong');h2.textContent=brief.editorial_mode==='researched'?'האירועים המרכזיים ומשמעותם להשקעות':'כותרות והשלכות אפשריות';pane.append(h2);
+   const firstSentence=value=>{
+     const text=String(value||'').trim();
+     const match=text.match(/^.*?[.!?](?=\\s|$)/);
+     return match?match[0]:text;
+   };
+   const intro=brief.sections.find(s=>/תמונת|הסיפור|פתיחה/.test(s.heading||''));
+   const watch=brief.sections.find(s=>/לעקוב|למעקב|אירועים קרובים/.test(s.heading||''));
+   const opening=(intro?.bullets||[]).filter(x=>typeof x==='string').join(' ')||intro?.text||'';
+   const interpretation=opening.split('פרשנות:')[1]||'';
+   const summary=brief.morning_summary||{};
+   const items=[
+     ['האירוע המרכזי',summary.event||firstSentence(opening.split('פרשנות:')[0])],
+     ['המשמעות להשקעות',summary.impact||firstSentence(interpretation)],
+     ['מה צפוי',summary.watch||firstSentence((watch?.bullets||[])[0]||watch?.text)]
+   ].filter(([,value])=>typeof value==='string'&&value.trim());
+   if(items.length){
+     const overview=document.createElement('section');overview.className='morning-overview';
+     const title=document.createElement('h3');title.textContent='מה חדש הבוקר';overview.append(title);
+     for(const [label,value] of items){
+       const p=document.createElement('p'),strong=document.createElement('strong');
+       strong.textContent=label+': ';p.append(strong,document.createTextNode(value));overview.append(p);
+     }
+     pane.append(overview);
+   }
+   const expansion=document.createElement('details');expansion.className='brief-expansion';
+   const toggle=document.createElement('summary');toggle.textContent='להעמקה ולמקורות';
+   expansion.append(toggle);pane.append(expansion);
    for(const section of brief.sections.slice(0,5)){
      let el;
      if(Array.isArray(section.bullets)){
@@ -463,9 +497,9 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
          }else li.textContent=item;
          list.append(li);
        }
-       if(list.children.length){el.append(heading,list);pane.append(el);}
+       if(list.children.length){el.append(heading,list);expansion.append(el);}
      }else{
-       el=addText(pane,section.heading,section.text||'');
+       el=addText(expansion,section.heading,section.text||'');
      }
      for(const source of (section.sources||[]).slice(0,2)){
        try{
@@ -474,8 +508,8 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
        }catch{}
      }
    }
-   if(brief.takeaway && !/\\d+(?:[.,]\\d+)?\\s*%/.test(brief.takeaway)){addText(pane,'מוקדי המעקב',brief.takeaway);}
-   if(brief.methodology){const m=document.createElement('p');m.className='sub';m.style.cssText='margin:7px 0;font-size:12px';m.textContent=brief.methodology;pane.append(m);}
+   if(brief.takeaway && !/\\d+(?:[.,]\\d+)?\\s*%/.test(brief.takeaway)){addText(expansion,'מוקדי המעקב',brief.takeaway);}
+   if(brief.methodology){const m=document.createElement('p');m.className='sub';m.style.cssText='margin:7px 0;font-size:12px';m.textContent=brief.methodology;expansion.append(m);}
    const pointCount=Math.min(3,(brief.advisor||[]).length);
    advisorStatus.textContent=pointCount?pointCount+' נקודות לשיחה מתוך אירועי הסקירה מ־'+brief.date:'לא נמצא אירוע חדש שמצדיק מסר ייעודי ללקוח היום';
    (brief.advisor||[]).slice(0,3).forEach((item,i)=>{
