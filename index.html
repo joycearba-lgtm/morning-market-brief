@@ -285,6 +285,15 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 #trend-status{font-weight:650;color:#315c3b}
 .trend-toolbar select{background:#e7f2dd;border-color:#99bc84;color:#2e612c}
 #trend-plot{background:#ffffffb3;border-radius:9px;margin-top:6px}
+</style><style id="trend-period-filter">
+.trend-period-buttons{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0 8px}
+.trend-period-buttons button{background:#fff;border:1px solid #cdddbe;color:#477238;border-radius:7px;padding:5px 9px;font:inherit;font-size:11px;cursor:pointer;min-height:30px}
+.trend-period-buttons button[aria-pressed="true"]{background:#dfeecf;border-color:#7ca65e;color:#305c23;font-weight:700}
+.trend-date-filter{display:flex;align-items:flex-end;gap:7px;flex-wrap:wrap;margin:5px 0 8px}
+.trend-date-filter label{display:grid;gap:3px;font-size:10px;color:#60705c;flex:1;min-width:100px}
+.trend-date-filter input{width:100%;min-width:0;border:1px solid #d0dfc6;border-radius:6px;padding:5px;color:#355833;background:#fff;font:inherit;font-size:12px}
+.trend-date-filter button{border:1px solid #97b980;background:#edf5e5;color:#3c662f;border-radius:6px;padding:6px 9px;font:inherit;font-size:11px;cursor:pointer;min-height:30px}
+#trend-period[hidden]{display:none!important}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -308,9 +317,17 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 <div class="card trend-card">
 <div class="trend-toolbar"><label for="trend-index">מדד</label><select id="trend-index">
 <option value="TA-35">ת״א־35</option><option value="TA-125">ת״א־125</option><option value="S&P 500">S&amp;P 500</option><option value="Nasdaq Composite">נאסד״ק</option>
-</select><label for="trend-period">תקופה</label><select id="trend-period">
+</select><select id="trend-period" aria-label="תקופת הגרף" hidden>
 <option value="1">חודש</option><option value="3">3 חודשים</option><option value="6">חצי שנה</option><option value="12">שנה</option><option value="36">3 שנים</option><option value="60">5 שנים</option>
 </select><span>שערי סגירה</span></div>
+<div class="trend-period-buttons" role="group" aria-label="סינון מהיר לפי תקופה">
+<button type="button" data-months="1" aria-pressed="true">חודש</button><button type="button" data-months="3" aria-pressed="false">3 ח׳</button><button type="button" data-months="6" aria-pressed="false">חצי שנה</button><button type="button" data-months="12" aria-pressed="false">שנה</button><button type="button" data-months="36" aria-pressed="false">3 שנים</button><button type="button" data-months="60" aria-pressed="false">5 שנים</button>
+</div>
+<form id="trend-date-filter" class="trend-date-filter">
+<label>מתאריך<input type="date" id="trend-from" required aria-label="תאריך התחלה לגרף"></label>
+<label>עד תאריך<input type="date" id="trend-to" required aria-label="תאריך סיום לגרף"></label>
+<button type="submit">הצגת טווח</button>
+</form>
 <p id="trend-status" role="status">טוען נתונים היסטוריים…</p>
 <div id="trend-plot"></div>
 <details class="trend-data"><summary>נתוני הגרף</summary><div id="trend-table"></div></details>
@@ -1011,6 +1028,9 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 (function(){
  const select=document.getElementById('trend-index'),plot=document.getElementById('trend-plot'),status=document.getElementById('trend-status'),table=document.getElementById('trend-table');
  const period=document.getElementById('trend-period');
+ const fromInput=document.getElementById('trend-from'),toInput=document.getElementById('trend-to'),dateForm=document.getElementById('trend-date-filter');
+ const periodButtons=document.querySelectorAll('#market-trends button[data-months]');
+ let customRange=false;
  let dataset={};
  const NS='http://www.w3.org/2000/svg';
  function node(tag,attrs,text){const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs||{}))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}
@@ -1019,27 +1039,35 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   const series=dataset.indices?.[select.value];
   let points=(series?.history||[]).filter(p=>typeof p.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(p.date)&&Number.isFinite(p.close)&&p.close>0).sort((a,b)=>a.date.localeCompare(b.date));
   if(points.length<2){status.textContent='אין כרגע מספיק נתוני סגירה מאומתים לגרף זה.';return;}
-  const availableStart=points[0].date;
-  const ending=new Date(points[points.length-1].date+'T00:00:00Z');
-  const cutoff=new Date(ending),day=cutoff.getUTCDate();
-  cutoff.setUTCDate(1);cutoff.setUTCMonth(cutoff.getUTCMonth()-Number(period.value));
-  cutoff.setUTCDate(Math.min(day,new Date(Date.UTC(cutoff.getUTCFullYear(),cutoff.getUTCMonth()+1,0)).getUTCDate()));
-  const from=cutoff.toISOString().slice(0,10);
-  points=points.filter(p=>p.date>=from);
-  if(points.length<2){status.textContent='אין מספיק נתוני סגירה בתקופה שנבחרה.';return;}
-  const limited=Date.parse(availableStart+'T00:00:00Z')-cutoff.getTime()>7*86400000;
+  const availableStart=points[0].date,availableEnd=points[points.length-1].date;
+  for(const input of [fromInput,toInput]){input.min=availableStart;input.max=availableEnd;}
+  let from,to;
+  if(customRange){
+    from=fromInput.value;to=toInput.value;
+    if(!from||!to||from>to){status.textContent='יש לבחור תאריך התחלה הקודם לתאריך הסיום.';return;}
+  }else{
+    const cutoff=new Date(availableEnd+'T00:00:00Z'),day=cutoff.getUTCDate();
+    cutoff.setUTCDate(1);cutoff.setUTCMonth(cutoff.getUTCMonth()-Number(period.value));
+    cutoff.setUTCDate(Math.min(day,new Date(Date.UTC(cutoff.getUTCFullYear(),cutoff.getUTCMonth()+1,0)).getUTCDate()));
+    from=cutoff.toISOString().slice(0,10);to=availableEnd;
+    fromInput.value=from<availableStart?availableStart:from;toInput.value=to;
+  }
+  periodButtons.forEach(button=>button.setAttribute('aria-pressed',String(!customRange&&button.dataset.months===period.value)));
+  points=points.filter(p=>p.date>=from&&p.date<=to);
+  if(points.length<2){status.textContent='אין מספיק ימי מסחר בטווח שבחרת. נסי להרחיב את התקופה.';return;}
+  const limited=Date.parse(availableStart+'T00:00:00Z')-Date.parse(from+'T00:00:00Z')>7*86400000;
   const stamp=Date.parse(dataset.updated_at||'');
   if(!Number.isFinite(stamp)||Date.now()-stamp>4*86400000||stamp>Date.now()+300000){status.textContent='נתוני הגרף אינם מעודכנים כרגע.';return;}
   const first=points[0],last=points[points.length-1],pct=(last.close/first.close-1)*100;
   const color=pct<0?'#c43840':'#07834f';
   const fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
-  const date=s=>s.slice(8,10)+'.'+s.slice(5,7)+(Number(period.value)>=12?'.'+s.slice(2,4):'');
+  const date=s=>s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(2,4);
   status.textContent=date(first.date)+'–'+date(last.date)+' · שינוי בתקופה: '+(pct>0?'+':'')+pct.toFixed(2)+'% · מקור: Yahoo Finance'+(limited?' · היסטוריה חלקית לתקופה שנבחרה':'');
   const values=points.map(p=>p.close),min=Math.min(...values),max=Math.max(...values),pad=(max-min||max*.01)*.15;
   const low=min-pad,high=max+pad,W=620,H=220,left=60,right=15,top=18,bottom=30;
   const x=i=>left+i/(points.length-1)*(W-left-right),y=v=>top+(high-v)/(high-low)*(H-top-bottom);
   const svg=node('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':select.options[select.selectedIndex].text+' · '+points.length+' סגירות. ציר המחיר אינו מתחיל באפס.'});
-  svg.append(node('title',{},'מגמת שערי סגירה · '+period.options[period.selectedIndex].text));
+  svg.append(node('title',{},'מגמת שערי סגירה · '+(customRange?'טווח תאריכים נבחר':period.options[period.selectedIndex].text)));
   const defs=node('defs');
   const gradient=node('linearGradient',{id:'trend-area-fill',x1:'0',y1:'0',x2:'0',y2:'1'});
   gradient.append(node('stop',{offset:'0%','stop-color':color,'stop-opacity':'.24'}),node('stop',{offset:'100%','stop-color':color,'stop-opacity':'.025'}));
@@ -1064,7 +1092,9 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
   const note=document.createElement('p');note.textContent='ימי מסחר בלבד; ללא נתונים תוך־יומיים. ציר המחיר אינו מתחיל באפס. השינוי מתייחס לנקודות המוצגות, ולא לתקופה קלנדרית מלאה.';table.append(note,t);
  }
  select.addEventListener('change',render);
- period.addEventListener('change',render);
+ period.addEventListener('change',()=>{customRange=false;render();});
+ periodButtons.forEach(button=>button.addEventListener('click',()=>{period.value=button.dataset.months;customRange=false;render();}));
+ dateForm.addEventListener('submit',event=>{event.preventDefault();customRange=true;render();});
  try{dataset=JSON.parse(document.getElementById('market-snapshot').textContent);render();}catch{}
  fetch('./market_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(d=>{dataset=d;render();}).catch(()=>{if(!plot.children.length)status.textContent='נתוני הגרף אינם זמינים כרגע.';});
 })();
