@@ -355,6 +355,16 @@ section.grid .card .daily-change{font-size:16.5px!important;padding:2px 3px!impo
 section.grid .card .value{font-size:11.5px!important}
 }
 @media(max-width:350px){section.grid .card .daily-change{font-size:14px!important}}
+</style><style id="collapsed-earnings">
+.earnings-card{padding:8px 12px!important}
+#earnings-status{font-size:11px!important;margin:0 0 5px}
+.earnings-preview{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0}
+.earnings-preview a{font-size:13px;font-weight:700;color:#197a70;text-decoration:underline;text-underline-offset:3px}
+.earnings-preview-time{font-size:11px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.earnings-preview-note{display:block;font-size:10px;color:#75836b;margin:1px 0 3px}
+.earnings-more{margin-top:5px}
+.earnings-more>summary{cursor:pointer;font-size:12px;color:#197a70}
+.earnings-more[open]>summary{margin-bottom:7px}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()" aria-label="הדפסה או שמירה כקובץ PDF">הדפסה / PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -1177,14 +1187,20 @@ section.grid .card .value{font-size:11.5px!important}
   if(!Number.isFinite(checked)||checked>now+300000||now-checked>3*86400000){status.textContent='מועדי הדוחות ממתינים לבדיקה עדכנית.';return;}
   const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Jerusalem',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const items=(data.items||[]).filter(x=>x.confirmed===true&&/^\d{4}-\d{2}-\d{2}$/.test(x.report_date||'')&&Date.parse(x.expires_at)>now&&Date.parse(x.report_date+'T00:00:00Z')-now<14*86400000&&String(x.source_url||'').startsWith('https://')).sort((a,b)=>a.report_date.localeCompare(b.report_date)||Date.parse(a.call_at)-Date.parse(b.call_at)).slice(0,8);
-  status.textContent=items.length?'מועדים שאושרו בידי החברות · כל השעות בשעון ישראל · שם החברה מקשר למקור':'לא נמצאו מועדי דוחות מאושרים לשבועיים הקרובים.';
+  status.textContent=items.length?'מועדים מאושרים · שעון ישראל':'לא נמצאו מועדי דוחות מאושרים לשבועיים הקרובים.';
   if(!items.length)return;
   const table=document.createElement('table');table.className='earnings-table';table.setAttribute('aria-label','מועדי דוחות מאושרים ושיחות משקיעים');
   const head=document.createElement('thead'),tr=document.createElement('tr');
   for(const label of ['חברה','תאריך','מועד הפרסום / השיחה']){const th=document.createElement('th');th.scope='col';th.textContent=label;tr.append(th);}head.append(tr);table.append(head);
   const body=document.createElement('tbody');
   const time=iso=>new Date(iso).toLocaleTimeString('he-IL',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit'});
-  for(const x of items){
+  const first=items[0],preview=document.createElement('div');preview.className='earnings-preview';
+  const name=document.createElement('a');name.textContent=first.company;name.href=first.source_url;name.target='_blank';name.rel='noopener noreferrer';
+  const dateLabel=document.createElement('span');dateLabel.className='earnings-preview-time';
+  dateLabel.textContent=first.report_date.slice(8,10)+'.'+first.report_date.slice(5,7)+(first.release_at?' · פרסום '+time(first.release_at):first.call_at?' · שיחה '+time(first.call_at):'');
+  preview.append(name,dateLabel);box.append(preview);
+  const note=document.createElement('small');note.className='earnings-preview-note';note.textContent='פרסום הדוח: '+first.release_window;box.append(note);
+  for(const x of items.slice(1)){
    const row=document.createElement('tr'),company=document.createElement('td'),a=document.createElement('a'),ticker=document.createElement('small');
    a.textContent=x.company;a.href=x.source_url;a.target='_blank';a.rel='noopener noreferrer';ticker.textContent=x.ticker;company.append(a,ticker);
    const date=document.createElement('td');date.className='earnings-date';date.textContent=x.report_date.slice(8,10)+'.'+x.report_date.slice(5,7);
@@ -1193,7 +1209,12 @@ section.grid .card .value{font-size:11.5px!important}
    if(x.call_at){const call=document.createElement('small');call.textContent='שיחת משקיעים: '+time(x.call_at);timing.append(call);}
    row.append(company,date,timing);body.append(row);
   }
-  table.append(body);box.append(table);
+  if(items.length>1){
+    table.append(body);
+    const more=document.createElement('details');more.className='earnings-more';
+    const toggle=document.createElement('summary');toggle.textContent='עוד דוחות ('+(items.length-1)+')';
+    more.append(toggle,table);box.append(more);
+  }
  }
  try{draw(JSON.parse(document.getElementById('earnings-snapshot').textContent));}catch{}
  fetch('./earnings_calendar.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(draw).catch(()=>{});
