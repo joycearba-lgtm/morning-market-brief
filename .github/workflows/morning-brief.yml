@@ -8,6 +8,7 @@ on:
       - 'market_data.py'
       - 'news_data.py'
       - 'generate_macro_brief.py'
+      - 'market_editorial.py'
       - 'verify_daily.py'
       - 'official_macro_data.py'
       - 'israel_macro_data.py'
@@ -92,3 +93,4 @@ jobs:
             git pull --rebase
             git push
           fi
+

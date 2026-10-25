@@ -55,13 +55,17 @@ def select_events(news, now):
         while ' - ' in title and title.rsplit(' - ',1)[1].strip() in (source,'שוק ההון','TheMarker'):
             title = title.rsplit(' - ',1)[0].strip()
         if len(title)<20 or not str(row.get('link','')).startswith('https://'): continue
-        if '?' in title or '？' in title: continue
+        if '?' in title or '？' in title or '|' in title: continue
+        if any(w in title for w in ('השורשים העתיקים','היסטוריה','אשליות ההכרעה','היערכות לבחירות','המפכ','ירד מהפסים','ההתעלמות של המשקיעים','מציע להתמודד')): continue
         if any(s in title.lower() for s in ('טור דעה','פרשנות','| ליאת','prediction','price target','למה כדאי','נשמע הגיוני')): continue
         if title.startswith(('"','״','“')): continue
         key = re.sub(r'\W+','',title.lower())
         if key in seen: continue
         topic = next((t for t in TOPICS if re.search(t[1],title,re.I)),None)
         if not topic: continue
+        # Political coverage must contain a concrete economic or policy channel.
+        if topic is TOPICS[0] and not re.search(r'תקציב|גירעון|כלכל|מסים|מיסים|דירוג|שקל|אג[״\"]ח|בורסה|הקמת ממשלה|הרכבת ממשלה|אושרה|פיזור הכנסת|מועד הבחירות',title): continue
+        if topic is TOPICS[1] and not re.search(r'הפסקת אש|הסלמה|תקיפה|תקף|תקפו|הסכם|סנקציות|גיוס|הוצאות|נפט|ceasefire|sanctions|attack|oil',title,re.I): continue
         region = row.get('region','')
         local = region in ('ישראל','מאקרו ישראל','בחירות','ביטחון','פיסקלי')
         # Local feeds sometimes include stories solely about foreign economies.
@@ -76,7 +80,7 @@ def select_events(news, now):
         match=next((x for x in events if x['local'] and x['topic'][0]==kind),None)
         if match: chosen.append(match)
     for local in (True,False):
-        match=next((x for x in events if x['local']==local and x not in chosen),None)
+        match=next((x for x in events if x['local']==local and x not in chosen and x['topic'][0] not in {c['topic'][0] for c in chosen}),None)
         if match: chosen.append(match)
     return chosen[:4]
 
@@ -97,6 +101,10 @@ def build(market, news, now):
         for e in events:
             if e['local'] != local: continue
             topic,_,impact,message,question=e['topic']
+            if topic=='ריבית ואינפלציה' and re.search(r'set to|expected|preview|צפוי|לקראת',e['title'],re.I):
+                impact='זהו דיווח לקראת החלטת ריבית, ולא החלטה שכבר התקבלה. אם הריבית תישאר גבוהה לאורך זמן, עלות המימון תישאר גבוהה לחברות ולמשקי בית. תגובת האג״ח תלויה גם במסר הבנק ובמה שכבר תומחר.'
+                message='לקראת החלטת הריבית נבחן בעיקר את המסר לגבי ההמשך. החלטה להשאיר ריבית ללא שינוי יכולה להזיז את השוק אם המסר שונה ממה שהמשקיעים ציפו.'
+                question='האם יש בתיק אג״ח ארוכות או חברות שרגישות במיוחד לעלות המימון?'
             stamp=e['stamp'].strftime('%d.%m %H:%M')
             fact=f"לפי {e['source']} ({stamp}): {e['title']}."
             lines.append(f'{topic}: {fact} המשמעות האפשרית: {impact}')
