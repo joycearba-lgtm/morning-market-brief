@@ -211,6 +211,74 @@ body{background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",
 .macro-compare-more p{line-height:1.6;margin:5px 0}
 .macro-compare-more a{margin-left:12px}
 #surprise-status{font-size:11px!important;margin:3px 0 6px!important}
+</style><style id="market-editorial-theme">
+:root{--ink:#172e29;--muted:#6b7c76;--line:#e1e8e4;--bg:#f4f5f1;--teal:#117650;--pale:#edf5ee}
+body{background:radial-gradient(ellipse at 90% 0%,#e9f2e9 0,transparent 45%),#f4f5f1;color:var(--ink);font-family:Arial,"Noto Sans Hebrew",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;padding:24px 22px 36px}
+.hero{background:linear-gradient(120deg,#122f28,#174e3c)!important;border-radius:20px!important;box-shadow:0 12px 32px #12392b14!important;border:1px solid #ffffff18;padding:18px 22px!important;overflow:hidden}
+.hero:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #ffffff0b;border-radius:50%;left:-75px;top:-90px;pointer-events:none}
+.hero h1{font-size:28px!important;letter-spacing:-.7px;font-weight:800}
+.hero .logo{box-shadow:none!important;border-radius:10px!important}
+.hero .meta .pill{background:transparent!important;border:0!important;padding:0!important;color:#b9d3c5!important}
+.hero .actions .btn{background:#ffffff0c!important;border-color:#ffffff26!important;color:#e5f2e9!important;border-radius:7px!important}
+.hero .actions .btn:hover{background:#ffffff22!important}
+.hero .independent-note{border-color:#ffffff16!important;color:#a8c3b4!important}
+.section-title{gap:12px;margin:23px 0 11px}
+.section-title h2{font-size:18px!important;letter-spacing:-.35px;color:#214d3a!important;font-weight:750}
+.section-title span{background:linear-gradient(to left,#cad9ce,transparent)!important}
+.card{border:1px solid #e2e8e2!important;border-radius:15px!important;box-shadow:0 4px 18px #203e2b04!important;background:#fff}
+section.grid{gap:9px!important}
+section.grid .card{border-right-width:1px!important;position:relative;border-radius:12px!important;padding:12px!important;background:#fff!important;box-shadow:0 2px 8px #163c2804!important}
+section.grid .card:before{content:"";position:absolute;right:12px;top:0;width:22px;height:3px;border-radius:0 0 3px 3px;background:#c7d2cc}
+section.grid .card.move-up:before{background:#1b875d}
+section.grid .card.move-down:before{background:#c46b64}
+section.grid .card .label{color:#718078;font-size:12px;font-weight:600}
+section.grid .card .value{color:#20382e;font-variant-numeric:tabular-nums;letter-spacing:-.4px}
+section.grid .card .daily-change{border-radius:5px;font-variant-numeric:tabular-nums}
+.daily-change.up{color:#116a49!important;background:#edf6ef!important}
+.daily-change.down{color:#ad4b45!important;background:#fcf0ed!important}
+.daily-audio-section{background:#fff!important;border:1px solid #dce7de!important;border-right:3px solid #92ad9c!important;border-radius:12px!important;box-shadow:none!important}
+.daily-audio-head strong{color:#355343!important;font-size:14px!important}
+.daily-audio-help summary{color:#78867b}
+#data-status{background:transparent!important;border:0!important;color:#7b857f!important;text-align:center;padding:4px!important}
+#macro-brief .card,#advisor-talking-points .card{border-top:1px solid #e2e8e2!important;border-right:1px solid #e2e8e2!important;padding:18px!important}
+.morning-overview{background:linear-gradient(120deg,#f1f6ef,#f8faf5)!important;border-right:3px solid #75a387!important;padding:14px 16px!important;border-radius:10px!important;margin:0 0 12px!important}
+.morning-overview h3{font-size:19px!important;color:#20573b!important;letter-spacing:-.3px}
+#macro-content .morning-overview p{font-size:15px!important;line-height:1.7!important}
+.brief-expansion,.macro-compare-more{border-color:#e1e8df!important;background:#fafbf8;border-radius:9px}
+.brief-expansion>summary,.macro-compare-more>summary{font-size:13px!important;color:#477055!important}
+.macro-compare-more{padding:5px 10px}
+#macro-content h3{font-size:17px!important;text-decoration:none!important}
+#macro-content section p,#advisor-points section p{color:#42564b}
+#advisor-points{counter-reset:client}
+#advisor-points .advisor-point{padding:13px 15px!important;background:#fafbf8;border:1px solid #e8ece4!important;border-radius:10px;gap:5px!important}
+#advisor-points .advisor-point>strong{font-size:16px!important;color:#28573d}
+#advisor-points .advisor-point p{font-size:14px!important;line-height:1.7!important}
+#advisor-points .advisor-point small{font-size:10px!important}
+.forecast-build-label{display:none}
+.compact-forecast .forecast-card{border:1px solid #e2e8e2!important;border-top:1px solid #e2e8e2!important;background:#fff;box-shadow:none!important}
+.forecast-country-name{font-size:15px!important}
+.forecast-metric strong{color:#294f3c!important}
+.macro-compare thead th{background:#f6f8f3;color:#708074}
+.macro-compare th,.macro-compare td{border-bottom-color:#edf0e9}
+.source{color:#507760;font-size:11px!important}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #71a78a;outline-offset:3px}
+.footer{color:#89948c}
+@media(max-width:760px){
+.wrap{padding:12px 12px 25px}
+.hero{padding:15px 16px!important;border-radius:15px!important}
+.hero h1{font-size:25px!important}
+section.grid{gap:7px!important}
+section.grid .card{padding:9px 8px!important;min-height:79px!important}
+section.grid .card .label{font-size:11px!important}
+section.grid .card .value{font-size:16px!important}
+section.grid .card .daily-change{font-size:12px!important}
+.section-title{margin:20px 0 10px}
+.section-title h2{font-size:17px!important}
+#macro-brief .card,#advisor-talking-points .card{padding:13px!important}
+.morning-overview{padding:11px 12px!important}
+}
+@media(prefers-reduced-motion:no-preference){summary,button,a{transition:background-color .15s,color .15s}}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
