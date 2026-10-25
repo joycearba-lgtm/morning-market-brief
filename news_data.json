@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T06:31:03.784671+00:00",
+  "updated_at": "2026-10-25T06:33:04.478725+00:00",
   "status": "ok",
   "items": [
     {
@@ -52,13 +52,6 @@
       "region": "חו״ל"
     },
     {
-      "title": "Oil at $116, FOMC and Big Tech Earnings Collide in a 'Week of Destiny' — Wall Street Braces for Volatility - BigGo Finance",
-      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE13SUhHQzVkZmhieXpVaEJQRnlIRDhiRHUtRzh1RnBraXZ2TTJmYkR5X2RWQTd3eDBuUkRnZjIwSk1aazZqS3Z6M1liU1BSWHRjSEtpUF9jWm5uMHB0VXFOTktiRmtDclRlMWhVczd1UGViZ29hWUE?oc=5",
-      "source": "BigGo Finance",
-      "published_at": "2026-10-25T04:55:00+00:00",
-      "region": "חו״ל"
-    },
-    {
       "title": "H100 rental prices are spiking even as Wall Street worries about an AI bubble - Startup Fortune",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNFMtNTVzWXRuTXFTNUswU2Z2TWQ1UW8zT3MtbWJQQmJtNlFBZFJOVEJxcEpERm54VVRudUU3NG9WQ2ctc1I0RjVfN3hLOEdMZzZhNE9JaVNRVGVoa0wxVXVEc3hXa0RLbjlLQk54YVc3Rjd0OVRKNjl5U0xNMHlEdnVHYUhicUxUMzVxY3F1cFgxWjZseGo5YjhWTXlEalNlUnlPUmpzUWQ?oc=5",
       "source": "Startup Fortune",
@@ -106,6 +99,13 @@
       "source": "NY Carib News",
       "published_at": "2026-10-24T19:56:58+00:00",
       "region": "חו״ל"
+    },
+    {
+      "title": "Realty Income Stock Climbs Back as Treasury Yields Retreat, Yet Challenges Persist - Benzinga",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQUFliRnhCcFVLbFU3TVhWX3BXNzhERHdDRnIyU0lCNFFuRzRic0J5Z3I4R1pCNW1mblI2THN0SXJzU0F4cE1xYkoxWkZ1WG4yckJ5bkk2VG1GdWN6ZGtwZUhNMGZTRlJxWUx4ak1JZjNsSGQ5cldGUDRQWFlQXzU5VVFoUzNHWmQ1R2pQYm1IaU5KcHFRcWNqem03NU9RR0JFRWgzRlVPNlhwLXdsY0Z1WFdYeHZFaWJrNWdoRGFJQWZ4TkducUpKQ1FqXzhnTlM1eHdMZQ?oc=5",
+      "source": "Benzinga",
+      "published_at": "2026-10-24T19:15:07+00:00",
+      "region": "חו״ל"
     }
   ],
   "macro_items": [
@@ -128,6 +128,13 @@
       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNTmNSdDB4VzhxMnpPSENiZWFBNzQ1ODlmM0pIazRwVEc3VzlBd1AwdzFxQlFVNTcwUlFPWUoybFVnUDFOamtmOWgxeFloTnFiNHZCOE5IUC1IZkdTQ0R0aXJycEdGSXNST1AzY3ZISjVHRng3eXlpMlY3aGlOZFNzb1dWWFVpb1VqcVM2WlJicXdnR0lsTXhhWjZ6ZEFMSk1sU0dLVVY5bmRUUEF0MVphRDJHRjMyMDVFY1NObGxGRXZ3Zw?oc=5",
       "source": "TradingKey",
       "published_at": "2026-10-24T20:04:01+00:00",
+      "region": "מאקרו ארה״ב"
+    },
+    {
+      "title": "Inflation Is Running Hotter Than Expected. That Could Be Bullish for Bitcoin. - AOL.ca",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPUnNtMHB0N0RybnpYZ1VQaXBFY2YzZjdROUp2VlZ2cVJCcnZSOHV3VGJ0dFl4bGYyMVhnNjZLUGVTUmpwcjE3SUdwVTFURlgxbWpjTWxNZkJKVmQtaUZWRnNYTW9SdUtSSThuelFZSVJlNlhnWi1qWGFEWmxBNmplV2x3alhRQjN2TXc?oc=5",
+      "source": "AOL.ca",
+      "published_at": "2026-10-24T17:28:00+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
@@ -173,13 +180,6 @@
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - Henry Herald",
-      "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNSFE4UFNfOU5XNlRlWDJUWS0wZkg3NmE1eTR3YTVna21Rclh5czdfd2gtVE5Oc25kSERHMW1XRDJ0WFcxUW93QzNkLTlzTW04UUlJQ0VnMlJLV2txQk1lT21lSE9rU3MzWW5majFvUkR3eThOMjdyNFJSZGJ3bUJPQmlOZzR4elh5N2VaVExQc1ZmelhCdXNlOXFKM2xXb0txM3I4QTJsZzNFSGd3Q0hSVjY2cWNpc2hwZzZ4T3B5S2xCbXRBMWhjM3VkQXlwM2dCX0dFN1dZa2FUVHl5TE9wUVlmeVlaN2V0bGtoLTJHQmRkZGlHNmJkT2RFVzRRcW5zeTBxcFFfYUt1bUNpX21ZSw?oc=5",
-      "source": "Henry Herald",
-      "published_at": "2026-10-24T11:44:02+00:00",
-      "region": "מאקרו ארה״ב"
-    },
-    {
       "title": "אחרי חזון האפוקל-קריפטו של נתניהו, אפילו כלכלת בעזרת השם לא תעבוד - שוק ההון - TheMarker - TheMarker",
       "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQUzZFNFlYdGFfRHJEam9NbW91NGtlaGI2OVJJcE5KRzZrQWFqTml5M1FhbDZBR3ZwaWtXMW00TXJLcDgzQW9Wcmh0cEtSb0EybG9zOTBCM3Y5dXI3RkRrVUw5VmdkcDdxSURjSW9ScUplQXd6QUJYUWRzam1NaFQ4S0pWTHctRXIxMkVBS3U5dHJHNXNYbVhuTkxPMkotckVqOWs0?oc=5",
       "source": "TheMarker",
@@ -191,6 +191,13 @@
       "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBHQm5Vd0dwSm9LRGdFTnVvRjZCWVI2ODZoQUd4NktZZW84Z21PS1hfZTJaNDNyNmxNZmh0V3VoS2VPb3dMNVQ2YXFTZWZMeFB2eVlkUFVDS3Bjcm5WX2o4MGZpb3FrdEI2U3FVbjFRcG4?oc=5",
       "source": "פואנטה",
       "published_at": "2026-10-25T05:18:47+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "אילן גילדין: בנק ישראל במלכוד, הבחירות במבחן השווקים וה-AI במבחן הכסף - פאנדר",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1BblFLS1dXWEJfQjc0aERTUGlVZDZvTVJyWXphR1JjRnA4dVhPWWNzR0pxdVA4d0kxSVBiMmRGSkU2SVpYalQ2aHJ0bnQ1Vjg2?oc=5",
+      "source": "פאנדר",
+      "published_at": "2026-10-25T04:44:15+00:00",
       "region": "מאקרו ישראל"
     },
     {
@@ -208,6 +215,27 @@
       "region": "מאקרו ישראל"
     },
     {
+      "title": "1.6 מיליון חשבונות, 4.3 מיליארד שקל - והבנקים עדיין חוגגים על העמלות שלכם - שוק ההון - TheMarker - TheMarker",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNOXNBVU92Q0lXSm1wcTRtT21ZRWdxWlN5RUdzNVdwb0k3bnRpY0RIaXk2MndFVWoybnc3d0JmR3BLcDYxOU1lY293RUpzWXU3NkZSSFAzS21kZ2ZlMS1rdHpsdS1kZVpfNVZOZEVndmFkNDQ1R3JVY2FOYjFNRUhxRl9fdkZLRnpNXzZldGh6bGpSQ2U0SVoxLUg2QWFCZUEtX2hnaEp3?oc=5",
+      "source": "TheMarker",
+      "published_at": "2026-10-25T04:10:00+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "שלוש שריפות, ואין במה לכבות: צרפת מדגימה איך חוב ציבורי הופך למדורה - שוק ההון - TheMarker - TheMarker",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbk5uWUtPRlprZGJ3U29BR1Z2cG90enMzTGxZdzlvWEk5V0djMWlMcWpMSTJ2XzVtb0RFRTFpOU1NamdyVEhoNmJWXzJ1QlpUdENJaTVKTUdDSUVzLUtFTEN1QVUzbjJrT1RndmJPWHZnZ29xYzJDbm41S0J3eHg5ZUpGaUE3Y2JhVU12d3J3NmxVVkl4OWxQa0VObTNNazJ1VGR5Ml9n?oc=5",
+      "source": "TheMarker",
+      "published_at": "2026-10-25T04:07:00+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "\"אחרי שלוש שנים טובות בשוק המניות אפשר להוריד את הרגל מהגז ולהיות יותר דפנסיבי\" - TheMarker",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPcHo0YkdDTnkyaDNGenBqeXgxdm9oV3RwVnNIMnhIVjhiTk9Ga09LclFGQlBiNFBYQlhvSVBxNExSYjlLckdOWGI2T3J3N1lxOVczZmNoOHlCUTJURVlXXzRYRFVzTEoyM2Y4RjFHU2N2VU4xSWgxSjBMUVJNSG9tbXlqOThfb3VwZ21PQmNXR3VYaS1BMjgwNzE2dUMtdlM5LVRhNkppZl9qMU1pV2lCYlI1STVmUDVmWEpOdW9XQ3ZoOWc?oc=5",
+      "source": "TheMarker",
+      "published_at": "2026-10-25T04:00:00+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
       "title": "המניות שקפצו ביותר מ-1,000% בת\"א - וההתעלמות של המשקיעים מהאיום המרכזי - TheMarker",
       "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPOVphUHhzaV9lN3hwSFhsRVhvTFpOaVo2TENLUHM5ZTJ4UWxJZGxxSTlqeGcybkxHVG1pQTA1el8tZGthTGJOMUExcFIwVV9oWDFwdnJocWlzeHZPQXJzaTB4c2VHYWY1Q3RRUjBCR1kwY09Qd3hHY21GQXpXZzRHdUg4amY1ZEtCWVZkanZ2M1UzUmFNcGkwVEFHX2RHbERaZ1JFUUpn?oc=5",
       "source": "TheMarker",
@@ -220,27 +248,6 @@
       "source": "TheMarker",
       "published_at": "2026-10-24T18:00:00+00:00",
       "region": "מאקרו ישראל"
-    },
-    {
-      "title": "בנק ישראל: קריפטו לא עוקף סנקציות; מנכ\"ל ביג הצטרף לביקורת על נתניהו - TheMarker",
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRmtXNTY2SWFNSHBWXzRuYTBDenVaSlY2dTVVVGR5NXdYekJoSDJ4bE9lMndaaVhsUjkxRkhBUTRmVHV1MTFObUdOZ2pwY1NQdmV3Qndaa2FsX1ZFb3NNVEZRSkdVU2VFU2xNcEZreUs4Z1VHU2lwS1pOYzhlS2FrdGNUWUZqU3JQVW5qN3R4SXVaMVk?oc=5",
-      "source": "TheMarker",
-      "published_at": "2026-10-24T16:20:00+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "הכסף בעו״ש לא בהכרח עובד בשבילכם: כך תבדקו אם הבנק משלם לכם ריבית - FUNDER ג`וניור - פאנדר",
-      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5PTjJ4NzFJb19oMXJPM1RzcGxMdTMtbEZza1FMWldmcEw0RVNid2JyMUw3bHhaMTNHWlAwT19PaXVNSHM1elk0eWFURDlWd0xp?oc=5",
-      "source": "פאנדר",
-      "published_at": "2026-10-24T12:26:49+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "נתניהו ירד מהפסים: מציע להתמודד עם סנקציות באמצעות קריפטו כמו איראן - פוליטי - TheMarker - TheMarker",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPQTlkYVZPQkRvSUZRTVVnR3Z4R0JhVlpwV0dWWGdMRXdxTkFvR2dxd2QxaGRmend0N1RVVG9RbURjXzlBOUQwNzRmMGtvNDdrcWdTR0VESHloUW83cDBOejVpVzBFdXdNME9mZHRCR293OE5ON2JxS0s1ZHcyWG9TWGp5TWJQeUtxT3RKbUZuV05IMDlVQndQU094cUx4Uzg?oc=5",
-      "source": "TheMarker",
-      "published_at": "2026-10-23T17:04:00+00:00",
-      "region": "מאקרו ישראל"
     }
   ],
   "israel_focus": [
@@ -252,10 +259,10 @@
       "region": "בחירות"
     },
     {
-      "title": "\"זה דווקא לא הסיפור\": בנט לא מוריד את העיניים מהמטרה בבחירות - מעריב",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1tbFFIM0xkQTJ6eEdUWVNnUklJVDQzSWVydWVfTkZoajZsS3lzbE1zYnRPVkJiRXlXcWE5N1BPa3ktOEg4VDlLUUl5b2RiSEpfTVI3VUxQaUpTYTUwWEdlTlNUTzlCV3JscVhnYQ?oc=5",
-      "source": "מעריב",
-      "published_at": "2026-10-25T05:44:36+00:00",
+      "title": "בחירות האמצע בארה\"ב מתחממות: אובמה והאריס נכנסים למירוץ כדמוקרטים. - Vietnam.vn",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPZ19CVUlKOHRDQjEwc1lJeEZHX2xGLVB1UEN4aGFsUk1sX0pJc3dVZ25QMVRCWkZjLWZZT2I1NURvak5YRDRIS1JIUkpKSGdXcWRRcWpRMDJYNUppLThYdnBsSS03NnlVTkhLSDJiM0FHR0FTa1V0enY0Qzlfa0VoSzFKOWpsVVY3dmNXQ2VfNS1EMWlpY0xrWjFyM3Vhdw?oc=5",
+      "source": "Vietnam.vn",
+      "published_at": "2026-10-25T05:34:34+00:00",
       "region": "בחירות"
     },
     {
@@ -308,10 +315,10 @@
       "region": "בחירות"
     },
     {
-      "title": "הליכוד יסיר שלטי בחירות בהוראת יו\"ר ועדת הבחירות נעם סולברג - היום",
-      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA5T3liTWFrcnE4c0habVVhTnFWczVYQjBMQkxyX0tfejM2SGpRdHp3SUxNV3RWa3NDbHhielRfOEc4LU5CSFdaZnduaUMyNWg4TmxLYlpha3FobHkzRFNxM2tVWk50Y0FVUWJRTTQ3QdIBb0FVX3lxTFA5T3liTWFrcnE4c0habVVhTnFWczVYQjBMQkxyX0tfejM2SGpRdHp3SUxNV3RWa3NDbHhielRfOEc4LU5CSFdaZnduaUMyNWg4TmxLYlpha3FobHkzRFNxM2tVWk50Y0FVUWJRTTQ3QQ?oc=5",
-      "source": "היום",
-      "published_at": "2026-10-24T22:38:05+00:00",
+      "title": "אחרי בחירות האמצע? ארה\"ב נערכת למערכה נוספת נגד איראן - ערוץ 7",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE4zTWVReEhSQUtIX0NBWjJUNWhmb2ZyZ0xjY0xIZUgyajY3R1BIWkFlc0FMWHY3U09NeGxscnVrUjNTaGszdnFRTA?oc=5",
+      "source": "ערוץ 7",
+      "published_at": "2026-10-25T00:29:00+00:00",
       "region": "בחירות"
     },
     {
