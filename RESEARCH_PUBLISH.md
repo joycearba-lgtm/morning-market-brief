@@ -30,3 +30,8 @@ Use GitHub create_tree with base_tree_sha from current head, and entries path/mo
 Read back macro_brief.json and ensure date, editorial_mode and content match. Inspect Pages deployment via GitHub Actions; only report live publication after success. If a write or deployment is blocked, report that explicitly and still deliver the researched text in the task reply. Do not claim a future run is guaranteed. The data generator preserves valid current-day researched_brief.json with its ORIGINAL timestamp, so quote updates cannot replace this narrative with rules-based text.
 
 Send the same concise narrative in ChatGPT with citations and link to https://joycearba-lgtm.github.io/morning-market-brief/ after verified deployment. Respect source word limits across both the site text and chat response; avoid republishing the full narrative twice in the same run if it exceeds those limits.
+
+
+## Freshness labels
+Add optional sections[].items_meta, aligned by paragraph index, with {event_date:"YYYY-MM-DD",kind:"background"|"last_session"|"upcoming",session_date:"YYYY-MM-DD"}.
+Use the actual event/release date, never generated_at. Retrospective context has kind=background even if summarized today. For genuine news released today omit kind or use kind=news. Last-session labels require kind=last_session and session_date matching event_date and independently verified latest completed session. Future scheduled event dates display as upcoming, never new today. Mixed dates in a paragraph should use the oldest supporting source date or omit the label if uncertain. Advisor event_date follows the same rule. Do not invent dates to fill labels. Current day is Asia/Jerusalem. Do not change dates merely to make content appear new.
