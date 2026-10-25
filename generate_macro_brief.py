@@ -576,6 +576,9 @@ if fresh and sections:
         if not timedelta(0)<=age<=timedelta(hours=42):continue
         url=str(item.get("link",""))
         headline=str(item.get("title","")).rsplit(" - ",1)[0].strip()
+        # Some syndicated RSS titles repeat the publisher or category suffix.
+        for suffix in (" - שוק ההון"," - TheMarker"," - גלובס"," - כלכליסט"):
+            if headline.endswith(suffix):headline=headline[:-len(suffix)].strip()
         if not (url.startswith("https://") and len(headline)>20):continue
         # A quoted opinion, a conditional prediction or an interview question
         # is not a verified event that happened today.
@@ -610,6 +613,12 @@ if fresh and sections:
             day=ts.strftime("%d.%m.%Y")
             locale="ישראל" if "ישראל" in str(item.get("region","")) else "חו״ל"
             reported=f'על פי דיווח של {source} מ־{day}: {headline}.'
+            if topic=="תקציב ומימון" and any(x in headline.lower() for x in ("צרפת","france","europe")):
+                interpretation="דיווח על חוב ציבורי באירופה מעלה שאלות על תמחור אג״ח מדינה, גירעונות ותשואות באירופה; אין להסיק ממנו על האג״ח הישראליות ללא נתונים נוספים."
+                action="לבחון חשיפה לאג״ח ממשלת אירופה, מח״מ, פיזור גיאוגרפי ושינוי במרווחים."
+            if topic=="בנקאות, עמלות ותחרות":
+                interpretation="הדיווח על הבנקאות נוגע לעלות השירות והתשואה נטו ללקוח; אינו כשלעצמו הוכחה לשינוי ברווחי מניות הבנקים."
+                action="לבדוק מול הלקוח דמי ניהול ועמלות, ריבית בפיקדונות, חלופות נזילות והבדלי מיסוי."
             bullets.append(f'{topic} — {reported} {interpretation} זו השלכה אפשרית ולא ייחוס סיבתי מאומת.')
             links.append({"label":source+" · "+day,"url":url})
             points.append({
