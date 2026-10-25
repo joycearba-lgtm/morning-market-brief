@@ -1,181 +1,133 @@
-"""Daily investment-adviser editorial: numeric market evidence first, headlines second.
-
-No model/API charges. Never allege that a headline caused a market move; distinguish
-last available trading session from today's editorial creation time.
-"""
+"""Dated market brief, with separate reported events and conditional implications."""
+import re
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
+TZ = ZoneInfo('Asia/Jerusalem')
 
-TZ=ZoneInfo("Asia/Jerusalem")
+# Each topic has an explicit transmission channel and a client-ready explanation.
+TOPICS = [
+ ('בחירות ומדיניות בישראל', r'בחירות|כנסת|קואליצ|סקרים|מנדטים|election',
+  'המשמעות הכלכלית של הבחירות תלויה ביכולת להקים ממשלה, לאשר תקציב ולקבוע סדרי עדיפויות. עיכוב בתקציב או התחייבויות להוצאות נוספות עלולים להגדיל את צורכי גיוס החוב; סקר לבדו אינו שינוי במדיניות.',
+  'בתקופת בחירות נבחן בעיקר מה משתנה בתקציב ובמדיניות הכלכלית. אי־ודאות פוליטית יכולה להוסיף תנודתיות לשקל ולאג״ח, אך אין כיוון קבוע לשוק בעקבות סקר.',
+  'האם יש לך הוצאה שקלית גדולה בקרוב, או שהכסף מיועד לטווח ארוך?'),
+ ('המצב הביטחוני והגיאופוליטי', r'איראן|הסלמה|הפסקת אש|מלחמה|לחימה|ביטחו|ביטחו|בטחו|חמאס|חיזבאללה|iran|ceasefire|war|sanctions',
+  'הערוצים הרלוונטיים בישראל הם הסיכון לשקל, הוצאות הביטחון ופעילות העסקים. פגיעה באספקת אנרגיה עלולה להעלות גם את עלויות הדלק והאינפלציה. זו השפעה אפשרית; תגובת השוק נבחנת בנפרד.',
+  'החדשות הביטחוניות עשויות להשפיע על השקעות בישראל דרך השקל, פעילות החברות ועלות המימון. נבחן יחד את החשיפה המקומית ואת הצורך בכסף נזיל לפני החלטה.',
+  'איזה חלק מהכסף תצטרך בשנה הקרובה, וכמה מהתיק כבר תלוי במשק הישראלי?'),
+ ('תקציב וגירעון', r'תקציב|גירעון|גירעונות|גיוס חוב|דירוג אשראי|deficit|sovereign|budget',
+  'גידול בגירעון מחייב מימון נוסף. אם השוק ידרוש פיצוי גבוה יותר על הסיכון, תשואות האג״ח עלולות לעלות ומחירי אג״ח קיימות לרדת, בעיקר במח״מ ארוך.',
+  'שינוי בתקציב עשוי להשפיע על אג״ח ממשלתיות גם כשבנק ישראל אינו משנה ריבית. ככל שהאג״ח ארוכה יותר, מחירה בדרך כלל רגיש יותר לשינוי בתשואה.',
+  'מה חשוב לך יותר בחלק הסולידי: יציבות בטווח הקרוב או נעילת תשואה לאורך זמן?'),
+ ('ריבית ואינפלציה', r'ריבית|אינפלצי|מדד המחירים|תעסוקה|fed|fomc|inflation|payroll|rate decision',
+  'נתון אינפלציה או תעסוקה משנה את תמונת הריבית בעיקר כשהוא שונה מהציפיות. אינפלציה גבוהה מהצפי עלולה לדחות הפחתות ולהכביד על אג״ח ארוכות; האטה בפעילות מציבה גם סיכון לרווחי החברות.',
+  'להשקעות חשוב גם מה השוק ציפה לקבל. הפחתת ריבית אינה מבטיחה עליות, והפתעת אינפלציה יכולה להשפיע על האג״ח עוד לפני החלטת הבנק המרכזי.',
+  'האם מטרת ההחזקה באג״ח היא הכנסה שוטפת או אפשרות לממש בקרוב?'),
+ ('אנרגיה', r'נפט|ברנט|crude|brent|oil',
+  'התייקרות נפט מעלה עלויות דלק ועלולה להקשות על ירידת האינפלציה. מפיקות אנרגיה וחברות תעופה עשויות להיות מושפעות בכיוונים שונים. ירידת נפט הופכת את ערוץ העלויות, אך יכולה לנבוע גם מביקוש חלש.',
+  'מחיר הנפט משפיע אחרת על חברות שונות: מפיקות עשויות ליהנות מהתייקרות, בעוד שחברות עתירות דלק סופגות עלויות גבוהות יותר. לכן נבחן את הרכב ההשקעות ולא רק את המדד.',
+  'האם קיימת בתיק חשיפה משמעותית לאנרגיה או לחברות תחבורה?'),
+ ('חברות וטכנולוגיה', r'דוחות|רווח|שבבים|טכנולוג|nvidia|earnings|semiconductor|chip|nasdaq',
+  'בדיווחי חברות חשוב להפריד בין התוצאות שכבר פורסמו לבין התחזית קדימה. שינוי בצפי לרווחים עשוי להשפיע על התמחור; תנועת מדד טכנולוגיה אינה מעידה שכל חברות הענף נעו באותו כיוון.',
+  'נבחן אם הדיווח משנה את צפי הרווחים של החברות שבידיך. החזקה בכמה קרנות אינה תמיד פיזור, משום שאותן חברות גדולות עשויות להופיע בכולן.',
+  'האם תרצה שנבדוק כמה מהתיק מרוכז באותן חברות דרך קרנות שונות?'),
+ ('מסחר במניות', r'בורסה|מניות|וול סטריט|wall street|stock market|s&p|dow',
+  'דיווח על מדד מסכם סל של חברות. כדי להבין את משמעותו לתיק יש להשוות בין המדדים ובין הענפים שבאחזקות בפועל.',
+  'תנועת המדד אינה בהכרח תנועת התיק שלך. נבדוק אילו ענפים הובילו ומה הייתה התשואה לאחר השפעת המטבע.',
+  'האם השינוי שמטריד אותך הוא במדד, או בשווי התיק בשקלים?'),
+]
+APPROVED = ('reuters','bloomberg','cnbc','financial times','גלובס','globes','themarker',
+ 'כלכליסט','calcalist','ynet','ביזפורטל','כאן','n12','חדשות 12','מעריב','הארץ','business times')
 
+def select_events(news, now):
+    events, seen = [], set()
+    for row in news.get('israel_focus', []) + news.get('items', []) + news.get('macro_items', []):
+        if not isinstance(row, dict): continue
+        source = str(row.get('source', ''))
+        if not any(s in source.lower() for s in APPROVED): continue
+        try:
+            stamp = datetime.fromisoformat(row['published_at'].replace('Z','+00:00'))
+            if stamp.tzinfo is None: continue
+            stamp = stamp.astimezone(TZ)
+        except (KeyError, ValueError, TypeError): continue
+        if not timedelta(0) <= now-stamp <= timedelta(hours=52): continue
+        title = str(row.get('title','')).strip()
+        # Remove repeated publisher/category suffixes without truncating the event.
+        while ' - ' in title and title.rsplit(' - ',1)[1].strip() in (source,'שוק ההון','TheMarker'):
+            title = title.rsplit(' - ',1)[0].strip()
+        if len(title)<20 or not str(row.get('link','')).startswith('https://'): continue
+        if '?' in title or '？' in title: continue
+        if any(s in title.lower() for s in ('טור דעה','פרשנות','| ליאת','prediction','price target','למה כדאי','נשמע הגיוני')): continue
+        if title.startswith(('"','״','“')): continue
+        key = re.sub(r'\W+','',title.lower())
+        if key in seen: continue
+        topic = next((t for t in TOPICS if re.search(t[1],title,re.I)),None)
+        if not topic: continue
+        region = row.get('region','')
+        local = region in ('ישראל','מאקרו ישראל','בחירות','ביטחון','פיסקלי')
+        # Local feeds sometimes include stories solely about foreign economies.
+        if local and re.search(r'צרפת|גרמניה|בריטניה|france',title,re.I): continue
+        if not local and topic is TOPICS[0]: continue
+        seen.add(key)
+        events.append(dict(row, title=title, stamp=stamp, topic=topic, local=local))
+    events.sort(key=lambda x:x['stamp'],reverse=True)
+    chosen=[]
+    # Reserve space for politics/security instead of allowing financial features to crowd them out.
+    for kind in ('בחירות ומדיניות בישראל','המצב הביטחוני והגיאופוליטי'):
+        match=next((x for x in events if x['local'] and x['topic'][0]==kind),None)
+        if match: chosen.append(match)
+    for local in (True,False):
+        match=next((x for x in events if x['local']==local and x not in chosen),None)
+        if match: chosen.append(match)
+    return chosen[:4]
 
 def build(market, news, now):
-    indices=market.get("indices") or {}
-    commodities=market.get("commodities") or {}
-    treasury=market.get("treasury_10y") or {}
-
-    def verified(record):
-        if not isinstance(record,dict) or record.get("status")!="ok":
-            return False
-        ts=record.get("market_time")
-        if not isinstance(ts,(int,float)):return False
-        age=now-datetime.fromtimestamp(ts,TZ)
-        return timedelta(0)<=age<=timedelta(days=4)
-
-    def move(row):
-        if not verified(row):return None
-        v=row.get("change_percent")
-        return float(v) if isinstance(v,(int,float)) else None
-
-    def number(v):
-        return f"{v:+.2f}%" .replace("+","+")
-
-    def session(row):
-        if not verified(row):return None
-        return datetime.fromtimestamp(row["market_time"],TZ).strftime("%d.%m.%Y")
-
-    sp=indices.get("S&P 500",{})
-    nas=indices.get("Nasdaq Composite",{})
-    dow=indices.get("Dow Jones",{})
-    ta35=indices.get("TA-35",{})
-    ta125=indices.get("TA-125",{})
-    oil=commodities.get("WTI futures",{})
-    gold=commodities.get("Gold futures",{})
-    a,b,c=move(sp),move(nas),move(dow)
-    il35,il125=move(ta35),move(ta125)
-    energy=move(oil)
-    safe_t=verified(treasury) and isinstance(treasury.get("change_bps"),(int,float))
-    tchange=float(treasury["change_bps"]) if safe_t else None
-    tv=treasury.get("value") if safe_t else None
-    sections=[]
-    points=[]
-
-    def section(title,bullets,refs=None):
-        if bullets:
-            sections.append({"heading":title,"bullets":bullets,"sources":refs or []})
-
-    def point(title,fact,impact,client_action,ref_date):
-        points.append({"title":title,"insight":fact,"client_impact":impact,
-                       "question":client_action,"reference":"נתוני מסחר מאומתים · "+ref_date})
-
-    if a is not None and b is not None and c is not None:
-        date=session(sp)
-        common=f"בסגירה האמריקאית האחרונה ({date}): אס אנד פי 500 {number(a)}, נאסדק {number(b)}, ודאו ג׳ונס {number(c)}."
-        if b-c>=0.6:
-            insight="הפער בין הנאסדק לדאו מלמד שהטכנולוגיה הפגינה עמידות יחסית למניות התעשייה והחברות המסורתיות; זו השוואת ביצועים, לא הסבר סיבתי לתנועה."
-            check="לבדוק האם החזקות הלקוח מרוכזות בחברות צמיחה גדולות למרות פיזור בין מספר קרנות."
-        elif c-b>=0.6:
-            insight="הדאו הפגין עוצמה יחסית לנאסדק; חשוב לבדוק את הרכב המדדים לפני שמסיקים שמתרחשת רוטציה ענפית."
-            check="להשוות משקל של מניות ערך ותעשייה מול חברות צמיחה, ולא להסתמך על מדד בודד."
-        elif a<0 and b<0 and c<0:
-            insight="שלושת המדדים ירדו. הבדלי העוצמה ביניהם חשובים להבנת סוג החשיפה שנפגעה, אך אינם מזהים לבדם את הגורם לירידות."
-            check="לבדוק חלוקה ענפית וחשיפות חופפות למדדים האמריקאיים."
-        elif a>0 and b>0 and c>0:
-            insight="שלושת המדדים עלו, אך העלייה במדדים אינה מלמדת לבדה על רוחב העליות בשוק."
-            check="לבחון ריכוזיות, תשואת התיק במטבע הלקוח ופיזור בין סקטורים."
-        else:
-            insight="התמונה בין מדדי ארצות הברית מעורבת; יש להבחין בין ענפים ומדדים ולא להתייחס לוול סטריט כיחידה אחת."
-            check="לבדוק חשיפה ענפית במקום להסיק כיוון מתנועה של מדד אחד."
-        section("וול סטריט — מה עשה השוק בפועל",[common+" "+insight])
-        point("וול סטריט: לבדוק הרכב וריכוזיות",common,
-              insight+" המשמעות ללקוח תלויה בהרכב האחזקות ולא רק בכותרת המדד.",check,date)
-
-    if energy is not None:
-        date=session(oil)
-        descriptor="זינק" if energy>=2 else "עלה" if energy>0 else "ירד בחדות" if energy<=-2 else "ירד"
-        lead=f"בחוזי הנפט מסוג WTI, השינוי בסגירה האחרונה ({date}) היה {number(energy)} — הנפט {descriptor}."
-        if energy>1:
-            impact="עלייה משמעותית בנפט עלולה להגדיל עלויות לתעופה ותעשייה ולהקשות על ירידת האינפלציה, אם תימשך. חברות הפקה עשויות להיות מושפעות אחרת; לא ניתן לדעת מה גרם לעלייה מנתוני המחיר לבדם."
-            check="לבדוק חשיפה לחברות תעופה, אנרגיה ותעשייה, וגם רגישות של אג״ח ארוכות לציפיות אינפלציה."
-        elif energy< -1:
-            impact="ירידה בנפט עשויה להקל על עלויות דלק ואינפלציה, אך יכולה גם לשקף חשש מביקוש חלש; המחיר לבדו אינו מזהה את הסיבה."
-            check="לבדוק חשיפה למפיקות אנרגיה ולחברות עתירות דלק לצד ציפיות אינפלציה."
-        else:
-            impact="תנודת הנפט אינה גדולה במיוחד בסגירה האחרונה, ולכן אינה לבדה מוקד הסקירה."
-            check="לעקוב אחר שינוי מצטבר בנפט ולא לבצע שינוי תיק על סמך יום בודד."
-        section("אנרגיה ואינפלציה — התנועה שחשובה לתמחור",[lead+" "+impact])
-        if abs(energy)>=1:
-            point("נפט: השפעה על רווחיות ואינפלציה",lead,impact,check,date)
-
-    if il35 is not None and il125 is not None:
-        date=session(ta35)
-        lead=f"בסגירה האחרונה בבורסה בתל אביב ({date}): ת״א־35 {number(il35)} ות״א־125 {number(il125)}."
-        if il35<0 and il125<0:
-            impact="שני המדדים ירדו. זו עדות לחולשה במדדים המרכזיים, אך לא ניתן לקבוע אם ביטחון, ריבית או מניות גדולות גרמו לכך בלי בדיקת ענפים ומחזורי מסחר."
-        elif il35>0 and il125>0:
-            impact="שני המדדים עלו. יש לבדוק אם העליות רחבות או נובעות ממספר מניות בעלות משקל גבוה."
-        else:
-            impact="התמונה המקומית מעורבת, ולכן כדאי להבחין בין חברות גדולות לשוק הרחב."
-        section("ישראל — ביצועי הבורסה האחרונים",[lead+" "+impact])
-        point("תל אביב: סיכון מקומי ומבנה התיק",lead,
-              impact+" רגישות התיק לשקל ולאג״ח ממשלתיות תלויה גם באופי החשיפה.",
-              "לבדוק ריכוזיות בישראל, חשיפה לבנקים ולנדל״ן, הצמדה ומטבע התיק.",date)
-
-    if safe_t:
-        date=session(treasury)
-        direction="עלתה" if tchange>0 else "ירדה" if tchange<0 else "כמעט לא השתנתה"
-        lead=f"תשואת אג״ח ממשלת ארצות הברית לעשר שנים עמדה על {float(tv):.2f}% ({date}) ו{direction} ב־{abs(tchange):.1f} נקודות בסיס."
-        impact=("עליית התשואה מגדילה את הלחץ על מחירי אג״ח קיימות במח״מ ארוך, בכפוף לשינויים נוספים בעקום."
-                if tchange>0.1 else
-                "ירידת התשואה עשויה לתמוך במחירי אג״ח קיימות במח״מ ארוך, בכפוף לשינויים נוספים בעקום."
-                if tchange< -0.1 else
-                "התזוזה הקטנה בתשואה אינה מספיקה כשלעצמה כדי להסיק שינוי משמעותי בתוואי הריבית.")
-        section("אג״ח וריבית — מה השתנה בתשואה הארוכה",[lead+" "+impact])
-        if abs(tchange)>=2:
-            point("אג״ח: לבחון מח״מ ולא רק ריבית בנק מרכזי",lead,
-                  impact,"להשוות מח״מ תיק האג״ח ורגישות לעליית תשואות, לצד חשיפה למטבע.",date)
-
-    # Supplement with at most one dated, directly market-relevant headline; do not
-    # equate a news title with verification that its allegations or causes are true.
-    approved=("reuters","bloomberg","cnbc","financial times","globes","גלובס",
-              "themarker","כלכליסט","calcalist","ynet","marketwatch")
-    keywords=("fed decision","fomc","inflation data","cpi report","earnings","central bank",
-              "ריבית בנק ישראל","החלטת ריבית","מדד המחירים","דוחות כספיים",
-              "שבבים","chipmakers","oil supply","נפט","גירעון המדינה")
-    rejects=("prediction","forecast:","could","will the","opinion","תחזית למניה","למה כדאי","איך להרוויח")
-    extras=[]
-    seen=set()
-    for record in (news.get("items",[])+news.get("macro_items",[])+news.get("israel_focus",[])):
-        if not isinstance(record,dict):continue
-        src=str(record.get("source",""))
-        title=str(record.get("title","")).rsplit(" - ",1)[0].strip()
-        low=title.lower()
-        if not any(p in src.lower() for p in approved):continue
-        if not any(k in low for k in keywords):continue
-        if any(x in low for x in rejects):continue
-        try:stamp=datetime.fromisoformat(str(record["published_at"])).astimezone(TZ)
-        except (KeyError,TypeError,ValueError):continue
-        if not timedelta(0)<=now-stamp<=timedelta(hours=30):continue
-        url=str(record.get("link",""))
-        if not url.startswith("https://"):continue
-        key=(title[:75].casefold(),src.lower())
-        if key in seen:continue
-        seen.add(key)
-        extras.append((stamp,title,src,url))
-    extras.sort(reverse=True)
-    if extras:
-        stamp,title,src,url=extras[0]
-        section("דיווח עדכני למעקב — טרם אומתה השפעתו",[
-            f"בדיווח של {src} מ־{stamp.strftime('%d.%m.%Y')} נכתב: {title}. "
-            "זו כותרת מדווחת, לא אימות עצמאי של האירוע או של השפעתו על מחירי הנכסים. "
-            "יש לבדוק את הפרטים ואת תגובת המסחר לפני מסקנה."],
-            [{"label":src+" · "+stamp.strftime("%d.%m.%Y"),"url":url}])
-
-    # Portfolio issues beat topical quotas. Three different asset sensitivities are
-    # preferable to three versions of the same headline.
-    chosen=[]
-    used=set()
-    for p in points:
-        family=("energy" if "נפט" in p["title"] else
-                "bond" if "אג״ח" in p["title"] else
-                "israel" if "תל אביב" in p["title"] else "equity")
-        if family in used:continue
-        chosen.append(p);used.add(family)
-        if len(chosen)==3:break
-    if not sections:
-        sections=[{"heading":"אין ציטוטי מסחר מאומתים", "bullets":[
-            "מקורות נתוני השוק לא החזירו נתוני סגירה עדכניים. אין להציג תנועות שוק משוערות."],"sources":[]}]
-    return {"sections":sections, "advisor":chosen,
-            "takeaway":"סקירת אירועי המסחר האחרונים בלבד; שינוי במחיר אינו הוכחה לגורם לשינוי. "
-                       "יש לבדוק תאריכי מסחר, תמחור וסיכוני תיק לפני החלטה.",
-            "methodology":"סקירה אוטומטית המבוססת על שערי סגירה מתוארכים ומקורות גלויים; אינה ניתוח AI או המלצת השקעה."}
+    sections, points = [], []
+    def add(heading, lines, refs=None):
+        if lines: sections.append({'heading':heading,'bullets':lines,'sources':refs or []})
+    def valid(row):
+        if not isinstance(row,dict) or row.get('status')!='ok': return False
+        try: return timedelta(0)<=now-datetime.fromtimestamp(row['market_time'],TZ)<=timedelta(days=4)
+        except (KeyError,TypeError,ValueError,OverflowError): return False
+    def quote(row, label):
+        if not valid(row) or not isinstance(row.get('change_percent'),(float,int)): return None
+        return f"{label} {row['change_percent']:+.2f}% ({datetime.fromtimestamp(row['market_time'],TZ):%d.%m})"
+    events=select_events(news,now)
+    for local,heading in ((True,'ישראל — האירועים והמשמעות לשווקים'),(False,'העולם — מה עומד במוקד')):
+        lines,refs=[],[]
+        for e in events:
+            if e['local'] != local: continue
+            topic,_,impact,message,question=e['topic']
+            stamp=e['stamp'].strftime('%d.%m %H:%M')
+            fact=f"לפי {e['source']} ({stamp}): {e['title']}."
+            lines.append(f'{topic}: {fact} המשמעות האפשרית: {impact}')
+            refs.append({'label':e['source']+' · '+stamp,'url':e['link']})
+            if len(points)<3:
+                points.append({'title':topic,'insight':message,'client_impact':impact,
+                    'question':question,'reference':fact,'source_url':e['link'],
+                    'event_date':e['stamp'].date().isoformat()})
+        if local:
+            for topic,label in ((TOPICS[0][0],'בחירות'),(TOPICS[1][0],'ביטחון וגיאופוליטיקה')):
+                if not any(e['local'] and e['topic'][0]==topic for e in events):
+                    lines.append(f'{label}: לא נמצא דיווח חדשותי עדכני מתאים במקורות שנאספו. זהו פער בכיסוי, ולא קביעה שלא היו התפתחויות.')
+        elif not lines:
+            lines.append('לא נמצא דיווח בינלאומי עדכני מתאים; נתוני הסגירה מופיעים בנפרד להלן.')
+        add(heading,lines,refs)
+    indices=market.get('indices') or {}
+    for heading,names in [('תל אביב — הסגירה האחרונה',[('TA-35','ת״א־35'),('TA-125','ת״א־125')]),
+                          ('וול סטריט — הסגירה האחרונה',[('S&P 500','S&P 500'),('Nasdaq Composite','Nasdaq'),('Dow Jones','Dow Jones')])]:
+        quotes=[q for key,label in names if (q:=quote(indices.get(key,{}),label))]
+        if quotes: add(heading,['; '.join(quotes)+'.'])
+    oil=(market.get('commodities') or {}).get('WTI futures',{})
+    oilquote=quote(oil,'נפט WTI')
+    if oilquote and abs(oil['change_percent'])>=1:
+        up=oil['change_percent']>0
+        impact=('התייקרות הדלק עשויה להכביד על תעופה ותעשייה ולהוסיף לחץ אינפלציוני אם תימשך.' if up else
+                'הוזלת הדלק עשויה להקל על עלויות החברות; עבור מפיקות נפט היא עלולה לפגוע בהכנסות.')
+        add('נפט — עלויות ואינפלציה',[oilquote+'. '+impact])
+        if len(points)<3:
+            points.append({'title':'מה אומר השינוי בנפט?','insight':f'בסגירה האחרונה הנפט {"עלה" if up else "ירד"} ב־{abs(oil["change_percent"]):.2f}%. '+impact,
+                'client_impact':'ההשפעה על התיק תלויה במשקל חברות האנרגיה מול חברות הצורכות דלק ובמשך השינוי במחיר.',
+                'question':'האם יש בתיק חשיפה גדולה לענפים שמושפעים ממחירי הדלק?',
+                'reference':oilquote+' · Yahoo Finance'})
+    return {'sections':sections,'advisor':points,'takeaway':'למעקב: שינוי ממשי במדיניות ובתקציב בישראל, התפתחויות ביטחוניות, ותנועת הנפט והתשואות לעומת הסגירה הקודמת.',
+        'methodology':'סקירה אוטומטית ללא עלות נוספת. דיווחי החדשות מבוססים על כותרות מתוארכות; ההשלכות הן תרחישים לפי נושא, ולא ניתוח מלא של הכתבות או הסבר מוכח לתנועות השוק.'}

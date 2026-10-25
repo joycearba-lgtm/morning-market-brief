@@ -13,12 +13,12 @@ NOW = datetime.now(timezone.utc)
 MAX_AGE = timedelta(hours=52)
 FEEDS = [
     ("ישראל", "בורסה תל אביב ריבית בנק ישראל מניות שוק ההון when:2d", "he", "IL", "IL:he"),
-    ("חו״ל", "stocks Wall Street Federal Reserve Treasury inflation earnings when:2d", "en-US", "US", "US:en"),
+    ("חו״ל", '"Wall Street" OR "Federal Reserve" OR "Treasury yields" when:2d', "en-US", "US", "US:en"),
     ("מאקרו ארה״ב", "Federal Reserve inflation OR jobs OR economic growth when:2d", "en-US", "US", "US:en"),
     ("מאקרו ישראל", "בנק ישראל ריבית OR אינפלציה OR תוצר OR אבטלה when:2d", "he", "IL", "IL:he"),
-    ("בחירות", "בחירות לכנסת 2026 מפלגות סקרים קואליציה תקציב ממשלה when:2d", "he", "IL", "IL:he"),
-    ("ביטחון", "ישראל איראן ביטחון מלחמה הסלמה נפט סיכון כלכלי when:2d", "he", "IL", "IL:he"),
-    ("פיסקלי", "ישראל גירעון תקציב המדינה הוצאות ביטחון אגח ממשלתיות when:2d", "he", "IL", "IL:he"),
+    ("בחירות", "בחירות OR כנסת OR קואליציה when:2d", "he", "IL", "IL:he"),
+    ("ביטחון", 'ישראל (איראן OR הסלמה OR "הפסקת אש" OR ביטחון) when:2d', "he", "IL", "IL:he"),
+    ("פיסקלי", 'ישראל (גירעון OR "תקציב המדינה" OR "דירוג אשראי") when:2d', "he", "IL", "IL:he"),
     ("מאקרו ישראל", "עמלות בנקים פיקדונות עו״ש תשואות אגח ישראל when:2d", "he", "IL", "IL:he"),
     ("חו״ל", "Reuters Bloomberg stocks bond yields oil semiconductor earnings when:2d", "en-US", "US", "US:en"),
     ("ישראל", "גלובס כלכליסט שוק ההון מניות בנקים נדל״ן שער דולר when:2d", "he", "IL", "IL:he"),
@@ -77,7 +77,7 @@ def collect_news(group, query, language, country, edition):
         if key not in seen:
             seen.add(key)
             selected.append(item)
-        if len(selected) == 5:
+        if len(selected) == 10:
             break
     return selected
 
@@ -113,3 +113,4 @@ if news["items"] or news["macro_items"] or news["israel_focus"]:
             page.write_text(prefix + replacement + suffix, encoding="utf-8")
 
 print("News headlines:", len(news["items"]), "errors:", news["errors"])
+
