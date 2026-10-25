@@ -437,12 +437,7 @@ section.grid .card .value{font-size:11.5px!important}
 </p>
 </div></section>
 
-<section id="macro-surprises" style="margin:14px 0">
-<div class="section-title"><h2>מאקרו · בפועל מול צפי</h2><span></span></div>
-<div class="card" style="padding:12px 14px">
-<p id="surprise-status" class="sub" style="margin:0 0 7px">בודק פרסומים ותחזיות מאומתים…</p>
-<div id="surprise-items" style="display:grid;gap:8px"></div>
-</div></section>
+
 
 <section id="advisor-talking-points" style="margin:20px 0">
  <div class="section-title"><h2>נקודות מקצועיות לשיחה עם לקוחות</h2><span></span></div>
@@ -1062,44 +1057,7 @@ section.grid .card .value{font-size:11.5px!important}
 <!-- SURPRISE_SNAPSHOT_START -->
 <script type="application/json" id="surprise-snapshot">{"checked_at":"2026-10-25T17:38:18.536822+02:00","status":"ok","method":"Consensus snapshots are dated and independently sourced, never estimated from the official actual.","items":[{"id":"israel_cpi_yoy","region":"ישראל","title":"אינפלציה שנתית (CPI)","period":"2026-09","released":"2026-10-15","consensus":1.8,"forecast_source":"Investing.com economic calendar, Oct 15 2026","forecast_url":"https://www.investing.com/economic-calendar/israeli-cpi-880","actual_source":"הלמ״ס","actual":1.6,"expected":1.8,"surprise_pp":-0.2,"unit":"%","difference_unit":"percentage_points","actual_url":"https://api.cbs.gov.il/index/data/price?id=120010&last=16&coef=true&format=json&download=false&lang=en","interpretation":"אינפלציה נמוכה מהצפי עשויה לתמוך בציפיות להקלה מוניטרית; ההשפעה תלויה גם בשקל ובסיכוני האינפלציה."},{"id":"us_cpi","region":"ארה״ב","title":"אינפלציה שנתית (CPI)","period":"2026-09","released":"2026-10-14","consensus":3.6,"forecast_source":"Forex Factory release calendar: Oct 14 2026","forecast_url":"https://www.forexfactory.com/calendar/884-us-cpi-yy","actual_source":"BLS / FRED","actual":3.7,"expected":3.6,"surprise_pp":0.1,"unit":"%","difference_unit":"percentage_points","actual_url":"https://fred.stlouisfed.org/series/CPIAUCNS","interpretation":"אינפלציה גבוהה מהצפי עשויה לדחוף את ציפיות הריבית כלפי מעלה ולהכביד על אג״ח ארוכות."},{"id":"us_unemployment","region":"ארה״ב","title":"שיעור האבטלה","period":"2026-09","released":"2026-10-02","consensus":4.1,"forecast_source":"Investing.com economic calendar, Oct 2 2026","forecast_url":"https://www.investing.com/economiccalendar/unemployment-rate-300","actual_source":"BLS / FRED","actual":4.2,"expected":4.1,"surprise_pp":0.1,"unit":"%","difference_unit":"percentage_points","actual_url":"https://fred.stlouisfed.org/series/UNRATE","interpretation":"אבטלה גבוהה מהצפי עשויה להצביע על ריכוך בשוק העבודה, אך נדרשים גם נתוני משרות ושכר."}]}</script>
 <!-- SURPRISE_SNAPSHOT_END -->
-<script>
-(function(){
-  const status=document.getElementById('surprise-status'),box=document.getElementById('surprise-items');
-  function draw(data){
-    box.replaceChildren();
-    const t=Date.parse(data?.checked_at||'');
-    if(!Number.isFinite(t)||Date.now()-t>36*3600000||Date.now()<t-3600000){status.textContent='נתוני ההשוואה אינם מעודכנים';return;}
-    const items=(data.items||[]).slice(0,3).filter(x=>Number.isFinite(x.actual)&&Number.isFinite(x.expected)&&Number.isFinite(x.surprise_pp));
-    status.textContent='פרסומים אחרונים · הפער בנקודות אחוז';
-    const table=document.createElement('table');table.className='macro-compare';table.setAttribute('aria-label','מאקרו בפועל לעומת צפי');
-    const head=document.createElement('thead'),hr=document.createElement('tr');
-    for(const label of ['פרסום','בפועל','צפי','פער']){const th=document.createElement('th');th.scope='col';th.textContent=label;hr.append(th);}
-    head.append(hr);table.append(head);
-    const body=document.createElement('tbody'),more=document.createElement('details');
-    more.className='macro-compare-more';const toggle=document.createElement('summary');toggle.textContent='המשמעות והמקורות';more.append(toggle);
-    for(const x of items){
-      const row=document.createElement('tr'),name=document.createElement('th');name.scope='row';
-      name.textContent=x.region+' · '+String(x.title||'').replace(' (CPI)','');
-      const stamp=document.createElement('small');stamp.textContent=String(x.released||'').split('-').reverse().join('.');name.append(stamp);row.append(name);
-      [x.actual,x.expected,x.surprise_pp].forEach((v,i)=>{
-        const td=document.createElement('td'),n=document.createElement('span');n.dir='ltr';n.textContent=(i===2&&v>0?'+':'')+v.toFixed(1)+(i===2?'':'%');
-        if(i===2)td.style.color=v>0?'#9a3d25':v<0?'#176750':'#52616a';td.append(n);row.append(td);
-      });
-      body.append(row);
-      const section=document.createElement('section'),title=document.createElement('strong'),p=document.createElement('p');
-      title.textContent=x.region+' · '+x.title;p.textContent=x.interpretation||'';section.append(title,p);
-      for(const [label,raw] of [['נתון בפועל',x.actual_url],['תחזית לפני הפרסום',x.forecast_url]]){
-        try{const url=new URL(raw);if(url.protocol!=='https:')continue;const a=document.createElement('a');a.textContent=label;a.href=url.href;a.className='source';a.target='_blank';a.rel='noopener noreferrer';section.append(a);}catch{}
-      }
-      more.append(section);
-    }
-    table.append(body);box.append(table,more);
-    if(!items.length)status.textContent='אין כעת נתוני השוואה זמינים';
-  }
-  try{draw(JSON.parse(document.getElementById('surprise-snapshot').textContent));}catch{}
-  fetch('./macro_surprises.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(draw).catch(()=>{if(!box.children.length)status.textContent='ההשוואות עדיין אינן זמינות';});
-})();
-</script>
+
 <script>
 (function(){
  const select=document.getElementById('trend-index'),plot=document.getElementById('trend-plot'),status=document.getElementById('trend-status'),table=document.getElementById('trend-table');
