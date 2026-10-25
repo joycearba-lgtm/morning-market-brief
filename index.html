@@ -246,6 +246,11 @@ background:#f1f7eb;color:#426f32!important;font-size:13px!important;font-weight:
 </style><style id="daily-headline-style">
 .morning-overview .daily-editorial-headline{font-size:20px;line-height:1.45;margin:0 0 9px;color:#35692e;font-weight:800;overflow-wrap:break-word}
 @media(max-width:760px){.morning-overview .daily-editorial-headline{font-size:18px;line-height:1.45}}
+</style><style id="audio-speed-style">
+.daily-speed-controls:not([hidden]){display:flex;align-items:center;gap:6px;margin:7px 0 3px;font-size:11px;color:#5a715e}
+.daily-speed-controls button{border:1px solid #d4e3ca;background:#fff;color:#477238;padding:6px 12px;border-radius:8px;font-size:12px;min-height:36px;cursor:pointer}
+.daily-speed-controls button[aria-pressed="true"]{background:#e5f1db;border-color:#91b67d;color:#315d25;font-weight:700}
+.daily-speed-controls button:focus-visible{outline:2px solid #477238;outline-offset:2px}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -253,6 +258,12 @@ background:#f1f7eb;color:#426f32!important;font-size:13px!important;font-weight:
   <div class="daily-audio-head"><strong>🎧 סקירת הבוקר להאזנה</strong></div>
   <p id="daily-audio-status" aria-live="polite">בודק אם הקלטת הבוקר זמינה…</p>
   <audio id="daily-audio-player" controls preload="none" playsinline style="display:none;width:100%"></audio>
+  <div id="daily-speed-controls" class="daily-speed-controls" role="group" aria-label="מהירות ההאזנה" hidden>
+    <span>מהירות</span>
+    <button type="button" data-rate="0.85" aria-pressed="false">איטי</button>
+    <button type="button" data-rate="1" aria-pressed="true">רגיל</button>
+    <button type="button" data-rate="1.25" aria-pressed="false">מהיר</button>
+  </div>
   <details class="daily-audio-help"><summary>פרטי הקריינות</summary><p>אם ההקלטה עדיין לא זמינה, ניתן להאזין לסקירה כאן ב־ChatGPT. איכות הקריינות הניסיונית עשויה להשתנות. הקריינות מבוססת BlueTTS; קול ההקלטה נשען על דגימת LibriTTS-R ברישיון CC BY 4.0.</p></details>
 </section>
 <div class="notice" id="data-status">טוען את נתוני השוק האחרונים... נתונים שאינם זמינים יסומנו במפורש.</div>
@@ -767,6 +778,26 @@ background:#f1f7eb;color:#426f32!important;font-size:13px!important;font-weight:
   const player=document.getElementById('daily-audio-player');
   const status=document.getElementById('daily-audio-status');
   if(!player||!status)return;
+  const speedControls=document.getElementById('daily-speed-controls');
+  const rates=[0.85,1,1.25],speedKey='market-brief-audio-rate';
+  let chosenRate=1;
+  try{const saved=Number(localStorage.getItem(speedKey));if(rates.includes(saved))chosenRate=saved;}catch{}
+  function applyRate(){
+    player.defaultPlaybackRate=chosenRate;player.playbackRate=chosenRate;
+    player.preservesPitch=true;
+    speedControls?.querySelectorAll('button[data-rate]').forEach(button=>{
+      button.setAttribute('aria-pressed',String(Number(button.dataset.rate)===chosenRate));
+    });
+  }
+  speedControls?.addEventListener('click',event=>{
+    const button=event.target.closest('button[data-rate]');if(!button)return;
+    const rate=Number(button.dataset.rate);if(!rates.includes(rate))return;
+    chosenRate=rate;applyRate();
+    try{localStorage.setItem(speedKey,String(rate));}catch{}
+  });
+  player.addEventListener('loadedmetadata',applyRate);
+  player.addEventListener('play',applyRate);
+  applyRate();
   const todayFields=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jerusalem',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
   const datePart=type=>todayFields.find(x=>x.type===type)?.value;
   const today=[datePart('year'),datePart('month'),datePart('day')].join('-');
@@ -791,14 +822,14 @@ background:#f1f7eb;color:#426f32!important;font-size:13px!important;font-weight:
       if(info.status!=='ok'||info.date!==today||brief.date!==today||info.file!=='audio/morning-brief.mp3'||info.content_hash!==hash||info.coverage!=='full_editorial')
         throw Error('Audio does not match current briefing');
       player.src='./audio/morning-brief.mp3?v='+encodeURIComponent(info.generated_at);
-      player.style.display='block';
+      player.style.display='block';if(speedControls)speedControls.hidden=false;
       const time=new Date(info.generated_at).toLocaleTimeString('he-IL',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit'});
       const seconds=Number(info.duration_seconds);
       const duration=Number.isFinite(seconds)?' · '+Math.floor(seconds/60)+':'+String(Math.round(seconds%60)).padStart(2,'0')+' דקות':'';
       status.textContent='תואמת לסקירה הנוכחית · הוכנה '+time+duration;
-      player.addEventListener('error',()=>{player.style.display='none';status.textContent='קובץ ההקלטה אינו זמין כרגע.';});
+      player.addEventListener('error',()=>{player.style.display='none';if(speedControls)speedControls.hidden=true;status.textContent='קובץ ההקלטה אינו זמין כרגע.';});
     })
-    .catch(()=>{player.style.display='none';status.textContent='הקלטה תוצג כאן לאחר שתהיה מוכנה ותתאים לסקירה הנוכחית.';});
+    .catch(()=>{player.style.display='none';if(speedControls)speedControls.hidden=true;status.textContent='הקלטה תוצג כאן לאחר שתהיה מוכנה ותתאים לסקירה הנוכחית.';});
 
 })();
 </script>
