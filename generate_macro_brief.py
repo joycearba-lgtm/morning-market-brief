@@ -641,6 +641,54 @@ if fresh and sections:
                                       "אין להציג סקירת רקע כאילו היא אירוע חדש מהבוקר."],
                            "sources":[]})
 
+
+# Focus the published report on today's market developments.
+# Existing official forecasts remain available as context, but no longer crowd out news.
+if fresh and sections:
+    event_section=next((x for x in sections if x.get("heading","").startswith("אירועי השוק האחרונים")),None)
+    static_by_title={x.get("heading",""):x for x in sections if x is not event_section}
+    global_section=static_by_title.get("גלובלי — צמיחה ותמונת המשק")
+    monetary_section=static_by_title.get("מדיניות מוניטרית — הפד ואירופה")
+    israeli_section=static_by_title.get("ישראל — צמיחה, תקציב וסיכון")
+    market_section=static_by_title.get("מניות, תמחור ואנרגיה")
+    fresh_report=[]
+    if event_section:
+        event_section["heading"]="ההתפתחויות החשובות בבוקר — ומה המשמעות לתיק"
+        fresh_report.append(event_section)
+    if market_section and market_section.get("bullets"):
+        fresh_report.append({"heading":"התנהגות השוק — מה לבדוק בנתונים",
+                             "bullets":market_section["bullets"][:2],
+                             "sources":market_section.get("sources",[])})
+    # Context is dated explicitly; avoid making an old IMF/BoI estimate look like
+    # a new release. Show one material fact per geography instead of long repetition.
+    background=[]
+    refs=[]
+    if monetary_section:
+        monetary_bullets=monetary_section.get("bullets",[])
+        if monetary_bullets:
+            background.append("רקע מתוארך — "+monetary_bullets[0])
+            refs.extend(monetary_section.get("sources",[])[:1])
+    if israeli_section:
+        for line in israeli_section.get("bullets",[])[:2]:
+            if "תחזית בנק ישראל" in line or "תחזית הבנק" in line:
+                background.append("רקע מתוארך — "+line)
+                break
+        refs.extend(israeli_section.get("sources",[])[:1])
+    if global_section and not background and global_section.get("bullets"):
+        background.append("רקע מתוארך — "+global_section["bullets"][0])
+        refs.extend(global_section.get("sources",[])[:1])
+    if background:
+        fresh_report.append({"heading":"רקע מאקרו קצר — לא פרסום חדש מהיום",
+                             "bullets":background[:2],"sources":refs[:2]})
+    sections=fresh_report
+    # If fresh news exists, the client points should be driven by those events
+    # alone; do not fill empty slots with unrelated standing talking points.
+    dated_points=[point for point in advisor if isinstance(point,dict) and point.get("event_date")]
+    if event_section and dated_points:
+        advisor=dated_points[:3]
+    # Three isn't a quota: one genuinely relevant point is better than three
+    # recycled ones. Clearly dated reference fields prevent stale-news confusion.
+
 brief = {
     "date": date, "generated_at": now.isoformat(), "valid_until": datetime.combine(now.date() + timedelta(days=1), time(hour=9), tzinfo=TZ).isoformat(),
     "title": title, "status": status,
