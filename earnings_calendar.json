@@ -1,0 +1,56 @@
+{
+  "checked_at": "2026-10-25T19:54:08+02:00",
+  "items": [
+    {
+      "company": "Alphabet",
+      "ticker": "GOOGL",
+      "report_date": "2026-10-28",
+      "release_window": "לפני שיחת המשקיעים",
+      "call_at": "2026-10-28T22:30:00+02:00",
+      "source_url": "https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Date-of-Third-Quarter-2026-Financial-Results-Conference-Call-2026-8tpGZsLS6v/default.aspx",
+      "confirmed": true,
+      "expires_at": "2026-10-28T22:30:00+02:00"
+    },
+    {
+      "company": "Microsoft",
+      "ticker": "MSFT",
+      "report_date": "2026-10-28",
+      "release_window": "אחרי המסחר בארה״ב",
+      "call_at": "2026-10-28T23:30:00+02:00",
+      "source_url": "https://news.microsoft.com/source/2026/10/07/microsoft-announces-quarterly-earnings-release-date-69/",
+      "confirmed": true,
+      "expires_at": "2026-10-28T23:30:00+02:00"
+    },
+    {
+      "company": "Amazon",
+      "ticker": "AMZN",
+      "report_date": "2026-10-29",
+      "release_window": "שעת הפרסום לא צוינה",
+      "call_at": "2026-10-29T23:00:00+02:00",
+      "source_url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-to-Webcast-Third-Quarter-2026-Financial-Results-Conference-Call/default.aspx",
+      "confirmed": true,
+      "expires_at": "2026-10-29T23:00:00+02:00"
+    },
+    {
+      "company": "Intel",
+      "ticker": "INTC",
+      "report_date": "2026-10-29",
+      "release_window": "אחרי המסחר בארה״ב",
+      "call_at": "2026-10-29T23:00:00+02:00",
+      "source_url": "https://www.intc.com/news-events/press-releases/detail/1782/intel-to-report-third-quarter-2026-financial-results",
+      "confirmed": true,
+      "expires_at": "2026-10-29T23:00:00+02:00"
+    },
+    {
+      "company": "ExxonMobil",
+      "ticker": "XOM",
+      "report_date": "2026-10-30",
+      "release_window": "לפני המסחר בארה״ב",
+      "release_at": "2026-10-30T12:30:00+02:00",
+      "call_at": "2026-10-30T15:30:00+02:00",
+      "source_url": "https://investor.exxonmobil.com/company-information/press-releases/detail/1212/exxonmobil-to-release-third-quarter-2026-financial-results",
+      "confirmed": true,
+      "expires_at": "2026-10-30T12:30:00+02:00"
+    }
+  ]
+}
