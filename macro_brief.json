@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "generated_at": "2026-10-25T07:21:19.084406+02:00",
+  "generated_at": "2026-10-25T07:22:17.846789+02:00",
   "valid_until": "2026-10-26T09:00:00+02:00",
   "title": "סקירה כלכלית מקצועית — עולם וישראל",
   "status": "automatic_conditional",
@@ -9,22 +9,12 @@
     {
       "heading": "ההתפתחויות החשובות בבוקר — ומה המשמעות לתיק",
       "bullets": [
-        "בנקאות, עמלות ותחרות — על פי דיווח של TheMarker מ־25.10.2026: 1.6 מיליון חשבונות, 4.3 מיליארד שקל - והבנקים עדיין חוגגים על העמלות שלכם - שוק ההון. הדיווח על הבנקאות נוגע לעלות השירות והתשואה נטו ללקוח; אינו כשלעצמו הוכחה לשינוי ברווחי מניות הבנקים. זו השלכה אפשרית ולא ייחוס סיבתי מאומת.",
-        "תקציב ומימון — על פי דיווח של TheMarker מ־25.10.2026: שלוש שריפות, ואין במה לכבות: צרפת מדגימה איך חוב ציבורי הופך למדורה - שוק ההון. דיווח על חוב ציבורי באירופה מעלה שאלות על תמחור אג״ח מדינה, גירעונות ותשואות באירופה; אין להסיק ממנו על האג״ח הישראליות ללא נתונים נוספים. זו השלכה אפשרית ולא ייחוס סיבתי מאומת.",
-        "שוק המניות — על פי דיווח של גלובס מ־23.10.2026: מדד ת״א 35 סוגר שבוע שלילי. ומי הסקטור שהוסיף 4.5%. הדיווח עשוי להיות רלוונטי לרוחב העליות או הירידות ולרווחי החברות, ולא רק למדד הכותרת. זו השלכה אפשרית ולא ייחוס סיבתי מאומת."
+        "בנקאות, עמלות ותחרות — על פי דיווח של TheMarker מ־25.10.2026: 1.6 מיליון חשבונות, 4.3 מיליארד שקל - והבנקים עדיין חוגגים על העמלות שלכם - שוק ההון. הדיווח על הבנקאות נוגע לעלות השירות והתשואה נטו ללקוח; אינו כשלעצמו הוכחה לשינוי ברווחי מניות הבנקים. זו השלכה אפשרית ולא ייחוס סיבתי מאומת."
       ],
       "sources": [
         {
           "label": "TheMarker · 25.10.2026",
           "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNOXNBVU92Q0lXSm1wcTRtT21ZRWdxWlN5RUdzNVdwb0k3bnRpY0RIaXk2MndFVWoybnc3d0JmR3BLcDYxOU1lY293RUpzWXU3NkZSSFAzS21kZ2ZlMS1rdHpsdS1kZVpfNVZOZEVndmFkNDQ1R3JVY2FOYjFNRUhxRl9fdkZLRnpNXzZldGh6bGpSQ2U0SVoxLUg2QWFCZUEtX2hnaEp3?oc=5"
-        },
-        {
-          "label": "TheMarker · 25.10.2026",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbk5uWUtPRlprZGJ3U29BR1Z2cG90enMzTGxZdzlvWEk5V0djMWlMcWpMSTJ2XzVtb0RFRTFpOU1NamdyVEhoNmJWXzJ1QlpUdENJaTVKTUdDSUVzLUtFTEN1QVUzbjJrT1RndmJPWHZnZ29xYzJDbm41S0J3eHg5ZUpGaUE3Y2JhVU12d3J3NmxVVkl4OWxQa0VObTNNazJ1VGR5Ml9n?oc=5"
-        },
-        {
-          "label": "גלובס · 23.10.2026",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5icHh0b3lhT1djQkhwdF9zV0gtUWl5WWxrYVdkLUhRc0t2UE1Ha2wtODF0MkstS1RTdTROcURpYkRKUDdaZnNqMmJ0VHU0WUktMmxkRzFGVGJVUklaSVFnMURrOWx5V29l?oc=5"
         }
       ]
     },
@@ -64,24 +54,6 @@
       "reference": "TheMarker · 25.10.2026",
       "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNOXNBVU92Q0lXSm1wcTRtT21ZRWdxWlN5RUdzNVdwb0k3bnRpY0RIaXk2MndFVWoybnc3d0JmR3BLcDYxOU1lY293RUpzWXU3NkZSSFAzS21kZ2ZlMS1rdHpsdS1kZVpfNVZOZEVndmFkNDQ1R3JVY2FOYjFNRUhxRl9fdkZLRnpNXzZldGh6bGpSQ2U0SVoxLUg2QWFCZUEtX2hnaEp3?oc=5",
       "event_date": "2026-10-25"
-    },
-    {
-      "title": "תקציב ומימון — מה לבדוק בעקבות הדיווח?",
-      "insight": "על פי דיווח של TheMarker מ־25.10.2026: שלוש שריפות, ואין במה לכבות: צרפת מדגימה איך חוב ציבורי הופך למדורה - שוק ההון.",
-      "client_impact": "דיווח על חוב ציבורי באירופה מעלה שאלות על תמחור אג״ח מדינה, גירעונות ותשואות באירופה; אין להסיק ממנו על האג״ח הישראליות ללא נתונים נוספים. יש לבדוק אם השוק כבר תימחר את האירוע.",
-      "question": "לבחון חשיפה לאג״ח ממשלת אירופה, מח״מ, פיזור גיאוגרפי ושינוי במרווחים.",
-      "reference": "TheMarker · 25.10.2026",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbk5uWUtPRlprZGJ3U29BR1Z2cG90enMzTGxZdzlvWEk5V0djMWlMcWpMSTJ2XzVtb0RFRTFpOU1NamdyVEhoNmJWXzJ1QlpUdENJaTVKTUdDSUVzLUtFTEN1QVUzbjJrT1RndmJPWHZnZ29xYzJDbm41S0J3eHg5ZUpGaUE3Y2JhVU12d3J3NmxVVkl4OWxQa0VObTNNazJ1VGR5Ml9n?oc=5",
-      "event_date": "2026-10-25"
-    },
-    {
-      "title": "שוק המניות — מה לבדוק בעקבות הדיווח?",
-      "insight": "על פי דיווח של גלובס מ־23.10.2026: מדד ת״א 35 סוגר שבוע שלילי. ומי הסקטור שהוסיף 4.5%.",
-      "client_impact": "הדיווח עשוי להיות רלוונטי לרוחב העליות או הירידות ולרווחי החברות, ולא רק למדד הכותרת. יש לבדוק אם השוק כבר תימחר את האירוע.",
-      "question": "לבדוק תרומה ענפית, ריכוזיות בתיק והאם מדובר בסגירה אחרונה או במסחר פעיל.",
-      "reference": "גלובס · 23.10.2026",
-      "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5icHh0b3lhT1djQkhwdF9zV0gtUWl5WWxrYVdkLUhRc0t2UE1Ha2wtODF0MkstS1RTdTROcURpYkRKUDdaZnNqMmJ0VHU0WUktMmxkRzFGVGJVUklaSVFnMURrOWx5V29l?oc=5",
-      "event_date": "2026-10-23"
     }
   ]
 }
