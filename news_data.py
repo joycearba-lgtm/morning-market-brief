@@ -19,9 +19,12 @@ FEEDS = [
     ("בחירות", "בחירות לכנסת 2026 מפלגות סקרים קואליציה תקציב ממשלה when:2d", "he", "IL", "IL:he"),
     ("ביטחון", "ישראל איראן ביטחון מלחמה הסלמה נפט סיכון כלכלי when:2d", "he", "IL", "IL:he"),
     ("פיסקלי", "ישראל גירעון תקציב המדינה הוצאות ביטחון אגח ממשלתיות when:2d", "he", "IL", "IL:he"),
+    ("מאקרו ישראל", "עמלות בנקים פיקדונות עו״ש תשואות אגח ישראל when:2d", "he", "IL", "IL:he"),
+    ("חו״ל", "Reuters Bloomberg stocks bond yields oil semiconductor earnings when:2d", "en-US", "US", "US:en"),
+    ("ישראל", "גלובס כלכליסט שוק ההון מניות בנקים נדל״ן שער דולר when:2d", "he", "IL", "IL:he"),
 ]
 MARKET_TERMS = re.compile(
-    r"בורסה|מניות|שוק ההון|ריבית|אינפלצי|אג״ח|שקל|דולר|בנק ישראל|מדד|בחירות|כנסת|ממשלה|קואליצי|תקציב|גירעון|ביטחון|בטחוני|לחימה|איראן|הסלמה|מלחמה|נפט|"
+    r"בורסה|מניות|שוק ההון|ריבית|עמלות|עו״ש|בנקים|פיקדונ|פקדונ|אינפלצי|אג״ח|שקל|דולר|בנק ישראל|מדד|בחירות|כנסת|ממשלה|קואליצי|תקציב|גירעון|ביטחון|בטחוני|לחימה|איראן|הסלמה|מלחמה|נפט|"
     r"stocks?|shares?|market|wall street|federal reserve|fed |treasury|bond|"
     r"inflation|interest rate|nasdaq|s&p|earnings|oil price|gold price|economy|gdp|payroll|unemployment|צמיחה|תוצר|גירעון|אבטלה",
     re.IGNORECASE
@@ -74,7 +77,7 @@ def collect_news(group, query, language, country, edition):
         if key not in seen:
             seen.add(key)
             selected.append(item)
-        if len(selected) == 3:
+        if len(selected) == 5:
             break
     return selected
 
