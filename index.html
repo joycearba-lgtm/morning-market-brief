@@ -243,6 +243,9 @@ background:#f1f7eb;color:#426f32!important;font-size:13px!important;font-weight:
 .freshness-session{color:#35664a;background:#edf4e9}
 .freshness-upcoming{color:#4f6655;background:#f0f5eb}
 #advisor-points .freshness-badge{margin:0;justify-self:start}
+</style><style id="daily-headline-style">
+.morning-overview .daily-editorial-headline{font-size:20px;line-height:1.45;margin:0 0 9px;color:#35692e;font-weight:800;overflow-wrap:break-word}
+@media(max-width:760px){.morning-overview .daily-editorial-headline{font-size:18px;line-height:1.45}}
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()">הדפסה / שמירה כ־PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
@@ -513,7 +516,7 @@ background:#f1f7eb;color:#426f32!important;font-size:13px!important;font-weight:
    }
    const firstSentence=value=>{
      const text=String(value||'').trim();
-     const match=text.match(/^.*?[.!?](?=\\s|$)/);
+     const match=text.match(/^.*?[.!?](?=\s|$)/);
      return match?match[0]:text;
    };
    const intro=brief.sections.find(s=>/תמונת|הסיפור|פתיחה/.test(s.heading||''));
@@ -528,7 +531,10 @@ background:#f1f7eb;color:#426f32!important;font-size:13px!important;font-weight:
    ].filter(([,value])=>typeof value==='string'&&value.trim());
    if(items.length){
      const overview=document.createElement('section');overview.className='morning-overview';
-     const title=document.createElement('h3');title.textContent='מה חדש הבוקר';overview.append(title);
+     const title=document.createElement('h3');
+     const headline=typeof brief.title==='string'?brief.title.replace(/^סקירת (?:הבוקר|שווקים)\s*[—–:|·-]\s*/,'').trim():'';
+     title.textContent=headline||'מה חדש הבוקר';
+     title.className='daily-editorial-headline';overview.append(title);
      for(const [label,value] of items){
        const p=document.createElement('p'),strong=document.createElement('strong');
        strong.textContent=label+': ';p.append(strong,document.createTextNode(value));overview.append(p);
