@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-25T09:24:33.207068+02:00",
+  "checked_at": "2026-10-25T17:23:14.962101+02:00",
   "status": "ok",
   "indicators": {
     "us_cpi": {
@@ -55,7 +55,7 @@
       "name": "Fed funds target lower bound",
       "value": 3.75,
       "units": "%",
-      "observation_date": "2026-10-24",
+      "observation_date": "2026-10-25",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFEDTARL",
       "series_id": "DFEDTARL",
@@ -67,7 +67,7 @@
       "name": "Fed funds target upper bound",
       "value": 4.0,
       "units": "%",
-      "observation_date": "2026-10-24",
+      "observation_date": "2026-10-25",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
       "series_id": "DFEDTARU",
