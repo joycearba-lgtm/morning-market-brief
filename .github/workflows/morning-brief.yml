@@ -17,9 +17,9 @@ on:
       - 'macro_surprises.py'
       - '.github/workflows/morning-brief.yml'
   schedule:
-    # Israel 08:12 every day (including weekends), with timezone gate preventing duplicate runs
-    - cron: '12 5 * * *'
-    - cron: '12 6 * * *'
+    # Prepare before 08:00 Israel; select the UTC schedule by local offset, even if GitHub delays delivery
+    - cron: '30 4 * * *'
+    - cron: '30 5 * * *'
 
 permissions:
   contents: write
@@ -39,8 +39,9 @@ jobs:
         id: israel_time
         shell: bash
         run: |
-          HOUR=$(TZ=Asia/Jerusalem date +%H)
-          if [ "${{ github.event_name }}" != "schedule" ] || [ "$HOUR" = "08" ]; then
+          OFFSET=$(TZ=Asia/Jerusalem date +%z)
+          SCHEDULE="${{ github.event.schedule }}"
+          if [ "${{ github.event_name }}" != "schedule" ] || { [ "$OFFSET" = "+0300" ] && [ "$SCHEDULE" = "30 4 * * *" ]; } || { [ "$OFFSET" = "+0200" ] && [ "$SCHEDULE" = "30 5 * * *" ]; }; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
