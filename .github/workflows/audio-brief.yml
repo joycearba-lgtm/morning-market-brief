@@ -12,6 +12,7 @@ on:
       - 'macro_brief.json'
       - 'generate_audio.py'
       - 'audio_content.py'
+      - 'publish_audio.py'
       - '.github/workflows/audio-brief.yml'
   schedule:
     # 09:30 local Israel; second UTC slot is skipped by the local-hour gate.
@@ -23,7 +24,7 @@ permissions:
 
 concurrency:
   group: daily-hebrew-audio
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   narrate:
@@ -31,25 +32,49 @@ jobs:
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Check Israel audio time
         id: local_time
         shell: bash
         run: |
-          HOUR=$(TZ=Asia/Jerusalem date +%H)
+          OFFSET=$(TZ=Asia/Jerusalem date +%z)
+          SCHEDULE="${{ github.event.schedule }}"
           if [ "${{ github.event_name }}" = "workflow_run" ] && [ "${{ github.event.workflow_run.conclusion }}" != "success" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event_name }}" != "schedule" ] || [ "$HOUR" = "09" ]; then
+          elif [ "${{ github.event_name }}" != "schedule" ] || { [ "$OFFSET" = "+0300" ] && [ "$SCHEDULE" = "30 6 * * *" ]; } || { [ "$OFFSET" = "+0200" ] && [ "$SCHEDULE" = "30 7 * * *" ]; }; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
           fi
+      - name: Reuse an already matching recording
+        id: recording
+        if: steps.local_time.outputs.run == 'true'
+        run: |
+          python - <<'PYCODE'
+          import json, os
+          from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          from publish_audio import matches
+          try:
+              brief=json.loads(Path('macro_brief.json').read_text())
+              info=json.loads(Path('daily_audio.json').read_text())
+              audio=Path('audio/morning-brief.mp3')
+              ready=(matches(info,brief) and brief.get('date')==datetime.now(ZoneInfo('Asia/Jerusalem')).date().isoformat()
+                     and audio.is_file() and audio.stat().st_size>1000)
+          except (OSError,ValueError):
+              ready=False
+          with open(os.environ['GITHUB_OUTPUT'],'a') as output:
+              output.write('ready='+str(ready).lower()+'\n')
+          PYCODE
       - name: Set up Python 3.12
         if: steps.local_time.outputs.run == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install free neural TTS runtime
-        if: steps.local_time.outputs.run == 'true'
+        if: steps.local_time.outputs.run == 'true' && steps.recording.outputs.ready != 'true'
         id: install
         continue-on-error: true
         timeout-minutes: 9
@@ -58,50 +83,15 @@ jobs:
           python -c 'from blue_onnx import BlueTTS; import imageio_ffmpeg; print("BlueTTS and FFmpeg ready", imageio_ffmpeg.get_ffmpeg_exe())'
 
       - name: Create daily audio file
-        if: steps.local_time.outputs.run == 'true' && steps.install.outcome == 'success'
+        if: steps.local_time.outputs.run == 'true' && steps.recording.outputs.ready != 'true' && steps.install.outcome == 'success'
         id: synth
         continue-on-error: true
         timeout-minutes: 22
         run: python -u generate_audio.py
 
       - name: Publish recording or diagnostic status
-        if: always() && steps.local_time.outputs.run == 'true'
+        if: always() && !cancelled() && steps.local_time.outputs.run == 'true' && steps.recording.outputs.ready != 'true'
         env:
           INSTALL_OUTCOME: ${{ steps.install.outcome }}
           SYNTH_OUTCOME: ${{ steps.synth.outcome }}
-        run: |
-          python - <<'PY'
-          import json,os
-          from audio_content import content_hash
-          from datetime import datetime
-          from pathlib import Path
-          from zoneinfo import ZoneInfo
-          today=datetime.now(ZoneInfo("Asia/Jerusalem")).date().isoformat()
-          audio=Path("audio/morning-brief.mp3")
-          manifest=Path("daily_audio.json")
-          complete=os.environ.get("SYNTH_OUTCOME")=="success" and audio.is_file() and audio.stat().st_size>1000 and manifest.is_file()
-          if complete:
-              result=json.loads(manifest.read_text(encoding="utf-8"))
-              brief=json.loads(Path("macro_brief.json").read_text(encoding="utf-8"))
-              complete=(result.get("date")==today and result.get("status")=="ok"
-                        and result.get("content_hash")==content_hash(brief)
-                        and result.get("coverage")=="full_editorial")
-          if not complete:
-              reason=("dependency_installation_failed" if os.environ.get("INSTALL_OUTCOME")!="success"
-                      else "audio_generation_failed" if os.environ.get("SYNTH_OUTCOME")!="success"
-                      else "no_valid_audio_file")
-              result={"date":today,"status":"unavailable","reason":reason,
-                      "checked_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat()}
-              manifest.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
-              print("Daily audio unavailable:",reason)
-          else: print("Daily audio ready:",audio.stat().st_size,"bytes")
-          PY
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f daily_audio.json
-          if [ -s audio/morning-brief.mp3 ]; then git add -f audio/morning-brief.mp3; fi
-          if ! git diff --cached --quiet; then
-            git commit -m "Publish daily Hebrew audio status"
-            git pull --rebase
-            git push
-          fi
+        run: python publish_audio.py
