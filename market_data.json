@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-27T08:01:45.888872+02:00",
+  "updated_at": "2026-10-27T08:07:22.489940+02:00",
   "source": "Bank of Israel",
   "usd_ils": 3.078,
   "rate_date": "2026-10-26T13:22:03.8272789Z",
@@ -18453,11 +18453,11 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 100.88,
-      "change_percent": -0.86,
+      "value": 100.94,
+      "change_percent": -0.81,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793080304
+      "market_time": 1793080640
     },
     "Gold futures": {
       "history": [
@@ -18549,11 +18549,11 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 4023.8,
-      "change_percent": -0.36,
+      "value": 4023.2,
+      "change_percent": -0.38,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793080292
+      "market_time": 1793080640
     }
   },
   "treasury_10y": {
