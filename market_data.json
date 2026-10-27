@@ -1,20 +1,12 @@
 {
-  "updated_at": "2026-10-26T08:14:08.464535+02:00",
+  "updated_at": "2026-10-27T08:01:45.888872+02:00",
   "source": "Bank of Israel",
-  "usd_ils": 3.112,
-  "rate_date": "2026-10-23T09:25:06.0734118Z",
+  "usd_ils": 3.078,
+  "rate_date": "2026-10-26T13:22:03.8272789Z",
   "status": "ok",
   "indices": {
     "S&P 500": {
       "history": [
-        {
-          "date": "2021-10-25",
-          "close": 4566.48
-        },
-        {
-          "date": "2021-10-26",
-          "close": 4574.79
-        },
         {
           "date": "2021-10-27",
           "close": 4551.6802
@@ -5026,27 +5018,23 @@
         {
           "date": "2026-10-23",
           "close": 7623.6802
+        },
+        {
+          "date": "2026-10-26",
+          "close": 7676.77
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 7623.68,
-      "change_percent": -0.52,
+      "value": 7676.77,
+      "change_percent": 0.7,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792787901
+      "market_time": 1793047423
     },
     "Nasdaq Composite": {
       "history": [
-        {
-          "date": "2021-10-25",
-          "close": 15226.71
-        },
-        {
-          "date": "2021-10-26",
-          "close": 15235.71
-        },
         {
           "date": "2021-10-27",
           "close": 15235.8398
@@ -10058,27 +10046,23 @@
         {
           "date": "2026-10-23",
           "close": 25955.3398
+        },
+        {
+          "date": "2026-10-26",
+          "close": 26169.3809
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 25955.34,
-      "change_percent": -0.21,
+      "value": 26169.38,
+      "change_percent": 0.82,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792790159
+      "market_time": 1793049359
     },
     "Dow Jones": {
       "history": [
-        {
-          "date": "2026-09-24",
-          "close": 51349.9805
-        },
-        {
-          "date": "2026-09-25",
-          "close": 51828.6211
-        },
         {
           "date": "2026-09-28",
           "close": 51481.5117
@@ -10158,23 +10142,23 @@
         {
           "date": "2026-10-23",
           "close": 52215.1602
+        },
+        {
+          "date": "2026-10-26",
+          "close": 52361.5781
         }
       ],
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 52215.16,
-      "change_percent": -1.23,
+      "value": 52361.58,
+      "change_percent": 0.28,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792788175
+      "market_time": 1793047421
     },
     "TA-35": {
       "history": [
-        {
-          "date": "2021-10-25",
-          "close": 1868.97
-        },
         {
           "date": "2021-10-26",
           "close": 1871.67
@@ -14258,23 +14242,23 @@
         {
           "date": "2026-10-23",
           "close": 4124.1299
+        },
+        {
+          "date": "2026-10-26",
+          "close": 4206.3501
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 4124.13,
-      "change_percent": -1.01,
+      "value": 4206.35,
+      "change_percent": 1.99,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792752240
+      "market_time": 1793028288
     },
     "TA-125": {
       "history": [
-        {
-          "date": "2021-10-25",
-          "close": 1933.35
-        },
         {
           "date": "2021-10-26",
           "close": 1938.59
@@ -18362,16 +18346,20 @@
         {
           "date": "2026-10-23",
           "close": 4034.99
+        },
+        {
+          "date": "2026-10-26",
+          "close": 4108.0498
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 4034.99,
-      "change_percent": -0.81,
+      "value": 4108.05,
+      "change_percent": 1.81,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792752242
+      "market_time": 1793028700
     }
   },
   "commodities": {
@@ -18456,16 +18444,20 @@
         {
           "date": "2026-10-23",
           "close": 103.27
+        },
+        {
+          "date": "2026-10-26",
+          "close": 101.76
         }
       ],
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 100.89,
-      "change_percent": -2.3,
+      "value": 100.88,
+      "change_percent": -0.86,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792994646
+      "market_time": 1793080304
     },
     "Gold futures": {
       "history": [
@@ -18548,24 +18540,28 @@
         {
           "date": "2026-10-23",
           "close": 4007.8999
+        },
+        {
+          "date": "2026-10-26",
+          "close": 4038.3999
         }
       ],
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 4024.4,
-      "change_percent": 0.41,
+      "value": 4023.8,
+      "change_percent": -0.36,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1792994647
+      "market_time": 1793080292
     }
   },
   "treasury_10y": {
     "status": "ok",
     "value": 4.99,
-    "change_bps": 3.5,
+    "change_bps": -0.2,
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
-    "market_time": 1792781996
+    "market_time": 1793041192
   }
 }
