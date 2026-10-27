@@ -3,7 +3,6 @@ import json
 from datetime import datetime, timedelta, time
 from pathlib import Path
 from zoneinfo import ZoneInfo
-from market_editorial import build
 TZ=ZoneInfo('Asia/Jerusalem')
 def load(path):
     try: return json.loads(Path(path).read_text(encoding='utf-8'))
@@ -33,10 +32,15 @@ candidate=load('researched_brief.json')
 if current_research(candidate,now):
     brief=candidate
 else:
-    report=build(load('market_data.json'),load('news_data.json'),now)
-    brief=dict(report,date=now.date().isoformat(),generated_at=now.isoformat(),
-        valid_until=datetime.combine(now.date()+timedelta(days=1),time(hour=9),tzinfo=TZ).isoformat(),
-        title='סקירת הבוקר — ישראל והעולם',status='automatic_conditional',editorial_mode='headlines')
+    # Quote collection cannot replace researched analysis with headline templates.
+    # Preserve the original date and timestamp; the editorial audit reports delay.
+    published=load('macro_brief.json')
+    options=[b for b in (candidate,published)
+             if b.get('editorial_mode')=='researched' and b.get('sections')]
+    if not options:
+        raise SystemExit('No researched editorial available; refusing headline substitution')
+    brief=max(options,key=lambda b:b.get('generated_at',''))
+    print('Awaiting current-day researched brief; retaining '+str(brief.get('date')))
 Path('macro_brief.json').write_text(json.dumps(brief,ensure_ascii=False,indent=2),encoding='utf-8')
 page=Path('index.html')
 if page.exists():
@@ -48,3 +52,4 @@ if page.exists():
         _,suffix=rest.split(end,1)
         page.write_text(prefix+start+'\n<script id="editorial-macro" type="application/json">'+payload+'</script>\n'+end+suffix,encoding='utf-8')
 print(f"Brief {brief['date']}: {len(brief['sections'])} sections, {len(brief['advisor'])} client points")
+

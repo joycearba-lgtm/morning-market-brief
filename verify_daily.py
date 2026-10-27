@@ -11,6 +11,8 @@ import sys
 now = datetime.now(ZoneInfo("Asia/Jerusalem"))
 today = now.date().isoformat()
 issues, warnings = [], []
+editorial_issues = []
+allow_pending = '--allow-pending-editorial' in sys.argv
 
 def load(name):
     try:
@@ -39,7 +41,20 @@ for filename, data, key in [
         issues.append(f"{filename}: no timestamp for {today}")
 
 if brief.get("date")!=today or brief.get("status")!="automatic_conditional":
-    issues.append("macro_brief.json: missing valid current-day briefing")
+    editorial_issues.append("macro_brief.json: missing valid current-day briefing")
+if brief.get('editorial_mode')!='researched':
+    editorial_issues.append('macro_brief.json: headlines are not a researched editorial')
+generated=timestamp(brief.get('generated_at'))
+until=timestamp(brief.get('valid_until'))
+if not generated or generated>now+timedelta(minutes=5) or not until or until<=now:
+    editorial_issues.append('macro_brief.json: invalid or expired editorial timestamp')
+points=brief.get('advisor')
+if not isinstance(points,list) or not 1<=len(points)<=3 or not all(
+        isinstance(p,dict) and p.get('title') and p.get('insight')
+        and str(p.get('source_url','')).startswith('https://')
+        and timestamp(str(p.get('event_date',''))+'T00:00:00+00:00')
+        for p in points):
+    editorial_issues.append('macro_brief.json: missing sourced client points')
 # Editorial content must cover both geographies, without padding it with quote tables.
 sections=brief.get("sections")
 required_headings={"ישראל — האירועים והמשמעות לשווקים","העולם — מה עומד במוקד"}
@@ -67,15 +82,26 @@ if not page.exists():
     issues.append("index.html missing")
 else:
     html=page.read_text(encoding="utf-8")
-    if f'"date":"{today}"' not in html:
-        issues.append("index.html: embedded briefing is not dated today")
+    import re
+    embedded=re.search(r'<script id="editorial-macro" type="application/json">(.*?)</script>',html,re.S)
+    try:
+        if not embedded or json.loads(embedded.group(1))!=brief:
+            issues.append('index.html: editorial snapshot does not match macro_brief.json')
+    except ValueError:
+        issues.append('index.html: malformed editorial snapshot')
     for required in ('id="market-snapshot"','id="editorial-macro"','id="calendar-snapshot"'):
         if required not in html:
             issues.append("index.html: missing "+required)
 
+if not allow_pending:
+    issues.extend(editorial_issues)
+else:
+    warnings.extend(editorial_issues)
 result={"date":today,"checked_at":now.isoformat(),
-        "status":"ok" if not issues else "failed",
-        "issues":issues,"warnings":warnings}
+        "status":"failed" if issues else "editorial_pending" if editorial_issues else "ok",
+        "editorial_status":"pending" if editorial_issues else "current",
+        "editorial_issues":editorial_issues,"issues":issues,"warnings":warnings}
 Path("update_health.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
 print(json.dumps(result,ensure_ascii=False))
 if issues: sys.exit(1)
+

@@ -1,57 +1,137 @@
 {
+  "date": "2026-10-27",
+  "generated_at": "2026-10-27T08:06:26.853268+02:00",
+  "valid_until": "2026-10-28T09:00:00+02:00",
+  "title": "יום הבחירות בישראל; בעולם חוזר התיאבון לטכנולוגיה",
+  "status": "automatic_conditional",
+  "editorial_mode": "researched",
+  "methodology": "מקורות מ־26–27.10; תנועות הבוקר הן תמונת מסחר חלקית. ההשלכות להשקעות הן פרשנות.",
+  "morning_summary": {
+    "event": "עליות בטכנולוגיה באסיה וירידה בנפט, ביום הבחירות בישראל.",
+    "impact": "ההתלהבות מבינה מלאכותית חוזרת, אך שאלת המימון והרווחיות נותרת פתוחה.",
+    "watch": "הרכבת הממשלה בישראל, דוחות הטכנולוגיה ומסרי הבנקים המרכזיים השבוע."
+  },
   "sections": [
     {
-      "heading": "ישראל — האירועים והמשמעות לשווקים",
+      "heading": "תמונת מצב",
       "bullets": [
-        "בחירות ומדיניות בישראל: לפי גלובס (26.10 18:12): נתניהו, כ\"ץ וסמוטריץ' סיכמו: תקציב המדינה ייפרץ מיד לאחר הבחירות. המשמעות האפשרית: המשמעות הכלכלית של הבחירות תלויה ביכולת להקים ממשלה, לאשר תקציב ולקבוע סדרי עדיפויות. עיכוב בתקציב או התחייבויות להוצאות נוספות עלולים להגדיל את צורכי גיוס החוב; סקר לבדו אינו שינוי במדיניות.",
-        "תקציב וגירעון: לפי כלכליסט (26.10 20:00): אחרי הניצחון המפתיע, נשיא ברזיל יורש מעצמו אינפלציה דוהרת וגירעון עצום. המשמעות האפשרית: גידול בגירעון מחייב מימון נוסף. אם השוק ידרוש פיצוי גבוה יותר על הסיכון, תשואות האג״ח עלולות לעלות ומחירי אג״ח קיימות לרדת, בעיקר במח״מ ארוך.",
-        "ביטחון וגיאופוליטיקה: לא נמצא דיווח חדשותי עדכני מתאים במקורות שנאספו. זהו פער בכיסוי, ולא קביעה שלא היו התפתחויות."
+        "הבוקר חוזר התיאבון לסיכון באסיה, בהובלת הטכנולוגיה, בעוד הנפט יורד. פרשנות: האופטימיות סביב בינה מלאכותית משפרת את הסנטימנט, אך אינה פותרת את שאלת התשואה על ההשקעות."
       ],
       "sources": [
         {
-          "label": "גלובס · 26.10 18:12",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5WUUx6djZJWVNqMVhFQTdlZG8xSFNfc0RsUjhQelVsVTRKelNWcmp0RU9XTEptd1RrQl9KMWNDSHlLcGY1a0VpcEM0S0RsQUs4Q0JfTTE1UWpGNkhIajBlWS1OOU9ndjI2?oc=5"
-        },
+          "label": "Reuters · 27.10",
+          "url": "https://www.reuters.com/business/media-telecom/global-markets-view-europe-2026-10-27/"
+        }
+      ],
+      "items_meta": [
         {
-          "label": "כלכליסט · 26.10 20:00",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1HX2NLYXo5bXhsekxzYm81RG8tYUwwRTdMWVhCV09jV1c1QkFZNlhlbFNIN1hvUk5YVUJYNzJRcDNra2VEZVRBNFRSNUpRUUV6ZFFtQUNicGxrZkVoQjZCWXh6a25QYWpC?oc=5"
+          "event_date": "2026-10-27"
+        }
+      ]
+    },
+    {
+      "heading": "ישראל — האירועים והמשמעות לשווקים",
+      "bullets": [
+        "הבחירות מתקיימות היום. בדיווח Reuters מאתמול הודגש הסיכון לתוצאה לא מכריעה ולמשא ומתן קואליציוני ממושך. פרשנות: למשקיעים חשובה היכולת לגבש תקציב ומדיניות יציבה, ולא רק זהות המנצח; עיכוב עלול להאריך אי־ודאות בשקל ובאג״ח."
+      ],
+      "sources": [
+        {
+          "label": "Reuters · 26.10",
+          "url": "https://www.reuters.com/world/middle-east/israel-markets-see-upside-netanyahu-defeat-after-three-year-rally-2026-10-26/"
+        }
+      ],
+      "items_meta": [
+        {
+          "event_date": "2026-10-26",
+          "kind": "background"
         }
       ]
     },
     {
       "heading": "העולם — מה עומד במוקד",
       "bullets": [
-        "לא נמצא דיווח בינלאומי עדכני מתאים במקורות שנאספו."
+        "Meta הודיעה אתמול על תוכנית לגיוס הון נרחב למימון תשתיות בינה מלאכותית. פרשנות: זמינות המימון תומכת בהמשך ההשקעות, אך גיוס מניות מעלה גם שאלות של דילול ושל התזרים העתידי לבעלי המניות.",
+        "השווקים מצפים השבוע להותרת הריבית ללא שינוי בארה״ב ובגוש האירו. זו ציפייה, לא החלטה שהתקבלה. לצד דוחות הטכנולוגיה, המסר על ההמשך עשוי להשפיע על תמחור המניות והאג״ח."
       ],
-      "sources": []
+      "sources": [
+        {
+          "label": "Reuters · 26.10",
+          "url": "https://www.reuters.com/legal/transactional/meta-launches-35-billion-stock-offering-fund-ai-expansion-2026-10-26/"
+        },
+        {
+          "label": "Reuters · 27.10",
+          "url": "https://www.reuters.com/business/media-telecom/global-markets-view-europe-2026-10-27/"
+        }
+      ],
+      "items_meta": [
+        {
+          "event_date": "2026-10-26",
+          "kind": "background"
+        },
+        {
+          "event_date": "2026-10-27"
+        }
+      ]
+    },
+    {
+      "heading": "אירופה, אסיה ונפט · בקצרה",
+      "bullets": [
+        "אסיה: מניות הטכנולוגיה בקוריאה מובילות את העליות הבוקר; המסחר טרם הסתיים.",
+        "אירופה: לקראת התקציב בבריטניה, המוקד הוא צורכי המימון והמיסוי האפשרי על הבנקים. פרשנות: אלה עשויים ליצור פער בין ענפים.",
+        "נפט: מאמצי ההידברות מול איראן תומכים בירידה במחיר, אולם התקיפות בסעודיה משאירות סיכון לאספקה. פרשנות: הקלה יומית במחיר אינה שקולה לנורמליזציה באנרגיה."
+      ],
+      "sources": [
+        {
+          "label": "Reuters · 27.10",
+          "url": "https://www.reuters.com/business/media-telecom/global-markets-view-europe-2026-10-27/"
+        },
+        {
+          "label": "Reuters · 27.10",
+          "url": "https://www.reuters.com/business/finance/how-new-uk-finance-ministers-first-budget-could-affect-markets-2026-10-27/"
+        },
+        {
+          "label": "Reuters · 27.10",
+          "url": "https://www.reuters.com/business/energy/oil-eases-middle-east-diplomacy-hopes-saudi-attacks-keep-supply-worries-alive-2026-10-27/"
+        }
+      ],
+      "items_meta": [
+        {
+          "event_date": "2026-10-27"
+        },
+        {
+          "event_date": "2026-10-27"
+        },
+        {
+          "event_date": "2026-10-27"
+        }
+      ]
     }
   ],
   "advisor": [
     {
-      "title": "בחירות ומדיניות בישראל",
-      "insight": "בתקופת בחירות נבחן בעיקר מה משתנה בתקציב ובמדיניות הכלכלית. אי־ודאות פוליטית יכולה להוסיף תנודתיות לשקל ולאג״ח, אך אין כיוון קבוע לשוק בעקבות סקר.",
-      "client_impact": "המשמעות הכלכלית של הבחירות תלויה ביכולת להקים ממשלה, לאשר תקציב ולקבוע סדרי עדיפויות. עיכוב בתקציב או התחייבויות להוצאות נוספות עלולים להגדיל את צורכי גיוס החוב; סקר לבדו אינו שינוי במדיניות.",
-      "question": "האם יש לך הוצאה שקלית גדולה בקרוב, או שהכסף מיועד לטווח ארוך?",
-      "reference": "לפי גלובס (26.10 18:12): נתניהו, כ\"ץ וסמוטריץ' סיכמו: תקציב המדינה ייפרץ מיד לאחר הבחירות.",
-      "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5WUUx6djZJWVNqMVhFQTdlZG8xSFNfc0RsUjhQelVsVTRKelNWcmp0RU9XTEptd1RrQl9KMWNDSHlLcGY1a0VpcEM0S0RsQUs4Q0JfTTE1UWpGNkhIajBlWS1OOU9ndjI2?oc=5",
+      "title": "ישראל — מההצבעה ליכולת ביצוע",
+      "insight": "פרשנות ליום הבחירות: תגובת השוק הראשונית יכולה להשתנות עם התקדמות המגעים הקואליציוניים.",
+      "client_impact": "בתיק ישראלי, השקל, המניות והאג״ח עלולים להגיב לאותו סיכון פוליטי; פיזור בין מכשירים אינו בהכרח פיזור בין גורמי סיכון.",
+      "reference": "Reuters · 26.10; פרשנות",
+      "source_url": "https://www.reuters.com/world/middle-east/israel-markets-see-upside-netanyahu-defeat-after-three-year-rally-2026-10-26/",
       "event_date": "2026-10-26"
     },
     {
-      "title": "תקציב וגירעון",
-      "insight": "שינוי בתקציב עשוי להשפיע על אג״ח ממשלתיות גם כשבנק ישראל אינו משנה ריבית. ככל שהאג״ח ארוכה יותר, מחירה בדרך כלל רגיש יותר לשינוי בתשואה.",
-      "client_impact": "גידול בגירעון מחייב מימון נוסף. אם השוק ידרוש פיצוי גבוה יותר על הסיכון, תשואות האג״ח עלולות לעלות ומחירי אג״ח קיימות לרדת, בעיקר במח״מ ארוך.",
-      "question": "מה חשוב לך יותר בחלק הסולידי: יציבות בטווח הקרוב או נעילת תשואה לאורך זמן?",
-      "reference": "לפי כלכליסט (26.10 20:00): אחרי הניצחון המפתיע, נשיא ברזיל יורש מעצמו אינפלציה דוהרת וגירעון עצום.",
-      "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1HX2NLYXo5bXhsekxzYm81RG8tYUwwRTdMWVhCV09jV1c1QkFZNlhlbFNIN1hvUk5YVUJYNzJRcDNra2VEZVRBNFRSNUpRUUV6ZFFtQUNicGxrZkVoQjZCWXh6a25QYWpC?oc=5",
+      "title": "טכנולוגיה — מי מממן את הצמיחה?",
+      "insight": "תוכנית גיוס ההון של Meta מדגישה שהרחבת תשתיות הבינה המלאכותית דורשת מימון משמעותי.",
+      "client_impact": "פרשנות: בדוחות חשוב לבחון תזרים חופשי, הוצאות השקעה ודילול אפשרי, לצד הצמיחה בהכנסות.",
+      "reference": "Reuters · 26.10; פרשנות",
+      "source_url": "https://www.reuters.com/legal/transactional/meta-launches-35-billion-stock-offering-fund-ai-expansion-2026-10-26/",
       "event_date": "2026-10-26"
+    },
+    {
+      "title": "אנרגיה — הקלה במחיר מול סיכון מתמשך",
+      "insight": "הנפט יורד על רקע מאמצים דיפלומטיים, אך סיכוני האספקה נמשכים.",
+      "client_impact": "פרשנות: חברות עתירות דלק עשויות ליהנות מהקלה בעלויות, בעוד מפיקות אנרגיה רגישות אחרת; לכן השפעת הירידה על התיק תלויה בהרכבו.",
+      "reference": "Reuters · 27.10; פרשנות",
+      "source_url": "https://www.reuters.com/business/energy/oil-eases-middle-east-diplomacy-hopes-saudi-attacks-keep-supply-worries-alive-2026-10-27/",
+      "event_date": "2026-10-27"
     }
   ],
-  "takeaway": "",
-  "methodology": "סקירה אוטומטית ללא עלות נוספת. דיווחי החדשות מבוססים על כותרות מתוארכות; ההשלכות הן תרחישים לפי נושא, ולא ניתוח מלא של הכתבות או הסבר מוכח לתנועות השוק.",
-  "date": "2026-10-27",
-  "generated_at": "2026-10-27T08:01:55.906007+02:00",
-  "valid_until": "2026-10-28T09:00:00+02:00",
-  "title": "סקירת הבוקר — ישראל והעולם",
-  "status": "automatic_conditional",
-  "editorial_mode": "headlines"
+  "takeaway": ""
 }

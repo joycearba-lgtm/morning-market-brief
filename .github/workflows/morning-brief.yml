@@ -81,7 +81,7 @@ jobs:
 
       - name: Verify freshness and completeness
         if: steps.israel_time.outputs.run == 'true'
-        run: python verify_daily.py
+        run: python verify_daily.py --allow-pending-editorial
 
       - name: Save updated data
         if: steps.israel_time.outputs.run == 'true'
@@ -94,4 +94,9 @@ jobs:
             git pull --rebase
             git push
           fi
+
+      - name: Confirm researched brief and client points are published
+        if: steps.israel_time.outputs.run == 'true'
+        run: python verify_daily.py
+
 
