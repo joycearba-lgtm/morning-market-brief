@@ -1,136 +1,165 @@
 {
-  "date": "2026-10-27",
-  "generated_at": "2026-10-27T08:06:26.853268+02:00",
-  "valid_until": "2026-10-28T09:00:00+02:00",
-  "title": "יום הבחירות בישראל; בעולם חוזר התיאבון לטכנולוגיה",
+  "date": "2026-10-28",
+  "generated_at": "2026-10-28T07:33:11.329334+02:00",
+  "valid_until": "2026-10-29T09:00:00+02:00",
+  "title": "אחרי הבחירות: אי־ודאות בישראל, מבחן רווחים וריבית בעולם",
   "status": "automatic_conditional",
   "editorial_mode": "researched",
-  "methodology": "מקורות מ־26–27.10; תנועות הבוקר הן תמונת מסחר חלקית. ההשלכות להשקעות הן פרשנות.",
+  "methodology": "עובדות מתוארכות ממקורות החברות, בנק ישראל ו־Reuters; השלכות ההשקעה מסומנות כפרשנות. מדגמים אינם תוצאות סופיות.",
   "morning_summary": {
-    "event": "עליות בטכנולוגיה באסיה וירידה בנפט, ביום הבחירות בישראל.",
-    "impact": "ההתלהבות מבינה מלאכותית חוזרת, אך שאלת המימון והרווחיות נותרת פתוחה.",
-    "watch": "הרכבת הממשלה בישראל, דוחות הטכנולוגיה ומסרי הבנקים המרכזיים השבוע."
+    "event": "בסגירת 27.10 עלו המניות בארה״ב, הנפט ירד ותשואות אג״ח ארה״ב עלו מעט; בישראל הסגירה האחרונה, ב־26.10, הייתה חיובית, ואתמול לא התקיים מסחר.",
+    "impact": "האופטימיות בטכנולוגיה נבחנת מול עלויות המימון והסיכון הביטחוני.",
+    "watch": "היום: החלטת הפד ודוחות Microsoft ו־Alphabet; מחר: הבנק המרכזי האירופי ו־Amazon. אלה אירועים צפויים, לא תוצאות שפורסמו."
   },
   "sections": [
     {
       "heading": "תמונת מצב",
       "bullets": [
-        "הבוקר חוזר התיאבון לסיכון באסיה, בהובלת הטכנולוגיה, בעוד הנפט יורד. פרשנות: האופטימיות סביב בינה מלאכותית משפרת את הסנטימנט, אך אינה פותרת את שאלת התשואה על ההשקעות."
+        "בסגירת 27.10 עלו המניות בארה״ב, הנפט ירד ותשואות אג״ח ארה״ב עלו מעט; בישראל הסגירה האחרונה, ב־26.10, הייתה חיובית, ואתמול לא התקיים מסחר. פרשנות: האופטימיות בטכנולוגיה נבחנת מול עלויות המימון והסיכון הביטחוני."
       ],
       "sources": [
         {
           "label": "Reuters · 27.10",
-          "url": "https://www.reuters.com/business/media-telecom/global-markets-view-europe-2026-10-27/"
+          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-27/"
+        },
+        {
+          "label": "Reuters · 27.10",
+          "url": "https://www.reuters.com/business/us-stock-futures-muted-oil-holds-near-april-highs-ahead-fed-decision-2026-10-27/"
+        },
+        {
+          "label": "מיטב · 27.10 · יום ללא מסחר",
+          "url": "https://www.meitav.co.il/trade/financial_info/"
         }
       ],
       "items_meta": [
         {
-          "event_date": "2026-10-27"
+          "event_date": "2026-10-26",
+          "kind": "background"
         }
       ]
     },
     {
       "heading": "ישראל — האירועים והמשמעות לשווקים",
       "bullets": [
-        "הבחירות מתקיימות היום. בדיווח Reuters מאתמול הודגש הסיכון לתוצאה לא מכריעה ולמשא ומתן קואליציוני ממושך. פרשנות: למשקיעים חשובה היכולת לגבש תקציב ומדיניות יציבה, ולא רק זהות המנצח; עיכוב עלול להאריך אי־ודאות בשקל ובאג״ח."
+        "המדגמים אינם מעניקים לגושים רוב ברור, והספירה נמשכת. פרשנות: הסיכון עבר מתוצאת ההצבעה למשך הרכבת הממשלה וליכולת לאשר תקציב; אין עדיין הכרעה או מדיניות כלכלית חדשה."
       ],
       "sources": [
         {
-          "label": "Reuters · 26.10",
-          "url": "https://www.reuters.com/world/middle-east/israel-markets-see-upside-netanyahu-defeat-after-three-year-rally-2026-10-26/"
+          "label": "Reuters · 28.10",
+          "url": "https://www.reuters.com/world/middle-east/netanyahu-eisenkot-stake-rival-claims-lead-israel-after-deadlocked-vote-2026-10-28/"
         }
       ],
       "items_meta": [
         {
-          "event_date": "2026-10-26",
-          "kind": "background"
+          "event_date": "2026-10-28"
         }
       ]
     },
     {
       "heading": "העולם — מה עומד במוקד",
       "bullets": [
-        "Meta הודיעה אתמול על תוכנית לגיוס הון נרחב למימון תשתיות בינה מלאכותית. פרשנות: זמינות המימון תומכת בהמשך ההשקעות, אך גיוס מניות מעלה גם שאלות של דילול ושל התזרים העתידי לבעלי המניות.",
-        "השווקים מצפים השבוע להותרת הריבית ללא שינוי בארה״ב ובגוש האירו. זו ציפייה, לא החלטה שהתקבלה. לצד דוחות הטכנולוגיה, המסר על ההמשך עשוי להשפיע על תמחור המניות והאג״ח."
+        "SK hynix דיווחה הבוקר על שיא ברווח התפעולי ובהכנסות, בתמיכת זיכרונות לבינה מלאכותית. פרשנות: זהו אישור לביקוש אצל ספקית; רווחיות לקוחותיה, ענקיות הענן, עדיין עומדת למבחן בדוחות."
       ],
       "sources": [
         {
-          "label": "Reuters · 26.10",
-          "url": "https://www.reuters.com/legal/transactional/meta-launches-35-billion-stock-offering-fund-ai-expansion-2026-10-26/"
-        },
-        {
-          "label": "Reuters · 27.10",
-          "url": "https://www.reuters.com/business/media-telecom/global-markets-view-europe-2026-10-27/"
+          "label": "SK hynix · 28.10",
+          "url": "https://news.skhynix.com/en/q3-2026-business-results/"
         }
       ],
       "items_meta": [
         {
-          "event_date": "2026-10-26",
-          "kind": "background"
-        },
-        {
-          "event_date": "2026-10-27"
+          "event_date": "2026-10-28"
         }
       ]
     },
     {
       "heading": "אירופה, אסיה ונפט · בקצרה",
       "bullets": [
-        "אסיה: מניות הטכנולוגיה בקוריאה מובילות את העליות הבוקר; המסחר טרם הסתיים.",
-        "אירופה: לקראת התקציב בבריטניה, המוקד הוא צורכי המימון והמיסוי האפשרי על הבנקים. פרשנות: אלה עשויים ליצור פער בין ענפים.",
-        "נפט: מאמצי ההידברות מול איראן תומכים בירידה במחיר, אולם התקיפות בסעודיה משאירות סיכון לאספקה. פרשנות: הקלה יומית במחיר אינה שקולה לנורמליזציה באנרגיה."
+        "אירופה, סגירת 27.10: STOXX 600 עלה, אך לונדון ירדה בעקבות אכזבה מדוח HSBC — הפערים בין חברות ניכרים.",
+        "אסיה, בוקר 28.10: יפן וקוריאה עולות בהובלת הטכנולוגיה; המסחר נמשך. כיוון הונג קונג לא אומת.",
+        "נפט, בוקר 28.10: חוזי ברנט עולים לאחר הירידה אתמול. החות׳ים טענו לפגיעה בבית זיקוק סעודי; הרשויות לא אישרו מיד."
       ],
       "sources": [
         {
           "label": "Reuters · 27.10",
-          "url": "https://www.reuters.com/business/media-telecom/global-markets-view-europe-2026-10-27/"
+          "url": "https://www.reuters.com/business/europe-shares-fall-hsbc-weighs-france-protests-keep-investors-wary-2026-10-27/"
         },
         {
-          "label": "Reuters · 27.10",
-          "url": "https://www.reuters.com/business/finance/how-new-uk-finance-ministers-first-budget-could-affect-markets-2026-10-27/"
+          "label": "Reuters · 28.10",
+          "url": "https://www.investing.com/news/economy-news/stocks-get-ai-lift-dollar-holds-steady-ahead-of-fed-decision-4977355"
         },
         {
-          "label": "Reuters · 27.10",
-          "url": "https://www.reuters.com/business/energy/oil-eases-middle-east-diplomacy-hopes-saudi-attacks-keep-supply-worries-alive-2026-10-27/"
+          "label": "Reuters · 28.10",
+          "url": "https://www.reuters.com/world/asia-pacific/oil-prices-rise-after-attack-saudi-arabian-refinery-reignites-supply-concerns-2026-10-28/"
         }
       ],
       "items_meta": [
         {
-          "event_date": "2026-10-27"
+          "event_date": "2026-10-27",
+          "kind": "last_session",
+          "session_date": "2026-10-27"
         },
         {
-          "event_date": "2026-10-27"
+          "event_date": "2026-10-28"
         },
         {
-          "event_date": "2026-10-27"
+          "event_date": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "heading": "מה לעקוב היום ובהמשך השבוע",
+      "bullets": [
+        "היום: החלטת הפד ודוחות Microsoft ו־Alphabet; מחר: הבנק המרכזי האירופי ו־Amazon. אלה אירועים צפויים, לא תוצאות שפורסמו."
+      ],
+      "sources": [
+        {
+          "label": "Reuters · 27.10",
+          "url": "https://www.reuters.com/business/us-stock-futures-muted-oil-holds-near-april-highs-ahead-fed-decision-2026-10-27/"
+        },
+        {
+          "label": "Microsoft · 7.10 · הודעת מועד",
+          "url": "https://news.microsoft.com/source/2026/10/07/microsoft-announces-quarterly-earnings-release-date-69/"
+        },
+        {
+          "label": "Reuters · 27.10",
+          "url": "https://www.reuters.com/business/europe-shares-fall-hsbc-weighs-france-protests-keep-investors-wary-2026-10-27/"
+        }
+      ],
+      "items_meta": [
+        {
+          "event_date": "2026-10-28",
+          "kind": "upcoming"
         }
       ]
     }
   ],
   "advisor": [
     {
-      "title": "ישראל — מההצבעה ליכולת ביצוע",
-      "insight": "פרשנות ליום הבחירות: תגובת השוק הראשונית יכולה להשתנות עם התקדמות המגעים הקואליציוניים.",
-      "client_impact": "בתיק ישראלי, השקל, המניות והאג״ח עלולים להגיב לאותו סיכון פוליטי; פיזור בין מכשירים אינו בהכרח פיזור בין גורמי סיכון.",
-      "reference": "Reuters · 26.10; פרשנות",
-      "source_url": "https://www.reuters.com/world/middle-east/israel-markets-see-upside-netanyahu-defeat-after-three-year-rally-2026-10-26/",
-      "event_date": "2026-10-26"
+      "title": "ישראל — פרמיית הסיכון אחרי הבחירות",
+      "insight": "פרשנות: יציבות קואליציונית חשובה בעיקר אם היא מאפשרת ניהול תקציבי אמין. תחזית בנק ישראל מ־21.10 לא כללה את השפעת הבחירות, ולכן אינה תחזית מעודכנת לתוצאותיהן.",
+      "client_impact": "המשמעות למשקיע: הבטחות להוצאות אינן שקולות להוצאות מאושרות; המימון בפועל עשוי להשפיע על השקל ועל אג״ח המדינה.",
+      "reference": "בנק ישראל · תחזית 21.10; רקע ופרשנות",
+      "source_url": "https://www.boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/",
+      "event_date": "2026-10-21",
+      "kind": "background"
     },
     {
-      "title": "טכנולוגיה — מי מממן את הצמיחה?",
-      "insight": "תוכנית גיוס ההון של Meta מדגישה שהרחבת תשתיות הבינה המלאכותית דורשת מימון משמעותי.",
-      "client_impact": "פרשנות: בדוחות חשוב לבחון תזרים חופשי, הוצאות השקעה ודילול אפשרי, לצד הצמיחה בהכנסות.",
-      "reference": "Reuters · 26.10; פרשנות",
-      "source_url": "https://www.reuters.com/legal/transactional/meta-launches-35-billion-stock-offering-fund-ai-expansion-2026-10-26/",
-      "event_date": "2026-10-26"
+      "title": "טכנולוגיה — ספקיות מול לקוחות",
+      "insight": "התוצאות של SK hynix ממחישות שספקיות תשתית יכולות להרוויח מהוצאות ההשקעה של לקוחותיהן. פרשנות: אין בכך הוכחה שענקיות הענן כבר מפיקות תשואה מספקת מההשקעה.",
+      "client_impact": "חשיפה לשבבים וחשיפה לענן אינן אותו מודל עסקי; גם בתוך ענף הטכנולוגיה, ההשלכות על תזרים ותמחור עשויות להיות שונות.",
+      "reference": "SK hynix · תוצאות 28.10; פרשנות",
+      "source_url": "https://news.skhynix.com/en/q3-2026-business-results/",
+      "event_date": "2026-10-28"
     },
     {
-      "title": "אנרגיה — הקלה במחיר מול סיכון מתמשך",
-      "insight": "הנפט יורד על רקע מאמצים דיפלומטיים, אך סיכוני האספקה נמשכים.",
-      "client_impact": "פרשנות: חברות עתירות דלק עשויות ליהנות מהקלה בעלויות, בעוד מפיקות אנרגיה רגישות אחרת; לכן השפעת הירידה על התיק תלויה בהרכבו.",
-      "reference": "Reuters · 27.10; פרשנות",
-      "source_url": "https://www.reuters.com/business/energy/oil-eases-middle-east-diplomacy-hopes-saudi-attacks-keep-supply-worries-alive-2026-10-27/",
-      "event_date": "2026-10-27"
+      "title": "אג״ח — החלטה מול מסר",
+      "insight": "לקראת הפד, הציפייה היא לריבית ללא שינוי. פרשנות: מסר נוקשה על ההמשך עשוי להעלות תשואות וללחוץ על מחירי אג״ח, גם אם הריבית עצמה אינה משתנה.",
+      "client_impact": "למח״מ ארוך רגישות גבוהה יותר לשינוי בתשואה; תשואה לפדיון אינה מבטיחה יציבות במחיר לפני הפדיון.",
+      "reference": "Reuters · 27.10; ציפייה ופרשנות",
+      "source_url": "https://www.reuters.com/business/us-stock-futures-muted-oil-holds-near-april-highs-ahead-fed-decision-2026-10-27/",
+      "event_date": "2026-10-27",
+      "kind": "background"
     }
   ],
   "takeaway": ""

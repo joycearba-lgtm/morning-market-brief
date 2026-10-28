@@ -1,16 +1,6 @@
 {
-  "checked_at": "2026-10-25T19:54:08+02:00",
+  "checked_at": "2026-10-28T07:33:11.329334+02:00",
   "items": [
-    {
-      "company": "Alphabet",
-      "ticker": "GOOGL",
-      "report_date": "2026-10-28",
-      "release_window": "לפני שיחת המשקיעים",
-      "call_at": "2026-10-28T22:30:00+02:00",
-      "source_url": "https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Date-of-Third-Quarter-2026-Financial-Results-Conference-Call-2026-8tpGZsLS6v/default.aspx",
-      "confirmed": true,
-      "expires_at": "2026-10-28T22:30:00+02:00"
-    },
     {
       "company": "Microsoft",
       "ticker": "MSFT",
@@ -51,6 +41,29 @@
       "source_url": "https://investor.exxonmobil.com/company-information/press-releases/detail/1212/exxonmobil-to-release-third-quarter-2026-financial-results",
       "confirmed": true,
       "expires_at": "2026-10-30T12:30:00+02:00"
+    },
+    {
+      "company": "AMD",
+      "ticker": "AMD",
+      "report_date": "2026-11-03",
+      "release_window": "לאחר המסחר בארה״ב ב־3.11; השיחה ב־4.11 בישראל",
+      "call_at": "2026-11-04T00:00:00+02:00",
+      "expires_at": "2026-11-04T00:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results"
+    },
+    {
+      "company": "Qualcomm",
+      "ticker": "QCOM",
+      "report_date": "2026-11-04",
+      "release_window": "אחרי המסחר בארה״ב",
+      "call_at": "2026-11-04T23:45:00+02:00",
+      "expires_at": "2026-11-04T23:45:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.qualcomm.com/news-events/press-releases/news-details/2026/Qualcomm-Schedules-Fourth-Quarter-and-Fiscal-2026-Earnings-Release-and-Conference-Call/default.aspx"
     }
+  ],
+  "verification_notes": [
+    "Alphabet is expected to report on 28 October per Reuters. Its company announcement could not be retrieved from the IR site during this verification, so its timed calendar entry is omitted until primary-source confirmation is available."
   ]
 }
