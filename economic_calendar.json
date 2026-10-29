@@ -1,13 +1,27 @@
 {
-  "checked_at": "2026-10-28T08:10:10.873112+02:00",
-  "date": "2026-10-28",
-  "mode": "today",
+  "checked_at": "2026-10-29T08:10:37.324863+02:00",
+  "date": "2026-10-29",
+  "mode": "upcoming",
   "events": [
     {
-      "title": "החלטת ריבית הפד",
-      "at": "2026-10-28T20:00:00+02:00",
-      "source": "Federal Reserve",
-      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "title": "מדד עלות ההעסקה (ECI)",
+      "at": "2026-10-30T14:30:00+02:00",
+      "source": "BLS – official dated schedule (fallback)",
+      "url": "https://www.bls.gov/schedule/2026/10_sched_list.htm",
+      "priority": 2
+    },
+    {
+      "title": "משרות פתוחות (JOLTS)",
+      "at": "2026-11-03T17:00:00+02:00",
+      "source": "BLS – official dated schedule (fallback)",
+      "url": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
+      "priority": 2
+    },
+    {
+      "title": "דוח התעסוקה (NFP)",
+      "at": "2026-11-06T15:30:00+02:00",
+      "source": "BLS – official dated schedule (fallback)",
+      "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
       "priority": 1
     }
   ],
