@@ -76,3 +76,7 @@ Include a concise section "אירופה, אסיה ונפט · בקצרה" with t
 
 ## Audio market figures (owner request)
 Include audio_market_summary in the brief JSON as a short AUDIO-ONLY string, narrated after the title. It is not rendered as duplicated article text. For TA-35, TA-125, S&P 500, Nasdaq Composite and Dow Jones, verify the latest COMPLETED session using market_data.json (daily_close, source timestamp) and fresh dated sources; state each session date, direction and change_percent with an explicit % suffix. Do not confuse index points with percent or assume all indices fell. Omit unverified figures and state any gap. This field is included in the shared audio content fingerprint; publish it in the same JSON in both files and the HTML. Use day.month dates in readable text; the speech adapter spells calendar dates and percentage units for narration.
+
+
+## Policy-rate levels in text and audio (owner request)
+Whenever discussing a central-bank rate decision, include the verified current policy-rate level in the main narrative, even when unchanged. For the Federal Reserve state both ends of the federal funds target range, identify it as a target range, and date the decision; do not substitute an effective rate or bond yield. Use explicit % on each endpoint and natural wording such as בין X% ל־Y% so the same text is clear in the recording. Reverify from the central bank's latest official decision each run; never reuse today's number as a permanent value.
