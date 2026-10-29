@@ -45,7 +45,7 @@ def speaking(text):
         day,month=int(m[1]),int(m[2])
         if not (1<=day<=31 and 1<=month<=12):return m[0]
         return integer(day)+" ב"+months[month]+(" "+m[3] if m[3] else "")
-    text=re.sub(r"(?<![\d.])(\d{1,2})\.(\d{1,2})(?:\.(\d{4}))?(?![\d.%])",date_words,text)
+    text=re.sub(r"(?<![\d.])(\d{1,2})\.(\d{1,2})(?:\.(\d{4}))?(?!\d|%|\.\d)",date_words,text)
     english={"Alphabet":"אלפבית","Microsoft":"מיקרוסופט","Amazon":"אמזון",
              "Reuters":"רויטרס","Nasdaq":"נאסדק","AI":"בינה מלאכותית",
              "ECB":"הבנק המרכזי האירופי","CPI":"מדד המחירים לצרכן",
