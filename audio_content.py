@@ -8,6 +8,7 @@ def narration_parts(data):
         if isinstance(value,str) and value.strip():
             parts.append(value.strip())
     add(data.get("title"))
+    add(data.get("audio_market_summary"))
     for section in data.get("sections",[]):
         add(section.get("heading"))
         for paragraph in section.get("bullets") or [section.get("text","")]:
@@ -30,6 +31,21 @@ import re
 
 def speaking(text):
     text=str(text or "")
+    ones=["אפס","אחד","שניים","שלושה","ארבעה","חמישה","שישה","שבעה","שמונה","תשעה"]
+    teens=["עשרה","אחד עשר","שנים עשר","שלושה עשר","ארבעה עשר","חמישה עשר","שישה עשר","שבעה עשר","שמונה עשר","תשעה עשר"]
+    tens=["","","עשרים","שלושים","ארבעים","חמישים","שישים","שבעים","שמונים","תשעים"]
+    def integer(n):
+        n=int(n)
+        if n<10:return ones[n]
+        if n<20:return teens[n-10]
+        if n<100:return tens[n//10]+(" ו"+ones[n%10] if n%10 else "")
+        return str(n)
+    months=["","ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"]
+    def date_words(m):
+        day,month=int(m[1]),int(m[2])
+        if not (1<=day<=31 and 1<=month<=12):return m[0]
+        return integer(day)+" ב"+months[month]+(" "+m[3] if m[3] else "")
+    text=re.sub(r"(?<![\d.])(\d{1,2})\.(\d{1,2})(?:\.(\d{4}))?(?![\d.%])",date_words,text)
     english={"Alphabet":"אלפבית","Microsoft":"מיקרוסופט","Amazon":"אמזון",
              "Reuters":"רויטרס","Nasdaq":"נאסדק","AI":"בינה מלאכותית",
              "ECB":"הבנק המרכזי האירופי","CPI":"מדד המחירים לצרכן",
@@ -42,9 +58,9 @@ def speaking(text):
     digits={"0":"אפס","1":"אחת","2":"שתיים","3":"שלוש","4":"ארבע",
             "5":"חמש","6":"שש","7":"שבע","8":"שמונה","9":"תשע"}
     def percent(m):
-        number=m.group(1)
+        number=integer(m.group(1))
         if m.group(2):
-            number+=" נקודה "+" ".join(digits[d] for d in m.group(2))
+            number+=" פסיק "+(integer(m.group(2)) if len(m.group(2))<=2 and not m.group(2).startswith("0") else " ".join(digits[d] for d in m.group(2)))
         return number+" אחוז"
     text=re.sub(r"(\d+)(?:\.(\d+))?\s*%",percent,text)
     text=text.replace("—",", ").replace("·",", ").replace("–"," עד ")
