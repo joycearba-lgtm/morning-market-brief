@@ -941,7 +941,7 @@ section.grid .card .value{font-size:11.5px!important}
   }
   function narrationParts(data){
     const parts=[],add=x=>{if(typeof x==='string'&&x.trim())parts.push(x.trim());};
-    add(data.title);add(data.audio_market_summary);
+    add('בוקר טוב ליועצות וליועצי ההשקעות. להלן סקירת הבוקר.');add(data.title);add(data.audio_market_summary);
     for(const s of data.sections||[]){add(s.heading);for(const p of s.bullets||[s.text||''])add(p);}
     for(const item of data.advisor||[]){
       if(typeof item==='string'){add(item);continue;}

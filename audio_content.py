@@ -7,6 +7,7 @@ def narration_parts(data):
     def add(value):
         if isinstance(value,str) and value.strip():
             parts.append(value.strip())
+    add("בוקר טוב ליועצות וליועצי ההשקעות. להלן סקירת הבוקר.")
     add(data.get("title"))
     add(data.get("audio_market_summary"))
     for section in data.get("sections",[]):
