@@ -1,16 +1,6 @@
 {
-  "checked_at": "2026-10-28T07:33:11.329334+02:00",
+  "checked_at": "2026-10-29T07:30:42.571700+02:00",
   "items": [
-    {
-      "company": "Microsoft",
-      "ticker": "MSFT",
-      "report_date": "2026-10-28",
-      "release_window": "אחרי המסחר בארה״ב",
-      "call_at": "2026-10-28T23:30:00+02:00",
-      "source_url": "https://news.microsoft.com/source/2026/10/07/microsoft-announces-quarterly-earnings-release-date-69/",
-      "confirmed": true,
-      "expires_at": "2026-10-28T23:30:00+02:00"
-    },
     {
       "company": "Amazon",
       "ticker": "AMZN",
@@ -43,6 +33,16 @@
       "expires_at": "2026-10-30T12:30:00+02:00"
     },
     {
+      "company": "Palantir",
+      "ticker": "PLTR",
+      "report_date": "2026-11-02",
+      "release_window": "לאחר המסחר בארה״ב ב־2.11; השיחה ב־3.11 בישראל",
+      "call_at": "2026-11-03T00:00:00+02:00",
+      "expires_at": "2026-11-03T00:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investors.palantir.com/news-details/2026/Palantir-Announces-Date-of-Third-Quarter-2026-Earnings-Release-and-Webcast/"
+    },
+    {
       "company": "AMD",
       "ticker": "AMD",
       "report_date": "2026-11-03",
@@ -64,6 +64,6 @@
     }
   ],
   "verification_notes": [
-    "Alphabet is expected to report on 28 October per Reuters. Its company announcement could not be retrieved from the IR site during this verification, so its timed calendar entry is omitted until primary-source confirmation is available."
+    "Apple and Chevron were researched, but no directly retrievable company announcement establishing an exact release/call time was available for this calendar verification; no estimated time is included."
   ]
 }
