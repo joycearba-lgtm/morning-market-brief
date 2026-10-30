@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-29T08:10:33.054289+02:00",
+  "checked_at": "2026-10-30T08:10:44.868667+02:00",
   "status": "ok",
   "indicators": {
     "us_cpi": {
@@ -29,9 +29,9 @@
     "us_real_gdp": {
       "status": "ok",
       "name": "US real GDP, quarterly seasonally adjusted annual rate",
-      "value": 2.22,
+      "value": 3.37,
       "units": "% QoQ annualized",
-      "observation_date": "2026-04-01",
+      "observation_date": "2026-07-01",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/GDPC1",
       "series_id": "GDPC1",
@@ -43,7 +43,7 @@
       "name": "US effective federal funds rate, daily",
       "value": 3.88,
       "units": "%",
-      "observation_date": "2026-10-27",
+      "observation_date": "2026-10-28",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFF",
       "series_id": "DFF",
@@ -55,7 +55,7 @@
       "name": "Fed funds target lower bound",
       "value": 3.75,
       "units": "%",
-      "observation_date": "2026-10-28",
+      "observation_date": "2026-10-29",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFEDTARL",
       "series_id": "DFEDTARL",
@@ -67,7 +67,7 @@
       "name": "Fed funds target upper bound",
       "value": 4.0,
       "units": "%",
-      "observation_date": "2026-10-28",
+      "observation_date": "2026-10-29",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
       "series_id": "DFEDTARU",
