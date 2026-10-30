@@ -1,26 +1,6 @@
 {
-  "checked_at": "2026-10-29T07:30:42.571700+02:00",
+  "checked_at": "2026-10-30T07:32:28.976039+02:00",
   "items": [
-    {
-      "company": "Amazon",
-      "ticker": "AMZN",
-      "report_date": "2026-10-29",
-      "release_window": "שעת הפרסום לא צוינה",
-      "call_at": "2026-10-29T23:00:00+02:00",
-      "source_url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-to-Webcast-Third-Quarter-2026-Financial-Results-Conference-Call/default.aspx",
-      "confirmed": true,
-      "expires_at": "2026-10-29T23:00:00+02:00"
-    },
-    {
-      "company": "Intel",
-      "ticker": "INTC",
-      "report_date": "2026-10-29",
-      "release_window": "אחרי המסחר בארה״ב",
-      "call_at": "2026-10-29T23:00:00+02:00",
-      "source_url": "https://www.intc.com/news-events/press-releases/detail/1782/intel-to-report-third-quarter-2026-financial-results",
-      "confirmed": true,
-      "expires_at": "2026-10-29T23:00:00+02:00"
-    },
     {
       "company": "ExxonMobil",
       "ticker": "XOM",
@@ -33,6 +13,16 @@
       "expires_at": "2026-10-30T12:30:00+02:00"
     },
     {
+      "company": "Chevron",
+      "ticker": "CVX",
+      "report_date": "2026-10-30",
+      "release_window": "לפני שיחת המשקיעים; שעת פרסום מדויקת לא צוינה",
+      "call_at": "2026-10-30T17:00:00+02:00",
+      "expires_at": "2026-10-30T17:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://chevroncorp.gcs-web.com/news-releases/news-release-details/advisory-chevron-corporations-3q-2026-earnings-conference-call"
+    },
+    {
       "company": "Palantir",
       "ticker": "PLTR",
       "report_date": "2026-11-02",
@@ -43,6 +33,16 @@
       "source_url": "https://investors.palantir.com/news-details/2026/Palantir-Announces-Date-of-Third-Quarter-2026-Earnings-Release-and-Webcast/"
     },
     {
+      "company": "Shopify",
+      "ticker": "SHOP",
+      "report_date": "2026-11-03",
+      "release_window": "לפני המסחר בארה״ב; שעה מדויקת לא צוינה",
+      "call_at": "2026-11-03T15:30:00+02:00",
+      "expires_at": "2026-11-03T15:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://www.shopify.com/investors/press-releases/shopify-announce-third-quarter-2026-financial-results"
+    },
+    {
       "company": "AMD",
       "ticker": "AMD",
       "report_date": "2026-11-03",
@@ -51,6 +51,16 @@
       "expires_at": "2026-11-04T00:00:00+02:00",
       "confirmed": true,
       "source_url": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results"
+    },
+    {
+      "company": "Uber",
+      "ticker": "UBER",
+      "report_date": "2026-11-04",
+      "release_window": "שעת הפרסום לא צוינה; שעת השיחה אינה שעת פרסום",
+      "call_at": "2026-11-04T15:00:00+02:00",
+      "expires_at": "2026-11-04T15:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Date-of-Third-Quarter-2026-Results-Conference-Call/default.aspx"
     },
     {
       "company": "Qualcomm",
@@ -64,6 +74,7 @@
     }
   ],
   "verification_notes": [
-    "Apple and Chevron were researched, but no directly retrievable company announcement establishing an exact release/call time was available for this calendar verification; no estimated time is included."
+    "Amazon and Intel expired after their 29 October results and were removed. Company sources reopened for all retained entries; Palantir's full announcement was verified in indexed primary-source content because the rendered page contains only navigation.",
+    "Apple and Cisco were researched but no retrievable primary confirmation was available. Disney's confirmed 17 November event is outside the 14-day window. MercadoLibre's IR calendar still marked its date provisional; omitted rather than using estimates."
   ]
 }
