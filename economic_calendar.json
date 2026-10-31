@@ -1,14 +1,28 @@
 {
-  "checked_at": "2026-10-30T08:10:48.742101+02:00",
-  "date": "2026-10-30",
-  "mode": "today",
+  "checked_at": "2026-10-31T08:07:00.664206+02:00",
+  "date": "2026-10-31",
+  "mode": "upcoming",
   "events": [
     {
-      "title": "מדד עלות ההעסקה (ECI)",
-      "at": "2026-10-30T14:30:00+02:00",
+      "title": "משרות פתוחות (JOLTS)",
+      "at": "2026-11-03T17:00:00+02:00",
       "source": "BLS – official dated schedule (fallback)",
-      "url": "https://www.bls.gov/schedule/2026/10_sched_list.htm",
+      "url": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
       "priority": 2
+    },
+    {
+      "title": "דוח התעסוקה (NFP)",
+      "at": "2026-11-06T15:30:00+02:00",
+      "source": "BLS – official dated schedule (fallback)",
+      "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
+      "priority": 1
+    },
+    {
+      "title": "מדד המחירים לצרכן (CPI)",
+      "at": "2026-11-10T15:30:00+02:00",
+      "source": "BLS – official dated schedule (fallback)",
+      "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
+      "priority": 1
     }
   ],
   "source_note": "Includes dated BLS official schedule fallback when feed blocked; confirm any changes at the linked agency.",
