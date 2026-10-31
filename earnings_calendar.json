@@ -1,27 +1,6 @@
 {
-  "checked_at": "2026-10-30T07:32:28.976039+02:00",
+  "checked_at": "2026-10-31T07:38:16.507937+02:00",
   "items": [
-    {
-      "company": "ExxonMobil",
-      "ticker": "XOM",
-      "report_date": "2026-10-30",
-      "release_window": "לפני המסחר בארה״ב",
-      "release_at": "2026-10-30T12:30:00+02:00",
-      "call_at": "2026-10-30T15:30:00+02:00",
-      "source_url": "https://investor.exxonmobil.com/company-information/press-releases/detail/1212/exxonmobil-to-release-third-quarter-2026-financial-results",
-      "confirmed": true,
-      "expires_at": "2026-10-30T12:30:00+02:00"
-    },
-    {
-      "company": "Chevron",
-      "ticker": "CVX",
-      "report_date": "2026-10-30",
-      "release_window": "לפני שיחת המשקיעים; שעת פרסום מדויקת לא צוינה",
-      "call_at": "2026-10-30T17:00:00+02:00",
-      "expires_at": "2026-10-30T17:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://chevroncorp.gcs-web.com/news-releases/news-release-details/advisory-chevron-corporations-3q-2026-earnings-conference-call"
-    },
     {
       "company": "Palantir",
       "ticker": "PLTR",
@@ -41,6 +20,16 @@
       "expires_at": "2026-11-03T15:30:00+02:00",
       "confirmed": true,
       "source_url": "https://www.shopify.com/investors/press-releases/shopify-announce-third-quarter-2026-financial-results"
+    },
+    {
+      "company": "Arista Networks",
+      "ticker": "ANET",
+      "report_date": "2026-11-03",
+      "release_window": "אחרי המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
+      "call_at": "2026-11-03T23:30:00+02:00",
+      "expires_at": "2026-11-03T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://www.arista.com/company/news/press-release/24817-pr-20261006"
     },
     {
       "company": "AMD",
@@ -74,7 +63,7 @@
     }
   ],
   "verification_notes": [
-    "Amazon and Intel expired after their 29 October results and were removed. Company sources reopened for all retained entries; Palantir's full announcement was verified in indexed primary-source content because the rendered page contains only navigation.",
-    "Apple and Cisco were researched but no retrievable primary confirmation was available. Disney's confirmed 17 November event is outside the 14-day window. MercadoLibre's IR calendar still marked its date provisional; omitted rather than using estimates."
+    "All five retained company announcements were rechecked; Palantir's primary announcement was verified in indexed primary-source text because rendered content has navigation only.",
+    "Added Arista after opening its official 6 October announcement. Removed ExxonMobil and Chevron because their 30 October results have already been released. Apple and Cisco were researched without accessible primary confirmation. MercadoLibre's announcement PDF linked from IR could not be read (unsupported content type), while the visible calendar still says provisional; omitted."
   ]
 }
