@@ -80,3 +80,7 @@ Include audio_market_summary in the brief JSON as a short AUDIO-ONLY string, nar
 
 ## Policy-rate levels in text and audio (owner request)
 Whenever discussing a central-bank rate decision, include the verified current policy-rate level in the main narrative, even when unchanged. For the Federal Reserve state both ends of the federal funds target range, identify it as a target range, and date the decision; do not substitute an effective rate or bond yield. Use explicit % on each endpoint and natural wording such as בין X% ל־Y% so the same text is clear in the recording. Reverify from the central bank's latest official decision each run; never reuse today's number as a permanent value.
+
+
+## Explain equity and credit links clearly
+When using a company's credit-rating event in client points, identify the issuer and explicitly say that credit risk concerns its debt and bonds it issues. Distinguish the issuer credit rating, rating outlook and equity valuation or stock recommendation. Explain the cash-flow/funding mechanism in plain professional Hebrew before drawing a portfolio implication. Do not imply an observed bond-price move or change in credit spreads unless independently verified. This is a clarity rule, not a fixed paragraph or a compulsory daily topic.
