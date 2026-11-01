@@ -332,7 +332,7 @@ section.grid .card .value{font-size:12px!important;line-height:1.3!important;let
 .hero h1{font-size:22px!important;line-height:1.2!important;margin:0!important}
 .hero .meta{margin:5px 0!important;gap:0!important}
 .hero .meta .pill{font-size:10px!important;padding:2px 6px!important;line-height:1.3}
-.hero .actions{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px!important;margin:6px 0 0!important}
+.hero .actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px!important;margin:6px 0 0!important}
 .hero .actions .btn{font-size:10px!important;line-height:1.3!important;padding:5px 3px!important;min-height:27px!important;border-radius:7px!important;justify-content:center;text-align:center}
 .hero .independent-note{font-size:9px!important;line-height:1.3!important;margin-top:6px!important;padding-top:5px!important}
 @media(max-width:350px){.hero h1{font-size:20px!important}.hero .actions .btn{font-size:9px!important}}
@@ -367,16 +367,16 @@ section.grid .card .value{font-size:11.5px!important}
 .earnings-more[open]>summary{margin-bottom:7px}
 </style></head>
 <body><main class="wrap">
-<header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()" aria-label="הדפסה או שמירה כקובץ PDF">הדפסה / PDF</button><button class="btn" onclick="document.getElementById('data-status').scrollIntoView({behavior:'smooth'})">סטטוס חיבור נתונים</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
+<header class="hero"><div class="brand"><div class="logo" aria-label="לוגו דיסקונט"><img src="https://www.pngkey.com/png/detail/223-2232603_israel-discount-bank-logo.png" alt="דיסקונט" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logo-fallback" hidden>דיסקונט</span></div><div><div class="eyebrow">MARKET INTELLIGENCE · כלי עזר אישי</div><h1>סקירת שווקים</h1><p>תמונת מאקרו, שווקים וכלים ליועצת השקעות</p></div></div><div class="meta"><span class="pill">⏱ סקירה מקצועית ממוקדת</span><span class="pill">🇮🇱 ישראל והעולם</span><span class="pill" id="last-market-update">מועד עדכון הנתונים נטען…</span></div><div class="actions"><a class="btn" href="#rate-inflation-forecast" style="text-decoration:none;display:inline-flex;align-items:center">ריבית ואינפלציה ↓</a><button class="btn" onclick="window.print()" aria-label="הדפסה או שמירה כקובץ PDF" style="white-space:nowrap">הדפסה / PDF</button></div><div class="independent-note">סקירה עצמאית לצורכי עבודה אישיים · אינה פרסום רשמי, המלצה או עמדה של בנק דיסקונט.</div></header>
 <section id="daily-audio-section" class="daily-audio-section" aria-label="סקירת הבוקר להאזנה">
   <div class="daily-audio-head"><strong>🎧 סקירת הבוקר להאזנה</strong></div>
   <p id="daily-audio-status" aria-live="polite">בודק אם הקלטת הבוקר זמינה…</p>
   <audio id="daily-audio-player" controls preload="none" playsinline style="display:none;width:100%"></audio>
   <div id="daily-speed-controls" class="daily-speed-controls" role="group" aria-label="מהירות ההאזנה" hidden>
-    <span>מהירות</span>
-    <button type="button" data-rate="0.85" aria-pressed="false">איטי</button>
-    <button type="button" data-rate="1" aria-pressed="true">רגיל</button>
-    <button type="button" data-rate="1.25" aria-pressed="false">מהיר</button>
+    <span>מהירות:</span>
+    <button type="button" data-rate="1" aria-pressed="true" aria-label="מהירות פי 1"><bdi>1</bdi></button>
+    <button type="button" data-rate="1.5" aria-pressed="false" aria-label="מהירות פי 1.5"><bdi>1.5</bdi></button>
+    <button type="button" data-rate="2" aria-pressed="false" aria-label="מהירות פי 2"><bdi>2</bdi></button>
   </div>
   <details class="daily-audio-help"><summary>פרטי הקריינות</summary><p>אם ההקלטה עדיין לא זמינה, ניתן להאזין לסקירה כאן ב־ChatGPT. איכות הקריינות הניסיונית עשויה להשתנות. הקריינות מבוססת BlueTTS; קול ההקלטה נשען על דגימת LibriTTS-R ברישיון CC BY 4.0.</p></details>
 </section>
@@ -1005,7 +1005,7 @@ section.grid .card .value{font-size:11.5px!important}
   const status=document.getElementById('daily-audio-status');
   if(!player||!status)return;
   const speedControls=document.getElementById('daily-speed-controls');
-  const rates=[0.85,1,1.25],speedKey='market-brief-audio-rate';
+  const rates=[1,1.5,2],speedKey='market-brief-audio-rate';
   let chosenRate=1;
   try{const saved=Number(localStorage.getItem(speedKey));if(rates.includes(saved))chosenRate=saved;}catch{}
   function applyRate(){
