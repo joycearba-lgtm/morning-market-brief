@@ -720,7 +720,8 @@ section.grid .card .value{font-size:11.5px!important}
   "morning_summary": {
     "event": "בסגירה האחרונה, ב־30.10, ירדו המניות בישראל ובארה״ב, הנפט עלה ותשואות אג״ח ארה״ב לעשר שנים ירדו.",
     "impact": "שני מבחנים שונים עומדים במוקד: יכולת החברות לממן צמיחה ורציפות אספקת האנרגיה.",
-    "watch": "היום פגישת OPEC+; מחר דוח Palantir. ב־3.11 דוחות טבע, Pfizer, AMD ו־Arista ובחירות האמצע בארה״ב. בטבע: פרסום ב־14:00 ושיחה ב־15:00, שעון ישראל. האירועים טרם התרחשו."
+    "watch": "היום פגישת OPEC+; מחר דוח Palantir. ב־3.11 דוחות טבע, Pfizer, AMD ו־Arista ובחירות האמצע בארה״ב. בטבע: פרסום ב־14:00 ושיחה ב־15:00, שעון ישראל. האירועים טרם התרחשו.",
+    "change": "מאז סקירת 31.10 נוסף דיווח Reuters על הסכמה עקרונית ב־OPEC+ להשארת מכסות דצמבר; החלטה רשמית טרם אומתה בסקירת הבוקר. נתוני הסגירה נותרו מסגירת 30.10."
   },
   "sections": [
     {
@@ -953,6 +954,7 @@ section.grid .card .value{font-size:11.5px!important}
    const interpretation=opening.split('פרשנות:')[1]||'';
    const summary=brief.morning_summary||{};
    const items=[
+     ['מה השתנה מהסקירה הקודמת?',summary.change],
      ['תמונת מצב',summary.event||firstSentence(opening.split('פרשנות:')[0])],
      ['המשמעות להשקעות',summary.impact||firstSentence(interpretation)],
      ['מה צפוי',summary.watch||firstSentence((watch?.bullets||[])[0]||watch?.text)]
