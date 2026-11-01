@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-31T07:38:16.507937+02:00",
+  "checked_at": "2026-11-01T07:31:27.692811+02:00",
   "items": [
     {
       "company": "Palantir",
@@ -12,6 +12,17 @@
       "source_url": "https://investors.palantir.com/news-details/2026/Palantir-Announces-Date-of-Third-Quarter-2026-Earnings-Release-and-Webcast/"
     },
     {
+      "company": "Teva",
+      "ticker": "TEVA",
+      "report_date": "2026-11-03",
+      "release_window": "לפני המסחר בארה״ב",
+      "release_at": "2026-11-03T14:00:00+02:00",
+      "call_at": "2026-11-03T15:00:00+02:00",
+      "expires_at": "2026-11-03T14:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://www.tevausa.com/news-and-media/press-releases/teva-to-host-conference-call-to-discuss-third-quarter-2026-financial-results-on-november-3-2026-at-8-a.m"
+    },
+    {
       "company": "Shopify",
       "ticker": "SHOP",
       "report_date": "2026-11-03",
@@ -20,6 +31,16 @@
       "expires_at": "2026-11-03T15:30:00+02:00",
       "confirmed": true,
       "source_url": "https://www.shopify.com/investors/press-releases/shopify-announce-third-quarter-2026-financial-results"
+    },
+    {
+      "company": "Pfizer",
+      "ticker": "PFE",
+      "report_date": "2026-11-03",
+      "release_window": "בבוקר בארה״ב, לפני השיחה; שעה מדויקת לא צוינה",
+      "call_at": "2026-11-03T17:00:00+02:00",
+      "expires_at": "2026-11-03T17:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-invites-public-view-and-listen-webcast-november-3"
     },
     {
       "company": "Arista Networks",
@@ -63,7 +84,8 @@
     }
   ],
   "verification_notes": [
-    "All five retained company announcements were rechecked; Palantir's primary announcement was verified in indexed primary-source text because rendered content has navigation only.",
-    "Added Arista after opening its official 6 October announcement. Removed ExxonMobil and Chevron because their 30 October results have already been released. Apple and Cisco were researched without accessible primary confirmation. MercadoLibre's announcement PDF linked from IR could not be read (unsupported content type), while the visible calendar still says provisional; omitted."
+    "All six retained company announcements were reopened and checked. Palantir's full primary announcement was verified from indexed company text because rendering returned navigation only.",
+    "Added Teva and Pfizer from official company announcements. Dates and times converted using America/New_York and America/Los_Angeles with post-1-November US winter time. Pfizer states morning release, not an exact release hour.",
+    "Apple and Cisco were researched again; primary pages did not provide retrievable confirmation, so no estimated date is included. No expired events remain."
   ]
 }
