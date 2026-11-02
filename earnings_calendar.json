@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-01T07:31:27.692811+02:00",
+  "checked_at": "2026-11-02T07:32:30+02:00",
   "items": [
     {
       "company": "Palantir",
@@ -84,8 +84,8 @@
     }
   ],
   "verification_notes": [
-    "All six retained company announcements were reopened and checked. Palantir's full primary announcement was verified from indexed company text because rendering returned navigation only.",
-    "Added Teva and Pfizer from official company announcements. Dates and times converted using America/New_York and America/Los_Angeles with post-1-November US winter time. Pfizer states morning release, not an exact release hour.",
-    "Apple and Cisco were researched again; primary pages did not provide retrievable confirmation, so no estimated date is included. No expired events remain."
+    "Reopened all eight retained company sources on 2 November; substantive announcement text checked with find where needed. Palantir's full primary text verified in the indexed company announcement because direct rendering shows navigation only.",
+    "Researched Apple for the current reporting week and opened investor-relations and earnings-call pages; no retrievable primary date/time confirmation, so no estimated event is added. All retained events fall within 14 days and have future expiry.",
+    "Exact times use date-aware America/New_York or America/Los_Angeles to Asia/Jerusalem conversion after the US 1-November DST transition. Call time is kept separate from release time; unspecified release times remain unspecified."
   ]
 }
