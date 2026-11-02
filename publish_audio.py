@@ -64,7 +64,7 @@ def main():
             print('Brief changed during synthesis; leaving current audio untouched')
             return
         existing=read_at(head,'daily_audio.json')
-        if matches(existing,current):
+        if matches(existing,current) and (not complete or existing.get('narration_version',1)>=manifest.get('narration_version',1)):
             print('Matching recording already published; preserving it')
             return
         with tempfile.TemporaryDirectory() as directory:
