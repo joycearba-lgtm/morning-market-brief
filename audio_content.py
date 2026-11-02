@@ -50,9 +50,22 @@ def speaking(text):
     english={"Alphabet":"אלפבית","Microsoft":"מיקרוסופט","Amazon":"אמזון",
              "Reuters":"רויטרס","Nasdaq":"נאסדק","AI":"בינה מלאכותית",
              "ECB":"הבנק המרכזי האירופי","CPI":"מדד המחירים לצרכן",
-             "GDP":"תוצר מקומי גולמי","AP":"איי פי"}
+             "GDP":"תוצר מקומי גולמי","AP":"איי פי",
+             "STOXX":"סטוקס","OPEC":"אופק","ISM":"איי אס אם",
+             "Palantir":"פלנטיר","Shopify":"שופיפיי","Pfizer":"פייזר",
+             "AMD":"איי אם די","Arista":"אריסטה","Meta":"מטא",
+             "Intel":"אינטל","Qualcomm":"קוואלקום","Apple":"אפל",
+             "Uber":"אובר","Teva":"טבע","WTI":"דבליו טי איי",
+             "Brent":"ברנט","ExxonMobil":"אקסון מוביל","S&P":"אס אנד פי"}
     for source,target in english.items():
         text=re.sub(r"(?<![A-Za-z])"+re.escape(source)+r"(?![A-Za-z])",target,text)
+    # Hebrew G2P must not receive untranslated Latin tokens. Unknown names
+    # are spelled rather than dropped or passed to automatic language detection.
+    letters=dict(zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ",[
+        "איי","בי","סי","די","אי","אף","ג׳י","אייץ׳","איי","ג׳יי","קיי","אל",
+        "אם","אן","או","פי","קיו","אר","אס","טי","יו","וי","דבליו","אקס","וואי","זד"]))
+    text=re.sub(r"[A-Za-z]+",lambda m:" ".join(letters[c] for c in m[0].upper()),text)
+    text=text.replace("+"," פלוס ").replace("&"," אנד ")
     for source,target in (("מח״מ","משך חיים ממוצע"),("אג״ח","איגרות חוב"),
                           ("ארה״ב","ארצות הברית"),("תמ״ג","תוצר מקומי גולמי")):
         text=text.replace(source,target)

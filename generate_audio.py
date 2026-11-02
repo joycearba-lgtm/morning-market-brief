@@ -57,7 +57,7 @@ def main():
     sf.write(wav,np.concatenate(audio),rate)
     import imageio_ffmpeg
     subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(),"-hide_banner","-loglevel","error","-y","-i",wav,"-ac","1","-b:a","64k","audio/morning-brief.mp3"],check=True)
-    manifest={"date":today,"status":"ok","file":"audio/morning-brief.mp3","engine":"BlueTTS open source","voice":Path(voice_file).stem,"generated_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat(),"brief_generated_at":data.get("generated_at"),"content_hash":content_hash(data),"duration_seconds":round(len(np.concatenate(audio))/rate,1),"coverage":"full_editorial"}
+    manifest={"date":today,"status":"ok","file":"audio/morning-brief.mp3","engine":"BlueTTS open source","voice":Path(voice_file).stem,"generated_at":datetime.now(ZoneInfo("Asia/Jerusalem")).isoformat(),"brief_generated_at":data.get("generated_at"),"content_hash":content_hash(data),"duration_seconds":round(len(np.concatenate(audio))/rate,1),"coverage":"full_editorial","narration_version":2}
     Path("daily_audio.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
     print("Audio ready:",Path(manifest["file"]).stat().st_size,"bytes",flush=True)
 
