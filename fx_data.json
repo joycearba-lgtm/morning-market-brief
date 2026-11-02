@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-11-02T20:37:16.474550+00:00",
+  "checked_at": "2026-11-02T21:34:35.920980+00:00",
   "status": "ok",
   "symbol": "USDILS=X",
   "source": "Yahoo Finance",
   "type": "delayed_market_quote",
-  "value": 3.146,
-  "market_time": "2026-11-02T20:37:15+00:00",
+  "value": 3.1469,
+  "market_time": "2026-11-02T21:33:26+00:00",
   "delay_notice": "Indicative delayed market quote, not Bank of Israel representative rate."
 }
