@@ -1,20 +1,12 @@
 {
-  "updated_at": "2026-11-02T08:28:16.149120+02:00",
+  "updated_at": "2026-11-03T08:22:12.647104+02:00",
   "source": "Bank of Israel",
-  "usd_ils": 3.118,
-  "rate_date": "2026-10-30T10:21:03.7731459Z",
+  "usd_ils": 3.136,
+  "rate_date": "2026-11-02T13:21:08.3289971Z",
   "status": "ok",
   "indices": {
     "S&P 500": {
       "history": [
-        {
-          "date": "2021-11-01",
-          "close": 4613.6699
-        },
-        {
-          "date": "2021-11-02",
-          "close": 4630.6499
-        },
         {
           "date": "2021-11-03",
           "close": 4660.5698
@@ -5026,27 +5018,23 @@
         {
           "date": "2026-10-30",
           "close": 7580.0698
+        },
+        {
+          "date": "2026-11-02",
+          "close": 7541.3999
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 7580.07,
-      "change_percent": -1.82,
+      "value": 7541.4,
+      "change_percent": -0.51,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793393263
+      "market_time": 1793656259
     },
     "Nasdaq Composite": {
       "history": [
-        {
-          "date": "2021-11-01",
-          "close": 15595.9199
-        },
-        {
-          "date": "2021-11-02",
-          "close": 15649.5996
-        },
         {
           "date": "2021-11-03",
           "close": 15811.5801
@@ -10058,31 +10046,23 @@
         {
           "date": "2026-10-30",
           "close": 25437.0
+        },
+        {
+          "date": "2026-11-02",
+          "close": 25164.3105
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 25437.0,
-      "change_percent": -2.86,
+      "value": 25164.31,
+      "change_percent": -1.07,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793394959
+      "market_time": 1793661495
     },
     "Dow Jones": {
       "history": [
-        {
-          "date": "2026-09-30",
-          "close": 50906.0508
-        },
-        {
-          "date": "2026-10-01",
-          "close": 50926.5586
-        },
-        {
-          "date": "2026-10-02",
-          "close": 51176.9609
-        },
         {
           "date": "2026-10-05",
           "close": 51267.8984
@@ -10162,23 +10142,23 @@
         {
           "date": "2026-10-30",
           "close": 51770.3086
+        },
+        {
+          "date": "2026-11-02",
+          "close": 51983.9805
         }
       ],
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 51770.31,
-      "change_percent": -1.09,
+      "value": 51983.98,
+      "change_percent": 0.41,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793393273
+      "market_time": 1793656257
     },
     "TA-35": {
       "history": [
-        {
-          "date": "2021-11-01",
-          "close": 1856.03
-        },
         {
           "date": "2021-11-02",
           "close": 1876.26
@@ -14262,23 +14242,23 @@
         {
           "date": "2026-10-30",
           "close": 4058.95
+        },
+        {
+          "date": "2026-11-02",
+          "close": 4037.3601
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 4058.95,
-      "change_percent": -2.06,
+      "value": 4037.36,
+      "change_percent": -0.53,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793360691
+      "market_time": 1793633061
     },
     "TA-125": {
       "history": [
-        {
-          "date": "2021-11-01",
-          "close": 1937.04
-        },
         {
           "date": "2021-11-02",
           "close": 1965.12
@@ -18366,25 +18346,25 @@
         {
           "date": "2026-10-30",
           "close": 3936.27
+        },
+        {
+          "date": "2026-11-02",
+          "close": 3923.4299
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 3936.27,
-      "change_percent": -1.86,
+      "value": 3923.43,
+      "change_percent": -0.33,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793360693
+      "market_time": 1793636389
     }
   },
   "commodities": {
     "WTI futures": {
       "history": [
-        {
-          "date": "2026-10-02",
-          "close": 91.11
-        },
         {
           "date": "2026-10-05",
           "close": 89.43
@@ -18464,23 +18444,23 @@
         {
           "date": "2026-10-30",
           "close": 104.12
+        },
+        {
+          "date": "2026-11-02",
+          "close": 96.46
         }
       ],
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 100.69,
-      "change_percent": -3.29,
+      "value": 97.4,
+      "change_percent": 0.97,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793600288
+      "market_time": 1793686330
     },
     "Gold futures": {
       "history": [
-        {
-          "date": "2026-10-02",
-          "close": 4162.2998
-        },
         {
           "date": "2026-10-05",
           "close": 4156.7998
@@ -18560,24 +18540,28 @@
         {
           "date": "2026-10-30",
           "close": 3898.8999
+        },
+        {
+          "date": "2026-11-02",
+          "close": 3969.6001
         }
       ],
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 3920.4,
-      "change_percent": 0.55,
+      "value": 3930.8,
+      "change_percent": -0.98,
       "source": "Yahoo Finance",
       "type": "daily_close",
-      "market_time": 1793600294
+      "market_time": 1793686329
     }
   },
   "treasury_10y": {
     "status": "ok",
-    "value": 4.93,
-    "change_bps": -6.0,
+    "value": 4.89,
+    "change_bps": -3.5,
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
-    "market_time": 1793386794
+    "market_time": 1793649591
   }
 }

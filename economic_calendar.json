@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-11-02T08:28:25.843512+02:00",
-  "date": "2026-11-02",
-  "mode": "upcoming",
+  "checked_at": "2026-11-03T08:22:20.439275+02:00",
+  "date": "2026-11-03",
+  "mode": "today",
   "events": [
     {
       "title": "משרות פתוחות (JOLTS)",
@@ -9,20 +9,6 @@
       "source": "BLS – official dated schedule (fallback)",
       "url": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
       "priority": 2
-    },
-    {
-      "title": "דוח התעסוקה (NFP)",
-      "at": "2026-11-06T15:30:00+02:00",
-      "source": "BLS – official dated schedule (fallback)",
-      "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
-      "priority": 1
-    },
-    {
-      "title": "מדד המחירים לצרכן (CPI)",
-      "at": "2026-11-10T15:30:00+02:00",
-      "source": "BLS – official dated schedule (fallback)",
-      "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
-      "priority": 1
     }
   ],
   "source_note": "Includes dated BLS official schedule fallback when feed blocked; confirm any changes at the linked agency.",
