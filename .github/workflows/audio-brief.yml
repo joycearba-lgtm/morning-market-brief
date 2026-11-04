@@ -61,7 +61,7 @@ jobs:
               brief=json.loads(Path('macro_brief.json').read_text())
               info=json.loads(Path('daily_audio.json').read_text())
               audio=Path('audio/morning-brief.mp3')
-              ready=(info.get('narration_version')==2 and matches(info,brief) and brief.get('date')==datetime.now(ZoneInfo('Asia/Jerusalem')).date().isoformat()
+              ready=(info.get('narration_version')==3 and matches(info,brief) and brief.get('date')==datetime.now(ZoneInfo('Asia/Jerusalem')).date().isoformat()
                      and audio.is_file() and audio.stat().st_size>1000)
           except (OSError,ValueError):
               ready=False
