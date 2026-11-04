@@ -42,7 +42,9 @@ jobs:
           PY
       - name: Refresh quotes without changing the morning brief
         if: steps.window.outputs.active == 'true'
-        run: python intraday_market.py
+        run: |
+          python -m unittest test_intraday_market.py
+          python intraday_market.py
       - name: Publish quotes on latest main
         if: steps.window.outputs.active == 'true'
         run: python publish_market.py

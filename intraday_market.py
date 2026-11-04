@@ -25,7 +25,7 @@ def parse_quote(chart, now):
         raise ValueError('Missing price, previous close or source timestamp')
     if stamp > now.timestamp() + 60:
         raise ValueError('Future source timestamp')
-    return {'status': 'ok', 'value': round(value, 2),
+    return {'status': 'ok', 'value': round(value, 4),
             'change_percent': round((value / previous - 1) * 100, 2),
             'previous_close': previous, 'source': 'Yahoo Finance',
             'type': 'latest_quote', 'market_time': stamp,
