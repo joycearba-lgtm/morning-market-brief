@@ -536,6 +536,14 @@ section.grid .card .value{font-size:11.5px!important}
     span.setAttribute('aria-label', (change > 0 ? 'עלייה של ' : change < 0 ? 'ירידה של ' : 'ללא שינוי, ') + Math.abs(change).toFixed(digits) + ' ' + (unit === '%' ? 'אחוזים' : 'נקודות בסיס'));
     card.querySelector('.value').insertAdjacentElement('afterend', span);
   }
+  function quoteTime(item) {
+    const dt = item.market_time ? new Date(item.market_time * 1000) : null;
+    const at = dt && !isNaN(dt.getTime())
+      ? dt.toLocaleString('he-IL', {timeZone:'Asia/Jerusalem', day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'})
+      : (item.as_of || 'מועד לא ידוע');
+    return (item.type === 'daily_close' ? 'סגירה אחרונה' : 'נתון אחרון') + ' · ' + at + ' שעון ישראל' +
+      (item.refresh_status === 'failed' ? ' · העדכון נכשל; מוצג הנתון הקודם' : '') + ' | ' + (item.source || 'מקור לא ידוע');
+  }
   function showQuote(label, item, suffix = '') {
     const card = cardFor(label);
     if (!card) return;
@@ -544,7 +552,7 @@ section.grid .card .value{font-size:11.5px!important}
     if (item && item.status === 'ok' && typeof item.value === 'number' && Number.isFinite(item.value)) {
       value.textContent = item.value.toLocaleString('en-US', {maximumFractionDigits: 2}) + suffix;
       setMovement(card, item.change_percent);
-      sub.textContent = 'שער אחרון | ' + (item.source || 'מקור לא ידוע');
+      sub.textContent = quoteTime(item);
     } else {
       value.textContent = 'נתון לא זמין';
       setMovement(card, null);
@@ -566,10 +574,8 @@ section.grid .card .value{font-size:11.5px!important}
         const sub = treasuryCard.querySelector('.sub');
         if (yieldData?.status === 'ok' && typeof yieldData.value === 'number') {
           v.textContent = yieldData.value.toFixed(3) + '%';
-          const bps = typeof yieldData.change_bps === 'number' ? (yieldData.change_bps >= 0 ? '+' : '') + yieldData.change_bps.toFixed(1) + ' נ״ב' : 'לא זמין';
-          const quotedAt = yieldData.as_of || (yieldData.market_time ? new Date(yieldData.market_time * 1000).toLocaleDateString('he-IL', {timeZone:'America/New_York'}) : 'לא ידוע');
           setMovement(treasuryCard, yieldData.change_bps, ' נ״ב', 1);
-          sub.textContent = 'תשואה שנתית | נכון ל־' + quotedAt + ' | ' + (yieldData.source || 'מקור לא ידוע');
+          sub.textContent = 'תשואה שנתית | ' + quoteTime(yieldData);
         } else {
           v.textContent = 'נתון לא זמין';
           setMovement(treasuryCard, null);
@@ -597,7 +603,8 @@ section.grid .card .value{font-size:11.5px!important}
       const updated = dt && !isNaN(dt.getTime())
         ? dt.toLocaleString('he-IL', {timeZone:'Asia/Jerusalem'}) : 'לא ידוע';
       document.getElementById('data-status').textContent =
-        'עדכון קובץ: ' + updated + ' (שעון ישראל). הנתונים הם שערים אחרונים זמינים ואינם בזמן אמת.';
+        'עדכון קובץ: ' + updated + ' (שעון ישראל). משיכת נתונים מדי שעה בימי מסחר, 09:00–24:00. נתוני המקור עשויים להתעכב; זמן הנתון מופיע בכל כרטיס.' +
+        (data.intraday_refresh_status === 'partial' ? ' חלק מהמקורות לא התעדכנו.' : '');
       const headerTime=document.getElementById('last-market-update');
       if(headerTime) headerTime.textContent='נתוני שוק עודכנו: '+updated;
   }
@@ -607,6 +614,8 @@ section.grid .card .value{font-size:11.5px!important}
   } catch (error) {
     document.getElementById('data-status').textContent = 'נתוני הדף אינם זמינים';
   }
+  function refreshMarketData() {
+  if (document.hidden) return;
   fetch('./market_data.json?v=' + Date.now(), {cache:'no-store'})
     .then(response => {
       if (!response.ok) throw new Error('HTTP ' + response.status);
@@ -617,6 +626,10 @@ section.grid .card .value{font-size:11.5px!important}
       // Keep the embedded snapshot displayed when network fetching fails.
       console.warn('Market JSON refresh unavailable:', error);
     });
+  }
+  refreshMarketData();
+  setInterval(refreshMarketData, 5 * 60 * 1000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshMarketData(); });
 })();
 </script>
 
