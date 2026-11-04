@@ -1,57 +1,6 @@
 {
-  "checked_at": "2026-11-03T07:29:07+02:00",
+  "checked_at": "2026-11-04T07:32:28+02:00",
   "items": [
-    {
-      "company": "Teva",
-      "ticker": "TEVA",
-      "report_date": "2026-11-03",
-      "release_window": "לפני המסחר בארה״ב",
-      "release_at": "2026-11-03T14:00:00+02:00",
-      "call_at": "2026-11-03T15:00:00+02:00",
-      "expires_at": "2026-11-03T14:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://www.tevausa.com/news-and-media/press-releases/teva-to-host-conference-call-to-discuss-third-quarter-2026-financial-results-on-november-3-2026-at-8-a.m"
-    },
-    {
-      "company": "Shopify",
-      "ticker": "SHOP",
-      "report_date": "2026-11-03",
-      "release_window": "לפני המסחר בארה״ב; שעה מדויקת לא צוינה",
-      "call_at": "2026-11-03T15:30:00+02:00",
-      "expires_at": "2026-11-03T15:30:00+02:00",
-      "confirmed": true,
-      "source_url": "https://www.shopify.com/investors/press-releases/shopify-announce-third-quarter-2026-financial-results"
-    },
-    {
-      "company": "Pfizer",
-      "ticker": "PFE",
-      "report_date": "2026-11-03",
-      "release_window": "בבוקר בארה״ב, לפני השיחה; שעה מדויקת לא צוינה",
-      "call_at": "2026-11-03T17:00:00+02:00",
-      "expires_at": "2026-11-03T17:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-invites-public-view-and-listen-webcast-november-3"
-    },
-    {
-      "company": "Arista Networks",
-      "ticker": "ANET",
-      "report_date": "2026-11-03",
-      "release_window": "אחרי המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
-      "call_at": "2026-11-03T23:30:00+02:00",
-      "expires_at": "2026-11-03T23:30:00+02:00",
-      "confirmed": true,
-      "source_url": "https://www.arista.com/company/news/press-release/24817-pr-20261006"
-    },
-    {
-      "company": "AMD",
-      "ticker": "AMD",
-      "report_date": "2026-11-03",
-      "release_window": "לאחר המסחר בארה״ב ב־3.11; השיחה ב־4.11 בישראל",
-      "call_at": "2026-11-04T00:00:00+02:00",
-      "expires_at": "2026-11-04T00:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results"
-    },
     {
       "company": "Uber",
       "ticker": "UBER",
@@ -73,6 +22,26 @@
       "source_url": "https://investor.qualcomm.com/news-events/press-releases/news-details/2026/Qualcomm-Schedules-Fourth-Quarter-and-Fiscal-2026-Earnings-Release-and-Conference-Call/default.aspx"
     },
     {
+      "company": "Cisco",
+      "ticker": "CSCO",
+      "report_date": "2026-11-12",
+      "release_window": "לאחר המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
+      "call_at": "2026-11-12T23:30:00+02:00",
+      "expires_at": "2026-11-12T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-schedules-conference-call-for-q1-fiscal-year-2027-financial-results.html"
+    },
+    {
+      "company": "Walt Disney",
+      "ticker": "DIS",
+      "report_date": "2026-11-17",
+      "release_window": "לפני המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
+      "call_at": "2026-11-17T15:30:00+02:00",
+      "expires_at": "2026-11-17T15:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx"
+    },
+    {
       "company": "NVIDIA",
       "ticker": "NVDA",
       "report_date": "2026-11-17",
@@ -84,8 +53,8 @@
     }
   ],
   "verification_notes": [
-    "Reopened all seven retained IR announcements and checked substantive dates/times, using find for Shopify, Pfizer, Arista, AMD and Qualcomm. Removed expired Palantir after 2-November results.",
-    "Added NVIDIA official 28-October announcement for 17 November, within the next fourteen calendar days. Approximately 13:20 Pacific release is described as approximate; no exact release_at is fabricated. Call is 14:00 Pacific, 18-November 00:00 Israel.",
-    "Cisco researched via official IR and search; no accessible company confirmation for the next call, so no estimated event included. Date-aware post-DST conversion: NY +7 hours, Los Angeles +10 hours to Israel."
+    "Reopened Uber, Qualcomm and NVIDIA company announcements; removed the five 3-November reports from upcoming status.",
+    "Added Cisco from its new 3-November official press release and Disney from the official 12-October announcement; researched Lilly and Merck and found their Q3 results already released on 29 October, so they are not upcoming.",
+    "Times converted date-aware from America/Los_Angeles and America/New_York to Asia/Jerusalem. NVIDIA release time remains approximate in text, without an exact release_at; call date is 18 November in Israel. Uber release hour remains unspecified."
   ]
 }
