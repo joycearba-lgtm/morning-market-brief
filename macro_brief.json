@@ -1,143 +1,142 @@
 {
-  "date": "2026-11-04",
-  "generated_at": "2026-11-04T07:32:28+02:00",
-  "valid_until": "2026-11-05T09:00:00+02:00",
-  "title": "הבחירות משנות את תמונת המדיניות, מימון הביטחון במוקד",
+  "date": "2026-11-05",
+  "generated_at": "2026-11-05T07:36:04+02:00",
+  "valid_until": "2026-11-06T09:00:00+02:00",
+  "title": "וול סטריט עלתה, בתל אביב התקציב נותר במוקד",
   "status": "automatic_conditional",
   "editorial_mode": "researched",
-  "methodology": "הושווה לסקירת 3.11. נוספו דיווח תוצאות הבחירות בשני בתי הקונגרס, הצהרת טראמפ בעניין הסיוע ודוח AMD. מקור Reuters לתוצאות כולל תאריך פתיחה 3.11 ועדכון מתגלגל; נעשה שימוש בתוכן עדכון הבוקר, בלי לטעון להשלמת ספירה רשמית. כל המקורות נפתחו ותוכנם נבדק. market_data.json עדיין מתייחס לסגירות ישנות ולכן לא שימש לייחוס סגירת 3.11; נתוני ההקלטה אומתו ממקורות מתוארכים. אין אומדן חדש לגירעון: ניתוח המסגרת התקציבית מסומן כרקע. פורסמו חמישה מועדי דוחות ממקורות החברות; הוסרו המועדים שעברו ונוספו Cisco ו־Disney.",
+  "methodology": "נתוני סגירה, דיווחים מתוארכים והודעות רשמיות של החברות. ההשלכות האפשריות מסומנות כפרשנות.",
   "morning_summary": {
-    "event": "בסגירת 3.11 עלה ת״א־35 ות״א־125 כמעט לא השתנה; בארה״ב עלו אס אנד פי ונאסדק והדאו ירד. הנפט נחלש; הבוקר תשואות אג״ח ארה״ב יורדות.",
-    "impact": "השוק עובר ממבחן הדוחות למבחן המדיניות: הרכב הקונגרס עשוי להשפיע על הוצאות ורגולציה, והצהרת הסיוע נוגעת ישירות למימון הביטחון בישראל.",
-    "watch": "היום דוחות Uber ו־Qualcomm: שיחת Uber ב־15:00, ושיחת Qualcomm ב־23:45, שעון ישראל; Qualcomm תפרסם אחרי המסחר. בהמשך: סיסקו ב־12.11, ו־דיסני ו־אנבידיה ב־17.11. שעת שיחה אינה בהכרח שעת פרסום.",
-    "change": "מאז סקירת 3.11, Reuters מדווח על רוב דמוקרטי בשני בתי הקונגרס; טראמפ הצהיר על הפסקת הסיוע לישראל לאחר השנה, ו־AMD פרסמה דוח חזק."
+    "event": "בסגירת 4.11 ירדו המדדים המובילים בתל אביב, בעוד וול סטריט עלתה ותשואות אג״ח ממשלת ארה״ב לטווח ארוך ירדו.",
+    "impact": "ירידת הנפט עשויה להקל על לחצי המחירים בארה״ב, ובישראל הרכבת הממשלה ומימון הביטחון מעסיקים את המשקיעים.",
+    "watch": "דוח התעסוקה האמריקאי לאוקטובר צפוי מחר, 6.11, ב־15:30 שעון ישראל. סיסקו ואפלייד מטריאלס יפרסמו ב־12.11.",
+    "change": "מאז סקירת 4.11 נרשמה תגובת סגירה מנוגדת בתל אביב ובוול סטריט, וקוואלקום פרסמה דוח שמראה צמיחה בפעילות הרכב ובמכשירים מחוברים."
   },
+  "audio_market_summary": "בסגירת 4.11, מדד ת״א 35 ירד ב־1.96% ומדד ת״א 125 ירד ב־1.86%. בארצות הברית, אס אנד פי 500 עלה ב־1.58%, הנאסדק עלה ב־1.44% והדאו ג׳ונס עלה ב־3.03%.",
   "sections": [
     {
       "heading": "תמונת מצב",
       "bullets": [
-        "בסגירת 3.11 עלה ת״א־35 ות״א־125 כמעט לא השתנה; בארה״ב עלו אס אנד פי ונאסדק והדאו ירד. הנפט נחלש; הבוקר תשואות אג״ח ארה״ב יורדות. פרשנות: השוק עובר ממבחן הדוחות למבחן המדיניות: הרכב הקונגרס עשוי להשפיע על הוצאות ורגולציה, והצהרת הסיוע נוגעת ישירות למימון הביטחון בישראל."
+        "בסגירת 4.11 ירדו המדדים המובילים בתל אביב, בעוד וול סטריט עלתה ותשואות אג״ח ממשלת ארה״ב לטווח ארוך ירדו. פרשנות: ירידת הנפט עשויה להקל על לחצי המחירים בארה״ב, ובישראל הרכבת הממשלה ומימון הביטחון מעסיקים את המשקיעים."
       ],
       "sources": [
         {
-          "label": "TV10 · טבלת סגירת 3.11",
-          "url": "https://tv10.co.il/indices/ta-35/"
+          "label": "גלובס · סגירת תל אביב, 4.11",
+          "url": "https://en.globes.co.il/en/article-wed-tase-sharply-lower-1001562127"
         },
         {
-          "label": "Reuters · סגירת 3.11",
-          "url": "https://www.reuters.com/business/retail-consumer/us-stock-futures-mixed-apple-slides-midterms-loom-2026-11-03/"
+          "label": "רויטרס · סגירת וול סטריט, 4.11",
+          "url": "https://www.reuters.com/business/us-stock-index-futures-steady-democrats-seize-congress-2026-11-04/"
         },
         {
-          "label": "Reuters · בוקר 4.11",
-          "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-04/"
+          "label": "רויטרס · חוזי נפט, 5.11",
+          "url": "https://www.reuters.com/business/energy/oil-falls-fourth-day-expectations-lower-risk-iran-war-escalation-2026-11-05/"
         }
       ]
     },
     {
       "heading": "ישראל — האירועים והמשמעות לשווקים",
       "bullets": [
-        "טראמפ אמר ב־3.11 שסיכם עם נתניהו להפסיק את הסיוע לאחר השנה, אף שההסכם הקיים נמשך עד 2028; פרטי היישום לא פורטו. לאחר הבחירות בישראל, הרכבת הממשלה עדיין במוקד. פרשנות: אם יידרש מימון חלופי לביטחון, הבחירה בין מסים, קיצוץ וחוב תקבע את ההשפעה על הגירעון ועל הפעילות."
+        "לפי רויטרס, הרצוג קבע התייעצויות עם הסיעות ל־4–5.11 לאחר שהקואליציה איבדה את הרוב. לפי גלובס, באוצר נערכים לאפשרות של תקציב המשכי ב־2027. מגבלת ההוצאה עשויה לצמצם זמנית את הגירעון, ובמקביל לדחות השקעות אזרחיות.",
+        "טראמפ הצהיר ב־3.11 שהסיוע הביטחוני ייפסק אחרי השנה. מזכר ההבנות הקיים בתוקף עד 2028, וטראמפ לא פירט כיצד ייושם השינוי."
       ],
       "sources": [
         {
-          "label": "Reuters · הצהרת טראמפ 3.11",
-          "url": "https://www.reuters.com/world/middle-east/trump-says-us-will-stop-paying-israel-after-year-end-2026-11-03/"
+          "label": "רויטרס · הרכבת הממשלה והיחסים עם ארה״ב, 4.11",
+          "url": "https://www.reuters.com/world/middle-east/netanyahu-rivals-seize-democrats-sweep-us-congress-seeking-his-ouster-2026-11-04/"
         },
         {
-          "label": "המכון הישראלי לדמוקרטיה · 2.11; ניתוח רקע",
-          "url": "https://www.idi.org.il/articles/67014"
+          "label": "גלובס · היערכות לתקציב המשכי, 1.11",
+          "url": "https://www.globes.co.il/news/article.aspx?did=1001561538"
+        },
+        {
+          "label": "רויטרס · הצהרת הסיוע, 3.11",
+          "url": "https://www.al-monitor.com/originals/2026/11/americans-vote-trump-says-us-stop-4-billion-aid-israel"
         }
       ]
     },
     {
       "heading": "העולם — מה עומד במוקד",
       "bullets": [
-        "לפי עדכון Reuters, הדמוקרטים זכו ברוב בשני בתי הקונגרס. פרשנות: הדבר עשוי להקשות על הרחבה תקציבית ולהגביר פיקוח על חברות. בנפרד, AMD דיווחה בלילה שכמעט הכפילה את הכנסות מרכזי הנתונים, לצד חולשה בפעילות הלקוחות והגיימינג."
+        "אחרי ניצחון הדמוקרטים בשני בתי הקונגרס, מפעילות מרכזי נתונים בארה״ב נחלשו גם כשהמדדים עלו. הגבלות בנייה, אם יוטלו, עשויות לדחות הזמנות לציוד. במקביל, קוואלקום דיווחה ב־4.11 על צמיחה של 36% בהכנסות הרכב והמכשירים המחוברים יחד. החברה צופה התרחבות גם במרכזי נתונים בשנת הכספים הבאה."
       ],
       "sources": [
         {
-          "label": "Reuters · תוצאות הבחירות, עדכון בוקר 4.11",
-          "url": "https://www.reuters.com/world/us/trump-faces-midterm-verdict-with-control-congress-stake-2026-11-03/"
+          "label": "רויטרס · סגירת וול סטריט, 4.11",
+          "url": "https://www.reuters.com/business/us-stock-index-futures-steady-democrats-seize-congress-2026-11-04/"
         },
         {
-          "label": "AMD · דוח חברה 3.11",
-          "url": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results"
+          "label": "קוואלקום · דוח רבעוני, 4.11",
+          "url": "https://investor.qualcomm.com/files/content_files/FY2026-4th-Quarter-Earnings-Release.pdf"
         }
       ]
     },
     {
       "heading": "אירופה, אסיה ונפט · בקצרה",
       "bullets": [
-        "אירופה, סגירת 3.11: STOXX 600 ירד.",
-        "אסיה, בוקר 4.11: יפן וקוריאה יורדות, וגם החוזים בארה״ב נחלשים.",
-        "נפט: חוזי ברנט נחלשו בסגירת 3.11; המגעים לסיום המלחמה באיראן נמשכים לצד סיכוני אספקה."
+        "אירופה, 4.11. סטוקס 600 נסגר בשיא של יותר מחודשיים.",
+        "אסיה, בוקר 5.11. מדדי יפן, דרום קוריאה וטאיוואן ירדו במסחר המוקדם.",
+        "נפט, בוקר 5.11. חוזי ברנט ו־WTI ירדו. רויטרס ייחסה זאת לציפייה שסיכון ההסלמה מול איראן יפחת."
       ],
       "sources": [
         {
-          "label": "The Edge · סגירת אירופה 3.11",
-          "url": "https://edgeconsultancykw.com/europe-market-wrap-03-november-2026/"
+          "label": "רויטרס · סגירת אירופה, 4.11",
+          "url": "https://www.reuters.com/business/europe-set-open-lower-democratic-sweep-fuels-ai-regulation-fears-2026-11-04/"
         },
         {
-          "label": "Reuters · בוקר 4.11",
-          "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-04/"
+          "label": "רויטרס · מסחר בוקר באסיה, 5.11",
+          "url": "https://www.reuters.com/business/energy/global-markets-global-markets-2026-11-05/"
         },
         {
-          "label": "Reuters · בוקר 4.11",
-          "url": "https://www.investing.com/news/commodities-news/oil-edges-down-as-investors-await-us-midterm-election-results-4997127"
+          "label": "רויטרס · חוזי נפט, 5.11",
+          "url": "https://www.reuters.com/business/energy/oil-falls-fourth-day-expectations-lower-risk-iran-war-escalation-2026-11-05/"
         }
       ]
     },
     {
-      "heading": "מה לעקוב היום ובהמשך השבוע",
+      "heading": "אירועים קרובים",
       "bullets": [
-        "היום דוחות Uber ו־Qualcomm: שיחת Uber ב־15:00, ושיחת Qualcomm ב־23:45, שעון ישראל; Qualcomm תפרסם אחרי המסחר. בהמשך: סיסקו ב־12.11, ו־דיסני ו־אנבידיה ב־17.11. שעת שיחה אינה בהכרח שעת פרסום."
+        "דוח התעסוקה האמריקאי לאוקטובר צפוי מחר, 6.11, ב־15:30 שעון ישראל. סיסקו ואפלייד מטריאלס יפרסמו ב־12.11."
       ],
       "sources": [
         {
-          "label": "Uber · הודעת חברה 5.10",
-          "url": "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Date-of-Third-Quarter-2026-Results-Conference-Call/default.aspx"
+          "label": "לשכת הסטטיסטיקה האמריקאית · לוח דוח התעסוקה",
+          "url": "https://www.bls.gov/ces/"
         },
         {
-          "label": "Qualcomm · הודעת חברה 22.10",
-          "url": "https://investor.qualcomm.com/news-events/press-releases/news-details/2026/Qualcomm-Schedules-Fourth-Quarter-and-Fiscal-2026-Earnings-Release-and-Conference-Call/default.aspx"
+          "label": "סיסקו · הודעת 3.11",
+          "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-schedules-conference-call-for-q1-fiscal-year-2027-financial-results.html"
+        },
+        {
+          "label": "אפלייד מטריאלס · הודעת 22.10",
+          "url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-report-fourth-quarter-and-fiscal-2026-results"
+        }
+      ],
+      "items_meta": [
+        {
+          "event_date": "2026-11-06",
+          "kind": "upcoming"
         }
       ]
     }
   ],
   "advisor": [
     {
-      "title": "שבבים — לבדוק מה מניע את הצמיחה",
-      "insight": "דוח AMD מחדד את הפער בין השקעות בתשתיות בינה מלאכותית לבין מחזור המחשבים והגיימינג. פרשנות: הכותרת ״שבבים״ מסתירה מקורות הכנסה עם ביקוש ורווחיות שונים.",
-      "client_impact": "לכן, עלייה במכירות מרכזי נתונים אינה מספיקה להערכת כל חברה בענף; חשוב גם כמה השקעה נדרשת, ומה הלקוחות מוכנים לשלם לאורך זמן.",
-      "reference": "AMD · דוח חברה 3.11; פרשנות",
-      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results",
-      "event_date": "2026-11-03",
-      "kind": "background"
+      "title": "תקציב ישראל ועלות החוב",
+      "insight": "אם הצהרת טראמפ מ־3.11 על עצירת הסיוע תתורגם לצמצום במימון הביטחוני, תקציב המשכי עשוי להקשות על העברת משאבים להוצאות חדשות.",
+      "client_impact": "השאלה לאג״ח ממשלת ישראל היא כמה מהמימון החלופי יגיע מהנפקות חוב, שכן היצע גבוה יותר עלול להכביד על מחירי האג״ח הארוכות.",
+      "reference": "רויטרס · הצהרת הסיוע, 3.11",
+      "source_url": "https://www.al-monitor.com/originals/2026/11/americans-vote-trump-says-us-stop-4-billion-aid-israel",
+      "event_date": "2026-11-03"
     },
     {
-      "title": "ישראל — ריסון תקציבי והרכב ההוצאה",
-      "insight": "ניתוח המכון הישראלי לדמוקרטיה מ־2.11 מזהיר שתקציב המשכי עלול לפגוע בהשקעות אזרחיות. פרשנות: הוצאה נמוכה יותר עשויה לרסן מימון בטווח הקצר, אך דחיית תשתיות עלולה לפגוע בפריון ובהכנסות בעתיד.",
-      "client_impact": "בהערכת הסיכון של ישראל חשוב לבחון את הרכב ההתאמות ואת יכולת הצמיחה, לצד מספר הגירעון.",
-      "reference": "המכון הישראלי לדמוקרטיה · 2.11; ניתוח רקע; פרשנות",
-      "source_url": "https://www.idi.org.il/articles/67014",
-      "event_date": "2026-11-02",
-      "kind": "background"
+      "title": "קוואלקום ותמחור הצמיחה",
+      "insight": "בדוח קוואלקום, הצמיחה ברכב ובמכשירים מחוברים כבר ניכרת בהכנסות. ההתרחבות במרכזי נתונים תלויה עדיין במימוש תחזית החברה.",
+      "client_impact": "בתמחור המניה כדאי להבחין בין התרומה שכבר רואים בדוח לבין ההכנסות העתידיות שהמשקיעים מייחסים לפעילות החדשה.",
+      "reference": "קוואלקום · דוח רבעוני, 4.11",
+      "source_url": "https://investor.qualcomm.com/files/content_files/FY2026-4th-Quarter-Earnings-Release.pdf",
+      "event_date": "2026-11-04"
     }
   ],
-  "takeaway": "",
-  "audio_market_summary": "סגירת המסחר ביום 3.11: מדד תל אביב שלושים וחמישה עלה ב־0.29%. מדד תל אביב מאה עשרים וחמישה ירד ב־0.03%. מדד אס אנד פי חמש מאות עלה ב־0.36%. מדד נאסדק עלה ב־0.83%. מדד דאו ג׳ונס ירד ב־0.38%.",
-  "audio_market_sources": [
-    {
-      "label": "TV10 · טבלת סגירת 3.11",
-      "url": "https://tv10.co.il/indices/ta-35/"
-    },
-    {
-      "label": "Investing.com · סגירת 3.11",
-      "url": "https://www.investing.com/indices/ta100-historical-data"
-    },
-    {
-      "label": "Reuters · סגירת 3.11",
-      "url": "https://www.reuters.com/business/retail-consumer/us-stock-futures-mixed-apple-slides-midterms-loom-2026-11-03/"
-    }
-  ]
+  "takeaway": ""
 }

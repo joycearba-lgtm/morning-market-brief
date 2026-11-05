@@ -1,26 +1,6 @@
 {
-  "checked_at": "2026-11-04T07:32:28+02:00",
+  "checked_at": "2026-11-05T07:36:04+02:00",
   "items": [
-    {
-      "company": "Uber",
-      "ticker": "UBER",
-      "report_date": "2026-11-04",
-      "release_window": "שעת הפרסום לא צוינה; שעת השיחה אינה שעת פרסום",
-      "call_at": "2026-11-04T15:00:00+02:00",
-      "expires_at": "2026-11-04T15:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Date-of-Third-Quarter-2026-Results-Conference-Call/default.aspx"
-    },
-    {
-      "company": "Qualcomm",
-      "ticker": "QCOM",
-      "report_date": "2026-11-04",
-      "release_window": "אחרי המסחר בארה״ב",
-      "call_at": "2026-11-04T23:45:00+02:00",
-      "expires_at": "2026-11-04T23:45:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investor.qualcomm.com/news-events/press-releases/news-details/2026/Qualcomm-Schedules-Fourth-Quarter-and-Fiscal-2026-Earnings-Release-and-Conference-Call/default.aspx"
-    },
     {
       "company": "Cisco",
       "ticker": "CSCO",
@@ -30,6 +10,16 @@
       "expires_at": "2026-11-12T23:30:00+02:00",
       "confirmed": true,
       "source_url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-schedules-conference-call-for-q1-fiscal-year-2027-financial-results.html"
+    },
+    {
+      "company": "Applied Materials",
+      "ticker": "AMAT",
+      "report_date": "2026-11-12",
+      "release_window": "מועד הדוח אושר; שעת הפרסום לא צוינה",
+      "call_at": "2026-11-12T23:30:00+02:00",
+      "expires_at": "2026-11-12T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-report-fourth-quarter-and-fiscal-2026-results"
     },
     {
       "company": "Walt Disney",
@@ -42,6 +32,16 @@
       "source_url": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx"
     },
     {
+      "company": "Home Depot",
+      "ticker": "HD",
+      "report_date": "2026-11-17",
+      "release_window": "שעת פרסום הדוח לא צוינה",
+      "call_at": "2026-11-17T16:00:00+02:00",
+      "expires_at": "2026-11-17T16:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://ir.homedepot.com/news-releases/2026/11-03-2026-130236805"
+    },
+    {
       "company": "NVIDIA",
       "ticker": "NVDA",
       "report_date": "2026-11-17",
@@ -50,11 +50,16 @@
       "expires_at": "2026-11-18T00:00:00+02:00",
       "confirmed": true,
       "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
+    },
+    {
+      "company": "Walmart",
+      "ticker": "WMT",
+      "report_date": "2026-11-19",
+      "release_window": "חומרי הדוח צפויים בסביבות 14:00 בשעון ישראל",
+      "call_at": "2026-11-19T15:00:00+02:00",
+      "expires_at": "2026-11-19T15:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://corporate.walmart.com/news/events/fy2027-q3-earnings-release"
     }
-  ],
-  "verification_notes": [
-    "Reopened Uber, Qualcomm and NVIDIA company announcements; removed the five 3-November reports from upcoming status.",
-    "Added Cisco from its new 3-November official press release and Disney from the official 12-October announcement; researched Lilly and Merck and found their Q3 results already released on 29 October, so they are not upcoming.",
-    "Times converted date-aware from America/Los_Angeles and America/New_York to Asia/Jerusalem. NVIDIA release time remains approximate in text, without an exact release_at; call date is 18 November in Israel. Uber release hour remains unspecified."
   ]
 }
