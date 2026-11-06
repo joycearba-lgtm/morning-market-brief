@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06T22:52:52.065527+02:00",
+  "updated_at": "2026-11-06T23:46:33.011221+02:00",
   "source": "Bank of Israel",
   "usd_ils": 3.167,
   "rate_date": "2026-11-05T13:21:08.0543826Z",
@@ -5027,13 +5027,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 7382.5,
-      "change_percent": 0.39,
+      "value": 7376.86,
+      "change_percent": 0.31,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1793998371,
+      "market_time": 1794001029,
       "previous_close": 7353.73,
-      "checked_at": "2026-11-06T22:52:52.065527+02:00",
+      "checked_at": "2026-11-06T23:46:33.011221+02:00",
       "refresh_status": "ok",
       "refresh_error": "Source returned an older quote"
     },
@@ -10059,13 +10059,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 24592.404,
-      "change_percent": 1.14,
+      "value": 24579.424,
+      "change_percent": 1.09,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1793998368,
+      "market_time": 1794001591,
       "previous_close": 24314.998,
-      "checked_at": "2026-11-06T22:52:52.065527+02:00",
+      "checked_at": "2026-11-06T23:46:33.011221+02:00",
       "refresh_status": "ok"
     },
     "Dow Jones": {
@@ -10166,13 +10166,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 51320.59,
-      "change_percent": -0.39,
+      "value": 51285.73,
+      "change_percent": -0.46,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1793998370,
+      "market_time": 1794001033,
       "previous_close": 51523.06,
-      "checked_at": "2026-11-06T22:52:52.065527+02:00",
+      "checked_at": "2026-11-06T23:46:33.011221+02:00",
       "refresh_status": "ok"
     },
     "TA-35": {
@@ -14275,7 +14275,7 @@
       "type": "latest_quote",
       "market_time": 1793965458,
       "previous_close": 3823.18,
-      "checked_at": "2026-11-06T22:52:52.065527+02:00",
+      "checked_at": "2026-11-06T23:46:33.011221+02:00",
       "refresh_status": "ok"
     },
     "TA-125": {
@@ -18382,7 +18382,7 @@
       "type": "latest_quote",
       "market_time": 1793965459,
       "previous_close": 3719.05,
-      "checked_at": "2026-11-06T22:52:52.065527+02:00",
+      "checked_at": "2026-11-06T23:46:33.011221+02:00",
       "refresh_status": "ok"
     }
   },
@@ -18485,13 +18485,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 90.75,
-      "change_percent": 0.25,
+      "value": 90.46,
+      "change_percent": -0.07,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1793997768,
+      "market_time": 1794000989,
       "previous_close": 90.52,
-      "checked_at": "2026-11-06T22:52:52.065527+02:00",
+      "checked_at": "2026-11-06T23:46:33.011221+02:00",
       "refresh_status": "ok"
     },
     "Gold futures": {
@@ -18592,13 +18592,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 4071.7,
-      "change_percent": -1.02,
+      "value": 4074.1,
+      "change_percent": -0.96,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1793997766,
+      "market_time": 1794000965,
       "previous_close": 4113.5,
-      "checked_at": "2026-11-06T22:52:52.065527+02:00",
+      "checked_at": "2026-11-06T23:46:33.011221+02:00",
       "refresh_status": "ok"
     }
   },
@@ -18609,10 +18609,10 @@
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
     "market_time": 1793995196,
-    "checked_at": "2026-11-06T22:52:52.065527+02:00",
+    "checked_at": "2026-11-06T23:46:33.011221+02:00",
     "refresh_status": "ok",
     "change_bps": 2.2
   },
-  "intraday_checked_at": "2026-11-06T22:52:52.065527+02:00",
+  "intraday_checked_at": "2026-11-06T23:46:33.011221+02:00",
   "intraday_refresh_status": "ok"
 }
