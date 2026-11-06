@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-05T07:36:04+02:00",
+  "checked_at": "2026-11-06T07:36:36+02:00",
   "items": [
     {
       "company": "Cisco",
@@ -60,6 +60,16 @@
       "expires_at": "2026-11-19T15:00:00+02:00",
       "confirmed": true,
       "source_url": "https://corporate.walmart.com/news/events/fy2027-q3-earnings-release"
+    },
+    {
+      "company": "Intuit",
+      "ticker": "INTU",
+      "report_date": "2026-11-19",
+      "release_window": "אחרי המסחר בארה״ב, שעה מדויקת לא צוינה",
+      "call_at": "2026-11-19T23:30:00+02:00",
+      "expires_at": "2026-11-19T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investors.intuit.com/news-events/press-releases/detail/1330/intuit-to-announce-first-quarter-fiscal-year-2027-results-on-nov-19"
     }
   ]
 }
