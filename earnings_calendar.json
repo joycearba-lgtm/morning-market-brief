@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T07:36:36+02:00",
+  "checked_at": "2026-11-07T07:27:11+02:00",
   "items": [
     {
       "company": "Cisco",
@@ -50,6 +50,16 @@
       "expires_at": "2026-11-18T00:00:00+02:00",
       "confirmed": true,
       "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
+    },
+    {
+      "company": "Palo Alto Networks",
+      "ticker": "PANW",
+      "report_date": "2026-11-18",
+      "release_window": "אחרי המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
+      "call_at": "2026-11-18T23:30:00+02:00",
+      "expires_at": "2026-11-18T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://www2.paloaltonetworks.com/company/press/2026/palo-alto-networks-to-announce-fiscal-first-quarter-2027-financial-results-on-wednesday--november-18--2026"
     },
     {
       "company": "Walmart",
