@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09T09:40:38.585454+02:00",
+  "updated_at": "2026-11-09T11:19:15.847521+02:00",
   "source": "Bank of Israel",
   "usd_ils": 3.194,
   "rate_date": "2026-11-06T10:22:04.7339875Z",
@@ -5037,7 +5037,7 @@
       "type": "latest_quote",
       "market_time": 1794001029,
       "previous_close": 7353.73,
-      "checked_at": "2026-11-09T09:40:38.585454+02:00",
+      "checked_at": "2026-11-09T11:19:15.847521+02:00",
       "refresh_status": "ok"
     },
     "Nasdaq Composite": {
@@ -10072,7 +10072,7 @@
       "type": "latest_quote",
       "market_time": 1794003359,
       "previous_close": 24315.0,
-      "checked_at": "2026-11-09T09:40:38.585454+02:00",
+      "checked_at": "2026-11-09T11:19:15.847521+02:00",
       "refresh_status": "ok"
     },
     "Dow Jones": {
@@ -10179,7 +10179,7 @@
       "type": "latest_quote",
       "market_time": 1794001032,
       "previous_close": 51523.1,
-      "checked_at": "2026-11-09T09:40:38.585454+02:00",
+      "checked_at": "2026-11-09T11:19:15.847521+02:00",
       "refresh_status": "ok"
     },
     "TA-35": {
@@ -14280,13 +14280,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 3941.14,
-      "change_percent": 3.09,
+      "value": 3945.56,
+      "change_percent": 0.11,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1793965458,
-      "previous_close": 3823.18,
-      "checked_at": "2026-11-09T09:40:38.585454+02:00",
+      "market_time": 1794215055,
+      "previous_close": 3941.14,
+      "checked_at": "2026-11-09T11:19:15.847521+02:00",
       "refresh_status": "ok"
     },
     "TA-125": {
@@ -18391,13 +18391,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 3823.63,
-      "change_percent": 2.81,
+      "value": 3824.5,
+      "change_percent": 0.02,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1793965459,
-      "previous_close": 3719.05,
-      "checked_at": "2026-11-09T09:40:38.585454+02:00",
+      "market_time": 1794215055,
+      "previous_close": 3823.63,
+      "checked_at": "2026-11-09T11:19:15.847521+02:00",
       "refresh_status": "ok"
     }
   },
@@ -18492,13 +18492,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 89.78,
-      "change_percent": -1.16,
+      "value": 89.62,
+      "change_percent": -1.33,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794209429,
+      "market_time": 1794215355,
       "previous_close": 90.83,
-      "checked_at": "2026-11-09T09:40:38.585454+02:00",
+      "checked_at": "2026-11-09T11:19:15.847521+02:00",
       "refresh_status": "ok"
     },
     "Gold futures": {
@@ -18591,13 +18591,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 4106.9,
-      "change_percent": 0.79,
+      "value": 4105.6,
+      "change_percent": 0.75,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794209436,
+      "market_time": 1794215353,
       "previous_close": 4074.9,
-      "checked_at": "2026-11-09T09:40:38.585454+02:00",
+      "checked_at": "2026-11-09T11:19:15.847521+02:00",
       "refresh_status": "ok"
     }
   },
@@ -18608,10 +18608,10 @@
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
     "market_time": 1793995196,
-    "checked_at": "2026-11-09T09:40:38.585454+02:00",
+    "checked_at": "2026-11-09T11:19:15.847521+02:00",
     "refresh_status": "ok",
     "change_bps": 2.2
   },
-  "intraday_checked_at": "2026-11-09T09:40:38.585454+02:00",
+  "intraday_checked_at": "2026-11-09T11:19:15.847521+02:00",
   "intraday_refresh_status": "ok"
 }
