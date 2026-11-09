@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T07:34:06+02:00",
+  "checked_at": "2026-11-09T07:28:18+02:00",
   "items": [
     {
       "company": "Cisco",
@@ -30,16 +30,6 @@
       "expires_at": "2026-11-17T15:30:00+02:00",
       "confirmed": true,
       "source_url": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx"
-    },
-    {
-      "company": "Home Depot",
-      "ticker": "HD",
-      "report_date": "2026-11-17",
-      "release_window": "שעת פרסום הדוח לא צוינה",
-      "call_at": "2026-11-17T16:00:00+02:00",
-      "expires_at": "2026-11-17T16:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://ir.homedepot.com/news-releases/2026/11-03-2026-130236805"
     },
     {
       "company": "NVIDIA",
@@ -80,6 +70,16 @@
       "expires_at": "2026-11-19T23:30:00+02:00",
       "confirmed": true,
       "source_url": "https://investors.intuit.com/news-events/press-releases/detail/1330/intuit-to-announce-first-quarter-fiscal-year-2027-results-on-nov-19"
+    },
+    {
+      "company": "Keysight Technologies",
+      "ticker": "KEYS",
+      "report_date": "2026-11-19",
+      "release_window": "אחרי המסחר בארה״ב, שעה מדויקת לא צוינה",
+      "call_at": "2026-11-19T23:30:00+02:00",
+      "expires_at": "2026-11-19T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx"
     }
   ]
 }
