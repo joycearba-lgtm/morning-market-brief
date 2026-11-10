@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-11-09T08:31:47.507629+02:00",
+  "checked_at": "2026-11-10T08:22:16.300584+02:00",
   "israel": {
     "rate_now": {
       "status": "ok",
       "value": 3.25,
-      "as_of": "2026-11-09",
+      "as_of": "2026-11-10",
       "source": "Bank of Israel official interest API",
       "source_url": "https://boi.org.il/PublicApi/GetInterest",
       "detail": "API rate checked on date shown; not the date of last rate decision"
@@ -40,7 +40,7 @@
       "value": 4.0,
       "lower": 3.75,
       "upper": 4.0,
-      "as_of": "2026-11-08",
+      "as_of": "2026-11-09",
       "source": "Federal Reserve via FRED",
       "source_url": "https://fred.stlouisfed.org/series/DFEDTARU"
     },

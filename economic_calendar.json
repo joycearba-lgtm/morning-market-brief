@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-11-09T08:31:48.439241+02:00",
-  "date": "2026-11-09",
-  "mode": "upcoming",
+  "checked_at": "2026-11-10T08:22:17.420887+02:00",
+  "date": "2026-11-10",
+  "mode": "today",
   "events": [
     {
       "title": "מדד המחירים לצרכן (CPI)",
@@ -9,20 +9,6 @@
       "source": "BLS – official dated schedule (fallback)",
       "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
       "priority": 1
-    },
-    {
-      "title": "מדד המחירים ליצרן (PPI)",
-      "at": "2026-11-13T15:30:00+02:00",
-      "source": "BLS – official dated schedule (fallback)",
-      "url": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
-      "priority": 2
-    },
-    {
-      "title": "פרוטוקול ישיבת הפד",
-      "at": "2026-11-18T21:00:00+02:00",
-      "source": "Federal Reserve",
-      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "priority": 2
     }
   ],
   "source_note": "Includes dated BLS official schedule fallback when feed blocked; confirm any changes at the linked agency.",
