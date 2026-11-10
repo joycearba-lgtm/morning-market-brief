@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T07:28:18+02:00",
+  "checked_at": "2026-11-10T07:30:22+02:00",
   "items": [
     {
       "company": "Cisco",
@@ -72,14 +72,15 @@
       "source_url": "https://investors.intuit.com/news-events/press-releases/detail/1330/intuit-to-announce-first-quarter-fiscal-year-2027-results-on-nov-19"
     },
     {
-      "company": "Keysight Technologies",
-      "ticker": "KEYS",
-      "report_date": "2026-11-19",
-      "release_window": "אחרי המסחר בארה״ב, שעה מדויקת לא צוינה",
-      "call_at": "2026-11-19T23:30:00+02:00",
-      "expires_at": "2026-11-19T23:30:00+02:00",
+      "company": "Medtronic",
+      "ticker": "MDT",
+      "report_date": "2026-11-24",
+      "release_window": "13:45 בשעון ישראל",
+      "release_at": "2026-11-24T13:45:00+02:00",
+      "call_at": "2026-11-24T14:30:00+02:00",
+      "expires_at": "2026-11-24T13:45:00+02:00",
       "confirmed": true,
-      "source_url": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx"
+      "source_url": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027"
     }
   ]
 }
