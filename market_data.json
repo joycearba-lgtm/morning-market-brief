@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T22:51:58.407699+02:00",
+  "updated_at": "2026-11-10T23:48:21.962563+02:00",
   "source": "Bank of Israel",
   "usd_ils": 3.171,
   "rate_date": "2026-11-09T15:12:45.9832566Z",
@@ -5027,13 +5027,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 7533.88,
-      "change_percent": -0.21,
+      "value": 7520.93,
+      "change_percent": -0.38,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794343917,
+      "market_time": 1794345601,
       "previous_close": 7549.94,
-      "checked_at": "2026-11-10T22:51:58.407699+02:00",
+      "checked_at": "2026-11-10T23:48:21.962563+02:00",
       "refresh_status": "ok"
     },
     "Nasdaq Composite": {
@@ -10058,13 +10058,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 25107.615,
-      "change_percent": -0.58,
+      "value": 25065.875,
+      "change_percent": -0.74,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794343918,
+      "market_time": 1794347300,
       "previous_close": 25253.139,
-      "checked_at": "2026-11-10T22:51:58.407699+02:00",
+      "checked_at": "2026-11-10T23:48:21.962563+02:00",
       "refresh_status": "ok"
     },
     "Dow Jones": {
@@ -10157,13 +10157,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 52310.93,
-      "change_percent": -0.15,
+      "value": 52231.89,
+      "change_percent": -0.3,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794343917,
+      "market_time": 1794345601,
       "previous_close": 52389.75,
-      "checked_at": "2026-11-10T22:51:58.407699+02:00",
+      "checked_at": "2026-11-10T23:48:21.962563+02:00",
       "refresh_status": "ok",
       "refresh_error": "Source returned an older quote"
     },
@@ -14271,7 +14271,7 @@
       "type": "latest_quote",
       "market_time": 1794324259,
       "previous_close": 4013.5,
-      "checked_at": "2026-11-10T22:51:58.407699+02:00",
+      "checked_at": "2026-11-10T23:48:21.962563+02:00",
       "refresh_status": "ok"
     },
     "TA-125": {
@@ -18382,7 +18382,7 @@
       "type": "latest_quote",
       "market_time": 1794324261,
       "previous_close": 3898.91,
-      "checked_at": "2026-11-10T22:51:58.407699+02:00",
+      "checked_at": "2026-11-10T23:48:21.962563+02:00",
       "refresh_status": "ok"
     }
   },
@@ -18477,13 +18477,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 86.47,
-      "change_percent": -0.44,
+      "value": 86.61,
+      "change_percent": -0.28,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794343309,
+      "market_time": 1794346700,
       "previous_close": 86.85,
-      "checked_at": "2026-11-10T22:51:58.407699+02:00",
+      "checked_at": "2026-11-10T23:48:21.962563+02:00",
       "refresh_status": "ok"
     },
     "Gold futures": {
@@ -18576,13 +18576,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 4038.9,
-      "change_percent": -1.84,
+      "value": 4035.1,
+      "change_percent": -1.93,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794343308,
+      "market_time": 1794346691,
       "previous_close": 4114.5,
-      "checked_at": "2026-11-10T22:51:58.407699+02:00",
+      "checked_at": "2026-11-10T23:48:21.962563+02:00",
       "refresh_status": "ok"
     }
   },
@@ -18593,10 +18593,10 @@
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
     "market_time": 1794340794,
-    "checked_at": "2026-11-10T22:51:58.407699+02:00",
+    "checked_at": "2026-11-10T23:48:21.962563+02:00",
     "refresh_status": "ok",
     "change_bps": 11.9
   },
-  "intraday_checked_at": "2026-11-10T22:51:58.407699+02:00",
+  "intraday_checked_at": "2026-11-10T23:48:21.962563+02:00",
   "intraday_refresh_status": "ok"
 }
