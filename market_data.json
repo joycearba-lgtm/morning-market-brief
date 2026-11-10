@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T21:57:56.080537+02:00",
+  "updated_at": "2026-11-10T22:51:58.407699+02:00",
   "source": "Bank of Israel",
   "usd_ils": 3.171,
   "rate_date": "2026-11-09T15:12:45.9832566Z",
@@ -5027,13 +5027,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 7512.9,
-      "change_percent": -0.49,
+      "value": 7533.88,
+      "change_percent": -0.21,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794340674,
+      "market_time": 1794343917,
       "previous_close": 7549.94,
-      "checked_at": "2026-11-10T21:57:56.080537+02:00",
+      "checked_at": "2026-11-10T22:51:58.407699+02:00",
       "refresh_status": "ok"
     },
     "Nasdaq Composite": {
@@ -10058,13 +10058,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 25003.77,
-      "change_percent": -0.99,
+      "value": 25107.615,
+      "change_percent": -0.58,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794340665,
+      "market_time": 1794343918,
       "previous_close": 25253.139,
-      "checked_at": "2026-11-10T21:57:56.080537+02:00",
+      "checked_at": "2026-11-10T22:51:58.407699+02:00",
       "refresh_status": "ok"
     },
     "Dow Jones": {
@@ -10157,13 +10157,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 52238.73,
-      "change_percent": -0.29,
+      "value": 52310.93,
+      "change_percent": -0.15,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794340675,
+      "market_time": 1794343917,
       "previous_close": 52389.75,
-      "checked_at": "2026-11-10T21:57:56.080537+02:00",
+      "checked_at": "2026-11-10T22:51:58.407699+02:00",
       "refresh_status": "ok",
       "refresh_error": "Source returned an older quote"
     },
@@ -14271,7 +14271,7 @@
       "type": "latest_quote",
       "market_time": 1794324259,
       "previous_close": 4013.5,
-      "checked_at": "2026-11-10T21:57:56.080537+02:00",
+      "checked_at": "2026-11-10T22:51:58.407699+02:00",
       "refresh_status": "ok"
     },
     "TA-125": {
@@ -18382,7 +18382,7 @@
       "type": "latest_quote",
       "market_time": 1794324261,
       "previous_close": 3898.91,
-      "checked_at": "2026-11-10T21:57:56.080537+02:00",
+      "checked_at": "2026-11-10T22:51:58.407699+02:00",
       "refresh_status": "ok"
     }
   },
@@ -18477,13 +18477,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 86.23,
-      "change_percent": -0.71,
+      "value": 86.47,
+      "change_percent": -0.44,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794340074,
+      "market_time": 1794343309,
       "previous_close": 86.85,
-      "checked_at": "2026-11-10T21:57:56.080537+02:00",
+      "checked_at": "2026-11-10T22:51:58.407699+02:00",
       "refresh_status": "ok"
     },
     "Gold futures": {
@@ -18580,23 +18580,23 @@
       "change_percent": -1.84,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794340077,
+      "market_time": 1794343308,
       "previous_close": 4114.5,
-      "checked_at": "2026-11-10T21:57:56.080537+02:00",
+      "checked_at": "2026-11-10T22:51:58.407699+02:00",
       "refresh_status": "ok"
     }
   },
   "treasury_10y": {
     "status": "ok",
-    "value": 4.987,
+    "value": 4.983,
     "previous_close": 4.864,
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
-    "market_time": 1794339774,
-    "checked_at": "2026-11-10T21:57:56.080537+02:00",
+    "market_time": 1794340794,
+    "checked_at": "2026-11-10T22:51:58.407699+02:00",
     "refresh_status": "ok",
-    "change_bps": 12.3
+    "change_bps": 11.9
   },
-  "intraday_checked_at": "2026-11-10T21:57:56.080537+02:00",
+  "intraday_checked_at": "2026-11-10T22:51:58.407699+02:00",
   "intraday_refresh_status": "ok"
 }
