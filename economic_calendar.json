@@ -1,13 +1,27 @@
 {
-  "checked_at": "2026-11-10T08:22:17.420887+02:00",
-  "date": "2026-11-10",
-  "mode": "today",
+  "checked_at": "2026-11-11T08:24:59.366299+02:00",
+  "date": "2026-11-11",
+  "mode": "upcoming",
   "events": [
     {
-      "title": "מדד המחירים לצרכן (CPI)",
-      "at": "2026-11-10T15:30:00+02:00",
+      "title": "מדד המחירים ליצרן (PPI)",
+      "at": "2026-11-13T15:30:00+02:00",
       "source": "BLS – official dated schedule (fallback)",
-      "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
+      "url": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
+      "priority": 2
+    },
+    {
+      "title": "פרוטוקול ישיבת הפד",
+      "at": "2026-11-18T21:00:00+02:00",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "priority": 2
+    },
+    {
+      "title": "החלטת הריבית של בנק ישראל",
+      "at": "2026-11-23T16:00:00+02:00",
+      "source": "בנק ישראל",
+      "url": "https://www.boi.org.il/roles/monetary-policy/interest-rate-dates/",
       "priority": 1
     }
   ],

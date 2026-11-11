@@ -1,18 +1,10 @@
 {
-  "checked_at": "2026-11-10T08:22:14.527842+02:00",
+  "checked_at": "2026-11-11T08:24:56.347453+02:00",
   "status": "ok",
   "indicators": {
     "us_cpi": {
-      "status": "ok",
-      "name": "US CPI, not seasonally adjusted",
-      "value": 3.74,
-      "units": "% YoY",
-      "observation_date": "2026-09-01",
-      "source": "FRED / official US statistical agencies",
-      "source_url": "https://fred.stlouisfed.org/series/CPIAUCNS",
-      "series_id": "CPIAUCNS",
-      "change_from_previous": null,
-      "frequency": "monthly"
+      "status": "unavailable",
+      "series_id": "CPIAUCNS"
     },
     "us_unemployment": {
       "status": "ok",
@@ -43,7 +35,7 @@
       "name": "US effective federal funds rate, daily",
       "value": 3.88,
       "units": "%",
-      "observation_date": "2026-11-06",
+      "observation_date": "2026-11-09",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFF",
       "series_id": "DFF",
@@ -55,7 +47,7 @@
       "name": "Fed funds target lower bound",
       "value": 3.75,
       "units": "%",
-      "observation_date": "2026-11-09",
+      "observation_date": "2026-11-10",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFEDTARL",
       "series_id": "DFEDTARL",
@@ -67,7 +59,7 @@
       "name": "Fed funds target upper bound",
       "value": 4.0,
       "units": "%",
-      "observation_date": "2026-11-09",
+      "observation_date": "2026-11-10",
       "source": "FRED / official US statistical agencies",
       "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
       "series_id": "DFEDTARU",
@@ -75,5 +67,7 @@
       "frequency": "monthly"
     }
   },
-  "errors": {}
+  "errors": {
+    "us_cpi": "ValueError: Insufficient history"
+  }
 }
