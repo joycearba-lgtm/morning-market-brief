@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-11T07:30:00+02:00",
+  "checked_at": "2026-11-12T07:34:41+02:00",
   "items": [
     {
       "company": "Cisco",
@@ -73,14 +73,14 @@
       "source_url": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027"
     },
     {
-      "company": "Deere & Company",
-      "ticker": "DE",
-      "report_date": "2026-11-25",
-      "release_window": "שיחת הדוחות אושרה, מועד פרסום נפרד לא צוין",
-      "call_at": "2026-11-25T17:00:00+02:00",
-      "expires_at": "2026-11-25T17:00:00+02:00",
+      "company": "Dell Technologies",
+      "ticker": "DELL",
+      "report_date": "2026-11-24",
+      "release_window": "לפני שיחת המשקיעים. שעת פרסום מדויקת לא צוינה",
+      "call_at": "2026-11-24T23:30:00+02:00",
+      "expires_at": "2026-11-24T23:30:00+02:00",
       "confirmed": true,
-      "source_url": "https://investor.deere.com/events/event-details/2026/John-Deere---4Q-Earnings-Call/default.aspx"
+      "source_url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
     }
   ]
 }
