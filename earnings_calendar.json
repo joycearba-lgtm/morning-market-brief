@@ -1,26 +1,6 @@
 {
-  "checked_at": "2026-11-12T07:34:41+02:00",
+  "checked_at": "2026-11-13T07:31:22+02:00",
   "items": [
-    {
-      "company": "Cisco",
-      "ticker": "CSCO",
-      "report_date": "2026-11-12",
-      "release_window": "לאחר המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
-      "call_at": "2026-11-12T23:30:00+02:00",
-      "expires_at": "2026-11-12T23:30:00+02:00",
-      "confirmed": true,
-      "source_url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-schedules-conference-call-for-q1-fiscal-year-2027-financial-results.html"
-    },
-    {
-      "company": "Applied Materials",
-      "ticker": "AMAT",
-      "report_date": "2026-11-12",
-      "release_window": "מועד הדוח אושר; שעת הפרסום לא צוינה",
-      "call_at": "2026-11-12T23:30:00+02:00",
-      "expires_at": "2026-11-12T23:30:00+02:00",
-      "confirmed": true,
-      "source_url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-report-fourth-quarter-and-fiscal-2026-results"
-    },
     {
       "company": "Walt Disney",
       "ticker": "DIS",
@@ -81,6 +61,16 @@
       "expires_at": "2026-11-24T23:30:00+02:00",
       "confirmed": true,
       "source_url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
+    },
+    {
+      "company": "Deere & Company",
+      "ticker": "DE",
+      "report_date": "2026-11-25",
+      "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
+      "call_at": "2026-11-25T17:00:00+02:00",
+      "expires_at": "2026-11-25T17:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.deere.com/events/event-details/2026/John-Deere---4Q-Earnings-Call/default.aspx"
     }
   ]
 }

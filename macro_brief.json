@@ -1,51 +1,51 @@
 {
-  "date": "2026-11-12",
-  "generated_at": "2026-11-12T07:34:41+02:00",
-  "valid_until": "2026-11-13T09:00:00+02:00",
+  "date": "2026-11-13",
+  "generated_at": "2026-11-13T07:31:22+02:00",
+  "valid_until": "2026-11-14T09:00:00+02:00",
   "status": "automatic_conditional",
   "editorial_mode": "researched",
-  "title": "הטכנולוגיה התאוששה, ומבחן המימון נשאר פתוח",
-  "methodology": "סגירות מסחר ודיווחים מתוארכים לצד הודעות החברות. ההשלכות האפשריות מוצגות כפרשנות.",
+  "title": "אנבידיה מחליפה מנכ״ל, וסיסקו מעלה את התחזית",
+  "methodology": "דיווחי סגירה והודעות מתוארכות. השלכות אפשריות מסומנות כפרשנות.",
   "morning_summary": {
-    "event": "בסגירת 11.11 ירדה הבורסה בתל אביב, בעוד וול סטריט עלתה בהובלת הטכנולוגיה. שוק אג״ח ממשלת ארה״ב היה סגור לרגל יום הווטרנים.",
-    "impact": "תחזית ההכנסות המשופרת של CoreWeave חיזקה את האמון בביקוש לתשתיות בינה מלאכותית. בדוחות הקרובים יתברר אם הביקוש הזה ניכר גם אצל ספקיות השבבים והציוד.",
-    "watch": "הערב, 12.11, צפויים דוחות סיסקו ואפלייד מטריאלס. שיחות המשקיעים של שתיהן ב־23:30 שעון ישראל. בדוח אפלייד כדאי לשים לב לתחזית הביקוש לציוד ייצור שבבים.",
-    "change": "לעומת הסקירה הקודמת, כיווני המסחר התהפכו בתל אביב ובוול סטריט. בארה״ב הביקוש לתשתיות בינה מלאכותית חזר למוקד, לצד שאלת הריבית שעלתה אחרי מדד המחירים."
+    "event": "בסגירת 12.11 עלו המדדים המובילים בתל אביב, וול סטריט ירדה וחוזי הנפט עלו.",
+    "impact": "חילופי המנכ״ל באנבידיה מוסיפים אי־ודאות לחברה מרכזית במדדים, בשעה שדוח סיסקו מספק עדות נפרדת לביקוש לתשתיות בינה מלאכותית.",
+    "watch": "ב־17.11 צפויים דוחות דיסני ואנבידיה. דיסני תקיים שיחת משקיעים ב־15:30, ואנבידיה בחצות שבין 17 ל־18 בנובמבר, שעון ישראל.",
+    "change": "מאז סקירת 12.11, אנבידיה הודיעה על עזיבת המנכ״ל ומינתה מחליפה זמנית. במקביל, סיסקו העלתה את תחזית ההכנסות שלה לשנת הכספים 2027."
   },
-  "audio_market_summary": "בסגירת 11.11 ת״א 35 ירד ב־1.02% ות״א 125 ירד ב־0.64%. אס אנד פי 500, נאסדק ודאו ג׳ונס עלו. שיעורי העלייה בארה״ב הושמטו בגלל פער בין מקורות הנתונים.",
+  "audio_market_summary": "בסגירת 12.11 אס אנד פי 500 ירד ב־0.35%, נאסדק ירד ב־0.39% ודאו ג׳ונס ירד ב־0.36%. ת״א 35 ות״א 125 עלו. שיעורי העלייה בתל אביב שונים בין מקורות הסגירה.",
   "sections": [
     {
       "heading": "תמונת מצב",
       "bullets": [
-        "בסגירת 11.11 ירדה הבורסה בתל אביב, בעוד וול סטריט עלתה בהובלת הטכנולוגיה. שוק אג״ח ממשלת ארה״ב היה סגור לרגל יום הווטרנים. פרשנות: תחזית ההכנסות המשופרת של CoreWeave חיזקה את האמון בביקוש לתשתיות בינה מלאכותית. בדוחות הקרובים יתברר אם הביקוש הזה ניכר גם אצל ספקיות השבבים והציוד."
+        "בסגירת 12.11 עלו המדדים המובילים בתל אביב, וול סטריט ירדה וחוזי הנפט עלו. פרשנות: חילופי המנכ״ל באנבידיה מוסיפים אי־ודאות לחברה מרכזית במדדים, בשעה שדוח סיסקו מספק עדות נפרדת לביקוש לתשתיות בינה מלאכותית."
       ],
       "sources": [
         {
-          "label": "גלובס · סגירת תל אביב, 11.11",
-          "url": "https://www.globes.co.il/portal/eod.aspx"
+          "label": "גלובס · סגירת תל אביב, 12.11",
+          "url": "https://en.globes.co.il/en/article-Thu-Teva-leads-as-main-indices-edge-ahead-1001563311"
         },
         {
-          "label": "רויטרס · סגירת ארה״ב, 11.11",
-          "url": "https://www.reuters.com/business/media-telecom/global-markets-global-markets-2026-11-11/"
+          "label": "AP · סגירת ארה״ב, 12.11",
+          "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-3f3668a937a11535103e3a5c8d82c9fc"
         },
         {
-          "label": "CoreWeave · תוצאות הרבעון, 10.11",
-          "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx"
+          "label": "רויטרס · נפט, 12.11",
+          "url": "https://www.reuters.com/business/energy/oil-prices-drop-more-than-1-hopes-iran-ukraine-peace-talks-pressure-markets-2026-11-12/"
         }
       ]
     },
     {
       "heading": "ישראל — האירועים והמשמעות לשווקים",
       "bullets": [
-        "אחרי השבעת הכנסת ב־10.11, איזנקוט פועל להרכבת קואליציה. אומדן האוצר מ־9.11 מציב את הגירעון ב־12 החודשים עד אוקטובר על 3.3% מהתוצר. הוצאות הביטחון באוקטובר עלו לעומת אשתקד. מבחינת השוק, המבחן של תקציב 2027 יהיה כיצד ימומנו התחייבויות הביטחון אם יישארו גבוהות."
+        "איזנקוט קיבל ב־12.11 תדרוך ביטחוני ומדיני מנתניהו, במקביל להמשך המגעים להרכבת הממשלה. ברקע, אומדן האוצר מ־9.11 העמיד את הגירעון ב־12 החודשים עד אוקטובר על 3.3% מהתוצר. מבחינת המשק, ההסכמות הקואליציוניות יקבעו כמה מרחב יישאר להשקעות אזרחיות אחרי מימון צורכי הביטחון בתקציב הבא."
       ],
       "sources": [
         {
-          "label": "AP · השבעת הכנסת, 10.11",
-          "url": "https://apnews.com/article/israel-election-netanyahu-eisenkot-knesset-68e96ea53ad8614f1e2aa6a546c64ad9"
+          "label": "טיימס אוף ישראל · מגעים ותדרוך, 12.11",
+          "url": "https://www.timesofisrael.com/liveblog-november-12-2026/"
         },
         {
-          "label": "גלובס · ביצוע התקציב, 9.11",
+          "label": "גלובס · אומדן ביצוע התקציב, 9.11",
           "url": "https://en.globes.co.il/en/article-israels-fiscal-deficit-widens-1001562558"
         }
       ]
@@ -53,74 +53,78 @@
     {
       "heading": "העולם — מה עומד במוקד",
       "bullets": [
-        "CoreWeave העלתה ב־10.11 את תחזית ההכנסות ל־2026 וצופה להגיע לרווחיות על בסיס מתואם במחצית הראשונה של 2028. למחרת התחזקו מניות הטכנולוגיה בוול סטריט. השאלה למשקיעים היא כמה מהביקוש יגיע לשורת הרווח אחרי עלויות הקמת מרכזי הנתונים ומימון החוב."
+        "אנבידיה הודיעה ב־12.11 שג׳נסן הואנג התפטר ושמנהלת הכספים קולט קרס תכהן גם כמנכ״לית זמנית. מניית אנבידיה ירדה באותו יום. במקביל, סיסקו העלתה את תחזית ההכנסות שלה ואת צפי ההכנסות מתשתיות בינה מלאכותית ללקוחות ענן גדולים. אלו שני אותות שונים למשקיעים: שינוי בהנהלה של ספקית שבבים, ועדכון חיובי בתחזית של ספקית ציוד רשת."
       ],
       "sources": [
         {
-          "label": "CoreWeave · תוצאות הרבעון, 10.11",
-          "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx"
+          "label": "אנבידיה · הודעת החברה, 12.11",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/default.aspx"
         },
         {
-          "label": "רויטרס · סגירת ארה״ב, 11.11",
-          "url": "https://www.reuters.com/business/media-telecom/global-markets-global-markets-2026-11-11/"
+          "label": "AP · סגירת ארה״ב, 12.11",
+          "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-3f3668a937a11535103e3a5c8d82c9fc"
+        },
+        {
+          "label": "סיסקו · תוצאות הרבעון, 12.11",
+          "url": "https://investor.cisco.com/news/news-details/2026/CISCO-REPORTS-FIRST-QUARTER-EARNINGS/default.aspx"
         }
       ]
     },
     {
       "heading": "אירופה, אסיה ונפט · בקצרה",
       "bullets": [
-        "אירופה, סגירת 11.11. המניות סיימו בשיא, עם תרומה בולטת של סימנס אנרג׳י אחרי שיפור תחזית הרווחיות.",
-        "אסיה, בוקר 12.11. יפן וטייוואן עלו במסחר המוקדם, והונג קונג הכבידה על המדד האזורי מחוץ ליפן.",
-        "נפט, סגירת 11.11. המחירים התאוששו, ורויטרס דיווחה על חשש לאספקה בעקבות תקיפות כלי שיט בהורמוז."
+        "אירופה, סגירת 12.11. סטוקס 600 סיים בעלייה קלה אחרי שנסוג משיא תוך־יומי.",
+        "אסיה, בוקר 13.11. יפן ודרום קוריאה עלו במסחר המוקדם, אחרי יום תנודתי במניות הטכנולוגיה.",
+        "נפט, סגירת 12.11. חוזי ברנט ו־WTI עלו. רויטרס דיווחה על שיבושים בהורמוז ועל חשש מחידוש הפגיעה באספקה מהמפרץ."
       ],
       "sources": [
         {
-          "label": "רויטרס · אירופה, 11.11",
-          "url": "https://au.investing.com/news/economy-news/europes-stoxx-600-near-record-high-as-siemens-energy-coreweave-outlooks-lift-sentiment-4761377"
+          "label": "רויטרס · אירופה, 12.11",
+          "url": "https://www.reuters.com/business/europes-stoxx-600-hits-record-high-strong-earnings-easing-mideast-tensions-2026-11-12/"
         },
         {
-          "label": "רויטרס · אסיה, 12.11",
-          "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-12/"
+          "label": "רויטרס · אסיה, 13.11",
+          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-13/"
         },
         {
-          "label": "רויטרס · סגירת ארה״ב, 11.11",
-          "url": "https://www.reuters.com/business/media-telecom/global-markets-global-markets-2026-11-11/"
+          "label": "רויטרס · נפט, 12.11",
+          "url": "https://www.reuters.com/business/energy/oil-prices-drop-more-than-1-hopes-iran-ukraine-peace-talks-pressure-markets-2026-11-12/"
         }
       ]
     },
     {
       "heading": "אירועים קרובים",
       "bullets": [
-        "הערב, 12.11, צפויים דוחות סיסקו ואפלייד מטריאלס. שיחות המשקיעים של שתיהן ב־23:30 שעון ישראל. בדוח אפלייד כדאי לשים לב לתחזית הביקוש לציוד ייצור שבבים."
+        "ב־17.11 צפויים דוחות דיסני ואנבידיה. דיסני תקיים שיחת משקיעים ב־15:30, ואנבידיה בחצות שבין 17 ל־18 בנובמבר, שעון ישראל."
       ],
       "sources": [
         {
-          "label": "Cisco · הודעת החברה",
-          "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-schedules-conference-call-for-q1-fiscal-year-2027-financial-results.html"
+          "label": "Walt Disney · הודעת החברה",
+          "url": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx"
         },
         {
-          "label": "Applied Materials · הודעת החברה",
-          "url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-report-fourth-quarter-and-fiscal-2026-results"
+          "label": "NVIDIA · הודעת החברה",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
         }
       ]
     }
   ],
   "advisor": [
     {
-      "title": "מה העלתה CoreWeave, ומה זה אומר על הרווח?",
-      "insight": "כשספקית ענן מעלה תחזית הכנסות, זה סימן שהביקוש מתחזק לפי הערכת ההנהלה. במקרה של CoreWeave, ההשקעה בשרתים ומימון החוב הם חלק מהדרך שבין מכירת שירותי מחשוב לבין רווח בפועל.",
-      "client_impact": "בחשיפה דרך מדד טכנולוגיה, כמה חברות שונות עשויות להיות תלויות באותה הנחה לגבי היקף ההשקעות במרכזי נתונים.",
-      "reference": "CoreWeave · תוצאות הרבעון, 10.11",
-      "source_url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx",
-      "event_date": "2026-11-10"
+      "title": "חילופי הנהלה באנבידיה וחשיפה דרך מדדים",
+      "insight": "המינוי הזמני משאיר את ניהול הכספים בידי קרס, בזמן שהדירקטוריון מחפש מנכ״ל קבוע. בדוח הקרוב, שינוי בתחזית או במדיניות ההשקעות יעזור להבין אם לחילופי ההנהלה יש גם משמעות עסקית מיידית.",
+      "client_impact": "משקלה של אנבידיה במדדים גדולים עשוי להעביר חלק מהתנודתיות גם לתיקים מפוזרים.",
+      "reference": "אנבידיה · הודעת החברה, 12.11",
+      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/default.aspx",
+      "event_date": "2026-11-12"
     },
     {
-      "title": "מה עשוי לשנות את תמחור החוב בישראל?",
-      "insight": "נתון הגירעון עד אוקטובר מתאר את הביצוע בשנה שחלפה. המגעים להקמת הממשלה חשובים לשוק האג״ח כי התקציב הבא יראה כמה מהוצאות הביטחון ימומנו בהכנסות וכמה באמצעות גיוס חוב.",
-      "client_impact": "אם היקף ההנפקות יגדל והביקוש לא יגדל איתו, הממשלה עשויה להידרש לשלם תשואה גבוהה יותר בגיוסים.",
-      "reference": "גלובס · ביצוע התקציב, 9.11",
-      "source_url": "https://en.globes.co.il/en/article-israels-fiscal-deficit-widens-1001562558",
-      "event_date": "2026-11-09"
+      "title": "הורמוז ועלויות של חברות תלויות שינוע",
+      "insight": "העלייה בחוזי הנפט ממחישה את הרגישות לאירועים במפרץ. אם השיבושים בשיט יימשכו, דלק וביטוח ימי עלולים להתייקר יחד.",
+      "client_impact": "חברות תעופה ותובלה עם עלויות מגודרות או יכולת לעדכן מחירים עשויות לספוג את ההתייקרות אחרת מחברות שמחויבות למחיר קבוע ללקוחות.",
+      "reference": "רויטרס · נפט, 12.11",
+      "source_url": "https://www.reuters.com/business/energy/oil-prices-drop-more-than-1-hopes-iran-ukraine-peace-talks-pressure-markets-2026-11-12/",
+      "event_date": "2026-11-12"
     }
   ],
   "takeaway": ""
