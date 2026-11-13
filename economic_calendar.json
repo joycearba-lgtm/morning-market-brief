@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-11-12T08:28:20.379589+02:00",
-  "date": "2026-11-12",
-  "mode": "upcoming",
+  "checked_at": "2026-11-13T08:27:37.777686+02:00",
+  "date": "2026-11-13",
+  "mode": "today",
   "events": [
     {
       "title": "מדד המחירים ליצרן (PPI)",
@@ -9,20 +9,6 @@
       "source": "BLS – official dated schedule (fallback)",
       "url": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
       "priority": 2
-    },
-    {
-      "title": "פרוטוקול ישיבת הפד",
-      "at": "2026-11-18T21:00:00+02:00",
-      "source": "Federal Reserve",
-      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "priority": 2
-    },
-    {
-      "title": "החלטת הריבית של בנק ישראל",
-      "at": "2026-11-23T16:00:00+02:00",
-      "source": "בנק ישראל",
-      "url": "https://www.boi.org.il/roles/monetary-policy/interest-rate-dates/",
-      "priority": 1
     }
   ],
   "source_note": "Includes dated BLS official schedule fallback when feed blocked; confirm any changes at the linked agency.",

@@ -1,7 +1,14 @@
 {
-  "updated_at": "2026-11-12T06:28:13.653454+00:00",
+  "updated_at": "2026-11-13T06:26:20.611210+00:00",
   "status": "ok",
   "items": [
+    {
+      "title": "יום של ניגודים בבורסה: מניות האנרגיה זינקו, הביטוח נפל וזו המניה שכיכבה - PassportNews",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5rcXVTV1lXb3c0WnJRY2U4WGVldmFzWjgyU3UyX3lkYy0yYzdQZFhBTlpuQlBEeEl1MTVrcUZTd182WDlXR0t2X0lleEZ1SW53OUk4?oc=5",
+      "source": "PassportNews",
+      "published_at": "2026-11-12T16:50:00+00:00",
+      "region": "ישראל"
+    },
     {
       "title": "האתגר הבא של מניות הבנקים: להצדיק את השווי הגבוה שלהן - Calcalist",
       "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5FbllHQkJNRm9PVHg5ejdwRG9kQS1hSktWT19INzZ1aThyYk8tNXZGa2p0YWNzTkJNN3Mzdnc1YzFOV2o3b2JzV1lncGhKODBKQWhwU2tjdHgzUE92UDRyMkRLQQ?oc=5",
@@ -24,13 +31,6 @@
       "region": "ישראל"
     },
     {
-      "title": "\"המס והריבית יפגעו ברווחי הבנקים - שיירדו ל-7.9 מיליארד שקל ברבעון\" - TheMarker",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOS01Da1ZHZ0JwdFFhX290UzZCZGRta3ZLZFVhN0lJbi0yX3ZBaXNOMGlycWJ1ek51dHZxWWFYUTlSYzN0NkFTQjFiWVR5elRTWWp3RGNpU0pfS2Uwb3FOTG13WE9Wa0JaYlMxRFQ1eUF4N3ZJU1V4VWMwc24tdGpwUjN5MWs3cFBXUERqbmRvSmIyVGdMdTB4c1NDbUo1TWVVaUZF?oc=5",
-      "source": "TheMarker",
-      "published_at": "2026-11-11T14:07:00+00:00",
-      "region": "ישראל"
-    },
-    {
       "title": "השקל נחלש, האינפלציה בארה\"ב מתחממת: הפחתת הריבית בישראל מתרחקת - PassportNews",
       "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5SeW1lVnQ1QVZrenRZeVluMkNRNklNQ1NVdEpHZ0ZCMzZSVmZNdmlkT0RvQVdXN0dLamdIMEg1SFJ5Ul9Ld2RoWE5qZDFMdVFsM1VF?oc=5",
       "source": "PassportNews",
@@ -38,441 +38,413 @@
       "region": "ישראל"
     },
     {
-      "title": "השקל מזנק, הריבית תוקפא: הטלטלה בשווקים והתחזית של המומחים - ice (אייס)",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1EMGx1NVlYazR4MHdPaGFLNWt3TzZ6VFgtckJZR1l4TTRKeTRhRG5WLUxGMmxlbUNITmRiZzZWMEVwQnVLS25zOGNadlVyUkNJUnBWZVl5QXJIcVEwRVUwbw?oc=5",
-      "source": "ice (אייס)",
-      "published_at": "2026-11-11T05:32:15+00:00",
-      "region": "ישראל"
-    },
-    {
-      "title": "תוצאות הבורסה בתל אביב: הרווח הנקי ברבעון השלישי זינק ב-37% ל-68.3 מיליון שקל - פאנדר",
-      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1mT1FtVHNJVWF1TVpqMDZNQTljNHZfZ01DenVleEVkb2RzaGJPQnhJTFQ1XzF6dnRNQ0hGTTg4TTRUUXBVTEttdHFpcF94SEpO?oc=5",
-      "source": "פאנדר",
-      "published_at": "2026-11-10T19:39:34+00:00",
-      "region": "ישראל"
-    },
-    {
-      "title": "המשקיעים סוחרים יותר, והבורסה מרוויחה: מה יש בדוחות של הרבעון השלישי - פואנטה",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1RM3R6RlIyTzVyOEVJellvZHA0d1JWOEZPZUlVWjNfWlMwWFh2Wk81ZTNjd0xhQjFkMmxtTnB1aDlwTzdvclRxOHRiRFhfWk1ibHhGYzZoOEo3QQ?oc=5",
-      "source": "פואנטה",
-      "published_at": "2026-11-10T17:05:59+00:00",
-      "region": "ישראל"
-    },
-    {
-      "title": "חגיגה בבורסה ביום השבעת הכנסת: המדדים זינקו ביותר מ-2% בהובלת הבנקים והביטוח - PassportNews",
-      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XZlVhN3dQOV90ZWlSVTMtSDhBaWtIMEQ1NlNPeloyanFLMERZaGdCaDltRGp5VTZYMGRHOTlrdE1mTDdQWWNqM0RxTnowV0lMbGtn?oc=5",
-      "source": "PassportNews",
-      "published_at": "2026-11-10T16:09:00+00:00",
-      "region": "ישראל"
-    },
-    {
-      "title": "הבורסה בתל אביב ננעלה בעליות חדות, בהובלת מניות הביטוח והבנקים - גלובס",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBRWnRpNVdscDM0TnNWUktnM0RlU2FMSDB5VHcyVmJxbUZyUmJPczJmSExobzdQRVBRN1E5MXkyS0RWcTVta1pHZEpycGlWNENLTUs0Z050WG1leUxqai1rRFNMam5YR1JI?oc=5",
-      "source": "גלובס",
-      "published_at": "2026-11-10T15:16:27+00:00",
-      "region": "ישראל"
-    },
-    {
-      "title": "▶️ Tom Simon: The Prisoner of Wall Street - IMDb",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBVbmNrQ2U1ZDZsTHBVV3otbXpqRU9nNG9pYVdOMWhWUUtTRXd5MVNxLTlfbEpmbElUMlhTd3EzOXRxOHZKa3BScHFURzNMb1d5SUE?oc=5",
-      "source": "IMDb",
-      "published_at": "2026-11-12T05:51:08+00:00",
+      "title": "Boeing: Why Disappointing Wall Street Is The Right Move (NYSE:BA) - Seeking Alpha",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPVWNtdjlnLVJkOG9BdEJvQmtrNUtRUlFUNDd6X3VfMHdEVjM5TXNTN2N6UjJaVmpOd19YYlZzek42MXJnWkNDVmdMa05TTEswYlh2VFlIZk1mRm4ycTZmZHlLTHNRYk95aFNhZTI1Y3EwTTRCcllTS1IxbVFBVjJNXzFNU2Y4cDBoNmUtdVV2UUpTdFg2bXJUY2RFbw?oc=5",
+      "source": "Seeking Alpha",
+      "published_at": "2026-11-13T06:14:08+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "Appleton ranked top housing market in U.S. by Wall Street Journal, Realtor.com - WLUK",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNMnAxdGxqQUIzdGlqTERubWpHeWtDa015aktOZTdwOUkxYW10V3p6SFhLQXREaWxyM1k1UGVsR0d6eEpKTlFPSG82Z2lFNThIeEtzaVY1MHdmTmRNMkxLYmZ6ZW15VGJGYVFpUHczYTlaUjZDUUgteFhEQ0R0VVg2MlhIWXQ5X1RJWFlXa1J3YkhMcnplYWw2WGVGdjhCZmJQZjVpSlpUUTMxTmFIYXc?oc=5",
-      "source": "WLUK",
-      "published_at": "2026-11-12T03:03:35+00:00",
+      "title": "Owlet Gears Up For Q3 Print; Here Are The Recent Forecast Changes From Wall Street's Most Accurate Analysts - Benzinga",
+      "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNSlA3azhvZE1yZDBhRXo3VHVpbzJhZkJxMlc5LU1TRGFFWFpvb25WRWFtR0NoOHJyamJJTlpfUWVVZGYwbkc0N1RFeUpmM1JtV2tZcVZ3NHJUMl95VEoxSmI3TlRYYUpJWFJadHREUGJDV1p1NzhwT3dKZklyYTVjLUIwcmR6enBFMFl0Sk5Pdk5mV1VWWjg1LVlWUFNTOHZHVmU0MUp3TE53bTc5VzdBN3RyZVdaOFNwX0ZzSXpzRUpLdnZ0UUw5akNaQWtDenNJNGJ3cFhXbU9wY3hIbVNDQ24yRnBLOUtzNWZUVUJROXhvTzZSWnFLWGFnQzFsVnE0YTk5S3lEa1BWSTQt?oc=5",
+      "source": "Benzinga",
+      "published_at": "2026-11-13T06:01:05+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "South Korea shares edge higher on Wall Street gains - TradingView",
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWXl0Zk9qYmZpdk9BZElqNFdyOWNIT2ZEdzN2Tnd0Rk1BdUd4RlBfNXhtUzhLVUpBV0IxYUd5QW9tR2tMVzdXRy1aR3ZHQ1l6OXhCUUlYTWNacHFST3REdnhYOGdLc0QxRUhQamJSSl96YmhFU3JJM1labkt6NkdBRTBHbW8yLUQyUmt1UElEVmhNMmt2Y0F1UXBwYk5GUERqYnp3aDZIeldUb1RDV1dqMFlBc21wcmkxX1o5dnJB?oc=5",
-      "source": "TradingView",
-      "published_at": "2026-11-12T02:04:00+00:00",
+      "title": "Huang’s Ouster Sends Nvidia Stock Tumbling - Bloomberg.com",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNjZud2VvbjhHWjlsOFFna1JjWExjOVU5WndwcUw1aTlmNDktQVRSTUFLV0VrUjhYTDBBUGQxZXRiWjR2ZE0yNXZmdElmNVlYUEtZQ2h2eVE5UnY4aUV2TkhMYU1RWnRwcEJnbHlHaURxU2h4UXVYWEhqdmZWRTFvbXJZZzNQU3JtVlhZWXlyQXVDOXYxdkJzREV5ajR4WjlkcVBDZXhWYlBtZHVOYmhLdlRGdEw?oc=5",
+      "source": "Bloomberg.com",
+      "published_at": "2026-11-13T05:08:40+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "🤖📈AI optimism revives Wall Street despite lingering rate concerns - Moomoo",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPOEQ0VV9kTzJfdWtIRTlTRkpodm4zZExUMHRzT0hGd3VrZFJSSGNsUUdTLVp0TE5GNjhIWDk3Z1NwamVSMnVwbHRpZnNscERxOXdJd2lnSFlPVjZWSWZMTWdKdmQ0anVxT1FfTGJqY3g3VTI1MEZGd1VZZnB5QXhSYjlwMjVsSkJFelNmUUN0cmx6UVYwMkE5ZTVBaUc5LVYwS1pHMmRnMDN4QmNjWHFJVnFVRTlLWXVx?oc=5",
-      "source": "Moomoo",
-      "published_at": "2026-11-12T00:45:57+00:00",
+      "title": "Federal Reserve to Forgo Rate Decision at October 2027 Meeting - WSJ",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWkZiVk1uU2k5a1RQRGUxdFBJMEcxSVhtWEJfR0s3Q3E3T185OXRrZHRZMDVsQlhTdVpIbVlfQnNPem4zbGlTMDR6elFDRlM3RzhETUhCVzlTTDJvWmtfQzctcUFhRXZsVmxpVjBQUXpXTkRUTThQNVJwQV9YX19qaTZGVGswRGF1N2d0dktsZW5DVHlFWVNENmtQaERZYm5ZTmREdm8tMzVjX3ZCQUdqbTFCbWktdw?oc=5",
+      "source": "WSJ",
+      "published_at": "2026-11-13T04:57:25+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "How much Jensen Huang is worth to Nvidia’s stock - CNBC",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSVVndk1PaDRGUHRvNjI3QjZkMjVEYnNJZnVhNUltbDkzRTNxSmFPRmJCQ3dXLVNjSHdZYkpDUDh2VWhYVk10MUt4bklJUEozVG9wal9vVFZzVktxNVY0cUkwY0pkOHhPNmRRanJER1h3bDhYTzRmU0VscFRmYTd0Vks5UzVhTzlMY3ctTjBVVVVQMk9jUUJnUHR0SQ?oc=5",
-      "source": "CNBC",
-      "published_at": "2026-11-12T00:43:00+00:00",
+      "title": "US bond market cracks resurface as higher for longer fears return to haunt Wall Street - investingLive",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOUGFtRlZ0eVZ6Q1RrazR5c1dtXzk5YU5Wc1o1ZmI5MVpuQ3J3QWVwd3ZZUTRKdnBTakMyREpyOGgxaW41clVyMzZ0cHBRTUw4WUotRXR1RXMxTVNKSWh2eVpYVS1FaV9JYmc5MkMxWjQ5YjR3a19sVGVyS2pPeU4wc0REUGV4YUc2eW53Q3F1eHRpWTk3LXpBQ0ppWmREUHVEUFJfQjFMNFMtWmlGZF9UQVhPUVR0OTZqdUE?oc=5",
+      "source": "investingLive",
+      "published_at": "2026-11-13T04:54:53+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "News | Higher Treasury yields give buyers more bargaining power - CoStar",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNnAwT0pMZ3BUVUptcW51dTktdXNBdUpCX0g2TnRMZ0hpYkJ1aVJZQlZVYWhYWEpvcnBxblJvUU9HTVN0Z0I4LXkwZUVUa3l0Tm9BLU41d1VzZE1zcXZhOEZaZV8tSWxibmJFLXRhOV9uMERGS0diT19jN011ck9feGJ0eGxvSVBoOUwxbnlWV2FBQmoxVUlfd3ktaC1lZw?oc=5",
-      "source": "CoStar",
-      "published_at": "2026-11-12T00:11:19+00:00",
+      "title": "Morning briefing: The US treasury yields have risen sharply after Oil prices - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOLVZ6dk42WGVKaG82YTN3VXZ3UGdkeWtTb2VyeEx3aWs2X3FQd05ZbW0tUTVUWkdqd0RPY0JhcU5tOUZwczFnNHRxZkpOM1E3MEdUaTh3THFmS1NqVU9qeFc1VTFCLVE3alpjSUR2c0RMZTFtM3dHMVVJd050RTRvREFWR0NiXzE1WGFReUFGRXRtUWRJMFFPdmhQckloNjQyaDNiX0ItbTJYbnRpNldwZTdpalZoRmtaNTV1dnlqMA?oc=5",
+      "source": "FXStreet",
+      "published_at": "2026-11-13T04:48:08+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "Wall Street rebounds, Nvidia shares decline amid crisis - Ticker News",
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPOTlUcHZ3OXg3b01jQlZWMl9NMjkyWHJwSzE3Ry10ZnJHYmctQ0JiRk5fYm4xZTBRMlhIZ2hUQTM3SWxCQ3phd3pCcTB5YnMxaWRrbjhtWjV6V3pPakZLeE92bzk5U1BRLTdnZkpRd3FodGpTWWY0Q25Cbjc0TnpaTW1Mcw?oc=5",
-      "source": "Ticker News",
-      "published_at": "2026-11-12T00:00:26+00:00",
+      "title": "Facing regulators, TXNM chief turns to business leaders to sell Wall Street buyout - Yahoo Finance",
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZmh1X2Z3d2VVaGZpVE1GRlpUdWZoSDMxbG04clhDTndOUXNZUU9KZU9ZNVYtd0ZvbF9sQ2Y3aHk5eDlITlJJNDlTb3dsM3RORmpZUll5Q2RjWm8xSUFjT1BwX3FMcmp1T05mc3VnVVI3ZmlaUmlQRWlFaDBaVWw2M2dNR2FheWRROEdxRFlDeU80dWZ4X1E?oc=5",
+      "source": "Yahoo Finance",
+      "published_at": "2026-11-13T04:01:00+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "Trade Desk Stock Boosted by Wall Street Optimism Following Earnings Beat - Barron's",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQOXkxY1VxSk13QVVQQTkxUlJvdzFtUEViV0VaSk5NTWw1ZHpOc3VjNDJQTExPdW8yVUNCT1g4a1ZJN3kzcTdQMV9tVG16V3FGUjJ3TVZQS19qRks2RWZZanFoZjM3OTlYbnJxVmttUnVYdjZfVjE5YzhFeW1ZMjNjS2ZKSG83Zw?oc=5",
-      "source": "Barron's",
-      "published_at": "2026-11-11T23:37:00+00:00",
+      "title": "Will the Fed Hike Interest Rates Three Times Consecutively? Wall Street Warns Stock Market Is Underestimating a Severe Market Tsunami - eu.36kr.com",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5MTWF6b01vM3ZhQUp3UElMYW9xLUozR0tXTk95RzY2THpSSTg4dEZXaENNai1oMThmMFNQZ2VFdVlaVi1hVGdPWkpFd21UV0lPXzVV?oc=5",
+      "source": "eu.36kr.com",
+      "published_at": "2026-11-13T03:41:22+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "Wall Street's Newest Teradyne Bull Just Sent a $2 Billion Signal That the Stock's 56% Crash Went Too Far - 24/7 Wall St.",
-      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPeEdNVGF4R0EwOE1neDZ5M2pCVXctQWMtQTN5b2V4TTZaNk1QVVdsekpUQm1yVU00cXA0ZEk5WndCeGprSl9OMlM4YVo2RGs2Z3pKTmRYMnVKd2w4Sk5SclUzZ1VYZUI5Uzc3NE52NUVPV3ZWQzJQUmczbDJla1M3VzR4alhzVUdGSnMyX2QxZnhRUmltVjdfTkR0b1R5a2Y4X29NaWNRcHBCamxwZ3ZjcC0ySGlyM0NjSnFRb21pOGpuOTZyUTFJS3dVam9qdGhqTDNXd2JtZ2JnQWxn?oc=5",
-      "source": "24/7 Wall St.",
-      "published_at": "2026-11-11T23:07:00+00:00",
+      "title": "SoundHound AI Stock Is Down Almost 60% in 2026, but Wall Street Thinks It Can Soar 155% By the End of 2027. Here’s Why It Could Be One of the Best Buys Amid the Tech Sell-Off. - Th",
+      "link": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxQaDVEdl9jMVNHOGcxcUpWaW0yV0FZaVI0ek1FanlrTnQ0M2dvbkhJVGhuWGZjS2lnRUhaOWcxcnppckxtU3RPandTLTFlU1JHQXdMSEVsc0hsQ0taOWlkYWxfaVB3Wi1INTJmajJScHlRX1cyMnlkY01qMTJQS1hiRjJjRkdOakNFNFhGUDVLdUxSYzNYTEo5MTRhRjF5RVFaOG1oMmFURFc1RzdMWFp0eHJpUnBzNDRVOHZmdjVBSGxZdGc2emc4RkFqNENEYkNmVkg4Y2ZjaHlZcm5BTEVCTHNSR1JVVmZ3bjQ3TTdab0J1YXNTam5IeUhQTFlJcFI0SmdPdVZXaFFYMUt0eVJQcGFuT2t4ODVpeFhWTGxScXZDVlZLZ25fUi1LLS1UVmlUbWx1UVNCbF8?oc=5",
+      "source": "The Motley Fool",
+      "published_at": "2026-11-13T03:11:00+00:00",
       "region": "חו״ל"
     },
     {
-      "title": "Okeanis rolls out record dividend as earnings rocket past Wall Street estimates - TradeWinds News",
-      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTVZNOE56RVNPZGRENGIzaHpmandxVThka0ViZGtHNjBWTXppTkVhbzNoczZra2djX1l4TFlyREFrUUwybVQzQk95OUMwNExINHNtQTMtME83NGIzUWx2M05Nc2lpZGVLX3NZemlqRF81YmtTUUJUbDdHMVp6S2poOU95bUhWZlRpS3Fmd3k4dTdSQThoaUFMRE5PZ0VEcDB5bTVEbnhyZkdDTDNYcnJKLVZ1VWZXelNhblFZdlgtSlBwUnU5NDBrcnh3?oc=5",
-      "source": "TradeWinds News",
-      "published_at": "2026-11-11T22:58:44+00:00",
-      "region": "חו״ל"
-    },
-    {
-      "title": "Hot CPI and Hawkish Fed Weigh on Stocks - TradingView",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPSHVxdnZ2eFZHR1pGdHdXRDR0eW1JSlVfUUtpZHk5bC00TjhCVU1DZHpZRlZmZW5pODE3ak42R2R1TVJUdFl5Uy1SNHcxTXlLb1VhQzhUWU1jRVFXMUZhaUxfalBTOVdZTkpvdXg0c2N2eUVKV29mUFVDX0lQN2d3dEJLZUtfT25udjEyOEdyUlJGY1k2S2NxOHgtdHBRdw?oc=5",
-      "source": "TradingView",
-      "published_at": "2026-11-10T15:17:56+00:00",
+      "title": "Wall Street is thriving, Main Street isn’t – and Asia should worry - Asia Times",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNT205ME9LdGlEMEdGVjgzRnBvVF9zR3M2Q1cyN1pIOFJxREhjSmpHUjdwT2FXS0hFRHJkNm1ZNW9peFM4LURwSXB2QUFKSzd2U1h3Smx5NTlXQ215UXNyM1BKUHJtWS1Uc0N6aWxVMDh1cE9DNWR0cGVPM3Y5UlpJMmNaSFF0M2h4RTJEQWJUdkR5REpDWUVvSw?oc=5",
+      "source": "Asia Times",
+      "published_at": "2026-11-13T02:26:35+00:00",
       "region": "חו״ל"
     }
   ],
   "macro_items": [
     {
-      "title": "Fed Governor Christopher Waller Signals December Rate Hike, Remains Open to Half-Point Increase - Tekedia",
-      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNQzNwMFJoT0NoenNCby1ROWtWaDhvSkt0a2F0aWpCaGdQWFhGb1AtdEY1djBSYkhqWnpkM2wwZmdUWEdYX3FZN2tGelM2SmZUNlVWdFNhTV9YZ1kzU1o5NlhIZmFYVlhtMS1SNG00UXhKREYwbFpkeHQtUHBCRHlqMnJaNW9CcHJtdmNkXzVmdEdWaXNubExfQktRV2NOY0F2S2xWMUtrNkRZTnZJTjI2aFQ0WG9GMDdLcDJr?oc=5",
-      "source": "Tekedia",
-      "published_at": "2026-11-11T22:43:03+00:00",
+      "title": "New York Fed President Williams Warns Inflation Is \"Far Too High,\" Says Fed Still Has a Hard Fight Ahead - BigGo Finance",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9BOC00dldjX0w2Vm9aUzMyUzdTY3Q4MTZncDVZcHNUengwblA0cjl1bjJOQVBqMGo5RFVYWE1FbmUtYzFWTDJSTm1vanRhQXRkUFFER08wTl9vTG5kb1JSWDVvUU5vdDgwOE84X1VtM0xmOFIxQXc?oc=5",
+      "source": "BigGo Finance",
+      "published_at": "2026-11-13T01:25:00+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "Gold falls below $4,000 as dollar surges, Fed hike bets rise - Kitco PM Report - Kitco",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQkRUZVFwS0pNb3NBQjg1aUNMcjQ5Y0pVU0NLUjU4M3pJLXh5WFYtd3ZFMXhzM2I2Y3RDd25WeXhvaWY4ZHh1TzhrRVJIRzRFT2JJRWE3Tkc2MkVTOFNSZnUzQTVTMFltZXl1cVZRSXdmR0h4ekJUdEhHYjNGTmpnbU5ZTnhyZzlJVGxlc3F2NUhCa3pxd1UtRnd1Yk1UblE2Y05TdmNOR0xMbjhyQkhLZ0hCUFJwYUE?oc=5",
-      "source": "Kitco",
-      "published_at": "2026-11-11T22:00:14+00:00",
+      "title": "Fed’s Williams Says Inflation ‘Far Too High,’ Work to Do - Bloomberg.com",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPWmwxOGI1cll5UUxfWkNqVEVhOEtfWGZaY1phLWdBdzBDVUhzMWJseXBPdTFsU3dQZW5HRlgzbWo2dEx1cWIxMnpjVjdFV1ZvTzJ5UXZDd1RRcFJyUEcyV2pqWndGc21aQ3JJMUtJeHFCM1JsNFg2eklQTkMtLXZacTFqZnhGaFdpTm1jc3p0cEF2aFNRTVJxckJCTy1MaFRnVGw0MUNiNm5qQ1lCRlRj?oc=5",
+      "source": "Bloomberg.com",
+      "published_at": "2026-11-13T00:53:00+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "Pound Forecast: GBP/USD Nears 1.33 as Fed Eyes Bigger Rate Hike - CurrencyNews.co.uk",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNZkJ6ejlHUUJYcTNRRGRaeGZLT0pIcTB5SC02MlM3cjE2UTR5SEtkbVlGQVg4NE9GT2JYMXFVS1dzcldtWGFmMUdCUFFqTVZOR2VfdmJUWXR0eXJCZEtINkxjRllkMW5LUEVIZ2ttYVBSTVhoNVpzNmIxT1cxUGxoTkV4NnMwZHU3Z3ZWcnRFTExlVTFtV01IWnFocTZrV3ZxV0NtdEd0M0F5VHoyVUpuN2ZhYmFIMURZWVR4TWUwSQ?oc=5",
-      "source": "CurrencyNews.co.uk",
-      "published_at": "2026-11-11T20:16:01+00:00",
+      "title": "New Atlanta Fed Community Advisory Council: Informing Economic Policy - Federal Reserve Bank of Atlanta",
+      "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOMlJSY1FzNW80VzNMMlVqY1JZWHozcGRnODl6U0FYRWtELVZoTUdvUU5TTFNQYjQ5WUo0eVRfeURwWHg0SFE3VWc0SlY5T1FHR01xX1ZoMU5PMnlodC1WQU0wQnJ2ZWZTWmk5Qk90OWVpRjBCUGF3QURUdUdXU04zcm92X0RuRk82M1hPZ2F4ZWV4ZHBkeVNvUHR2WnFZTjY1MHNac1BEMXRKcXZEQjBXNGVwb3NORlZnNmJFNVg4R2tvMHRVRW9uSkVWUlVvTS14LXV5ei1XVHBKYU9RSHB6aXlhekM2aWVT?oc=5",
+      "source": "Federal Reserve Bank of Atlanta",
+      "published_at": "2026-11-12T22:49:45+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "Fed’s Goolsbee calls inflation report ‘borderline disturbing’ as central bank weighs more hikes - Forex Factory",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQzBrbG1RNEs1bGhVREF1ejlUaHphanZEbFFWYWE5Z0NtdTRyTlpGR2dXUWlYVlM5MmZhU1pLdDc4UFdwM1ZUdlF4a29FZHJCMEp0VE9iLS1LWmY0MzAzX1VuSEtBREVtMFdrUktJTFlPZC02RWN5cEN6U0UxYmJTaFBnUXFBLTdFa21VcFRkSkZZdXhaUl8tWS16VHY5REZQQ2h0eTVB0gGrAUFVX3lxTE5oZUVLS3R5cVY3bnF2UFBFcEdPcEtueDIxa1REOHZlSjFBNlpFbG80VHVWLWUyX01EbnhkWGdocGRzeDlHNW8tS3F4LWhlZkRGUkJyYjhxaFV2bXBDdUxMTXg2Y2FuUnZVRUxfUFp0d0VONkFOMFRlSlROM24wTUxQc1REbVpzallzdE14NXM0NkdTVUxOZzVKa2NMWE53WVRuYVpSMXVxWERBUQ?oc=5",
-      "source": "Forex Factory",
-      "published_at": "2026-11-11T14:27:00+00:00",
+      "title": "Euro falls to 19-month low as dollar strengthens on hawkish Fed outlook - Economies.com",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNQTlDaG02cDZhLUktZFU5M3hseXpObUZuUV9EN3BqdkJmeXVHNVFTRk1vbzBEc1A5RHhsQ1g0NjNYbnd0OXpPQmR6b2JndURoaHNPNi1jV0xGSW8yalRITFJuV3JtY3N1N1BDcktqTmdGbFhCa19nQ1dCMHdrdDlEWTNzaGFnTFNzVHhMal9oRFd3aU1GZnRMODloaGd2QXVMODl5OHRGQWpwWlNhTlduaXZsdWdVaFVOc3lnV2ZVdi0?oc=5",
+      "source": "Economies.com",
+      "published_at": "2026-11-12T20:36:00+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "Goolsbee calls US inflation report troubling — CNBC - UA.NEWS",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOZ2VjcVI5YU1od01CaXl6a2VMQ0UzSHVDc3pDMzRmcWQwMGtwb0h3MmM3RkY0enNoc2tLV2VQaXpoQ0J2NTNSOV9UTlBXM0p2Y0daSkd1VUpjT3RfeFpZa1hSdjhfclRkNTZPdG8ySUxjRzZzU1E5OU44YkpSX0R4MXhQc1hZSEdEN3g0UTZndlo1MnRI?oc=5",
-      "source": "UA.NEWS",
-      "published_at": "2026-11-11T13:55:17+00:00",
+      "title": "Fed’s Barr: AI boosting US investment, GDP, impacting prices - Crypto Briefing",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOTktVclNSeUF6dFlqS2ZuUGRnUEIyUFJ3ajhXekVNbE5FR054Y2lLMFN6ODYtUlpRck9pd21fZ3k3WjAxRkdJVE1GYTUwR1BhUTB2YWZDNm15ZEVmYXhOd3NCZHhWQ1hfVjdMYmFsaVdFRVlhVnh2YWdGVUR3REdqcWRXMXBsb0Fidk03YQ?oc=5",
+      "source": "Crypto Briefing",
+      "published_at": "2026-11-12T15:45:35+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "Fed's Goolsbee calls inflation report 'borderline disturbing' as central bank weighs more hikes - CNBC",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQTGliNnhINWdOb0RYdm54M2dIWGNuazZhZ01USkpfZzFKUHIwVTZBZ3RjNm5iUzRjcEFJcF94V01McUE5OUtWZFVJVi02b1VzR2RIbjY2QzNUb3I0V01nbzRhS2FEZ29nLUJQOEUzTGtJd3NwNkRlamVubHNuTkhadFVBV0h4QUhEd2xLSFB1eWpGX3VmQWNoOHozbUc?oc=5",
-      "source": "CNBC",
-      "published_at": "2026-11-11T13:16:31+00:00",
+      "title": "Mortgage Rates Forecast For 2026: Experts Predict Whether Interest Rates Will Drop - Forbes",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9kMlJHRWhRY2owbnpsZWhWOHVVZFR1ZmM3NzhqTUVEVnpHR2xlMHp0QnR2eXFwV2wzQ2FMbXZTN3lTLUJ5OHgxdnk0S3Z2Q3hEQ2pEYW9xcWhrRktVS3B0RXB0NkdnM0hPMzBReG5neWZ1TTdvVWs4bWgxdWFNUkk?oc=5",
+      "source": "Forbes",
+      "published_at": "2026-11-12T13:36:00+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "Goldman adds another rate hike to Fed outlook after hot inflation data - Yahoo Finance",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxONExVbW1kNl90NWNsM3VkVjlqVUh2cE9JZzY5YzhTTzhyUEVvcS1lNDhadGlNYlJ6OHVoaG9yUFdBTE9MX0l0eEVxaWlZWjBZRjZzRk4zcjBQNnBuN0tTaWJnZzluQTZid1AxSUVYZXAteGVHRjRha3pVUS1OX1lTV3Rtcjh2TVRzMHBTaDBSUmFGWlV6Q2o0UUN3dw?oc=5",
-      "source": "Yahoo Finance",
-      "published_at": "2026-11-11T12:14:47+00:00",
+      "title": "What’s Flashing Warning Signs for Fed in Latest US CPI Report - Bloomberg.com",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxORks0enhnTkV3Q2hSYVN6NXp6WUh3Q1phX2VvbzJ3M1N4Z3ZfNmdfQmhJX09HTGw5WHc0Y0Z6WHZVbHRmMm9wbGg4Tm9DQ21talBaa1JscVNuSTZDdDlLN3V3S0g0azhranRBOGZSNlNzRkRQd3lra1RQZ0VrVEU5bEt2dER4VkdlWE1COEpPSC10Z0ViOUFwSzZPVjFHVXlQSm16SWctNmlEWFQ2dFBVOF9n?oc=5",
+      "source": "Bloomberg.com",
+      "published_at": "2026-11-12T11:30:00+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "The Fed Has to Raise Rates. How Fast to Go Has Officials Divided. - The New York Times",
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOWNqWFdDMHlSeUN3RHluTERFZlVwaVpqZ0ZEUzlURUkyeng1SjRQaG84V3ZnVURxdy1LdEp5RlpJeG5zQ25qQ1BXV05wU0lFRks2XzIyX1ZiS2tPVlZXbFVsTVFfUnpEUDVDeU9UczQ0aVZRYU85WkI0N0tGd1d6QTY1cw?oc=5",
-      "source": "The New York Times",
-      "published_at": "2026-11-11T11:59:41+00:00",
+      "title": "Jamie Norment to Speak on Military Growth at Federal Reserve Economic Update Lunch - Ward and Smith, P.A.",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOUHdIY1pONkRBVnMwZWpzTVRHTVhsX21SQmVrcFNmcm41U3JvSXB3Nl8xUF9IUm1Nb3NXSXpQVV9OdkNTU2trV2liVlV4UzA2QmhXbDVkSkNFck1HSkRVRGlNeUNESEl0eE9hdnZHNHRIWUVjWUtGOFVJZVFOb3dndjBtRFJ0NmYta0FDeXQ5YjR0V1kxeGo0d1ZfNlhPN0ExZlRIajJ3NTJNVl9jdTNETDQ3OFktS2c?oc=5",
+      "source": "Ward and Smith, P.A.",
+      "published_at": "2026-11-12T08:34:45+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "AM Markets Need to Know: Fed faces inflation test, Anthropic IPO demand surges, and more (SP500:) - Seeking Alpha",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxORlFDWEkxcmFHMUU2aFRKa0h4VnptVk02MG9EN1FfV2xyazdrVDlranpwLTR6T25sWjZfYUJaUDhHTHFZT1YtVWFpcmdNVTNUb21VbmNzMW9jUEp6T21McDU3amV6OGdoYXhwX19abEJYNU1xWFZDTktoTGhCY0hfVDNXSGhScG9LM0FaRFdIWmRhLTVBME5nQU5fZTRqNV9raVpLZmFnSWxDclFBVVljSm9GWkNXTHk3YmM0Z0VVQzE?oc=5",
-      "source": "Seeking Alpha",
-      "published_at": "2026-11-11T11:14:28+00:00",
+      "title": "Swiss Franc holds gains against US Dollar despite hawkish Fed outlook - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQaGRaSW41UE9icDdvUU1Na2JpZmw5Y1RYMjlQY2JiZmdoVzRVQVgzdWIxallzNm8wUEdtcHYxR3d0cVRGMUp5dmdMTS15alc3ZHdzY1hTWUk4YlFfRVViY2Y3cExMMWZPT3djbWxNYmlOdVVIaHFZNGZ1eE5vSExIazRLWFAtOHFrS2lHT0hKRVR0ZW1lRWoxRy04cTRDTmxabllhdzVLSl90LVMtZmtFOG1R?oc=5",
+      "source": "FXStreet",
+      "published_at": "2026-11-12T05:57:34+00:00",
       "region": "מאקרו ארה״ב"
     },
     {
-      "title": "Economic Outlook - Philadelphia Federal Reserve Bank",
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPMExOVnU1ejV0NGlOVlNWdUQ2cnppaE03N3ZBWHVmaE4wWDhvWHZwUDRsY1R1d2pmRHQ0cFdYNHlDMDN3Y1F6UTdxYkdvLVpvX3Z5cDlyclFQYmkxa0ZrN0hsNG5zaTFqYTVYTHRWOGRsdzRYdTZzd0thcm9YdGpzQ2l4aEg5UERJOWRmdEVBOVo4R3VXcFlkb3FJa243Nk1pMHpRbDYxVW1jX2dC?oc=5",
-      "source": "Philadelphia Federal Reserve Bank",
-      "published_at": "2026-11-11T08:28:52+00:00",
+      "title": "US economy grew more than expected in 3rd quarter, government data shows - ABC News - Breaking News, Latest News and Videos",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNOXA2Zy1xaExmZTR0bkJjUzRxeHNkWVhpYXl6aV9BaUdDdnZ6ZHhBTlFhb3ZBZWZRdlo0WkVmNmZkZklFLUthc0hIdWhDRUdwM0o5YWVLdDk2dFotM3NqOWh3RVlFdlIwWmNWN0dVOEFEa1pEaFRXRTdqWmVPSnI5YWFqdkJQRjEyZEczUVZ4dDYzaTJlQTVOTURQSlliMlgzZThJ0gGoAUFVX3lxTE5VNWRkZ1doeURsNXJuaDY2VzVwLWdtTk9hd2FlRUoxUW1aeWUwTWNIemtVZ2N4U2FyMVBrRE1HWF9Bck9ZX1kzeTg2MmZPaGRCTWFKTXhjVGZ5SEhHektfVzk3R2dRR2pYTmlROEh6akZUaXVxcTVRTGxLTWZfbFNUaTFFU3RDVjVxQjMxcG5idHY1OWxnQ1dDa3hkcDA0WU1sUzRzb3ZMOQ?oc=5",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "published_at": "2026-11-12T04:51:00+00:00",
       "region": "מאקרו ארה״ב"
+    },
+    {
+      "title": "נגיד בנק ישראל האזין לנאום ההסתה של נתניהו - ויצא מודאג | יהודה שרוני - מעריב",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5rTnJUemRrMWRBUUxZQTg4N25iWGNNSFpjMWxyX3IyUEF4NkpuZmpIdGxkdUhSUFlmYTNIa1BCczl1X1pSZ1J0d3ZsMXprUlNEMlhxaWdxekxxSktLc0pOai01QTd3Zw?oc=5",
+      "source": "מעריב",
+      "published_at": "2026-11-13T06:11:51+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "בנק ישראל אישר הקמה של בנק חדש נוסף: \"בנק רבולוט ישראל (בהקמה)\" מקבוצת Revolut העולמית - בנק ישראל",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA0bDF6Ni1hRzFVeTEzZ0tRbktrQXByUTFQLWZVQzhwaUFvZk9ERERVTlIwdFFRRjkzOFZGSnJTc1ptcTVITXZBNG1rV3YyNEgtNmJlVlRzanNCWU14T3hzMExoeEVZTWc?oc=5",
+      "source": "בנק ישראל",
+      "published_at": "2026-11-12T18:43:09+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "צמיחה מפתיעה בבריטניה מעלה את הסיכוי להעלאת שער ריבית נוספת של בנק אנגליה בדצמבר מאת Investing.com - Investing.com",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBwZ3ZzU1QwY3o5OVFVNEFjZ0pfbDlMMmdUWXRGOTZtZ2p3cVdOcUdGRVVCRF9xYmxtempQcmsyX0RZSDBwSkRyelVMT0N3LUlsMTZCeTJiRzNHNUgxWW1IRF96dE05THJSNHc?oc=5",
+      "source": "Investing.com",
+      "published_at": "2026-11-12T17:37:31+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "הציבור מאמין שהריבית תרד - משקל הפריים במשכנתאות מזנק פי 4.5 - ice (אייס)",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5QTWVKTVlPQ05xYXpBOGZDY1MxTTdnQ2FHLUpjZXBPTTZ0ZUk1UHJIalA1WlhXV3N2OGFJRGt6TUFqdVdVQkJmNzhMcUNieDhxYTNrZE0yaWRpTUEtdEFv?oc=5",
+      "source": "ice (אייס)",
+      "published_at": "2026-11-12T16:55:14+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "ירידת רווח ל-581 מיליון שקל: הבינלאומי פותח את דוחות הבנקים לרבעון | יהודה שרוני - מעריב",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9PWmtseDN1LTBteEVWRGEtTzZoSUQyZGQ3Y1FQWVBZRzktSXpraU5HX0tvMzBFa1RNejhOdHhDVFBiNTh1bW9aU1dXUlhwSzZ0eHdVaVlxdnI1V2trbWVmTlBiNEd0UQ?oc=5",
+      "source": "מעריב",
+      "published_at": "2026-11-12T12:07:01+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "מהם הכוחות שמשפיעים על התחזקות הדולר? - גלובס",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBwSVVSTVlNNVNKdXlzRl9ld1FWMTZhdTNLTXVGQ2pjd29laHhzckFwNXpaaTd2WFNQQ3hqNXpzOGFqX0M5YVJwbWZHNnVjVTE4RERYckdjSUlWZjBjZnpDd3p0VHZzMFRm?oc=5",
+      "source": "גלובס",
+      "published_at": "2026-11-12T10:02:58+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "למה גינדי משלמת לכם ריבית ל-10 שנים? האמת מאחורי מבצעי הקבלנים - ice (אייס)",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBadkRkek9VT09TMDduTFhoSWZRNExZOGdsOEY1M2c2b0kxbndTaTJBb215VE5xT0NGdVJSR0lndHUtNVNiWlEzRGxkdUdjekFJZlpYdkdoRlZJNlZVeTF1aUpLcw?oc=5",
+      "source": "ice (אייס)",
+      "published_at": "2026-11-12T05:02:25+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "הריבית ירדה, והכספיות עקפו את קרנות האג\"ח: איפה יש עוד תשואה - ביזפורטל",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBSLUxSa0h6QWFWaC04ZkxtWlNFVEItZTQ0RHpudUxBNUZOUlExQ0ZZaV9ZcnFHVlllWExjNDYwbXU2cUZkRW12VDd2cWZmajNhZDU3SXRKdHUtZHp4WHd4a25qTG9LQXQxUE9Jd0FFQjBuRGxvVzNMX3FB?oc=5",
+      "source": "ביזפורטל",
+      "published_at": "2026-11-12T04:17:00+00:00",
+      "region": "מאקרו ישראל"
+    },
+    {
+      "title": "הבנקים נסחרים בפרמיה של כ-60% על ההון, והרווחים מתחילים לרדת; מה הצפוי בהמשך? - ביזפורטל",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5hQUxZdThHWnJFdGVuM3k0NW1TZnY5YTY3RHAyUTduTlEzc2liTGVTYXZiQzBKcEhuc0ZNZjFPSWMtWDRNUmY1dm1wYnlCYXNyWEZIQmtKQ3N4bmlfNmFUQXV0MERYVHl5cTRsdUdPcVI?oc=5",
+      "source": "ביזפורטל",
+      "published_at": "2026-11-12T04:13:00+00:00",
+      "region": "מאקרו ישראל"
     },
     {
       "title": "כשהמניות יורדות והריבית נשחקת: איך להרוויח יותר מהקרנות כספיות? - גלובס",
       "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1VSnloR18yX2FnM1QxMmxZWXpvWXlBWmdLSjI3MzJlb2J6bTN1Y3NPd2VjaUxTTTVxZ1R4Q0VFNzMwLTJ1MnVmZ09IWWNNOC1EaUF6TXBBNzlQOHlrTVhyeGNYMjhva1px?oc=5",
       "source": "גלובס",
-      "published_at": "2026-11-12T04:12:12+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "המדד הבא צפוי להפתיע: האינפלציה בדרך למטה - אבל יש מלכוד | אריאל פייגלין - מעריב",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE51Z3NaMUktY2stdG1nT0dVYzJGa0w0V0xZVFZRQkRBQTVzWWU2aFA0T2dYWDFoaS1HNWw0QWpqaXZwT3drSXVNUWZtV2ZneGJfM0FMNE1nQ2VRTndBXzY2Q1hPU2JtUQ?oc=5",
-      "source": "מעריב",
-      "published_at": "2026-11-12T04:00:43+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "הפיקדונות הארוכים משכו יותר כסף באוקטובר, אבל הטווח הקצר עדיין מוביל - Calcalist",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFA2SXV3WDFrMUlZeW0ySWhmUDlQRXJWbThocWVxVzBqZHFOal9mdDFIdk9YYU9CaU95MmtjVmJqb0RCYlBmb1hfN2FPMHhsaTRPYlJRQll2M0g0RUQ1YkVPdjhUVWpOSzJm?oc=5",
-      "source": "Calcalist",
-      "published_at": "2026-11-11T19:35:00+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "הלוואה של 300 אלף שקל מההורים: כ-73 אלף שקל פחות ריבית מהבנק - ביזפורטל",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1zSTFwZmRteGQ4OVo0V3VaVm9kZTgwQUtfOGtuU3hEQkJJbWJ1UmFOclE5dkk3T1k4UlRmeUFsWjlydGhKUWZMM2Q0V01LcWtPYndReVoxV3RKV3RXM205bzlBNHhsNWs2SlpybWxn?oc=5",
-      "source": "ביזפורטל",
-      "published_at": "2026-11-11T17:27:00+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "400 אלף שקל ללקוחות בנק אגוד שחויבו בריבית שלילית - ביזפורטל",
-      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1GeHp3Y0pLRVZQZnlyYWtBbk9VTmd3bXpkYlV2VGkzM0pUbUJ3NmhkNVY3LXd6RE1Td0c4TWJsTUdrUmFpWmhJTEFYTVMwekZmb25lUVhUVTYyUEVYZGllOEplSDZscXM?oc=5",
-      "source": "ביזפורטל",
-      "published_at": "2026-11-11T15:25:00+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "\"המס והריבית יפגעו ברווחי הבנקים - שיירדו ל-7.9 מיליארד שקל ברבעון\" - TheMarker",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOS01Da1ZHZ0JwdFFhX290UzZCZGRta3ZLZFVhN0lJbi0yX3ZBaXNOMGlycWJ1ek51dHZxWWFYUTlSYzN0NkFTQjFiWVR5elRTWWp3RGNpU0pfS2Uwb3FOTG13WE9Wa0JaYlMxRFQ1eUF4N3ZJU1V4VWMwc24tdGpwUjN5MWs3cFBXUERqbmRvSmIyVGdMdTB4c1NDbUo1TWVVaUZF?oc=5",
-      "source": "TheMarker",
-      "published_at": "2026-11-11T14:07:00+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "97.5 מיליארד שקלים במשכנתאות מתחילת השנה: 2026 מתקרבת לשנת השיא - ביזפורטל",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9VRzlScmY0dUQxZGxSQ3JaaG5FZFpnOXdnenZKUGJWaTlkUzQtTGtKbDRkS21UZjFfd1pqam5ad1M0M2tnX2RhUENpb2NSMDZTRTZ3MTlnY1VXbWVzMFhsczd6dkZBa01WVTc1Ujdn?oc=5",
-      "source": "ביזפורטל",
-      "published_at": "2026-11-11T13:36:00+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "יתרון התשואה של הדולר עולה: האם מרחב הפעולה של בנק ישראל יצטמצם? - פאנדר",
-      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9vb2FhYXVIc3l4Zy1Pd2N3NGotVmJxaEZfaDE4SHJPcDRyV010bVJSVnladVdPTDZCQVFrNmdVNE5GcmxWOE5weV9fUHBHRXhX?oc=5",
-      "source": "פאנדר",
-      "published_at": "2026-11-11T11:35:56+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "דירוג הבנקים: הבנק הטוב, הבנק הרע והבנק המכוער - ביזפורטל",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1CeDVXMVRsaDlvYmZUSmd4b0p2ZzBhTHRfWGI2LWpEeV8wQjFveWxUNlhMSmFEWHdWNndrMk01LUM5SThkb3JyUzJKNm1SX05LbjdfTHNHSmdsdFJXTGRvekpXNk1BN2M1?oc=5",
-      "source": "ביזפורטל",
-      "published_at": "2026-11-11T10:16:00+00:00",
-      "region": "מאקרו ישראל"
-    },
-    {
-      "title": "בפעם הקודמת שישראל נתקעה בלי תקציב, ריבית אפסית הצילה את הבורסה. הפעם הריבית 3.25% - YNET",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9Va0ZhYjh6RHVIcjBJWlNJZWxqN0NEUHRHMEdqTnhmMHlyTkgxWERrTVk2ZlZjcllZVUFZTmkxaFdhUFYwb2FjWDd6c1VQUTdWcEVWU2FqdE5ydWpMaG5J?oc=5",
-      "source": "YNET",
-      "published_at": "2026-11-11T07:12:01+00:00",
+      "published_at": "2026-11-12T04:11:24+00:00",
       "region": "מאקרו ישראל"
     }
   ],
   "israel_focus": [
     {
-      "title": "\"19 חברי כנסת שאהבת ישראל אינה תורה אצלם\" - 103FM",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQTjlxNUMwcC1NYnB0SVlIaFllWDdaaGFGUkpqbU5femNPYW41ZExvR255TWFoUS1CV2phZVZRX1JPVEhhMWFBYXBJTzBkSk5UbFBIZTBOUmU1YmlaMTYwNld2eWN3bmRmbERmMDUzYzhCVG55V3FOVWpYWXV2OHV1Zg?oc=5",
-      "source": "103FM",
-      "published_at": "2026-11-12T06:18:50+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "\"מבחינת איזנקוט ושאר השותפים - בחירות חוזרות הן אסון\" - 103FM",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQWEswZmZYR1h3R2xZeTdDTHZjQ2NWOERuUVZFVnVCM2hVTHNMd25HWEZqbDdLVzIyS0ViZXpJQTRzYkttOGs3Z2RTenFZbDZ2Z0x0ZFpBUF83blB6LUk0SFIxc09OdXNyTTZna0dJendKRjBXcEFGdFpPVk4tRmVjNQ?oc=5",
-      "source": "103FM",
-      "published_at": "2026-11-12T05:40:46+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "COL מרכז התקשורת החב״די - בית כנסת בין העצים ותפילין בבית קפה: שלוחים סטורי בטולום - חב״ד און ליין",
-      "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE5VRUdrb0xhSGNYS3BnejJfNklraHVHMmhnQ2F4SUcyNzkzQUgwVUJSSUpDLVZ4U1g3ZXBwV0MxM25RQnJG?oc=5",
-      "source": "חב״ד און ליין",
-      "published_at": "2026-11-12T05:39:14+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "כנסת יקרה: שכר, רכב, דיור ועוזרים - כמה באמת עולים לנו הח\"כים במליאה? - YNET",
-      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9uRTBUZEZONndLLVpFeXhJUWFMV3IwZjV2QmpNWWg0cTVyMUVRSzVBcVExU0dXODF1VUNILWluR2pMUWhycDlvTmdnMXdjNkNZT3d6WG9XVEcwclpheXA4bkh3?oc=5",
-      "source": "YNET",
-      "published_at": "2026-11-12T05:13:45+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "יומן בחירות: יום חמישי, 12 בנובמבר 2026 - זמן ישראל",
-      "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE96RmdqOEExeW5lUFJrUWZvbW5qeGV4MWljZ084cTNEeURmV1I1TWZNWXlTSENoU0F3U2pucGw4Rk5VcnZW?oc=5",
-      "source": "זמן ישראל",
-      "published_at": "2026-11-12T05:11:38+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "קנדה: שנתיים מאסר לנער שירה לעבר שני בתי כנסת באזור טורונטו - ערוץ 7",
-      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5QZHRNdXNTU0hzVTYxWEUtOEV2cmp5RUtQTzN1SVNYaUlvWE9RWF9QbjNtRVMyU3o4M2lTZmkxYXhObkxDTlBpcw?oc=5",
-      "source": "ערוץ 7",
-      "published_at": "2026-11-12T03:30:15+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "בחירות חוזרות! - ערוץ 7",
-      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5BcFFZS2xoeF9JSXc3cFZ0bVNzblo3VVJTSDRqNjh3czhwcWNRdmlrX0hDYnpfVEg5Vl8zVENyYTNBRlhPVXpONVh3?oc=5",
-      "source": "ערוץ 7",
-      "published_at": "2026-11-11T21:48:14+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "סולברג נעתר חלקית לליכוד: חומרי הבחירות שיותרו לעיון - ואלה שלא - וואלה",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5kTXpyV3RYVndmSGVBNmdWaUdqN2lRb3V4THVkUXFjRnhnTkloQ1NRWEhYYktmeHVET2JoYzNDT2FkM1JUa295MWJDdlpvdHpoeGQ4UzJCT3g0UGs?oc=5",
-      "source": "וואלה",
-      "published_at": "2026-11-11T19:21:50+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "בדרך לערעור על תוצאות הבחירות: הליכוד קיבל גישה לחלק מחומרי הקלפיות - מעריב",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE13OS1GdWdFSGpiWFVUeVdtTlNVbUpTZl92RHZPS182dWd6ZEdNYjR4dF9ZbzdQeTRvckpKYk9wYTdZRVFTbkpnZnV4REhFWXVJa0FpWEE5enluam45bXdxZ3paQXk?oc=5",
-      "source": "מעריב",
-      "published_at": "2026-11-11T19:11:07+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "הבלוג של יוני בן מנחם - האם ישראל הסכימה שבנו של אבו מאזן יעמוד בראש הרש״פ ללא קיום בחירות? - המזרח התיכון לאן? | הבלוג של יוני בן מנחם",
-      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1MeE9kTWNXOXVNQ2lqQmxMN3BVUk1GU1JvdzNtV2RWOV9kVDFSaWsyTFNzd1VDbUhtbXpJOHphODh5TV9saVZVX1k0UU5ibWRKalgyXw?oc=5",
-      "source": "המזרח התיכון לאן? | הבלוג של יוני בן מנחם",
-      "published_at": "2026-11-11T18:46:58+00:00",
-      "region": "בחירות"
-    },
-    {
-      "title": "ישראל חשפה את SUPER ICE - איראן מיהרה להגיב עם טיל טווח 13 אלף ק\"מ - מעריב",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE16RFNEMUQzX2xTWWNRU05PR3pveE1KRXVUTUNCNEVGd1p4SnJLb0djXzlGdVdtdHo0VXpVMFZOQUU2cFZUbjg0SGFEbi1Wek5rWFJjYzRweER2amdaX1lMeThuZUk?oc=5",
-      "source": "מעריב",
-      "published_at": "2026-11-12T05:28:13+00:00",
-      "region": "ביטחון"
-    },
-    {
-      "title": "\"אין צורך בהול שמצדיק יציאה למלחמה מול איראן\" - 103FM",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOS3NtZkZObFgyU3ZobnMyeTFGMmN0dkl5TjgtZkxEbkZfQXhhTGs4ZkVaV3BKYkJzWm4yQjN4TXNGRnItNE10Uno1RXA4QjgzWXFuQk1vNUdnR1MxNW5JT2hMVm90M0JuWUJ0Sjhra2g1Qm9iSnhNeVBkYU5iYXZXNQ?oc=5",
-      "source": "103FM",
-      "published_at": "2026-11-12T05:18:10+00:00",
-      "region": "ביטחון"
-    },
-    {
-      "title": "הקבינט המדיני-ביטחוני יתכנס ביום ראשון: סמכויות ממשלת המעבר ליציאה למערכה צבאית מול איראן - כיכר השבת",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPbnlOeGw3amtNV2Uta3FQTnh6aXhLQkQ2OWNoZW0tQ2JhMTVLbzJOS2VoakduS2pZdGpJNnY5NndWWXphbkRybEtoaFFacDc0RDFYVlU1bGZ2dzQzVU5xSkZ0LWlWaWppTUpiU3JvcjJiU0huNXZnQ3BWSWZNdXNFN2VlMFNqeDl4QXVKaDB5OWNwVUdBdXc?oc=5",
-      "source": "כיכר השבת",
-      "published_at": "2026-11-12T05:00:24+00:00",
-      "region": "ביטחון"
-    },
-    {
-      "title": "עמוק מתחת לאדמה: עד כמה מוגנות \"ערי הטילים\" של איראן? - C14",
-      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5SaVJEamhod00xRUl0bzF5Y3F6LW02MGo4QjVPYWROQ1hQdUY4SE5kTDZYTzZGZlc5dG5YNUp5OHBnc0dTQi1ld2ZNeGx5UQ?oc=5",
-      "source": "C14",
-      "published_at": "2026-11-12T04:52:26+00:00",
-      "region": "ביטחון"
-    },
-    {
-      "title": "איראן עשתה אצבע משולשת לנשיא לבנון וארה\"ב: המהלך המתריס בביירות | אבי אשכנזי - מעריב",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBDcGhJeWtnMlRMNjZ5SU42dVZtSGU0c3JXYzRXOEg5M21JeGhuRnBQSTdQQ05LcVctY3d6SkRmWXFaandKRVRPSVhwWnlfREJ4SmhQVEFjd1lvY1c0cWo3SnBFZng?oc=5",
-      "source": "מעריב",
-      "published_at": "2026-11-12T04:00:00+00:00",
-      "region": "ביטחון"
-    },
-    {
-      "title": "התכנסות הקבינט, ההתנגדות האמריקנית: לנתניהו מותר לצאת למלחמה באיראן? - YNET",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA0T0VBYzloV1BrV0RadkxRVWxESWdhcUtlZ0g3cFk5eDNqanRiUjkwX0s0Z01hOE96TmZObjNiS0FpeU1IUDl4R2xjME9fVW9HUWcxUVlobUp6dw?oc=5",
-      "source": "YNET",
-      "published_at": "2026-11-11T22:29:28+00:00",
-      "region": "ביטחון"
-    },
-    {
-      "title": "ללא יחסים רשמיים: ישראל ומדינות ערב מגבשות חזית מול איראן - C14",
-      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1uaWpzZ18zM2sxZkJ6STlQY00wTXRoTnpxbXFSUHUxWTgzbEVHUUFPRVhGUGhNZUZGSWlmSGFOSEhLY3QtQmIxN2VOUVB5Zw?oc=5",
-      "source": "C14",
-      "published_at": "2026-11-11T17:44:42+00:00",
-      "region": "ביטחון"
-    },
-    {
-      "title": "דדי ברנע: איראן משקמת את הגרעין, הסכם לא יעצור אותה - אמס",
-      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBQX3NZMlFtTlJrMXNBQmNEUDVtc2Jjd29KdDlPaDRlVi1tbWd5eWlad3RwTEhIYXBld1FWS0xhbENOdUc1TF9fWF9DcFM5QQ?oc=5",
+      "title": "הולנד: בוטלה תערוכה על בית כנסת בשל חשש מאנטישמיות - אמס",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBnNHJhUi1ldEJzd29OOUVnRG1ETnRPMW5zZlVCMDJfVzFjbTI5Tzk1Qk52OW1pRHlVRWhacDFycExyVzRmX1dzUVQxLV90QQ?oc=5",
       "source": "אמס",
-      "published_at": "2026-11-11T17:20:14+00:00",
-      "region": "ביטחון"
+      "published_at": "2026-11-13T06:08:30+00:00",
+      "region": "בחירות"
     },
     {
-      "title": "ראש המוסד לשעבר: \"מלחמה נוספת נגד איראן תאיץ את קריסת המשטר\" - מקור ראשון",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1tTGlWN3dsTXRKYjhPYnd5c3lmVW44ZTNzczkzTmxYWWZxLTd6U1JmdjRQMEFLNml3VTloZS1UY2pwelZza2RwRWRZTzVWWTNBNjBiWmRGS2pka3cwSmNCVzRKUnZUcGFr?oc=5",
-      "source": "מקור ראשון",
-      "published_at": "2026-11-11T16:50:05+00:00",
-      "region": "ביטחון"
+      "title": "יומן בחירות: יום שישי, 13 בנובמבר 2026 - זמן ישראל",
+      "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE5RY2xWeWpBd2xKa1BxeXVVUWE3dEJwYWY2ZVhSZmltSld6dnFJaEltRU5ObGtNZ2Q3OWNjclg3aVZVb3ds?oc=5",
+      "source": "זמן ישראל",
+      "published_at": "2026-11-13T04:50:49+00:00",
+      "region": "בחירות"
     },
     {
-      "title": "איזנקוט קורא לנתניהו: אל תציב את ראשי מערכות הביטחון בקונפליקט חוקתי קשה - הארץ",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVlZZR1BYMi1fUlhNUFBMNllsQ0dVaU1XZEJKNGhPWEF1Q0dlMmwyMXQ0bFd6c0liWThKdFo0eU4wVU1RYmpOUEtRelJwNFFFeUU4QjM5WVhMeEZ2bTlxTExJQlhiRUpscm8zVmpHUGNfTTZiQXhseGNMbzhhQXp2WW1TelNwV2staWxqMDg5amplMWdoM05GTlgxTVdtS2pCeFB1bzU3cDZndlk?oc=5",
+      "title": "מבגין ועד ליברמן: 6 הבטחות בחירות - שהפוליטיקאים הפרו בלי למצמץ - היום",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5jalg4Vzl1M1ZoUUltbWdfSDJ4MXBtbXhHc2FzVEdRU2NhN2dMWEoxOHlCT2kwZEY5dVYtck5TV3Q3enQ5cjZPQWs4NW8zX3d4T3U5S2hyMGFtVHQySkxzVmM5SllDaXJNZTZzM2NsRFVqQQ?oc=5",
+      "source": "היום",
+      "published_at": "2026-11-13T03:42:51+00:00",
+      "region": "בחירות"
+    },
+    {
+      "title": "איש המפתח לממשלה: אביגדור ליברמן שוב בצומת דרכים פוליטי - רשת 13",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBLeUktVXNnU3pmWVVNSFlMUng4YTJjSGlxVWpMUVl3LV9YeEtxb0ZmbmZvNGRWVnRVNE5JakxCRDV6eFNyTlJGQzRTVjd1aWpNQXdPU0pST0hhdE9yQ3dpQ3pLZUIxcjJXaXA0YXlHeG1scTJs?oc=5",
+      "source": "רשת 13",
+      "published_at": "2026-11-12T19:00:15+00:00",
+      "region": "בחירות"
+    },
+    {
+      "title": "לפיד: זה יהיה טירוף אם לא נקים ממשלה, נעשה פשרות כואבות - הארץ",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUHFUR1o1ZTBGMTJxTWg2MlNFSDkxbFN1SDhybnRmR2NBVHBfV0xzeFRMNlRKODh4OWhRWXBBQ2ZUVk1aMlZTcEdVaXVmOFhxc0Qzc0x3UE9qa3c1VkNUcl92MGZyaFpDYms3VnJablpfZHdtcWo3cnZmZ3NCOGs4VTh1S1pyNzg5Y2JreEE1anF1T2NZcUp6aS01UnJ6Rnc3cDFIWDJCUnc0WEgz?oc=5",
       "source": "הארץ",
-      "published_at": "2026-11-11T15:04:00+00:00",
+      "published_at": "2026-11-12T18:58:00+00:00",
+      "region": "בחירות"
+    },
+    {
+      "title": "פעיל רע\"מ שנעצר ביום הבחירות מדבר: \"זו הייתה רדיפה פוליטית\" - רשת 13",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1kNWYzNncwck1Yd09EYjRTb0lTcWxFVG9yMGxLZUd2cmQ4U0FRLTZCS0J2cjRhd2t5QWpmQTAwWEk2Q2F0TGppZUlLWXU0UFM4ZUVNZnFZYWIzd1Z4Rms3Vnc5UnJIb0tVSUluMmhRZ29ySFBrUTBIUFJRTQ?oc=5",
+      "source": "רשת 13",
+      "published_at": "2026-11-12T18:16:00+00:00",
+      "region": "בחירות"
+    },
+    {
+      "title": "עמדת צה\"ל שהוצגה לאיזנקוט ונתניהו: אין דחיפות לתקיפה באיראן - רשת 13",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1vV2thQ2FvemNxX2NIVXlla3VqcXI5V1ozcW9QS2hxLVNwMkFlV0JlRklkSGJYX21vMU5OQUFDLWpVNkJxZFMwOWd5eHpiWlhkaVBlOXZrbmVKZ0xURE1GZVFsbFo0YXNhV0w1QlNScUpIcFk?oc=5",
+      "source": "רשת 13",
+      "published_at": "2026-11-12T18:01:57+00:00",
+      "region": "בחירות"
+    },
+    {
+      "title": "צוות החקירה הודיע לסולברג: אין ראיות להתערבות זרה בבחירות - רשת 13",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNHdBVXRhUTZ2aXcyNjBuUlhIVnJaR3BBNkJGcUltVjl6ZHdKVURTZUhZeXU0RnBrWnd3MUgzb0RTNUFOWkNnaFU4SUV6ajV6c2pMQ3BiTldGS2w5MXprVG1vSi1LeXZJc25kNVpXMkFVQm1QRnFHVlNuQzQzTlV0UU5B?oc=5",
+      "source": "רשת 13",
+      "published_at": "2026-11-12T15:02:30+00:00",
+      "region": "בחירות"
+    },
+    {
+      "title": "מרים פרץ: אם ישר תשב עם מפלגה ערבית – אליסף יעזוב את הכנסת - הארץ",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPQmY0Y2VCNVpUWlFROWNZYnN3dU1EVXpTUWFOLVd5dFJCTWFZc2JSNktEMm9ZU2N4N19saURkcmFJaWxBbm1oYnNBUWtGVGcxWDlKbzRGd0RZWFdjdXlXNGdUS3V5Qzl2QlVnRjd3RjJmX25HN293Um1fX1I5Y2RMeHhNaGFwNlpRUTRTZlduZ3d6OW8wODZkczVKMEp3dWJ6RWlyT1BkM19SXzJY?oc=5",
+      "source": "הארץ",
+      "published_at": "2026-11-12T12:38:00+00:00",
+      "region": "בחירות"
+    },
+    {
+      "title": "רק שישה יהודים ו-22 בתי כנסת: המהפך בסוריה אחרי נפילת אסד - כיכר השבת",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE8yQW16TjFSY3VUWUVkR2xaRk01bUxiWWVYUXRqZnE3dGpJVzJCZG9BYm5hZXJROUJpb25ZSUE0NnFfNzJSQlNMaWVRQTc3ZTRwTWpyUFNuVTBhY1prMmtXOWsyUDZVR3Yx?oc=5",
+      "source": "כיכר השבת",
+      "published_at": "2026-11-12T12:34:38+00:00",
+      "region": "בחירות"
+    },
+    {
+      "title": "טראמפ: אני נמנע מלתקוף את איראן לבקשת מדינות האזור - ערוץ 7",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBDZnR2YUF0T2xrRmRBclJDYUdQMVplYnVfdy1MaVJnNmxXMWVrUVJXNm01UWZKVXkyUEJTUnQ3UEVTdnNnWWxRYg?oc=5",
+      "source": "ערוץ 7",
+      "published_at": "2026-11-13T04:36:14+00:00",
       "region": "ביטחון"
+    },
+    {
+      "title": "לא רק איראן: כדי לסכל הקמת ממשלה, נתניהו עשוי להצית זירות חדשות־ישנות - הארץ",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPRHAydUROMS1MLUg1QUFHaWFOZXZkZDRBdm1JSE5VaUt1VlZqdXFkekxGQmpPbGFGaWwxb2l0SE51X2tfdWJQNkI4RWF2bXYzSzNTZ0Vud3UxOVNlSWtlMlAzWkVieGJhNFBNcUFqZHh0eXpxaXF6OUM2UThYRjFFTXNYYWRxS2xOaVpNSWNCRE0tUFV4RVNadXBVSDlOZE9zSWh3V2FYbFZnTGhDQXc?oc=5",
+      "source": "הארץ",
+      "published_at": "2026-11-13T04:01:00+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "קאליבאף: ארצות הברית ביקשה מפוטין שרוסיה תתווך בינה לבין איראן - זמן ישראל",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE51OUpfMjEyRlU1RVRlX1g1QlVxQWMteFM3b01NMDZEQWwxMFcwaE81OUFXUy1aS0xvNzNtYm1vNGhNdXV3UmRmVXFpcw?oc=5",
+      "source": "זמן ישראל",
+      "published_at": "2026-11-12T20:51:26+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "הבלוג של יוני בן מנחם - ישראל חוששת מהסכם בין טראמפ לאיראן: נתניהו מזהיר מפני השלמה עם איראן גרעינית - המזרח התיכון לאן? | הבלוג של יוני בן מנחם",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1mVGdna3QzTHIxQ1NxS0szbXNORE5Vb0tSdlRWVENLRjYxQWF4TXhlVlF5OVZRNjQ3NU9GZG1YX0VaWjJ2TlppbU82MlNvMmpxQnZXNg?oc=5",
+      "source": "המזרח התיכון לאן? | הבלוג של יוני בן מנחם",
+      "published_at": "2026-11-12T20:27:43+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "שר הביטחון בהערכת מצב רב-זירתית עם הרמטכ\"ל - לדעת",
+      "link": "https://news.google.com/rss/articles/CBMiQEFVX3lxTE8wMHo4MmhHbEFvdEhQZDQ1WTNPckJMV2tPZlRVT1JMbVRhSi11TV9tSEJOeXF0TW1YVU43NHNidDM?oc=5",
+      "source": "לדעת",
+      "published_at": "2026-11-12T20:09:13+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "איראן מייצרת 50 טילים בליסטיים בחודש: מה מסתתר מאחורי הנתונים ומה המשמעות האסטרטגית לישראל? - Nziv.net",
+      "link": "https://news.google.com/rss/articles/CBMiPEFVX3lxTFB0ZWlOOEpvTzFIZlRLUlFVY1FFenlObklWdHdJQTlrQUFFNERVejUwMTdyUmZiTWJuODhkZA?oc=5",
+      "source": "Nziv.net",
+      "published_at": "2026-11-12T19:27:51+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "ארה\"ב עדכנה את צה\"ל להיערך לחידוש המלחמה מול איראן - כיכר השבת",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZnpkSWxuVFNoeTJQcWJNVDNSSFN3dFpOSGc3RF9MYTJoRkxDRTdjQjVvSGwxUnRTUlBwb3ZmRXZ0Q0V5aHpCa1l1TG15blgxdXk2aU9zVmdXM2JYNE9xaGpwbWxPYmtXTjg2ck5BZmhFeEFaaHQ5UUdyVWM0NlBpanpuci1ZcVExRzd6V3F2YlVCdw?oc=5",
+      "source": "כיכר השבת",
+      "published_at": "2026-11-12T18:05:35+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "תקיפה בדרום איראן; בישראל מעריכים: המו\"מ עדיין לא התפוצץ - YNET",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5sWDdQcnRobldXb0ZpT2V0ck15WmFBdDUtUkNER2pGcUpxbmczblNVdGlWWExNYXVWLUJFOWVYd09rV1lDVFBSNy00NnNtZENXd3dyT21xaWV1QQ?oc=5",
+      "source": "YNET",
+      "published_at": "2026-11-12T17:50:48+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "ארה\"ב ניסתה לשכנע את שכנותיה של איראן לסגור את הגבול, וסורבה - גלובס",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9CZ2pTSW12Tl92a3NLSFJfczNFWk82eHcxMkxRZzRDSWlpLW9hTDlrdXZwS3MzMms3MlB5YzBJUFByWm81SUtaYzAzRUdwSFZuaVZwVmM3Zkp4LU5rdHpwRHpwekx5bGVz?oc=5",
+      "source": "גלובס",
+      "published_at": "2026-11-12T17:45:33+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "וושינגטון באיתות לישראל: עם או בלי איראן, תתחילו לקפל את האירוע - היום",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFB3QnQ5djhvZ0dZVTd3LTN3Q1Zycl9JR0FlZlEzYktTMVFFN0ZheVFjLW1TS3NfMml2bDJJR01ucTVmalJxS280enhHcFN4dWxzVlF2YzE3eDFEdXRPdHdkQWxMTDF4cDV3QVJ5amZndlVudw?oc=5",
+      "source": "היום",
+      "published_at": "2026-11-12T17:41:38+00:00",
+      "region": "ביטחון"
+    },
+    {
+      "title": "נגיד בנק ישראל האזין לנאום ההסתה של נתניהו - ויצא מודאג | יהודה שרוני - מעריב",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5rTnJUemRrMWRBUUxZQTg4N25iWGNNSFpjMWxyX3IyUEF4NkpuZmpIdGxkdUhSUFlmYTNIa1BCczl1X1pSZ1J0d3ZsMXprUlNEMlhxaWdxekxxSktLc0pOai01QTd3Zw?oc=5",
+      "source": "מעריב",
+      "published_at": "2026-11-13T06:11:51+00:00",
+      "region": "פיסקלי"
+    },
+    {
+      "title": "נתוני הלמ\"ס לאוקטובר 2026: גירעון מסחרי של 16 מיליארד שקל וזינוק ביבוא - אמס",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5vNDJIS3ZyYmwzb2gzVE1QV2ppN3JlUktsbnprSlJ1NUgxM1hFS05DNmNyV0hNYkYxWUxrX2pweTJKYmMtanVYNERBNTdNdw?oc=5",
+      "source": "אמס",
+      "published_at": "2026-11-12T13:18:55+00:00",
+      "region": "פיסקלי"
+    },
+    {
+      "title": "אייזנקוט מזהיר את נתניהו מפני פתיחת מלחמה חדשה נגד איראן - - شبكة يافا الإخبارية",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE12d1lDUVo0bzZQZDBEYkZ5WVNILVRZYWR1X21jakJfQUNoV2xTb1F6YldyTVRLcFJ2WmE3QmZFSkNIajdEMVZsM1JHaXVCazhB?oc=5",
+      "source": "شبكة يافا الإخبارية",
+      "published_at": "2026-11-12T12:40:25+00:00",
+      "region": "פיסקלי"
+    },
+    {
+      "title": "גירעון כספי וחובות מצטברים מציבים את מוכנותו הצבאית של צבא הכיבוש הישראלי בפני אתגרים הולכים וגוברים - شبكة يافا الإخبارية",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9QVUp5eUNOV2xfRWlZOWw2WkdZcGMtN3dGMEhuX3RjSVY2TjVwY1VxWi11eVp6bXQ3NXVhRnM2eDlXUlA4VWNsSVR5ekZHbnFF?oc=5",
+      "source": "شبكة يافا الإخبارية",
+      "published_at": "2026-11-12T11:35:13+00:00",
+      "region": "פיסקלי"
+    },
+    {
+      "title": "נתניהו ניצב בפני האשמות בניצול מערכת הביטחון כדי להציל את עתידו הפוליטי - - شبكة يافا الإخبارية",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE05R25adVJpVDZnQkRqUWhMbkFvS3NDd2dxU2tjcXNqczBSUFRvZk9wSEdDRDNvRnVhaW9QRkdGNW1rSEswaHJVMlhRLTFlbElS?oc=5",
+      "source": "شبكة يافا الإخبارية",
+      "published_at": "2026-11-12T11:26:38+00:00",
+      "region": "פיסקלי"
+    },
+    {
+      "title": "מהם הכוחות שמשפיעים על התחזקות הדולר? - גלובס",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBwSVVSTVlNNVNKdXlzRl9ld1FWMTZhdTNLTXVGQ2pjd29laHhzckFwNXpaaTd2WFNQQ3hqNXpzOGFqX0M5YVJwbWZHNnVjVTE4RERYckdjSUlWZjBjZnpDd3p0VHZzMFRm?oc=5",
+      "source": "גלובס",
+      "published_at": "2026-11-12T10:02:58+00:00",
+      "region": "פיסקלי"
+    },
+    {
+      "title": "11.11-5.11: השבוע של הכנסת החדשה, לירן אבישר, אנבידיה ומיסוי הטיסות - Calcalist",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBMdVNGRElGYXdEUXVtbWJndWg0U3ZmT3hmTFh1T3NER2VORjdjTDZtbE14VzlGY1dfbDNIOFhKXzRlTU5Ud0dDX1Z2azMtakxveDNKODNqNWh4cWZwWEVXVlBIMTk?oc=5",
+      "source": "Calcalist",
+      "published_at": "2026-11-12T07:00:00+00:00",
+      "region": "פיסקלי"
     },
     {
       "title": "למרות המלחמה - הכלכלה הישראלית בדרך לשיא חדש - C14",
       "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9Qc1BTWlFZV1pXaUJmS3VVQWVyY05aMTZqb2Z2aDFTZXB5VzhSdzNfdk1CMGViclZFRGtlWEt5SW83WFdVM3pWUFBFaW9kdw?oc=5",
       "source": "C14",
       "published_at": "2026-11-11T14:59:03+00:00",
-      "region": "פיסקלי"
-    },
-    {
-      "title": "S&P חושפת: חלק מהגורמים לצמיחה של ישראל - בכלל מתרחשים בחו\"ל - מעריב",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1yOGktOWVGeko5VEMwa285LUlyMVl3aHFUN1lHeDlQN19QRXRFdmhyUDZDU3ZzMUVna0E4MldJMzVaLTJkX21fUjZaMXZzS3RIZlFPbEQ5WThxLXQ2ZWNzd1VjV2x6Zw?oc=5",
-      "source": "מעריב",
-      "published_at": "2026-11-10T16:13:53+00:00",
-      "region": "פיסקלי"
-    },
-    {
-      "title": "הבוננזה של אנבידיה והאיום האיראני: מה מסתתר מאחורי הדירוג של S&P לישראל - Calcalist",
-      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE83X2x4dmNGaGhCbjcxc2dXTF9aemdrSkhmVlVTZFlwU2FJc2s4TlU3ZlFzR0h4RWxNTGI2NkRCNkhuMjJncU5zXzhkby0tUHJ3UXJuWFdpaXJOdzhjUkUtZGVFbXR1TU5EWVE?oc=5",
-      "source": "Calcalist",
-      "published_at": "2026-11-10T10:16:00+00:00",
-      "region": "פיסקלי"
-    },
-    {
-      "title": "בהשפעת אנבידיה: S&P העלתה את תחזית הצמיחה של ישראל - גלובס",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1ieVM1S2lFWm8xUUMxbkp4cFpZaVBiS25CS1lHQmszZnlnZFowYnpYdXl0d3lHaTQxWmVacTNaTjdmcGp6RG5hNl9ObV9SbU16cGtPYUJzajFNNm9rZko1VnNicEtEZFRr?oc=5",
-      "source": "גלובס",
-      "published_at": "2026-11-10T09:04:43+00:00",
-      "region": "פיסקלי"
-    },
-    {
-      "title": "הגירעון צפוי להצטמצם עד סוף השנה, וזה קשור לביצועים של אנבידיה - גלובס",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1ydU5hcTlZSUZXeFZwcVBzWGxVR1V3RTh0dUU4aGFWaEdxdEpKWUZuQV8ycHNOeVpfdG5OOVdRaWhHcWJ0azBfT1I2eHZUY0hLdVlNT29ENDJwSHpGM0VSXy04aFNzZ0J5?oc=5",
-      "source": "גלובס",
-      "published_at": "2026-11-10T08:00:00+00:00",
-      "region": "פיסקלי"
-    },
-    {
-      "title": "IBI צולל לביצה הפוליטית וטוען: כך ישפיעו הבחירות על הכלכלה - גלובס",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9QeGgyc3hjY2k5NW55MmhVc1RuRlRGVHo2QmxYZGpuSGg3UGdLSlNqb0FUMl9nbXhoSmZVVFhxYWVaRjgwUnFNOUI0eGlheFM1emx2MjJSUF9tWndKTWNUWXk2TWE5RG5x?oc=5",
-      "source": "גלובס",
-      "published_at": "2026-11-10T08:00:00+00:00",
       "region": "פיסקלי"
     }
   ],

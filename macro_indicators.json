@@ -1,73 +1,38 @@
 {
-  "checked_at": "2026-11-12T08:28:16.708358+02:00",
-  "status": "ok",
+  "checked_at": "2026-11-13T08:26:23.115415+02:00",
+  "status": "unavailable",
   "indicators": {
     "us_cpi": {
       "status": "unavailable",
       "series_id": "CPIAUCNS"
     },
     "us_unemployment": {
-      "status": "ok",
-      "name": "US unemployment rate, seasonally adjusted",
-      "value": 4.1,
-      "units": "%",
-      "observation_date": "2026-10-01",
-      "source": "FRED / official US statistical agencies",
-      "source_url": "https://fred.stlouisfed.org/series/UNRATE",
-      "series_id": "UNRATE",
-      "change_from_previous": -0.1,
-      "frequency": "monthly"
+      "status": "unavailable",
+      "series_id": "UNRATE"
     },
     "us_real_gdp": {
-      "status": "ok",
-      "name": "US real GDP, quarterly seasonally adjusted annual rate",
-      "value": 3.37,
-      "units": "% QoQ annualized",
-      "observation_date": "2026-07-01",
-      "source": "FRED / official US statistical agencies",
-      "source_url": "https://fred.stlouisfed.org/series/GDPC1",
-      "series_id": "GDPC1",
-      "change_from_previous": null,
-      "frequency": "quarterly"
+      "status": "unavailable",
+      "series_id": "GDPC1"
     },
     "us_effective_fed_funds": {
-      "status": "ok",
-      "name": "US effective federal funds rate, daily",
-      "value": 3.88,
-      "units": "%",
-      "observation_date": "2026-11-09",
-      "source": "FRED / official US statistical agencies",
-      "source_url": "https://fred.stlouisfed.org/series/DFF",
-      "series_id": "DFF",
-      "change_from_previous": 0.0,
-      "frequency": "daily"
+      "status": "unavailable",
+      "series_id": "DFF"
     },
     "us_fed_target_lower": {
-      "status": "ok",
-      "name": "Fed funds target lower bound",
-      "value": 3.75,
-      "units": "%",
-      "observation_date": "2026-11-11",
-      "source": "FRED / official US statistical agencies",
-      "source_url": "https://fred.stlouisfed.org/series/DFEDTARL",
-      "series_id": "DFEDTARL",
-      "change_from_previous": 0.0,
-      "frequency": "monthly"
+      "status": "unavailable",
+      "series_id": "DFEDTARL"
     },
     "us_fed_target_upper": {
-      "status": "ok",
-      "name": "Fed funds target upper bound",
-      "value": 4.0,
-      "units": "%",
-      "observation_date": "2026-11-11",
-      "source": "FRED / official US statistical agencies",
-      "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
-      "series_id": "DFEDTARU",
-      "change_from_previous": 0.0,
-      "frequency": "monthly"
+      "status": "unavailable",
+      "series_id": "DFEDTARU"
     }
   },
   "errors": {
-    "us_cpi": "ValueError: Insufficient history"
+    "us_cpi": "TimeoutError: The read operation timed out",
+    "us_unemployment": "TimeoutError: The read operation timed out",
+    "us_real_gdp": "TimeoutError: The read operation timed out",
+    "us_effective_fed_funds": "TimeoutError: The read operation timed out",
+    "us_fed_target_lower": "TimeoutError: The read operation timed out",
+    "us_fed_target_upper": "TimeoutError: The read operation timed out"
   }
 }
