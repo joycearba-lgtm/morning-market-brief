@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-11-13T08:27:24.879492+02:00",
+  "checked_at": "2026-11-14T08:17:46.486448+02:00",
   "israel": {
     "rate_now": {
       "status": "ok",
       "value": 3.25,
-      "as_of": "2026-11-13",
+      "as_of": "2026-11-14",
       "source": "Bank of Israel official interest API",
       "source_url": "https://boi.org.il/PublicApi/GetInterest",
       "detail": "API rate checked on date shown; not the date of last rate decision"
