@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-14T07:30:23+02:00",
+  "checked_at": "2026-11-15T07:29:19+02:00",
   "items": [
     {
       "company": "Walt Disney",
@@ -73,14 +73,14 @@
       "source_url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
     },
     {
-      "company": "Deere & Company",
-      "ticker": "DE",
-      "report_date": "2026-11-25",
+      "company": "Autodesk",
+      "ticker": "ADSK",
+      "report_date": "2026-11-24",
       "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
-      "call_at": "2026-11-25T17:00:00+02:00",
-      "expires_at": "2026-11-25T17:00:00+02:00",
+      "call_at": "2026-11-25T00:00:00+02:00",
+      "expires_at": "2026-11-25T00:00:00+02:00",
       "confirmed": true,
-      "source_url": "https://investor.deere.com/events/event-details/2026/John-Deere---4Q-Earnings-Call/default.aspx"
+      "source_url": "https://investors.autodesk.com/index.php/news-releases/news-release-details/autodesk-extends-invitation-join-financial-results-conference-53"
     }
   ]
 }
