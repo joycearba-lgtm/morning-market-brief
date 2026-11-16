@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-11-15T08:20:59.550041+02:00",
+  "checked_at": "2026-11-16T09:05:21.742847+02:00",
   "israel": {
     "rate_now": {
       "status": "ok",
       "value": 3.25,
-      "as_of": "2026-11-15",
+      "as_of": "2026-11-16",
       "source": "Bank of Israel official interest API",
       "source_url": "https://boi.org.il/PublicApi/GetInterest",
       "detail": "API rate checked on date shown; not the date of last rate decision"
@@ -27,8 +27,8 @@
     },
     "inflation_now": {
       "status": "ok",
-      "value": 1.6,
-      "as_of": "2026-09",
+      "value": 1.1,
+      "as_of": "2026-10",
       "source": "CBS Israel CPI",
       "source_url": "https://api.cbs.gov.il/index/data/price?id=120010&last=16&coef=true&format=json&download=false&lang=en",
       "detail": "Last 12-month CPI change; reference month"
