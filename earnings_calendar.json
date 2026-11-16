@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-15T07:29:19+02:00",
+  "checked_at": "2026-11-16T07:29:03+02:00",
   "items": [
     {
       "company": "Walt Disney",
@@ -52,6 +52,16 @@
       "source_url": "https://corporate.walmart.com/news/events/fy2027-q3-earnings-release"
     },
     {
+      "company": "Keysight Technologies",
+      "ticker": "KEYS",
+      "report_date": "2026-11-19",
+      "release_window": "אחרי סגירת המסחר בארה״ב. שעה מדויקת לא צוינה",
+      "call_at": "2026-11-19T23:30:00+02:00",
+      "expires_at": "2026-11-19T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx"
+    },
+    {
       "company": "Medtronic",
       "ticker": "MDT",
       "report_date": "2026-11-24",
@@ -71,16 +81,6 @@
       "expires_at": "2026-11-24T23:30:00+02:00",
       "confirmed": true,
       "source_url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
-    },
-    {
-      "company": "Autodesk",
-      "ticker": "ADSK",
-      "report_date": "2026-11-24",
-      "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
-      "call_at": "2026-11-25T00:00:00+02:00",
-      "expires_at": "2026-11-25T00:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investors.autodesk.com/index.php/news-releases/news-release-details/autodesk-extends-invitation-join-financial-results-conference-53"
     }
   ]
 }
