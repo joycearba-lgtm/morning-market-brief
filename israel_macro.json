@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T09:05:20.085109+02:00",
+  "checked_at": "2026-11-17T08:28:45.427905+02:00",
   "indicators": {
     "israel_cpi_yoy": {
       "status": "ok",
@@ -12,9 +12,9 @@
     },
     "israel_unemployment": {
       "status": "ok",
-      "value": 2.82,
+      "value": 3.03,
       "unit": "%",
-      "observation_period": "2026-08",
+      "observation_period": "2026-09",
       "source": "OECD via FRED – Israel unemployment, seasonally adjusted, age 15+",
       "source_url": "https://fred.stlouisfed.org/series/LRUNTTTTILM156S"
     }
