@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T07:29:03+02:00",
+  "checked_at": "2026-11-17T07:31:51+02:00",
   "items": [
     {
       "company": "Walt Disney",
@@ -32,6 +32,16 @@
       "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
     },
     {
+      "company": "Target",
+      "ticker": "TGT",
+      "report_date": "2026-11-18",
+      "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
+      "call_at": "2026-11-18T15:00:00+02:00",
+      "expires_at": "2026-11-18T15:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://corporate.target.com/investors/events-presentations"
+    },
+    {
       "company": "Palo Alto Networks",
       "ticker": "PANW",
       "report_date": "2026-11-18",
@@ -50,16 +60,6 @@
       "expires_at": "2026-11-19T15:00:00+02:00",
       "confirmed": true,
       "source_url": "https://corporate.walmart.com/news/events/fy2027-q3-earnings-release"
-    },
-    {
-      "company": "Keysight Technologies",
-      "ticker": "KEYS",
-      "report_date": "2026-11-19",
-      "release_window": "אחרי סגירת המסחר בארה״ב. שעה מדויקת לא צוינה",
-      "call_at": "2026-11-19T23:30:00+02:00",
-      "expires_at": "2026-11-19T23:30:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx"
     },
     {
       "company": "Medtronic",
