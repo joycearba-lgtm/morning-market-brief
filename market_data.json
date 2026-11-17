@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T21:08:24.087769+02:00",
+  "updated_at": "2026-11-17T22:12:22.491041+02:00",
   "source": "Bank of Israel",
   "usd_ils": 3.223,
   "rate_date": "2026-11-16T13:22:05.6281594Z",
@@ -5027,13 +5027,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 7329.05,
-      "change_percent": -1.18,
+      "value": 7313.72,
+      "change_percent": -1.39,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794942503,
+      "market_time": 1794946334,
       "previous_close": 7416.59,
-      "checked_at": "2026-11-17T21:08:24.087769+02:00",
+      "checked_at": "2026-11-17T22:12:22.491041+02:00",
       "refresh_status": "ok"
     },
     "Nasdaq Composite": {
@@ -10058,13 +10058,13 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 24255.314,
-      "change_percent": -1.04,
+      "value": 24198.83,
+      "change_percent": -1.27,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794942501,
+      "market_time": 1794946341,
       "previous_close": 24509.758,
-      "checked_at": "2026-11-17T21:08:24.087769+02:00",
+      "checked_at": "2026-11-17T22:12:22.491041+02:00",
       "refresh_status": "ok"
     },
     "Dow Jones": {
@@ -10157,13 +10157,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 50773.4,
-      "change_percent": -1.62,
+      "value": 50660.3,
+      "change_percent": -1.84,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794942503,
+      "market_time": 1794946342,
       "previous_close": 51608.17,
-      "checked_at": "2026-11-17T21:08:24.087769+02:00",
+      "checked_at": "2026-11-17T22:12:22.491041+02:00",
       "refresh_status": "ok"
     },
     "TA-35": {
@@ -14274,7 +14274,7 @@
       "type": "latest_quote",
       "market_time": 1794929090,
       "previous_close": 3975.4,
-      "checked_at": "2026-11-17T21:08:24.087769+02:00",
+      "checked_at": "2026-11-17T22:12:22.491041+02:00",
       "refresh_status": "ok"
     },
     "TA-125": {
@@ -18389,7 +18389,7 @@
       "type": "latest_quote",
       "market_time": 1794929092,
       "previous_close": 3868.64,
-      "checked_at": "2026-11-17T21:08:24.087769+02:00",
+      "checked_at": "2026-11-17T22:12:22.491041+02:00",
       "refresh_status": "ok"
     }
   },
@@ -18484,13 +18484,13 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 86.48,
-      "change_percent": 0.89,
+      "value": 85.34,
+      "change_percent": -0.44,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794941899,
+      "market_time": 1794945737,
       "previous_close": 85.72,
-      "checked_at": "2026-11-17T21:08:24.087769+02:00",
+      "checked_at": "2026-11-17T22:12:22.491041+02:00",
       "refresh_status": "ok"
     },
     "Gold futures": {
@@ -18583,27 +18583,27 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 3858.8,
-      "change_percent": 0.15,
+      "value": 3845.9,
+      "change_percent": -0.18,
       "source": "Yahoo Finance",
       "type": "latest_quote",
-      "market_time": 1794941897,
+      "market_time": 1794945740,
       "previous_close": 3853.0,
-      "checked_at": "2026-11-17T21:08:24.087769+02:00",
+      "checked_at": "2026-11-17T22:12:22.491041+02:00",
       "refresh_status": "ok"
     }
   },
   "treasury_10y": {
     "status": "ok",
-    "value": 5.101,
+    "value": 5.103,
     "previous_close": 5.121,
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
-    "market_time": 1794941593,
-    "checked_at": "2026-11-17T21:08:24.087769+02:00",
+    "market_time": 1794945433,
+    "checked_at": "2026-11-17T22:12:22.491041+02:00",
     "refresh_status": "ok",
-    "change_bps": -2.0
+    "change_bps": -1.8
   },
-  "intraday_checked_at": "2026-11-17T21:08:24.087769+02:00",
+  "intraday_checked_at": "2026-11-17T22:12:22.491041+02:00",
   "intraday_refresh_status": "ok"
 }
