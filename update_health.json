@@ -1,13 +1,14 @@
 {
-  "date": "2026-11-17",
-  "checked_at": "2026-11-17T08:29:00.859801+02:00",
+  "date": "2026-11-18",
+  "checked_at": "2026-11-18T08:32:16.267224+02:00",
   "status": "ok",
   "editorial_status": "current",
   "editorial_issues": [],
   "issues": [],
   "warnings": [
     "News: חו״ל: HTTPError",
-    "News: פיסקלי: HTTPError",
+    "News: חו״ל: HTTPError",
+    "News: ישראל: HTTPError",
     "Calendar: BLS: HTTPError; date-scoped fallback in use if present"
   ]
 }
