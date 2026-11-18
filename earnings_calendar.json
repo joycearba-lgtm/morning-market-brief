@@ -1,36 +1,6 @@
 {
-  "checked_at": "2026-11-17T07:31:51+02:00",
+  "checked_at": "2026-11-18T07:35:56+02:00",
   "items": [
-    {
-      "company": "Walt Disney",
-      "ticker": "DIS",
-      "report_date": "2026-11-17",
-      "release_window": "לפני המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
-      "call_at": "2026-11-17T15:30:00+02:00",
-      "expires_at": "2026-11-17T15:30:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx"
-    },
-    {
-      "company": "Home Depot",
-      "ticker": "HD",
-      "report_date": "2026-11-17",
-      "release_window": "שיחת הדוחות אושרה. שעת פרסום נפרדת לא צוינה",
-      "call_at": "2026-11-17T16:00:00+02:00",
-      "expires_at": "2026-11-17T16:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://ir.homedepot.com/news-releases/2026/11-03-2026-130236805"
-    },
-    {
-      "company": "NVIDIA",
-      "ticker": "NVDA",
-      "report_date": "2026-11-17",
-      "release_window": "בסביבות 23:20 בשעון ישראל, לאחר המסחר בארה״ב; שעה משוערת בהודעת החברה",
-      "call_at": "2026-11-18T00:00:00+02:00",
-      "expires_at": "2026-11-18T00:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
-    },
     {
       "company": "Target",
       "ticker": "TGT",
@@ -62,6 +32,16 @@
       "source_url": "https://corporate.walmart.com/news/events/fy2027-q3-earnings-release"
     },
     {
+      "company": "Keysight Technologies",
+      "ticker": "KEYS",
+      "report_date": "2026-11-19",
+      "release_window": "אחרי סגירת המסחר בארה״ב. שעה מדויקת לא צוינה",
+      "call_at": "2026-11-19T23:30:00+02:00",
+      "expires_at": "2026-11-19T23:30:00+02:00",
+      "source_url": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx",
+      "confirmed": true
+    },
+    {
       "company": "Medtronic",
       "ticker": "MDT",
       "report_date": "2026-11-24",
@@ -81,6 +61,26 @@
       "expires_at": "2026-11-24T23:30:00+02:00",
       "confirmed": true,
       "source_url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
+    },
+    {
+      "company": "Autodesk",
+      "ticker": "ADSK",
+      "report_date": "2026-11-24",
+      "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
+      "call_at": "2026-11-25T00:00:00+02:00",
+      "expires_at": "2026-11-25T00:00:00+02:00",
+      "source_url": "https://investors.autodesk.com/index.php/news-releases/news-release-details/autodesk-extends-invitation-join-financial-results-conference-53",
+      "confirmed": true
+    },
+    {
+      "company": "Deere & Company",
+      "ticker": "DE",
+      "report_date": "2026-11-25",
+      "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
+      "call_at": "2026-11-25T17:00:00+02:00",
+      "expires_at": "2026-11-25T17:00:00+02:00",
+      "source_url": "https://investor.deere.com/events/event-details/2026/John-Deere---4Q-Earnings-Call/default.aspx",
+      "confirmed": true
     }
   ]
 }
