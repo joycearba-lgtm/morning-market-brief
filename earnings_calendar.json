@@ -1,26 +1,6 @@
 {
-  "checked_at": "2026-11-18T07:35:56+02:00",
+  "checked_at": "2026-11-19T07:36:22+02:00",
   "items": [
-    {
-      "company": "Target",
-      "ticker": "TGT",
-      "report_date": "2026-11-18",
-      "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
-      "call_at": "2026-11-18T15:00:00+02:00",
-      "expires_at": "2026-11-18T15:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://corporate.target.com/investors/events-presentations"
-    },
-    {
-      "company": "Palo Alto Networks",
-      "ticker": "PANW",
-      "report_date": "2026-11-18",
-      "release_window": "אחרי המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
-      "call_at": "2026-11-18T23:30:00+02:00",
-      "expires_at": "2026-11-18T23:30:00+02:00",
-      "confirmed": true,
-      "source_url": "https://www2.paloaltonetworks.com/company/press/2026/palo-alto-networks-to-announce-fiscal-first-quarter-2027-financial-results-on-wednesday--november-18--2026"
-    },
     {
       "company": "Walmart",
       "ticker": "WMT",
@@ -73,14 +53,24 @@
       "confirmed": true
     },
     {
-      "company": "Deere & Company",
-      "ticker": "DE",
-      "report_date": "2026-11-25",
-      "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
-      "call_at": "2026-11-25T17:00:00+02:00",
-      "expires_at": "2026-11-25T17:00:00+02:00",
-      "source_url": "https://investor.deere.com/events/event-details/2026/John-Deere---4Q-Earnings-Call/default.aspx",
-      "confirmed": true
+      "company": "CrowdStrike",
+      "ticker": "CRWD",
+      "report_date": "2026-12-01",
+      "release_window": "אחרי סגירת המסחר בארה״ב. השיחה בחצות לפי שעון ישראל, בלילה שלאחר תאריך הדוח",
+      "call_at": "2026-12-02T00:00:00+02:00",
+      "expires_at": "2026-12-02T00:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://crowdstrike.gcs-web.com/news-releases/news-release-details/crowdstrike-announces-date-fiscal-third-quarter-2027-financial"
+    },
+    {
+      "company": "Salesforce",
+      "ticker": "CRM",
+      "report_date": "2026-12-02",
+      "release_window": "אחרי סגירת המסחר בארה״ב. השיחה בחצות לפי שעון ישראל, בלילה שלאחר תאריך הדוח",
+      "call_at": "2026-12-03T00:00:00+02:00",
+      "expires_at": "2026-12-03T00:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Announces-Date-of-Third-Quarter-Fiscal-2027-Earnings-Release-and-Webcast/default.aspx"
     }
   ]
 }

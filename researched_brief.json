@@ -1,134 +1,126 @@
 {
-  "date": "2026-11-18",
-  "generated_at": "2026-11-18T07:35:56+02:00",
-  "valid_until": "2026-11-19T09:00:00+02:00",
+  "date": "2026-11-19",
+  "generated_at": "2026-11-19T07:36:22+02:00",
+  "valid_until": "2026-11-20T09:00:00+02:00",
   "status": "automatic_conditional",
   "editorial_mode": "researched",
-  "title": "אנבידיה צופה צמיחה נוספת גם בלי מכירות מחשוב לסין",
-  "methodology": "נתוני סגירה, דיווחים מתוארכים והודעות חברות. התחזית מיוחסת להנהלה.",
+  "title": "הטכנולוגיה התייצבה חלקית, הפד מצביע על צורך בהידוק",
+  "methodology": "דיווחי סגירה, הודעות חברות ופרוטוקול רשמי. התחזיות מיוחסות למפרסמיהן.",
   "morning_summary": {
-    "event": "בסגירת 17.11 המדדים המובילים בתל אביב כמעט לא השתנו, וול סטריט ירדה, תשואות אג״ח ממשלת ארה״ב התמתנו והנפט עלה.",
-    "impact": "דוח אנבידיה, שפורסם אחרי הסגירה, נתן לשוק מידע חדש על הביקוש לשבבים גם בלי מכירות מחשוב למרכזי נתונים בסין בתחזית החברה.",
-    "watch": "היום, 18.11, שיחת הדוחות של Target ב־15:00. פאלו אלטו נטוורקס תפרסם אחרי סגירת המסחר בארה״ב ותשוחח עם משקיעים ב־23:30. השעות לפי שעון ישראל.",
-    "change": "מאז סקירת 17.11 אנבידיה פרסמה את תוצאותיה ואת תחזית ההכנסות לרבעון הבא, ובישראל הכנסת בחרה במתן כהנא לתפקיד יושב ראש הכנסת."
+    "event": "בסגירת 18.11 ירדו המדדים המובילים בתל אביב. בארה״ב נאסדק עלה, אס אנד פי והדאו ירדו, ותשואות האג״ח הממשלתיות והנפט נחלשו.",
+    "impact": "תחזית אנבידיה תמכה בחלק ממניות הטכנולוגיה, בעוד פרוטוקול הפד הראה שהמאבק באינפלציה עדיין עלול לדרוש ריבית גבוהה יותר.",
+    "watch": "היום, 19.11, חומרי הדוח של וולמארט צפויים בסביבות 14:00, ושיחת המשקיעים ב־15:00. Keysight תדווח אחרי המסחר בארה״ב ותשוחח עם משקיעים ב־23:30, שעון ישראל.",
+    "change": "מאז סקירת 18.11 פורסם פרוטוקול הפד, שהצביע על תמיכה רחבה בהעלאות ריבית אם התחזית תתממש. במסחר הרגיל אנבידיה ירדה למרות התחזית המשופרת שפרסמה."
   },
-  "audio_market_summary": "בסגירת 17.11 ת״א 35 עלה ב־0.08%, ת״א 125 עלה ב־0.01%, אס אנד פי 500 ירד ב־1.03%, נאסדק ירד ב־0.74% ודאו ג׳ונס ירד ב־1.64%.",
+  "audio_market_summary": "בסגירת 18.11 ת״א 35 ירד ב־0.34%, ת״א 125 ירד ב־0.58%, אס אנד פי 500 ירד ב־0.23%, נאסדק עלה ב־0.42% ודאו ג׳ונס ירד ב־1.11%.",
   "sections": [
     {
       "heading": "תמונת מצב",
       "bullets": [
-        "בסגירת 17.11 המדדים המובילים בתל אביב כמעט לא השתנו, וול סטריט ירדה, תשואות אג״ח ממשלת ארה״ב התמתנו והנפט עלה. פרשנות: דוח אנבידיה, שפורסם אחרי הסגירה, נתן לשוק מידע חדש על הביקוש לשבבים גם בלי מכירות מחשוב למרכזי נתונים בסין בתחזית החברה."
+        "בסגירת 18.11 ירדו המדדים המובילים בתל אביב. בארה״ב נאסדק עלה, אס אנד פי והדאו ירדו, ותשואות האג״ח הממשלתיות והנפט נחלשו. פרשנות: תחזית אנבידיה תמכה בחלק ממניות הטכנולוגיה, בעוד פרוטוקול הפד הראה שהמאבק באינפלציה עדיין עלול לדרוש ריבית גבוהה יותר."
       ],
       "sources": [
         {
-          "label": "גלובס · סגירת תל אביב, 17.11",
-          "url": "https://en.globes.co.il/en/article-tue-elbit-stands-out-on-flat-tase-1001563886"
+          "label": "גלובס · סגירת תל אביב, 18.11",
+          "url": "https://en.globes.co.il/en/article-wed-discount-bank-falls-sharply-1001564057"
         },
         {
-          "label": "AP · סגירת ארה״ב, 17.11",
-          "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-ff6caef4d9289cf7f1e6ee48a706eddc"
+          "label": "רויטרס · סגירת ארה״ב, 18.11",
+          "url": "https://www.reuters.com/business/nasdaq-futures-jump-nvidia-forecast-lifts-ai-trade-ahead-anthropic-pricing-2026-11-18/"
         },
         {
-          "label": "אנבידיה · תוצאות ותחזית, 17.11",
-          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx"
+          "label": "רויטרס · שווקים, 18.11",
+          "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-18/"
         }
       ]
     },
     {
       "heading": "ישראל — האירועים והמשמעות לשווקים",
       "bullets": [
-        "ב־17.11 נבחר מתן כהנא מישר ליו״ר הכנסת. ההצבעה הראתה שגוש איזנקוט יכול לגייס רוב למהלך פרלמנטרי. במגעים להרכבת הממשלה, המבחן התקציבי יהיה אם יימצא רוב גם למסגרת שתממן את צורכי הביטחון על רקע המתיחות מול איראן. אומדן האוצר מ־9.11 העמיד את הגירעון המצטבר ב־12 החודשים עד אוקטובר על 3.3% מהתוצר."
+        "לפי דיווח מ־18.11 על דיון בוועדת הכספים, האוצר מעריך שהגירעון ב־2026 יסתיים מתחת ל־4% מהתוצר, לאחר שיפור בתחזיות ההכנסות והצמיחה. התחזית אינה כוללת סבב לחימה נוסף. ברקע המגעים להרכבת ממשלה, הסכמות על הוצאות הביטחון ועל מקורות המימון יקבעו אם השיפור יישמר בתקציב הבא."
       ],
       "sources": [
         {
-          "label": "טיימס אוף ישראל · בחירת יו״ר הכנסת, 17.11",
-          "url": "https://www.timesofisrael.com/knesset-votes-66-52-to-elect-yashars-matan-kahana-as-speaker-in-boost-to-eisenkot-bloc/"
+          "label": "Yeshiva World · דיון ועדת הכספים, פורסם 18.11",
+          "url": "https://www.theyeshivaworld.com/news/israel-news/2624585/twenty-year-high-israels-tax-burden-hits-highest-level-in-at-least-two-decades-finance-ministry-reveals.html"
         },
         {
-          "label": "וושינגטון פוסט · הדיון על איראן, 17.11",
-          "url": "https://www.washingtonpost.com/world/2026/11/17/netanyahu-is-pushing-new-iran-attack-bid-stay-power-his-rivals-warn/"
-        },
-        {
-          "label": "גלובס · אומדן הגירעון, 9.11",
-          "url": "https://en.globes.co.il/en/article-israels-fiscal-deficit-widens-1001562558"
+          "label": "טיימס אוף ישראל · מגעים להרכבת ממשלה, 18.11",
+          "url": "https://www.timesofisrael.com/the-daily-edition/2026-11-18/"
         }
       ]
     },
     {
       "heading": "העולם — מה עומד במוקד",
       "bullets": [
-        "אנבידיה דיווחה ב־17.11 על הכנסות של 115.8 מיליארד דולר, יותר מכפול מאשתקד. ההנהלה צופה הכנסות של כ־130 מיליארד דולר ברבעון הבא, בלי להניח הכנסות ממחשוב למרכזי נתונים בסין. המניה עלתה במסחר המאוחר לאחר הדוח, אחרי ירידה במסחר הרגיל."
+        "בפרוטוקול שפורסם ב־18.11, כמעט כל משתתפי דיוני הפד צפו צורך בהעלאות ריבית אם הכלכלה תתפתח בהתאם לתחזיתם. טווח היעד הנוכחי, שנקבע בהחלטת 28.10, הוא בין 3.75% ל־4.00%. זהו פרוטוקול של הדיון באוקטובר. בינתיים, אנבידיה סיימה את מסחר 18.11 בירידה אחרי עלייה מוקדמת, למרות תחזית ההכנסות המשופרת."
       ],
       "sources": [
         {
-          "label": "אנבידיה · תוצאות ותחזית, 17.11",
-          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx"
+          "label": "הפד · פרוטוקול 27–28.10, פורסם 18.11",
+          "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm"
         },
         {
-          "label": "רויטרס · אסיה, 18.11",
-          "url": "https://ca.investing.com/news/economy-news/asia-stocks-set-to-snap-losing-streak-on-nvidia-beat-as-anthropic-looms-4965514"
+          "label": "הפד · החלטת 28.10",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
         },
         {
-          "label": "AP · סגירת ארה״ב, 17.11",
-          "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-ff6caef4d9289cf7f1e6ee48a706eddc"
+          "label": "רויטרס · סגירת ארה״ב, 18.11",
+          "url": "https://www.reuters.com/business/nasdaq-futures-jump-nvidia-forecast-lifts-ai-trade-ahead-anthropic-pricing-2026-11-18/"
         }
       ]
     },
     {
       "heading": "אירופה, אסיה ונפט · בקצרה",
       "bullets": [
-        "אירופה, סגירת 17.11. סטוקס 600 ירד, ורוב המניות במדד נחלשו.",
-        "אסיה, בוקר 18.11. יפן ודרום קוריאה עלו במסחר המוקדם לאחר דוח אנבידיה.",
-        "נפט, בוקר 18.11. ברנט ו־WTI ירדו. לפי רויטרס, נתוני מלאים גבוהים יותר בארה״ב מיתנו את השפעת השיבושים בשיט במפרץ."
+        "אירופה, סגירת 18.11. סטוקס 600 ירד, ומניות הכרייה הכבידו.",
+        "אסיה, בוקר 19.11. דרום קוריאה וטייוואן ירדו במסחר המוקדם, בהובלת מניות שבבים.",
+        "נפט, סגירת 18.11. חוזי הנפט ירדו, ובמקביל התמתנו ציפיות האינפלציה בשוק האג״ח האמריקאי, לפי רויטרס."
       ],
       "sources": [
         {
-          "label": "Saxo · סגירת אירופה, 17.11",
-          "url": "https://www.home.saxo/en-gb/content/articles/macro/asia-market-quick-take--18-november-2026-18112026"
+          "label": "רויטרס · שווקים, 18.11",
+          "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-18/"
         },
         {
-          "label": "רויטרס · אסיה, 18.11",
-          "url": "https://ca.investing.com/news/economy-news/asia-stocks-set-to-snap-losing-streak-on-nvidia-beat-as-anthropic-looms-4965514"
-        },
-        {
-          "label": "רויטרס · חוזי נפט, 18.11",
-          "url": "https://www.reuters.com/business/energy/oil-prices-fall-higher-us-crude-stocks-temper-supply-risks-2026-11-18/"
+          "label": "רויטרס · אסיה, 19.11",
+          "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-19/"
         }
       ]
     },
     {
       "heading": "אירועים קרובים",
       "bullets": [
-        "היום, 18.11, שיחת הדוחות של Target ב־15:00. פאלו אלטו נטוורקס תפרסם אחרי סגירת המסחר בארה״ב ותשוחח עם משקיעים ב־23:30. השעות לפי שעון ישראל."
+        "היום, 19.11, חומרי הדוח של וולמארט צפויים בסביבות 14:00, ושיחת המשקיעים ב־15:00. Keysight תדווח אחרי המסחר בארה״ב ותשוחח עם משקיעים ב־23:30, שעון ישראל."
       ],
       "sources": [
         {
-          "label": "Target · הודעת החברה",
-          "url": "https://corporate.target.com/investors/events-presentations"
+          "label": "Walmart · הודעת החברה",
+          "url": "https://corporate.walmart.com/news/events/fy2027-q3-earnings-release"
         },
         {
-          "label": "Palo Alto Networks · הודעת החברה",
-          "url": "https://www2.paloaltonetworks.com/company/press/2026/palo-alto-networks-to-announce-fiscal-first-quarter-2027-financial-results-on-wednesday--november-18--2026"
+          "label": "Keysight Technologies · הודעת החברה",
+          "url": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx"
         }
       ]
     }
   ],
   "advisor": [
     {
-      "title": "תחזית אנבידיה והחשיפה לשוק הסיני",
-      "insight": "התחזית של אנבידיה מניחה שהצמיחה תגיע גם בלי הכנסות ממחשוב למרכזי נתונים בסין. זו הנחה בתחזית החברה, והיא מסייעת להבין על איזה ביקוש נשענת הצמיחה שהיא צופה.",
-      "client_impact": "לספקים אחרים בשרשרת השבבים עשויה להיות תלות שונה בסין, ולכן אותו שינוי במגבלות הסחר יכול להשפיע עליהם אחרת.",
-      "reference": "אנבידיה · תוצאות ותחזית, 17.11",
-      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
-      "event_date": "2026-11-17"
+      "title": "ציפיות הריבית והרגישות של אג״ח ארוכות",
+      "insight": "פרוטוקול הפד מצביע על נכונות להעלות ריבית אם לחצי המחירים יישארו בהתאם לתחזית. אג״ח ארוכות עשויות להגיב לשינוי בציפיות עוד לפני ההחלטה עצמה.",
+      "client_impact": "גם בתיק שמקבל קופון שוטף, עלייה בתשואה הנדרשת עלולה ליצור ירידת מחיר גדולה יותר ככל שהמח״מ ארוך.",
+      "reference": "הפד · פרוטוקול 27–28.10, פורסם 18.11",
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
+      "event_date": "2026-11-18"
     },
     {
-      "title": "הרוב בכנסת ומימון התקציב",
-      "insight": "בחירת יו״ר הכנסת מדגימה יכולת לגייס רוב להצבעה, ואילו אישור תקציב דורש הסכמות על הוצאות ומקורות מימון.",
-      "client_impact": "אם הסכמות על מימון הביטחון יתעכבו, ייקח זמן רב יותר להעריך את צורכי ההנפקות של המדינה ואת ההיצע הצפוי בשוק האג״ח.",
-      "reference": "טיימס אוף ישראל · בחירת יו״ר הכנסת, 17.11",
-      "source_url": "https://www.timesofisrael.com/knesset-votes-66-52-to-elect-yashars-matan-kahana-as-speaker-in-boost-to-eisenkot-bloc/",
-      "event_date": "2026-11-17"
+      "title": "תחזית הגירעון והסיכון הביטחוני",
+      "insight": "תחזית האוצר לגירעון נשענת על הכנסות וצמיחה משופרות ועל תרחיש ללא סבב לחימה נוסף. לכן נתון חיובי על הביצוע אינו מבטל את שאלת המימון של הוצאה ביטחונית חדשה.",
+      "client_impact": "אם תתווסף הוצאה ללא הכנסה או קיצוץ מקביל, היקף גיוס החוב עלול לגדול ולהשפיע על התשואה שהמדינה תידרש להציע.",
+      "reference": "Yeshiva World · דיון ועדת הכספים, פורסם 18.11",
+      "source_url": "https://www.theyeshivaworld.com/news/israel-news/2624585/twenty-year-high-israels-tax-burden-hits-highest-level-in-at-least-two-decades-finance-ministry-reveals.html",
+      "event_date": "2026-11-18"
     }
   ],
   "takeaway": ""
