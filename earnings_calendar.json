@@ -1,26 +1,6 @@
 {
-  "checked_at": "2026-11-19T07:36:22+02:00",
+  "checked_at": "2026-11-20T07:35:26+02:00",
   "items": [
-    {
-      "company": "Walmart",
-      "ticker": "WMT",
-      "report_date": "2026-11-19",
-      "release_window": "חומרי הדוח צפויים בסביבות 14:00 בשעון ישראל",
-      "call_at": "2026-11-19T15:00:00+02:00",
-      "expires_at": "2026-11-19T15:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://corporate.walmart.com/news/events/fy2027-q3-earnings-release"
-    },
-    {
-      "company": "Keysight Technologies",
-      "ticker": "KEYS",
-      "report_date": "2026-11-19",
-      "release_window": "אחרי סגירת המסחר בארה״ב. שעה מדויקת לא צוינה",
-      "call_at": "2026-11-19T23:30:00+02:00",
-      "expires_at": "2026-11-19T23:30:00+02:00",
-      "source_url": "https://investor.keysight.com/investor-news-and-events/financial-press-releases/press-release-details/2026/Keysight-Technologies-to-Report-Fourth-Quarter-and-Fiscal-Year-2026-Results-on-November-19-2026/default.aspx",
-      "confirmed": true
-    },
     {
       "company": "Medtronic",
       "ticker": "MDT",
@@ -71,6 +51,16 @@
       "expires_at": "2026-12-03T00:00:00+02:00",
       "confirmed": true,
       "source_url": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Announces-Date-of-Third-Quarter-Fiscal-2027-Earnings-Release-and-Webcast/default.aspx"
+    },
+    {
+      "company": "Zscaler",
+      "ticker": "ZS",
+      "report_date": "2026-12-02",
+      "release_window": "אחרי סגירת המסחר בארה״ב. שעה מדויקת לא צוינה",
+      "call_at": "2026-12-02T23:30:00+02:00",
+      "expires_at": "2026-12-02T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://ir.zscaler.com/news-releases/news-release-details/zscaler-host-first-quarter-fiscal-year-2027-earnings-conference"
     }
   ]
 }
