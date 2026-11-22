@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-21T07:30:07+02:00",
+  "checked_at": "2026-11-22T07:35:09+02:00",
   "items": [
     {
       "company": "Medtronic",
@@ -33,6 +33,16 @@
       "confirmed": true
     },
     {
+      "company": "HP Inc.",
+      "ticker": "HPQ",
+      "report_date": "2026-11-24",
+      "release_window": "שיחת הדוחות אושרה; שעת פרסום נפרדת לא צוינה. השיחה בחצות שבין 24 ל־25 בנובמבר בישראל",
+      "call_at": "2026-11-25T00:00:00+02:00",
+      "expires_at": "2026-11-25T00:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.hp.com/news-events/news/news-details/2026/HP-Inc--to-Announce-Fourth-Quarter-Fiscal-2026-Earnings-on-November-24-2026-and-to-Attend-Upcoming-Investor-Conferences/default.aspx"
+    },
+    {
       "company": "CrowdStrike",
       "ticker": "CRWD",
       "report_date": "2026-12-01",
@@ -41,6 +51,16 @@
       "expires_at": "2026-12-02T00:00:00+02:00",
       "confirmed": true,
       "source_url": "https://crowdstrike.gcs-web.com/news-releases/news-release-details/crowdstrike-announces-date-fiscal-third-quarter-2027-financial"
+    },
+    {
+      "company": "Marvell Technology",
+      "ticker": "MRVL",
+      "report_date": "2026-12-01",
+      "release_window": "לפני שיחת המשקיעים; שעת פרסום מדויקת לא צוינה",
+      "call_at": "2026-12-01T23:30:00+02:00",
+      "expires_at": "2026-12-01T23:30:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.marvell.com/news-events/press-releases/detail/1041/marvell-technology-inc-announces-conference-call-to-review-third-quarter-of-fiscal-year-2027-financial-results"
     },
     {
       "company": "Salesforce",
