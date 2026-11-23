@@ -1,27 +1,13 @@
 {
-  "checked_at": "2026-11-22T15:32:52.680445+02:00",
-  "date": "2026-11-22",
-  "mode": "upcoming",
+  "checked_at": "2026-11-23T18:22:03.023215+02:00",
+  "date": "2026-11-23",
+  "mode": "today",
   "events": [
     {
       "title": "החלטת הריבית של בנק ישראל",
       "at": "2026-11-23T16:00:00+02:00",
       "source": "בנק ישראל",
       "url": "https://www.boi.org.il/roles/monetary-policy/interest-rate-dates/",
-      "priority": 1
-    },
-    {
-      "title": "דוח התעסוקה (NFP)",
-      "at": "2026-12-04T15:30:00+02:00",
-      "source": "BLS – official dated schedule (fallback)",
-      "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
-      "priority": 1
-    },
-    {
-      "title": "החלטת ריבית הפד",
-      "at": "2026-12-09T21:00:00+02:00",
-      "source": "Federal Reserve",
-      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
       "priority": 1
     }
   ],

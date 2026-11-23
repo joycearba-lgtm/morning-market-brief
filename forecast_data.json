@@ -1,29 +1,21 @@
 {
-  "checked_at": "2026-11-22T15:32:39.748234+02:00",
+  "checked_at": "2026-11-23T18:21:50.333393+02:00",
   "israel": {
     "rate_now": {
       "status": "ok",
       "value": 3.25,
-      "as_of": "2026-11-22",
+      "as_of": "2026-11-23",
       "source": "Bank of Israel official interest API",
       "source_url": "https://boi.org.il/PublicApi/GetInterest",
       "detail": "API rate checked on date shown; not the date of last rate decision"
     },
     "rate_1y": {
-      "status": "ok",
-      "value": 3.1,
-      "as_of": "2026-10-19",
-      "source": "BOI: market interest expectations",
-      "source_url": "https://boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/",
-      "detail": "SHIR market based; approximately one year; dated snapshot"
+      "status": "unavailable",
+      "reason": "BOI expectation older than 35 days"
     },
     "inflation_1y": {
-      "status": "ok",
-      "value": 1.8,
-      "as_of": "2026-10-19",
-      "source": "BOI: 12 CPI readings from inflation contracts",
-      "source_url": "https://boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/",
-      "detail": "Market-derived next 12 CPI releases; dated snapshot"
+      "status": "unavailable",
+      "reason": "BOI expectation older than 35 days"
     },
     "inflation_now": {
       "status": "ok",
