@@ -1,13 +1,27 @@
 {
-  "checked_at": "2026-11-23T18:22:03.023215+02:00",
-  "date": "2026-11-23",
-  "mode": "today",
+  "checked_at": "2026-11-24T18:10:48.951819+02:00",
+  "date": "2026-11-24",
+  "mode": "upcoming",
   "events": [
     {
-      "title": "החלטת הריבית של בנק ישראל",
-      "at": "2026-11-23T16:00:00+02:00",
-      "source": "בנק ישראל",
-      "url": "https://www.boi.org.il/roles/monetary-policy/interest-rate-dates/",
+      "title": "דוח התעסוקה (NFP)",
+      "at": "2026-12-04T15:30:00+02:00",
+      "source": "BLS – official dated schedule (fallback)",
+      "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
+      "priority": 1
+    },
+    {
+      "title": "החלטת ריבית הפד",
+      "at": "2026-12-09T21:00:00+02:00",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "priority": 1
+    },
+    {
+      "title": "מדד המחירים לצרכן (CPI)",
+      "at": "2026-12-10T15:30:00+02:00",
+      "source": "BLS – official dated schedule (fallback)",
+      "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
       "priority": 1
     }
   ],
