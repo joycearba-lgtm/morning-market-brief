@@ -1,46 +1,15 @@
 {
-  "checked_at": "2026-11-24T07:32:53+02:00",
+  "checked_at": "2026-11-25T07:31:18+02:00",
   "items": [
     {
-      "company": "Medtronic",
-      "ticker": "MDT",
-      "report_date": "2026-11-24",
-      "release_window": "13:45 בשעון ישראל",
-      "release_at": "2026-11-24T13:45:00+02:00",
-      "call_at": "2026-11-24T14:30:00+02:00",
-      "expires_at": "2026-11-24T13:45:00+02:00",
+      "company": "Deere & Company",
+      "ticker": "DE",
+      "report_date": "2026-11-25",
+      "release_window": "שיחת הדוחות אושרה; שעת פרסום נפרדת לא צוינה",
+      "call_at": "2026-11-25T17:00:00+02:00",
+      "expires_at": "2026-11-25T17:00:00+02:00",
       "confirmed": true,
-      "source_url": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027"
-    },
-    {
-      "company": "Dell Technologies",
-      "ticker": "DELL",
-      "report_date": "2026-11-24",
-      "release_window": "לפני שיחת המשקיעים. שעת פרסום מדויקת לא צוינה",
-      "call_at": "2026-11-24T23:30:00+02:00",
-      "expires_at": "2026-11-24T23:30:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
-    },
-    {
-      "company": "Autodesk",
-      "ticker": "ADSK",
-      "report_date": "2026-11-24",
-      "release_window": "שיחת הדוחות אושרה. מועד פרסום נפרד לא צוין",
-      "call_at": "2026-11-25T00:00:00+02:00",
-      "expires_at": "2026-11-25T00:00:00+02:00",
-      "source_url": "https://adsknews.autodesk.com/en/pressrelease/autodesk-extends-invitation-to-join-financial-results-conference-call-26/",
-      "confirmed": true
-    },
-    {
-      "company": "HP Inc.",
-      "ticker": "HPQ",
-      "report_date": "2026-11-24",
-      "release_window": "שיחת הדוחות אושרה; שעת פרסום נפרדת לא צוינה. השיחה בחצות שבין 24 ל־25 בנובמבר בישראל",
-      "call_at": "2026-11-25T00:00:00+02:00",
-      "expires_at": "2026-11-25T00:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investor.hp.com/news-events/news/news-details/2026/HP-Inc--to-Announce-Fourth-Quarter-Fiscal-2026-Earnings-on-November-24-2026-and-to-Attend-Upcoming-Investor-Conferences/default.aspx"
+      "source_url": "https://investor.deere.com/events/event-details/2026/John-Deere---4Q-Earnings-Call/default.aspx"
     },
     {
       "company": "CrowdStrike",
@@ -81,6 +50,16 @@
       "expires_at": "2026-12-02T23:30:00+02:00",
       "confirmed": true,
       "source_url": "https://ir.zscaler.com/news-releases/news-release-details/zscaler-host-first-quarter-fiscal-year-2027-earnings-conference"
+    },
+    {
+      "company": "Broadcom",
+      "ticker": "AVGO",
+      "report_date": "2026-12-09",
+      "release_window": "לאחר סגירת המסחר בארה״ב; השיחה בחצות שבין 9 ל־10 בדצמבר בישראל",
+      "call_at": "2026-12-10T00:00:00+02:00",
+      "expires_at": "2026-12-10T00:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026"
     }
   ]
 }

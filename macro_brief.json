@@ -1,55 +1,55 @@
 {
-  "date": "2026-11-24",
-  "generated_at": "2026-11-24T07:32:53+02:00",
-  "valid_until": "2026-11-25T09:00:00+02:00",
+  "date": "2026-11-25",
+  "generated_at": "2026-11-25T07:31:18+02:00",
+  "valid_until": "2026-11-26T09:00:00+02:00",
   "status": "automatic_conditional",
   "editorial_mode": "researched",
-  "title": "הריבית בישראל נותרה יציבה, והטכנולוגיה התאוששה עם חזרת הואנג",
-  "methodology": "מקורות מתוארכים שנפתחו ונבדקו. מסחר הבוקר באסיה מובחן מסגירת אתמול; פרשנות אינה תחזית לתשואה.",
+  "title": "דוח Dell מחזק את הביקוש, אך הטכנולוגיה חזרה להיחלש",
+  "methodology": "מקורות מתוארכים שנפתחו ונבדקו. דוחות שלאחר הסגירה מובחנים מתגובת המסחר שקדמה להם.",
   "morning_summary": {
-    "event": "בסגירת 23.11 עלו המניות בתל אביב ובחדות בארה״ב; תשואות אג״ח ארה״ב עלו והנפט ירד.",
-    "impact": "החזרה לטכנולוגיה מבטאת הקלה בסיכון הניהולי באנבידיה, אך אינה מוכיחה שהחששות מתמחור וממימון ההשקעות בענף נפתרו.",
-    "watch": "היום מדטרוניק תפרסם ב־13:45 ותשוחח עם משקיעים ב־14:30. Dell תפרסם לפני שיחתה ב־23:30, ללא שעת פרסום מדויקת. שיחות HP ואוטודסק בחצות שבין 24 ל־25 בנובמבר. השעות בישראל.",
-    "change": "מאז סקירת 23.11 פורסמה החלטת בנק ישראל להשאיר את הריבית על 3.25%, וחזרת הואנג לאנבידיה לוותה בהתאוששות חדה בוול סטריט לאחר גל הירידות."
+    "event": "בסגירת 24.11 ירדו המדדים המובילים בתל אביב; בארה״ב ירדו אס אנד פי ונאסד״ק, בעוד הדאו עלה. תשואות אג״ח ארה״ב השתנו מעט והנפט עלה.",
+    "impact": "הפער בין חולשת הטכנולוגיה לעמידות שאר השוק ממחיש שהערכת סיכוני הבינה המלאכותית אינה זהה להערכת הפעילות הכלכלית כולה.",
+    "watch": "היום שיחת דוחות Deere ב־17:00; שעת פרסום נפרדת לא צוינה. ב־1.12 מארוול תפרסם לפני שיחה ב־23:30, וקראודסטרייק אחרי סגירת ארה״ב עם שיחה בחצות שבין 1 ל־2 בדצמבר. השעות בישראל.",
+    "change": "מאז סקירת 24.11 פורסם דוח Dell עם העלאת תחזית שנתית; בישראל הוכרזה הסכמה בין ישר לישראל ביתנו, בעוד הדמוקרטים הקפיאו שיחות. מגמת המסחר בטכנולוגיה התהפכה שוב."
   },
-  "audio_market_summary": "שיעורי השינוי המדויקים במדדים לא נכללו: קובץ הנתונים מסומן כציטוט אחרון ולא כסגירה יומית מאומתת. תמונת הסגירה המאומתת ל־23.11 היא עליות בישראל ובארה״ב.",
+  "audio_market_summary": "שיעורי השינוי המדויקים במדדים הושמטו: קובץ האתר מסומן כציטוט אחרון, וחלק מנתוניו אינם תואמים לדיווחי הסגירה של 24.11.",
   "sections": [
     {
       "heading": "תמונת מצב",
       "bullets": [
-        "בסגירת 23.11 עלו המניות בתל אביב ובחדות בארה״ב; תשואות אג״ח ארה״ב עלו והנפט ירד. פרשנות: החזרה לטכנולוגיה מבטאת הקלה בסיכון הניהולי באנבידיה, אך אינה מוכיחה שהחששות מתמחור וממימון ההשקעות בענף נפתרו."
+        "בסגירת 24.11 ירדו המדדים המובילים בתל אביב; בארה״ב ירדו אס אנד פי ונאסד״ק, בעוד הדאו עלה. תשואות אג״ח ארה״ב השתנו מעט והנפט עלה. פרשנות: הפער בין חולשת הטכנולוגיה לעמידות שאר השוק ממחיש שהערכת סיכוני הבינה המלאכותית אינה זהה להערכת הפעילות הכלכלית כולה."
       ],
       "sources": [
         {
-          "label": "Investing · סגירת 23.11.2026",
-          "url": "https://www.investing.com/news/stock-market-news/israel-stocks-higher-at-close-of-trade-ta-35-up-049-5046022"
+          "label": "Investing · סגירת 24.11",
+          "url": "https://www.investing.com/news/stock-market-news/israel-stocks-lower-at-close-of-trade-ta-35-down-086-5048685"
         },
         {
-          "label": "רויטרס / MarketScreener · 23.11.2026",
-          "url": "https://www.marketscreener.com/news/wall-street-soars-on-huang-s-return-to-nvidia-treasury-yields-rise-ce7851dadf8ff627"
+          "label": "רויטרס · שווקים 24.11",
+          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-24/"
         },
         {
-          "label": "AP · מסחר בוקר 24.11.2026",
-          "url": "https://apnews.com/article/stock-markets-ai-earnings-oil-feec0e25b9994b1c86b16329cf770192"
+          "label": "AP · בוקר 25.11",
+          "url": "https://apnews.com/article/stock-markets-ai-earnings-oil-10044b4fb55d3ff20fde9ba9e9acaab1"
         }
       ]
     },
     {
       "heading": "ישראל — האירועים והמשמעות לשווקים",
       "bullets": [
-        "בנק ישראל הותיר ב־23.11 את הריבית על 3.25%, למרות אינפלציה נמוכה, והדגיש את הפיחות ואת אי־הוודאות הביטחונית. לפי דיווח מאותו יום, המגעים להרכבת ממשלה בראשות איזנקוט נמשכים ללא התקדמות משמעותית. כרקע תקציבי, תחזית אוקטובר צפתה גירעון שנתי של 4.4%; הסלמה והוצאות נוספות עלולות להקשות על המסגרת התקציבית."
+        "לפי רויטרס מ־24.11, ישר וישראל ביתנו הסכימו על הסכם קואליציוני, אך הדמוקרטים הקפיאו שיחות. רוב לממשלה עדיין אינו מובטח. פרשנות: יכולת להעביר תקציב חשובה יותר מהסכם דו־מפלגתי. תחזית הגירעון מאוקטובר נשענה על הנחות ביטחוניות; הסלמה עלולה להגדיל הוצאות ומימון. הריבית נותרה 3.25% בהחלטת 23.11."
       ],
       "sources": [
         {
-          "label": "בנק ישראל · 23.11.2026",
+          "label": "רויטרס · דיווח 24.11",
+          "url": "https://www.reuters.com/world/middle-east/israels-eisenkot-clinches-first-coalition-agreement-bid-form-government-2026-11-24/"
+        },
+        {
+          "label": "בנק ישראל · 23.11",
           "url": "https://boi.org.il/publications/pressreleases/23-11-26/"
         },
         {
-          "label": "טיימס אוף ישראל · 23.11.2026",
-          "url": "https://www.timesofisrael.com/liveblog_entry/bank-of-israel-keeps-interest-rate-steady-at-3-25/"
-        },
-        {
-          "label": "בנק ישראל · תחזית 21.10.2026",
+          "label": "בנק ישראל · תחזית 21.10",
           "url": "https://www.boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/"
         }
       ]
@@ -57,74 +57,70 @@
     {
       "heading": "העולם — מה עומד במוקד",
       "bullets": [
-        "אנבידיה החזירה ב־23.11 את ג׳נסן הואנג לתפקיד המנכ״ל, ומניות הטכנולוגיה זינקו. פרשנות: שינוי הנהגה יכול להפחית אי־ודאות לגבי ביצוע עסקאות, אך מבחן ההשקעה נשאר התזרים שייווצר מהן. דוחות Dell הקרובים עשויים לספק מידע נוסף על ביקוש לציוד ועל רווחיותו."
+        "לאחר סגירת 24.11 דיווחה Dell על הכנסות שיא והעלתה את תחזית ההכנסות השנתית ל־202 מיליארד דולר. התזרים התפעולי הרבעוני הגיע ל־4.5 מיליארד דולר. אלו עדויות לביצוע עסקי ממשי, אך תחזית החברה עדיין תלויה בהמשך אספקה ובמימוש ההזמנות. הדוח פורסם לאחר הירידות במניות הטכנולוגיה, ולכן אינו מסביר אותן."
       ],
       "sources": [
         {
-          "label": "רויטרס / MarketScreener · 23.11.2026",
-          "url": "https://www.marketscreener.com/news/wall-street-soars-on-huang-s-return-to-nvidia-treasury-yields-rise-ce7851dadf8ff627"
-        },
-        {
-          "label": "Dell · הודעת החברה",
-          "url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
+          "label": "Dell · תוצאות 24.11",
+          "url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1665/dell-technologies-delivers-third-quarter-fiscal-2027-financial-results"
         }
       ]
     },
     {
       "heading": "אירופה, אסיה ונפט · בקצרה",
       "bullets": [
-        "אירופה, סגירת 23.11: סטוקס 600 התאושש בהובלת הטכנולוגיה.",
-        "אסיה, מסחר בוקר 24.11: טאיוואן וקוריאה הובילו עליות, יפן עלתה והונג קונג התחזקה במתינות.",
-        "נפט: חוזי ברנט ו־WTI ירדו ב־23.11, והמשיכו להיחלש במסחר המוקדם ב־24.11."
+        "אירופה, סגירת 24.11: סטוקס 600 ירד כשההתאוששות בטכנולוגיה דעכה.",
+        "אסיה, בוקר 25.11: טאיוואן, קוריאה ויפן ירדו, אך הונג קונג עלתה.",
+        "נפט: לאחר עלייה ב־24.11, ברנט ו־WTI נחלשו במסחר המוקדם ב־25.11."
       ],
       "sources": [
         {
-          "label": "רויטרס · אירופה 23.11.2026",
-          "url": "https://www.marketscreener.com/news/european-stocks-recover-after-steep-technology-led-selloff-ce7851dad98cf522"
+          "label": "רויטרס · אירופה 24.11",
+          "url": "https://www.streetinsider.com/Reuters/Europes%2BSTOXX%2B600%2Bsubdued%2Bafter%2BAI-driven%2Brally/27389878.html"
         },
         {
-          "label": "AP · מסחר בוקר 24.11.2026",
-          "url": "https://apnews.com/article/stock-markets-ai-earnings-oil-feec0e25b9994b1c86b16329cf770192"
+          "label": "AP · בוקר 25.11",
+          "url": "https://apnews.com/article/stock-markets-ai-earnings-oil-10044b4fb55d3ff20fde9ba9e9acaab1"
         }
       ]
     },
     {
       "heading": "אירועים קרובים",
       "bullets": [
-        "היום מדטרוניק תפרסם ב־13:45 ותשוחח עם משקיעים ב־14:30. Dell תפרסם לפני שיחתה ב־23:30, ללא שעת פרסום מדויקת. שיחות HP ואוטודסק בחצות שבין 24 ל־25 בנובמבר. השעות בישראל."
+        "היום שיחת דוחות Deere ב־17:00; שעת פרסום נפרדת לא צוינה. ב־1.12 מארוול תפרסם לפני שיחה ב־23:30, וקראודסטרייק אחרי סגירת ארה״ב עם שיחה בחצות שבין 1 ל־2 בדצמבר. השעות בישראל."
       ],
       "sources": [
         {
-          "label": "Medtronic · הודעת החברה",
-          "url": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027"
+          "label": "Deere & Company · הודעת חברה",
+          "url": "https://investor.deere.com/events/event-details/2026/John-Deere---4Q-Earnings-Call/default.aspx"
         },
         {
-          "label": "Dell Technologies · הודעת החברה",
-          "url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
+          "label": "CrowdStrike · הודעת חברה",
+          "url": "https://crowdstrike.gcs-web.com/news-releases/news-release-details/crowdstrike-announces-date-fiscal-third-quarter-2027-financial"
         },
         {
-          "label": "HP Inc. · הודעת החברה",
-          "url": "https://investor.hp.com/news-events/news/news-details/2026/HP-Inc--to-Announce-Fourth-Quarter-Fiscal-2026-Earnings-on-November-24-2026-and-to-Attend-Upcoming-Investor-Conferences/default.aspx"
+          "label": "Marvell Technology · הודעת חברה",
+          "url": "https://investor.marvell.com/news-events/press-releases/detail/1041/marvell-technology-inc-announces-conference-call-to-review-third-quarter-of-fiscal-year-2027-financial-results"
         }
       ]
     }
   ],
   "advisor": [
     {
-      "title": "אינפלציה נמוכה אינה מבטיחה הפחתת ריבית",
-      "insight": "החלטת בנק ישראל ממחישה שהבנק בוחן גם סיכונים קדימה: פיחות יכול לייקר יבוא, והסלמה עשויה לפגוע בהיצע ולהגדיל הוצאות. לכן נתון אינפלציה נמוך לבדו אינו מספק מסלול ודאי של הפחתות.",
-      "client_impact": "בתמחור אג״ח חשוב להבחין בין ציפיות להפחתה שכבר מגולמות במחיר לבין הפחתה שתתרחש בפועל.",
-      "reference": "בנק ישראל · 23.11.2026",
-      "source_url": "https://boi.org.il/publications/pressreleases/23-11-26/",
-      "event_date": "2026-11-23"
+      "title": "צמיחה בהזמנות מול מזומן שנכנס",
+      "insight": "דוח Dell מאפשר לבחון את השקעות הבינה המלאכותית דרך הכנסות ותזרים, לצד צבר הזמנות. הצבר מבטא התחייבויות עתידיות, בעוד התזרים מלמד כמה מזומן כבר נוצר מהפעילות.",
+      "client_impact": "ההבחנה חשובה להערכת צורכי מימון: גם חברה שצומחת במהירות עשויה להזדקק להון חוזר ולממן מלאי עד לקבלת התשלום.",
+      "reference": "Dell · תוצאות 24.11",
+      "source_url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1665/dell-technologies-delivers-third-quarter-fiscal-2027-financial-results",
+      "event_date": "2026-11-24"
     },
     {
-      "title": "התאוששות בסנטימנט מול שיפור עסקי",
-      "insight": "חזרת הואנג מצמצמת אי־ודאות ניהולית, אך אינה משנה מיד את תזרים הלקוחות שמממנים מרכזי נתונים. עלייה מהירה במניות יכולה להקדים עדות לשיפור ברווחיות.",
-      "client_impact": "בדוחות הקרובים, ההבחנה בין צמיחת הזמנות לבין היכולת להפוך אותן למזומן תסייע להעריך אם ההתאוששות נתמכת בביצועים.",
-      "reference": "רויטרס / MarketScreener · 23.11.2026",
-      "source_url": "https://www.marketscreener.com/news/wall-street-soars-on-huang-s-return-to-nvidia-treasury-yields-rise-ce7851dadf8ff627",
-      "event_date": "2026-11-23"
+      "title": "ריכוזיות ענפית בתוך מדד רחב",
+      "insight": "הירידה באס אנד פי לצד עליית הדאו ממחישה שכותרת על ירידות בשוק יכולה להסתיר הבדלים גדולים בין ענפים. משקל גבוה לטכנולוגיה עשוי לקבוע את כיוון המדד גם כשחברות רבות מתחזקות.",
+      "client_impact": "לכן מספר הקרנות בתיק אינו מדד מספק לפיזור, אם כולן נשענות על אותן חברות ואותו מחזור השקעות.",
+      "reference": "רויטרס · שווקים 24.11",
+      "source_url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-24/",
+      "event_date": "2026-11-24"
     }
   ],
   "takeaway": ""
