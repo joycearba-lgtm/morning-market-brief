@@ -1,16 +1,6 @@
 {
-  "checked_at": "2026-11-25T07:31:18+02:00",
+  "checked_at": "2026-11-26T07:34:15+02:00",
   "items": [
-    {
-      "company": "Deere & Company",
-      "ticker": "DE",
-      "report_date": "2026-11-25",
-      "release_window": "שיחת הדוחות אושרה; שעת פרסום נפרדת לא צוינה",
-      "call_at": "2026-11-25T17:00:00+02:00",
-      "expires_at": "2026-11-25T17:00:00+02:00",
-      "confirmed": true,
-      "source_url": "https://investor.deere.com/events/event-details/2026/John-Deere---4Q-Earnings-Call/default.aspx"
-    },
     {
       "company": "CrowdStrike",
       "ticker": "CRWD",
