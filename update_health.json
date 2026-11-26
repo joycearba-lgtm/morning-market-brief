@@ -1,11 +1,12 @@
 {
-  "date": "2026-11-24",
-  "checked_at": "2026-11-24T18:10:49.162884+02:00",
+  "date": "2026-11-26",
+  "checked_at": "2026-11-26T17:37:16.885843+02:00",
   "status": "ok",
   "editorial_status": "current",
   "editorial_issues": [],
   "issues": [],
   "warnings": [
+    "News: פיסקלי: HTTPError",
     "Calendar: BLS: HTTPError; date-scoped fallback in use if present"
   ]
 }
