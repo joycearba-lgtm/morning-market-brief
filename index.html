@@ -972,22 +972,21 @@ section.grid .card .value{font-size:11.5px!important}
       if(info.status!=='ok'||info.date!==today||brief.date!==today||info.file!=='audio/morning-brief.mp3'||info.content_hash!==hash||info.coverage!=='full_editorial')
         throw Error('Audio does not match current briefing');
       const audioUrl='./audio/morning-brief.mp3?v='+encodeURIComponent(info.generated_at);
-      // Buffer the entire small MP3 before enabling playback, avoiding interrupted range requests.
-      const response=await fetch(audioUrl,{cache:'no-store'});
-      if(!response.ok)throw Error('Recording download failed');
-      const blob=await response.blob();
-      if(blob.size<1000)throw Error('Incomplete recording');
-      const expectedBytes=Number(response.headers.get('content-length'));
-      if(expectedBytes>0&&blob.size!==expectedBytes)throw Error('Incomplete recording');
-      const objectUrl=URL.createObjectURL(new Blob([blob],{type:'audio/mpeg'}));
-      player.preload='auto';
-      player.src=objectUrl;
+      // Use the native media URL for iOS compatibility; provide a direct link
+      // even if embedded playback fails or the browser cannot buffer a Blob.
+      const direct=document.createElement('a');
+      direct.href=audioUrl;
+      direct.textContent='פתיחת ההקלטה ישירות';
+      direct.style.cssText='display:block;margin-top:6px;font-size:13px;color:#07663d';
+      player.insertAdjacentElement('afterend',direct);
+      player.preload='metadata';
+      player.src=audioUrl;
       player.style.display='block';if(speedControls)speedControls.hidden=false;
       const time=new Date(info.generated_at).toLocaleTimeString('he-IL',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit'});
       const seconds=Number(info.duration_seconds);
       const duration=Number.isFinite(seconds)?' · '+Math.floor(seconds/60)+':'+String(Math.round(seconds%60)).padStart(2,'0')+' דקות':'';
       status.textContent='תואמת לסקירה הנוכחית · הוכנה '+time+duration;
-      player.addEventListener('error',()=>{player.style.display='none';if(speedControls)speedControls.hidden=true;status.textContent='קובץ ההקלטה אינו זמין כרגע.';});
+      player.addEventListener('error',()=>{status.textContent='אם ההשמעה בנגן אינה זמינה, ניתן לפתוח את ההקלטה ישירות בקישור שלמטה.';});
     })
     .catch(()=>{player.style.display='none';if(speedControls)speedControls.hidden=true;status.textContent='הקלטה תוצג כאן לאחר שתהיה מוכנה ותתאים לסקירה הנוכחית.';});
 
