@@ -971,7 +971,17 @@ section.grid .card .value{font-size:11.5px!important}
       const hash=Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
       if(info.status!=='ok'||info.date!==today||brief.date!==today||info.file!=='audio/morning-brief.mp3'||info.content_hash!==hash||info.coverage!=='full_editorial')
         throw Error('Audio does not match current briefing');
-      player.src='./audio/morning-brief.mp3?v='+encodeURIComponent(info.generated_at);
+      const audioUrl='./audio/morning-brief.mp3?v='+encodeURIComponent(info.generated_at);
+      // Buffer the entire small MP3 before enabling playback, avoiding interrupted range requests.
+      const response=await fetch(audioUrl,{cache:'no-store'});
+      if(!response.ok)throw Error('Recording download failed');
+      const blob=await response.blob();
+      if(blob.size<1000)throw Error('Incomplete recording');
+      const expectedBytes=Number(response.headers.get('content-length'));
+      if(expectedBytes>0&&blob.size!==expectedBytes)throw Error('Incomplete recording');
+      const objectUrl=URL.createObjectURL(new Blob([blob],{type:'audio/mpeg'}));
+      player.preload='auto';
+      player.src=objectUrl;
       player.style.display='block';if(speedControls)speedControls.hidden=false;
       const time=new Date(info.generated_at).toLocaleTimeString('he-IL',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit'});
       const seconds=Number(info.duration_seconds);
