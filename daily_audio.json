@@ -1,13 +1,13 @@
 {
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "status": "ok",
   "file": "audio/morning-brief.mp3",
   "engine": "BlueTTS open source",
   "voice": "libri_female_6147",
-  "generated_at": "2026-11-25T07:34:22.076932+02:00",
-  "brief_generated_at": "2026-11-25T07:31:18+02:00",
-  "content_hash": "4ba15f5f3f48c6ae592a3e6df23cc978d14075e04e7ba942c1145d64c533374c",
-  "duration_seconds": 184.0,
+  "generated_at": "2026-11-26T07:37:13.442259+02:00",
+  "brief_generated_at": "2026-11-26T07:34:15+02:00",
+  "content_hash": "3b0621c4da29eac45426bf1894a1ffa82b831822d44570134bbc6327955ed676",
+  "duration_seconds": 187.3,
   "coverage": "full_editorial",
   "narration_version": 4
 }
