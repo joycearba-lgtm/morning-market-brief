@@ -1,16 +1,12 @@
 {
-  "updated_at": "2026-11-27T10:24:04.370183+02:00",
+  "updated_at": "2026-11-27T17:27:08.208290+02:00",
   "source": "Bank of Israel",
-  "usd_ils": 3.334,
-  "rate_date": "2026-11-26T13:23:04.3435834Z",
+  "usd_ils": 3.293,
+  "rate_date": "2026-11-27T10:21:05.3133752Z",
   "status": "ok",
   "indices": {
     "S&P 500": {
       "history": [
-        {
-          "date": "2021-11-26",
-          "close": 4594.6201
-        },
         {
           "date": "2021-11-29",
           "close": 4655.27
@@ -5031,21 +5027,14 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 7182.78,
-      "change_percent": -0.25,
+      "value": 7244.47,
+      "change_percent": 0.86,
       "source": "Yahoo Finance",
-      "type": "latest_quote",
-      "market_time": 1795642326,
-      "previous_close": 7201.09,
-      "checked_at": "2026-11-27T10:24:04.370183+02:00",
-      "refresh_status": "ok"
+      "type": "daily_close",
+      "market_time": 1795793227
     },
     "Nasdaq Composite": {
       "history": [
-        {
-          "date": "2021-11-26",
-          "close": 15491.6602
-        },
         {
           "date": "2021-11-29",
           "close": 15782.8301
@@ -10066,21 +10055,14 @@
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 23585.803,
-      "change_percent": -0.62,
+      "value": 23852.19,
+      "change_percent": 1.13,
       "source": "Yahoo Finance",
-      "type": "latest_quote",
-      "market_time": 1795644959,
-      "previous_close": 23733.535,
-      "checked_at": "2026-11-27T10:24:04.370183+02:00",
-      "refresh_status": "ok"
+      "type": "daily_close",
+      "market_time": 1795793223
     },
     "Dow Jones": {
       "history": [
-        {
-          "date": "2026-10-26",
-          "close": 52361.5781
-        },
         {
           "date": "2026-10-27",
           "close": 52377.5703
@@ -10173,14 +10155,11 @@
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 50182.95,
-      "change_percent": 0.33,
+      "value": 50566.71,
+      "change_percent": 0.76,
       "source": "Yahoo Finance",
-      "type": "latest_quote",
-      "market_time": 1795642337,
-      "previous_close": 50018.7,
-      "checked_at": "2026-11-27T10:24:04.370183+02:00",
-      "refresh_status": "ok"
+      "type": "daily_close",
+      "market_time": 1795793227
     },
     "TA-35": {
       "history": [
@@ -14282,20 +14261,17 @@
         },
         {
           "date": "2026-11-26",
-          "close": 3875.6101
+          "close": 3881.27
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 3920.34,
-      "change_percent": 1.01,
+      "value": 3941.2,
+      "change_percent": 1.54,
       "source": "Yahoo Finance",
-      "type": "latest_quote",
-      "market_time": 1795766930,
-      "previous_close": 3881.27,
-      "checked_at": "2026-11-27T10:24:04.370183+02:00",
-      "refresh_status": "ok"
+      "type": "daily_close",
+      "market_time": 1795779891
     },
     "TA-125": {
       "history": [
@@ -18401,29 +18377,22 @@
         },
         {
           "date": "2026-11-26",
-          "close": 3804.95
+          "close": 3811.27
         }
       ],
       "history_range": "5y",
       "history_status": "ok",
       "status": "ok",
-      "value": 3854.77,
-      "change_percent": 1.14,
+      "value": 3878.69,
+      "change_percent": 1.77,
       "source": "Yahoo Finance",
-      "type": "latest_quote",
-      "market_time": 1795766930,
-      "previous_close": 3811.27,
-      "checked_at": "2026-11-27T10:24:04.370183+02:00",
-      "refresh_status": "ok"
+      "type": "daily_close",
+      "market_time": 1795779892
     }
   },
   "commodities": {
     "WTI futures": {
       "history": [
-        {
-          "date": "2026-10-26",
-          "close": 101.76
-        },
         {
           "date": "2026-10-27",
           "close": 99.9
@@ -18511,30 +18480,19 @@
         {
           "date": "2026-11-25",
           "close": 83.68
-        },
-        {
-          "date": "2026-11-26",
-          "close": 84.83
         }
       ],
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 86.11,
-      "change_percent": 2.9,
+      "value": 83.89,
+      "change_percent": 0.25,
       "source": "Yahoo Finance",
-      "type": "latest_quote",
-      "market_time": 1795767241,
-      "previous_close": 83.68,
-      "checked_at": "2026-11-27T10:24:04.370183+02:00",
-      "refresh_status": "ok"
+      "type": "daily_close",
+      "market_time": 1795792627
     },
     "Gold futures": {
       "history": [
-        {
-          "date": "2026-10-26",
-          "close": 4038.3999
-        },
         {
           "date": "2026-10-27",
           "close": 4074.6001
@@ -18622,36 +18580,24 @@
         {
           "date": "2026-11-25",
           "close": 3535.8
-        },
-        {
-          "date": "2026-11-26",
-          "close": 3600.1001
         }
       ],
       "history_range": "1mo",
       "history_status": "ok",
       "status": "ok",
-      "value": 3696.9,
-      "change_percent": 3.71,
+      "value": 3657.3,
+      "change_percent": 3.44,
       "source": "Yahoo Finance",
-      "type": "latest_quote",
-      "market_time": 1795767241,
-      "previous_close": 3564.6,
-      "checked_at": "2026-11-27T10:24:04.370183+02:00",
-      "refresh_status": "ok"
+      "type": "daily_close",
+      "market_time": 1795792625
     }
   },
   "treasury_10y": {
     "status": "ok",
-    "value": 4.848,
-    "previous_close": 4.9040003,
+    "value": 4.9,
+    "change_bps": 5.6,
     "source": "Cboe 10Y Treasury Yield / Yahoo Finance",
     "type": "annual_yield_percent",
-    "market_time": 1795636793,
-    "checked_at": "2026-11-27T10:24:04.370183+02:00",
-    "refresh_status": "ok",
-    "change_bps": -5.6
-  },
-  "intraday_checked_at": "2026-11-27T10:24:04.370183+02:00",
-  "intraday_refresh_status": "ok"
+    "market_time": 1795792324
+  }
 }

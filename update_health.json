@@ -1,12 +1,16 @@
 {
-  "date": "2026-11-26",
-  "checked_at": "2026-11-26T17:37:16.885843+02:00",
-  "status": "ok",
-  "editorial_status": "current",
-  "editorial_issues": [],
+  "date": "2026-11-27",
+  "checked_at": "2026-11-27T17:28:28.379168+02:00",
+  "status": "editorial_pending",
+  "editorial_status": "pending",
+  "editorial_issues": [
+    "macro_brief.json: missing valid current-day briefing",
+    "macro_brief.json: invalid or expired editorial timestamp"
+  ],
   "issues": [],
   "warnings": [
-    "News: פיסקלי: HTTPError",
-    "Calendar: BLS: HTTPError; date-scoped fallback in use if present"
+    "Calendar: BLS: HTTPError; date-scoped fallback in use if present",
+    "macro_brief.json: missing valid current-day briefing",
+    "macro_brief.json: invalid or expired editorial timestamp"
   ]
 }
