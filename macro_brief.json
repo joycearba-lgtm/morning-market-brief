@@ -1,51 +1,51 @@
 {
-  "date": "2026-11-26",
-  "generated_at": "2026-11-26T07:34:15+02:00",
-  "valid_until": "2026-11-27T09:00:00+02:00",
+  "date": "2026-11-28",
+  "generated_at": "2026-11-28T07:27:47+02:00",
+  "valid_until": "2026-11-29T09:00:00+02:00",
   "status": "automatic_conditional",
   "editorial_mode": "researched",
-  "title": "האינפלציה בארה״ב עיקשת, והנפט מוסיף לחץ לצד חולשת הטכנולוגיה",
-  "methodology": "מקורות מתוארכים שנפתחו ונבדקו; מסחר אסיה הבוקר מובחן מסגירת אתמול. תרחישים ופרשנות מסומנים בגוף הסקירה.",
+  "title": "התאוששות במניות הטכנולוגיה לצד אתגרי מימון ותקציב",
+  "methodology": "מקורות מתוארכים שנפתחו; כיווני הסגירה אומתו בדיווחים ובנתוני האתר. פרשנות ותרחישים מסומנים.",
   "morning_summary": {
-    "event": "בסגירת 25.11 ירדו המניות בתל אביב; בארה״ב אס אנד פי ונאסד״ק ירדו והדאו עלה. תשואות אג״ח ממשלת ארה״ב ירדו וחוזי הנפט עלו.",
-    "impact": "ירידת תשואות לצד אינפלציה עיקשת משקפת מתח בין סיכון לצמיחה לבין לחץ על המחירים, ולא מסר אחיד של רגיעה.",
-    "watch": "היום, 26.11, בורסות המניות בארה״ב סגורות לחג ההודיה; מחר המסחר הרגיל יסתיים ב־20:00 בישראל. ב־1.12 מארוול תפרסם לפני שיחתה ב־23:30; קראודסטרייק תפרסם אחרי סגירת ארה״ב ותערוך שיחה בחצות שבין 1 ל־2 בדצמבר.",
-    "change": "מאז סקירת 25.11 פורסמו נתוני אוקטובר בארה״ב: אינפלציית הליבה עלתה ל־3.3% בשנה והצריכה הריאלית כמעט לא השתנתה; בשווקים נמשכה חולשת הטכנולוגיה לצד עליית הנפט."
+    "event": "בסגירת יום שישי, 27.11, המניות בתל אביב ובוול סטריט עלו, וחוזי ברנט נחלשו לאחר עלייה שבועית.",
+    "impact": "התאוששות במניות אינה מבטלת את הלחץ על עלויות המימון ואת הסיכון לאינפלציה מצד האנרגיה.",
+    "watch": "ב־29.11 תתקיים פגישת אופ״ק פלוס; ב־1.12 צפויים דוחות מארוול וקראודסטרייק וב־2.12 סיילספורס וזיסקיילר.",
+    "change": "מאז הסקירה שפורסמה ב־26.11, מניות הטכנולוגיה התאוששו בארה״ב, ובישראל איזנקוט דיווח על הסכמים עם שתי מפלגות ועל המשך המגעים עם בנט."
   },
-  "audio_market_summary": "שיעורי השינוי המדויקים במדדים לא נכללו: נתוני האתר אינם מספקים סגירה יומית מאומתת לכל המדדים ל־25.11, וקיימים פערים מול דיווחי הסגירה.",
+  "audio_market_summary": "בסגירת 27.11 נרשמו עליות: ת״א 35 עלה ב־1.54%, אס אנד פי 500 ב־1.60%, נאסד״ק קומפוזיט ב־2.31% ודאו ג׳ונס ב־1.18%. נתוני הציטוט האחרונים תואמים לדיווחי הסגירה; לת״א 125 לא אומת שיעור סגירה עצמאי.",
   "sections": [
     {
       "heading": "תמונת מצב",
       "bullets": [
-        "בסגירת 25.11 ירדו המניות בתל אביב; בארה״ב אס אנד פי ונאסד״ק ירדו והדאו עלה. תשואות אג״ח ממשלת ארה״ב ירדו וחוזי הנפט עלו. פרשנות: ירידת תשואות לצד אינפלציה עיקשת משקפת מתח בין סיכון לצמיחה לבין לחץ על המחירים, ולא מסר אחיד של רגיעה."
+        "בסגירת יום שישי, 27.11, המניות בתל אביב ובוול סטריט עלו, וחוזי ברנט נחלשו לאחר עלייה שבועית. פרשנות: התאוששות במניות אינה מבטלת את הלחץ על עלויות המימון ואת הסיכון לאינפלציה מצד האנרגיה."
       ],
       "sources": [
         {
-          "label": "Investing · סגירת 25.11",
-          "url": "https://www.investing.com/news/stock-market-news/israel-stocks-lower-at-close-of-trade-ta-35-down-142-5051183"
+          "label": "Investing · 27.11",
+          "url": "https://www.investing.com/news/stock-market-news/israel-stocks-higher-at-close-of-trade-ta-35-up-154-5053674"
         },
         {
-          "label": "רויטרס · סגירת 25.11",
-          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-25/"
+          "label": "רויטרס · 27.11",
+          "url": "https://www.reuters.com/business/wall-st-futures-surge-investors-return-holiday-2026-11-27/"
         },
         {
-          "label": "רויטרס · 26.11",
-          "url": "https://www.investing.com/news/commodities-news/oil-rises-on-supply-concerns-as-iran-claims-mine-strikes-on-ships-5051949"
+          "label": "רויטרס · 27.11",
+          "url": "https://www.reuters.com/business/energy/brent-trades-near-months-high-mideast-conflict-threatens-supply-2026-11-27/"
         }
       ]
     },
     {
       "heading": "ישראל — האירועים והמשמעות לשווקים",
       "bullets": [
-        "ב־25.11 העריך ליברמן שניתן יהיה להציג ממשלה בשבוע הבא ודיווח על התקדמות במגעים עם יהדות התורה. זו הערכתו, ולא ממשלה שהוקמה. פרשנות: הסכמות פוליטיות ייבחנו ביכולת לאשר תקציב ולממן הוצאות ביטחון. תחזית הגירעון מאוקטובר הייתה מותנית בהנחות ביטחוניות; שינוי בהן עלול להגדיל גיוסי חוב."
+        "ב־27.11 איזנקוט דיווח על הסכמים קואליציוניים עם ישראל ביתנו והדמוקרטים ועל המשך המגעים עם בנט, על רקע מחלוקת בנושא השירות הצבאי. תחזית בנק ישראל מאוקטובר צפתה גירעון של 4.6% מהתוצר ב־2027, בין היתר לאור הוצאות ביטחון צפויות. הרכב הממשלה חשוב, אך גם יכולתה לגבש תקציב בר־ביצוע."
       ],
       "sources": [
         {
-          "label": "טיימס אוף ישראל · 25.11",
-          "url": "https://www.timesofisrael.com/liveblog_entry/liberman-confident-that-eisenkot-can-present-jewish-majority-coalition-by-end-of-week/"
+          "label": "טיימס אוף ישראל · 27.11",
+          "url": "https://www.timesofisrael.com/liveblog_entry/eisenkot-seeks-byachad-deal-soon-accuses-likud-of-blocking-progress-on-unity-government/"
         },
         {
-          "label": "בנק ישראל · תחזית 21.10",
+          "label": "בנק ישראל · 21.10",
           "url": "https://www.boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/"
         }
       ]
@@ -53,78 +53,74 @@
     {
       "heading": "העולם — מה עומד במוקד",
       "bullets": [
-        "לפי נתוני BEA שפורסמו ב־25.11, אינפלציית הליבה באוקטובר עמדה על 3.3% בשנה; הצריכה הריאלית ירדה בפחות מ־0.1% בחודש. פרשנות: גידול בהוצאות בכסף אינו בהכרח גידול בכמות הקניות. במקביל, הצעות המכסים החדשות מוסיפות אי־ודאות לעלויות היבוא; היקף ההשפעה תלוי ביישום וביכולת החברות לגלגל עלויות."
+        "מניות השבבים התאוששו ביום שישי, ובהן מיקרון ומארוול. למרות זאת, רויטרס דיווחה על ציפיות בשוק להעלאת ריבית בדצמבר. פרשנות: כאשר המימון מתייקר, ההשקעה בתשתיות בינה מלאכותית צריכה להניב תזרים גבוה יותר כדי להצדיק את עלותה."
       ],
       "sources": [
         {
-          "label": "BEA · פרסום 25.11",
-          "url": "https://bea.gov/news/2026/personal-income-and-outlays-october-2026"
-        },
-        {
-          "label": "רויטרס · סגירת 25.11",
-          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-25/"
+          "label": "רויטרס · 27.11",
+          "url": "https://www.reuters.com/business/wall-st-futures-surge-investors-return-holiday-2026-11-27/"
         }
       ]
     },
     {
       "heading": "אירופה, אסיה ונפט · בקצרה",
       "bullets": [
-        "אירופה, סגירת 25.11: סטוקס 600 עבר מעליות לירידות.",
-        "אסיה, בוקר 26.11: יפן, קוריאה והונג קונג התאוששו, בעוד שנגחאי נחלשה קלות.",
-        "נפט: חוזי ברנט ו־WTI עלו ב־25.11 והמשיכו לעלות בבוקר, לאחר טענות החות׳ים לתקיפה בסעודיה ודיווחים על פגיעות בשיט בהורמוז."
+        "אירופה, 27.11: סטוקס 600 סיים בעליות, עם התאוששות בענף השבבים.",
+        "אסיה, 27.11: יפן, קוריאה, הונג קונג ושנגחאי עלו.",
+        "נפט, 27.11: חוזי ברנט ו־WTI ירדו, אך ברנט סיים שבוע חיובי. שיבושי אספקה במזרח התיכון ממשיכים להוות סיכון."
       ],
       "sources": [
         {
-          "label": "רויטרס · סגירת 25.11",
-          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-25/"
+          "label": "רויטרס · 27.11",
+          "url": "https://www.reuters.com/markets/europe/european-stocks-extend-recovery-tech-miners-advance-2026-11-27/"
         },
         {
-          "label": "AP · בוקר 26.11",
-          "url": "https://apnews.com/article/stocks-markets-ai-oil-bonds-320cd8c9c286a7773797bf2f478ef314"
+          "label": "AP/ITV · 27.11",
+          "url": "https://www.itv.com/news/2026-11-27/asian-shares-mostly-rise-ahead-of-wall-streets-reopening"
         },
         {
-          "label": "רויטרס · 26.11",
-          "url": "https://www.investing.com/news/commodities-news/oil-rises-on-supply-concerns-as-iran-claims-mine-strikes-on-ships-5051949"
+          "label": "רויטרס · 27.11",
+          "url": "https://www.reuters.com/business/energy/brent-trades-near-months-high-mideast-conflict-threatens-supply-2026-11-27/"
         }
       ]
     },
     {
       "heading": "אירועים קרובים",
       "bullets": [
-        "היום, 26.11, בורסות המניות בארה״ב סגורות לחג ההודיה; מחר המסחר הרגיל יסתיים ב־20:00 בישראל. ב־1.12 מארוול תפרסם לפני שיחתה ב־23:30; קראודסטרייק תפרסם אחרי סגירת ארה״ב ותערוך שיחה בחצות שבין 1 ל־2 בדצמבר."
+        "ב־29.11 תתקיים פגישת אופ״ק פלוס; ב־1.12 צפויים דוחות מארוול וקראודסטרייק וב־2.12 סיילספורס וזיסקיילר."
       ],
       "sources": [
         {
-          "label": "NYSE · לוח חגים 2026",
-          "url": "https://www.nyse.com/trade/hours-calendars"
+          "label": "רויטרס · 27.11",
+          "url": "https://www.reuters.com/business/energy/brent-trades-near-months-high-mideast-conflict-threatens-supply-2026-11-27/"
         },
         {
-          "label": "CrowdStrike · הודעת החברה",
-          "url": "https://crowdstrike.gcs-web.com/news-releases/news-release-details/crowdstrike-announces-date-fiscal-third-quarter-2027-financial"
-        },
-        {
-          "label": "Marvell Technology · הודעת החברה",
+          "label": "מארוול · 6.11",
           "url": "https://investor.marvell.com/news-events/press-releases/detail/1041/marvell-technology-inc-announces-conference-call-to-review-third-quarter-of-fiscal-year-2027-financial-results"
+        },
+        {
+          "label": "סיילספורס · 10.11",
+          "url": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Announces-Date-of-Third-Quarter-Fiscal-2027-Earnings-Release-and-Webcast/default.aspx"
         }
       ]
     }
   ],
   "advisor": [
     {
-      "title": "הכנסות נומינליות מול ביקוש ממשי",
-      "insight": "פרסום הצריכה בארה״ב מחדד את ההבדל בין גידול כספי במכירות לבין גידול בכמות שנרכשה. כאשר המחירים עולים והצריכה הריאלית כמעט עומדת, צמיחת הכנסות עשויה להסתיר חולשה בכמויות.",
-      "client_impact": "בדוחות חברות צריכה, שילוב נתוני הכמות עם שיעור הרווח הגולמי מסייע להעריך אם העלאת מחירים מגינה על התזרים או פוגעת בביקוש.",
-      "reference": "BEA · פרסום 25.11",
-      "source_url": "https://bea.gov/news/2026/personal-income-and-outlays-october-2026",
-      "event_date": "2026-11-25"
+      "title": "תקציב המדינה ועלות החוב",
+      "insight": "מחלוקת הגיוס במגעים הקואליציוניים ממחישה את הקושי להגיע להסכמות שיש להן גם משמעות תקציבית. אם הוצאות הביטחון יחרגו מהתחזית ללא מקור מימון, המדינה עשויה להידרש לגיוס חוב נוסף.",
+      "client_impact": "הרחבת היצע האג״ח עלולה ללחוץ על מחיריהן, במיוחד במח״מ ארוך, גם בתקופה של התאוששות במניות.",
+      "reference": "בנק ישראל · 21.10",
+      "source_url": "https://www.boi.org.il/en/communication-and-publications/press-releases/21-10-26-aen/",
+      "event_date": "2026-10-21"
     },
     {
-      "title": "אנרגיה, שולי רווח והכנסה פנויה",
-      "insight": "עליית הנפט בעקבות דיווחי הפגיעה בתשתיות ובשיט מחזירה למוקד סיכון שמקורו בהיצע. אם ההתייקרות תימשך, היא עלולה לייקר הובלה וייצור ולהקטין את ההכנסה הפנויה לצריכה אחרת.",
-      "client_impact": "ההשפעה אינה אחידה: לחברות שמתקשות להעביר עלויות ללקוחות עלולה להיות פגיעה ברווחיות, בעוד יצואניות אנרגיה עשויות ליהנות מהמחירים.",
-      "reference": "רויטרס · 26.11",
-      "source_url": "https://www.investing.com/news/commodities-news/oil-rises-on-supply-concerns-as-iran-claims-mine-strikes-on-ships-5051949",
-      "event_date": "2026-11-26"
+      "title": "מארוול וההשקעה בתשתיות מחשוב",
+      "insight": "לקראת דוח מארוול, ההתאוששות בשוק השבבים מחדדת את ההבדל בין ציפיות לביקוש לבין רווחיות בפועל. צמיחת מכירות עשויה להיות מלווה בהוצאות פיתוח גבוהות או בלחץ מחירים.",
+      "client_impact": "התחזית להכנסות ולשולי הרווח תסייע להעריך אם השיפור העסקי תומך בתמחור המניה.",
+      "reference": "מארוול · 6.11",
+      "source_url": "https://investor.marvell.com/news-events/press-releases/detail/1041/marvell-technology-inc-announces-conference-call-to-review-third-quarter-of-fiscal-year-2027-financial-results",
+      "event_date": "2026-11-06"
     }
   ],
   "takeaway": ""

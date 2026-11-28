@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-26T07:34:15+02:00",
+  "checked_at": "2026-11-28T07:27:47+02:00",
   "items": [
     {
       "company": "CrowdStrike",
@@ -40,6 +40,16 @@
       "expires_at": "2026-12-02T23:30:00+02:00",
       "confirmed": true,
       "source_url": "https://ir.zscaler.com/news-releases/news-release-details/zscaler-host-first-quarter-fiscal-year-2027-earnings-conference"
+    },
+    {
+      "company": "Synopsys",
+      "ticker": "SNPS",
+      "report_date": "2026-12-08",
+      "release_window": "אחרי סגירת המסחר בארה״ב; שעת פרסום מדויקת לא צוינה",
+      "call_at": "2026-12-09T00:00:00+02:00",
+      "expires_at": "2026-12-09T00:00:00+02:00",
+      "confirmed": true,
+      "source_url": "https://investor.synopsys.com/news/news-details/2026/Synopsys-Announces-Earnings-Release-Date-For-Fourth-Quarter-and-Fiscal-Year-2026/default.aspx"
     },
     {
       "company": "Broadcom",
